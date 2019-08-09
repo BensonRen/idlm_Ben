@@ -34,7 +34,7 @@ Y_RANGE = [i for i in range(10 , 2011 )]
 FORWARDMODEL_CKPT = '20190508_155720'
 FORCE_RUN = True
 MODEL_NAME  = '20190807_003824'
-
+DATA_DIR = '../'
 def read_flag():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input-size', type=int, default=INPUT_SIZE, help='input size')
@@ -60,6 +60,7 @@ def read_flag():
     parser.add_argument('--train-step', default=TRAIN_STEP, type=int, help='# steps to train on the dataset')
     parser.add_argument('--learn-rate', default=LEARN_RATE, type=float, help='learning rate')
     parser.add_argument('--decay-step', default=DECAY_STEP, type=int,
+    parser.add_argument('--data-dir', default=DATA_DIR, type=str, help='data directory')
                         help='decay learning rate at this number of steps')
     parser.add_argument('--decay-rate', default=DECAY_RATE, type=float,
                         help='decay learn rate by multiplying this factor')
@@ -110,7 +111,8 @@ def evaluatemain(flags, eval_forward):
                                                                cross_val=flags.cross_val,
                                                                val_fold=flags.val_fold,
                                                                batch_size=flags.batch_size,
-                                                               shuffle_size=flags.shuffle_size)
+                                                               shuffle_size=flags.shuffle_size
+																															 data_dir = flags.data_dir)
     # make network
     ntwk = Backprop_network_maker.BackPropCnnNetwork(features, labels, model_maker.back_prop_model, flags.batch_size,
                             clip=flags.clip, forward_fc_filters=flags.forward_fc_filters,
