@@ -20,8 +20,8 @@ BATCH_SIZE = 10
 SHUFFLE_SIZE = 2000
 VERB_STEP = 100
 EVAL_STEP = 500
-TRAIN_STEP = 50000
-BACKWARD_TRAIN_STEP = 200000
+TRAIN_STEP = 1000
+BACKWARD_TRAIN_STEP = 1000
 LEARN_RATE = 1e-4
 DECAY_STEP = 10000
 DECAY_RATE = 0.5
@@ -32,7 +32,7 @@ Y_RANGE = [i for i in range(10 , 2011 )]
 FORWARDMODEL_CKPT = '20190508_155720'
 FORCE_RUN = True
 MODEL_NAME  = '20190807_003824'
-
+DATA_DIR = '../'
 def read_flag():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input-size', type=int, default=INPUT_SIZE, help='input size')
@@ -66,6 +66,7 @@ def read_flag():
                         help='name of the forward ckpt file')
     parser.add_argument('--force-run', default=FORCE_RUN, type=bool, help='force it to rerun')
     parser.add_argument('--model-name', default=MODEL_NAME, type=str, help='name of the model')
+    parser.add_argument('--data-dir', default=DATA_DIR, type=str, help='data_directory')
     # parser.add_argument('--train-file', default=TRAIN_FILE, type=str, help='name of the training file')
     # parser.add_argument('--valid-file', default=VALID_FILE, type=str, help='name of the validation file')
     
@@ -84,7 +85,8 @@ def tandemmain(flags):
                                                                val_fold=flags.val_fold,
                                                                batch_size=flags.batch_size,
                                                                shuffle_size=flags.shuffle_size,
-                                                               forward = False)
+                                                               forward = False
+																															 data_dir = flags.data_dir)
    
     # make network
     ntwk = Tandem_network_maker.TandemCnnNetwork(geometry, spectra, model_maker.tandem_model, flags.batch_size,
