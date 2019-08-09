@@ -47,7 +47,7 @@ class BackPropCnnNetwork(object):
         self.learn_rate = tf.train.exponential_decay(learn_rate, self.global_step,
                                                      decay_step, decay_rate, staircase=True)
 
-        self.ckpt_dir = os.path.join(ckpt_dir, time.strftime('%Y%m%d_%H%M%S', time.gmtime()))
+        self.ckpt_dir = os.path.join(ckpt_dir, time.strftime('%Y%m%d_%H%M%S', time.localtime()))
         if not os.path.exists(self.ckpt_dir) and make_folder:
             os.makedirs(self.ckpt_dir)
             self.write_record()

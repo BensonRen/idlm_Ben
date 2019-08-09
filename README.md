@@ -1,5 +1,5 @@
 # idlm_Ben
-This project is for the problem of inverse mapping for meta-material design using deep learning
+This project is for the problem of inverse mapping for meta-material design using deep learning. Special thanks for Bohao and Christian for infrastructure of the code.
 
 Developer Log:
 # Real Dataset
