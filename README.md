@@ -35,33 +35,39 @@ Add collection control on the variables created in the tandem structure so that 
 
 Minor problem: 1. The training hook of forward and tandem structure is in the same place (Fixed 08.04)
 
-##2019.08.04 
+## 2019.08.04 
 
 Now, the goal is to validate the various methods for dealing the inverse problem. (**Highlight means working now, rest are pending**)
 
-1. **Tadem structure** 
-2. Back-propagation
-3. Variational Auto-Encoder (VAE)
+1. Tadem structure (Done)
+2. Back-propagation (Done)
+3. **Variational Auto-Encoder (VAE)**
 4. Generative Adverserial Network (GAN)
 
 Infrastructures added:
 1. Spectrum plot for comparing real and predicted structure
 2. Evaluate Module added
 
-##2019.08.05
+## 2019.08.05
 refining the tandem structure.
- Infrastructure Added:
+Infrastructure Added:
  1. Geometry plot with color bar indicating the error
  2. Loading from existing ckpt and train from there 
- 3. Boundary loss implementation (**Testing**)
+ 3. Boundary loss implementation Testing
 
- ##2019.08.06
+## 2019.08.06
 
  Boundary loss showing a little wired behavior, continue testing on it.
 
  Infrastructure added:
  1. Customized summary name 
  2. Symmetric Awareness Distance metric (**Thinking**)
+
+## 2019.08.09
+
+ The tandem training loss is higher than expected. Normalizing the input geomery space for further investigation
+
+
 
  All possible **heights**:{30, 32, 34, 36, 38, 40, 42.5, 44, 46, 48, 50, 52 ,55}
 
