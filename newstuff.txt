@@ -1,2 +1,0 @@
-ok now we've merged two branches
-This is supposed to be on branch 20190807
