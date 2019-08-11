@@ -1,0 +1,761 @@
+getting data files...
+['bp35_OutMod.csv', 'bp36OutMod.csv', 'bp23_24_fix_Out.csv', 'bp27_28_fix_Out.csv', 'bp29_30_fix_Out.csv', 'bp25_OutMod.csv', 'bp26_OutMod.csv', 'bp32_OutMod.csv', 'bp28_OutMod.csv', 'bp35_36_fix_Out.csv', 'bp23_OutMod.csv', 'bp22_OutMod.csv', 'bp29_OutMod.csv', 'bp30_OutMod.csv', 'bp21_22_fix_Out.csv', 'bp27_OutMod.csv', 'bp31_OutMod.csv', 'bp21_OutMod.csv', 'bp24_OutMod.csv', 'bp25_26_fix_Out.csv', 'bp31_32_fix_Out.csv']
+['bp24_OutMod.csv']
+total number of training samples is 20998
+total number of test samples is 1000 length of an input spectrum is 2001
+downsampling output curves
+length of downsampled train spectra is 300 for first, 300 for final,  set final layer size to be compatible with this number
+length of downsampled test spectra is 300,  set final layer size to be compatible with this number
+generating TF dataset
+Before Backward Model there is: [<tf.Variable 'global_step:0' shape=() dtype=int64_ref>]
+Backward_out.shape (10, 8)
+backward_out.shape (10, 8)
+features.shape (10, 8)
+Geometry_tensor_shape (10, 8)
+[[-1. -1. -1. -1.]]
+shape of h: (10, 4)
+shape of r: (10, 4)
+shape of h_low: (1, 4)
+Backward_out tensor is: Tensor("BackwardModel/backward_fc12/LeakyRelu:0", shape=(10, 8), dtype=float32)
+[<tf.Variable 'global_step:0' shape=() dtype=int64_ref>, <tf.Variable 'BackwardModel/Conv1d/kernel:0' shape=(2, 1, 1) dtype=float32>, <tf.Variable 'BackwardModel/Conv1d/bias:0' shape=(1,) dtype=float32>, <tf.Variable 'backward_fc0/kernel:0' shape=(150, 100) dtype=float32_ref>, <tf.Variable 'backward_fc0/bias:0' shape=(100,) dtype=float32_ref>, <tf.Variable 'backward_fc1/kernel:0' shape=(100, 500) dtype=float32_ref>, <tf.Variable 'backward_fc1/bias:0' shape=(500,) dtype=float32_ref>, <tf.Variable 'backward_fc2/kernel:0' shape=(500, 1000) dtype=float32_ref>, <tf.Variable 'backward_fc2/bias:0' shape=(1000,) dtype=float32_ref>, <tf.Variable 'backward_fc3/kernel:0' shape=(1000, 1500) dtype=float32_ref>, <tf.Variable 'backward_fc3/bias:0' shape=(1500,) dtype=float32_ref>, <tf.Variable 'backward_fc4/kernel:0' shape=(1500, 2000) dtype=float32_ref>, <tf.Variable 'backward_fc4/bias:0' shape=(2000,) dtype=float32_ref>, <tf.Variable 'backward_fc5/kernel:0' shape=(2000, 2000) dtype=float32_ref>, <tf.Variable 'backward_fc5/bias:0' shape=(2000,) dtype=float32_ref>, <tf.Variable 'backward_fc6/kernel:0' shape=(2000, 1500) dtype=float32_ref>, <tf.Variable 'backward_fc6/bias:0' shape=(1500,) dtype=float32_ref>, <tf.Variable 'backward_fc7/kernel:0' shape=(1500, 1000) dtype=float32_ref>, <tf.Variable 'backward_fc7/bias:0' shape=(1000,) dtype=float32_ref>, <tf.Variable 'backward_fc8/kernel:0' shape=(1000, 500) dtype=float32_ref>, <tf.Variable 'backward_fc8/bias:0' shape=(500,) dtype=float32_ref>, <tf.Variable 'backward_fc9/kernel:0' shape=(500, 500) dtype=float32_ref>, <tf.Variable 'backward_fc9/bias:0' shape=(500,) dtype=float32_ref>, <tf.Variable 'backward_fc10/kernel:0' shape=(500, 300) dtype=float32_ref>, <tf.Variable 'backward_fc10/bias:0' shape=(300,) dtype=float32_ref>, <tf.Variable 'backward_fc11/kernel:0' shape=(300, 100) dtype=float32_ref>, <tf.Variable 'backward_fc11/bias:0' shape=(100,) dtype=float32_ref>, <tf.Variable 'backward_fc12/kernel:0' shape=(100, 8) dtype=float32_ref>, <tf.Variable 'backward_fc12/bias:0' shape=(8,) dtype=float32_ref>]
+Training forward model now:
+Step 0, loss: 2.90E-01
+Step 0, loss: 0.00E+00
+Step 100, loss: 1.84E-02
+Step 100, loss: 0.00E+00
+Step 200, loss: 1.76E-02
+Step 200, loss: 0.00E+00
+Step 300, loss: 2.14E-02
+Step 300, loss: 0.00E+00
+Step 400, loss: 1.86E-02
+Step 400, loss: 0.00E+00
+Step 500, loss: 2.06E-02
+Step 500, loss: 0.00E+00
+Eval @ Step 500, loss: 1.81E-02, duration 18.897s
+Step 600, loss: 1.33E-02
+Step 600, loss: 0.00E+00
+Step 700, loss: 1.68E-02
+Step 700, loss: 0.00E+00
+Step 800, loss: 1.07E-02
+Step 800, loss: 0.00E+00
+Step 900, loss: 1.51E-02
+Step 900, loss: 0.00E+00
+Step 1000, loss: 1.36E-02
+Step 1000, loss: 0.00E+00
+Eval @ Step 1000, loss: 1.32E-02, duration 15.630s
+Step 1100, loss: 1.51E-02
+Step 1100, loss: 0.00E+00
+Step 1200, loss: 9.19E-03
+Step 1200, loss: 0.00E+00
+Step 1300, loss: 8.57E-03
+Step 1300, loss: 0.00E+00
+Step 1400, loss: 7.45E-03
+Step 1400, loss: 0.00E+00
+Step 1500, loss: 1.04E-02
+Step 1500, loss: 0.00E+00
+Eval @ Step 1500, loss: 8.56E-03, duration 15.554s
+Step 1600, loss: 7.39E-03
+Step 1600, loss: 0.00E+00
+Step 1700, loss: 8.10E-03
+Step 1700, loss: 0.00E+00
+Step 1800, loss: 6.22E-03
+Step 1800, loss: 0.00E+00
+Step 1900, loss: 8.49E-03
+Step 1900, loss: 0.00E+00
+Step 2000, loss: 5.20E-03
+Step 2000, loss: 0.00E+00
+Eval @ Step 2000, loss: 7.01E-03, duration 15.572s
+Step 2100, loss: 5.11E-03
+Step 2100, loss: 0.00E+00
+Step 2200, loss: 5.32E-03
+Step 2200, loss: 0.00E+00
+Step 2300, loss: 5.72E-03
+Step 2300, loss: 0.00E+00
+Step 2400, loss: 6.88E-03
+Step 2400, loss: 0.00E+00
+Step 2500, loss: 6.03E-03
+Step 2500, loss: 0.00E+00
+Eval @ Step 2500, loss: 6.38E-03, duration 15.557s
+Step 2600, loss: 4.90E-03
+Step 2600, loss: 0.00E+00
+Step 2700, loss: 5.78E-03
+Step 2700, loss: 0.00E+00
+Step 2800, loss: 4.98E-03
+Step 2800, loss: 0.00E+00
+Step 2900, loss: 6.95E-03
+Step 2900, loss: 0.00E+00
+Step 3000, loss: 5.71E-03
+Step 3000, loss: 0.00E+00
+Eval @ Step 3000, loss: 6.22E-03, duration 15.559s
+Step 3100, loss: 7.35E-03
+Step 3100, loss: 0.00E+00
+Step 3200, loss: 3.74E-03
+Step 3200, loss: 0.00E+00
+Step 3300, loss: 5.86E-03
+Step 3300, loss: 0.00E+00
+Step 3400, loss: 4.11E-03
+Step 3400, loss: 0.00E+00
+Step 3500, loss: 6.93E-03
+Step 3500, loss: 0.00E+00
+Eval @ Step 3500, loss: 4.78E-03, duration 15.569s
+Step 3600, loss: 6.76E-03
+Step 3600, loss: 0.00E+00
+Step 3700, loss: 4.96E-03
+Step 3700, loss: 0.00E+00
+Step 3800, loss: 3.69E-03
+Step 3800, loss: 0.00E+00
+Step 3900, loss: 8.25E-03
+Step 3900, loss: 0.00E+00
+Step 4000, loss: 4.85E-03
+Step 4000, loss: 0.00E+00
+Eval @ Step 4000, loss: 4.43E-03, duration 15.587s
+Step 4100, loss: 3.93E-03
+Step 4100, loss: 0.00E+00
+Step 4200, loss: 2.93E-03
+Step 4200, loss: 0.00E+00
+Step 4300, loss: 4.02E-03
+Step 4300, loss: 0.00E+00
+Step 4400, loss: 6.69E-03
+Step 4400, loss: 0.00E+00
+Step 4500, loss: 3.42E-03
+Step 4500, loss: 0.00E+00
+Eval @ Step 4500, loss: 4.32E-03, duration 15.552s
+Step 4600, loss: 5.42E-03
+Step 4600, loss: 0.00E+00
+Step 4700, loss: 4.83E-03
+Step 4700, loss: 0.00E+00
+Step 4800, loss: 2.96E-03
+Step 4800, loss: 0.00E+00
+Step 4900, loss: 4.30E-03
+Step 4900, loss: 0.00E+00
+Step 5000, loss: 3.04E-03
+Step 5000, loss: 0.00E+00
+Eval @ Step 5000, loss: 4.02E-03, duration 15.561s
+Step 5100, loss: 2.47E-03
+Step 5100, loss: 0.00E+00
+Step 5200, loss: 3.34E-03
+Step 5200, loss: 0.00E+00
+Step 5300, loss: 4.04E-03
+Step 5300, loss: 0.00E+00
+Step 5400, loss: 3.90E-03
+Step 5400, loss: 0.00E+00
+Step 5500, loss: 3.56E-03
+Step 5500, loss: 0.00E+00
+Eval @ Step 5500, loss: 4.34E-03, duration 15.566s
+Step 5600, loss: 2.50E-03
+Step 5600, loss: 0.00E+00
+Step 5700, loss: 2.82E-03
+Step 5700, loss: 0.00E+00
+Step 5800, loss: 2.95E-03
+Step 5800, loss: 0.00E+00
+Step 5900, loss: 2.73E-03
+Step 5900, loss: 0.00E+00
+Step 6000, loss: 3.45E-03
+Step 6000, loss: 0.00E+00
+Eval @ Step 6000, loss: 4.07E-03, duration 15.544s
+Step 6100, loss: 3.62E-03
+Step 6100, loss: 0.00E+00
+Step 6200, loss: 2.84E-03
+Step 6200, loss: 0.00E+00
+Step 6300, loss: 2.26E-03
+Step 6300, loss: 0.00E+00
+Step 6400, loss: 2.95E-03
+Step 6400, loss: 0.00E+00
+Step 6500, loss: 2.96E-03
+Step 6500, loss: 0.00E+00
+Eval @ Step 6500, loss: 3.53E-03, duration 15.535s
+Step 6600, loss: 2.72E-03
+Step 6600, loss: 0.00E+00
+Step 6700, loss: 3.28E-03
+Step 6700, loss: 0.00E+00
+Step 6800, loss: 3.50E-03
+Step 6800, loss: 0.00E+00
+Step 6900, loss: 3.23E-03
+Step 6900, loss: 0.00E+00
+Step 7000, loss: 3.28E-03
+Step 7000, loss: 0.00E+00
+Eval @ Step 7000, loss: 3.95E-03, duration 15.572s
+Step 7100, loss: 2.92E-03
+Step 7100, loss: 0.00E+00
+Step 7200, loss: 2.92E-03
+Step 7200, loss: 0.00E+00
+Step 7300, loss: 3.14E-03
+Step 7300, loss: 0.00E+00
+Step 7400, loss: 2.76E-03
+Step 7400, loss: 0.00E+00
+Step 7500, loss: 2.35E-03
+Step 7500, loss: 0.00E+00
+Eval @ Step 7500, loss: 3.17E-03, duration 15.578s
+Step 7600, loss: 3.50E-03
+Step 7600, loss: 0.00E+00
+Step 7700, loss: 2.73E-03
+Step 7700, loss: 0.00E+00
+Step 7800, loss: 2.33E-03
+Step 7800, loss: 0.00E+00
+Step 7900, loss: 2.75E-03
+Step 7900, loss: 0.00E+00
+Step 8000, loss: 2.13E-03
+Step 8000, loss: 0.00E+00
+Eval @ Step 8000, loss: 3.15E-03, duration 15.554s
+Step 8100, loss: 2.35E-03
+Step 8100, loss: 0.00E+00
+Step 8200, loss: 2.88E-03
+Step 8200, loss: 0.00E+00
+Step 8300, loss: 3.34E-03
+Step 8300, loss: 0.00E+00
+Step 8400, loss: 2.63E-03
+Step 8400, loss: 0.00E+00
+Step 8500, loss: 2.02E-03
+Step 8500, loss: 0.00E+00
+Eval @ Step 8500, loss: 2.77E-03, duration 15.571s
+Step 8600, loss: 3.42E-03
+Step 8600, loss: 0.00E+00
+Step 8700, loss: 2.38E-03
+Step 8700, loss: 0.00E+00
+Step 8800, loss: 2.97E-03
+Step 8800, loss: 0.00E+00
+Step 8900, loss: 2.68E-03
+Step 8900, loss: 0.00E+00
+Step 9000, loss: 2.56E-03
+Step 9000, loss: 0.00E+00
+Eval @ Step 9000, loss: 3.27E-03, duration 15.555s
+Step 9100, loss: 2.27E-03
+Step 9100, loss: 0.00E+00
+Step 9200, loss: 1.81E-03
+Step 9200, loss: 0.00E+00
+Step 9300, loss: 1.91E-03
+Step 9300, loss: 0.00E+00
+Step 9400, loss: 1.98E-03
+Step 9400, loss: 0.00E+00
+Step 9500, loss: 2.06E-03
+Step 9500, loss: 0.00E+00
+Eval @ Step 9500, loss: 3.12E-03, duration 15.566s
+Step 9600, loss: 2.28E-03
+Step 9600, loss: 0.00E+00
+Step 9700, loss: 1.89E-03
+Step 9700, loss: 0.00E+00
+Step 9800, loss: 2.72E-03
+Step 9800, loss: 0.00E+00
+Step 9900, loss: 2.47E-03
+Step 9900, loss: 0.00E+00
+Step 10000, loss: 1.96E-03
+Step 10000, loss: 0.00E+00
+Eval @ Step 10000, loss: 2.74E-03, duration 15.581s
+Step 10100, loss: 2.87E-03
+Step 10100, loss: 0.00E+00
+Step 10200, loss: 2.51E-03
+Step 10200, loss: 0.00E+00
+Step 10300, loss: 2.25E-03
+Step 10300, loss: 0.00E+00
+Step 10400, loss: 3.36E-03
+Step 10400, loss: 0.00E+00
+Step 10500, loss: 2.54E-03
+Step 10500, loss: 0.00E+00
+Eval @ Step 10500, loss: 2.86E-03, duration 15.562s
+Step 10600, loss: 2.00E-03
+Step 10600, loss: 0.00E+00
+Step 10700, loss: 2.34E-03
+Step 10700, loss: 0.00E+00
+Step 10800, loss: 3.59E-03
+Step 10800, loss: 0.00E+00
+Step 10900, loss: 2.15E-03
+Step 10900, loss: 0.00E+00
+Step 11000, loss: 2.93E-03
+Step 11000, loss: 0.00E+00
+Eval @ Step 11000, loss: 2.94E-03, duration 15.556s
+Step 11100, loss: 2.10E-03
+Step 11100, loss: 0.00E+00
+Step 11200, loss: 1.60E-03
+Step 11200, loss: 0.00E+00
+Step 11300, loss: 2.12E-03
+Step 11300, loss: 0.00E+00
+Step 11400, loss: 1.87E-03
+Step 11400, loss: 0.00E+00
+Step 11500, loss: 2.12E-03
+Step 11500, loss: 0.00E+00
+Eval @ Step 11500, loss: 2.63E-03, duration 15.560s
+Step 11600, loss: 2.15E-03
+Step 11600, loss: 0.00E+00
+Step 11700, loss: 2.25E-03
+Step 11700, loss: 0.00E+00
+Step 11800, loss: 1.75E-03
+Step 11800, loss: 0.00E+00
+Step 11900, loss: 2.12E-03
+Step 11900, loss: 0.00E+00
+Step 12000, loss: 1.49E-03
+Step 12000, loss: 0.00E+00
+Eval @ Step 12000, loss: 2.87E-03, duration 15.567s
+Step 12100, loss: 1.85E-03
+Step 12100, loss: 0.00E+00
+Step 12200, loss: 1.80E-03
+Step 12200, loss: 0.00E+00
+Step 12300, loss: 1.69E-03
+Step 12300, loss: 0.00E+00
+Step 12400, loss: 1.51E-03
+Step 12400, loss: 0.00E+00
+Step 12500, loss: 2.66E-03
+Step 12500, loss: 0.00E+00
+Eval @ Step 12500, loss: 2.48E-03, duration 15.566s
+Step 12600, loss: 1.48E-03
+Step 12600, loss: 0.00E+00
+Step 12700, loss: 1.97E-03
+Step 12700, loss: 0.00E+00
+Step 12800, loss: 1.44E-03
+Step 12800, loss: 0.00E+00
+Step 12900, loss: 1.75E-03
+Step 12900, loss: 0.00E+00
+Step 13000, loss: 2.76E-03
+Step 13000, loss: 0.00E+00
+Eval @ Step 13000, loss: 2.79E-03, duration 15.568s
+Step 13100, loss: 1.72E-03
+Step 13100, loss: 0.00E+00
+Step 13200, loss: 1.79E-03
+Step 13200, loss: 0.00E+00
+Step 13300, loss: 2.21E-03
+Step 13300, loss: 0.00E+00
+Step 13400, loss: 1.50E-03
+Step 13400, loss: 0.00E+00
+Step 13500, loss: 2.13E-03
+Step 13500, loss: 0.00E+00
+Eval @ Step 13500, loss: 2.41E-03, duration 15.572s
+Step 13600, loss: 1.39E-03
+Step 13600, loss: 0.00E+00
+Step 13700, loss: 1.79E-03
+Step 13700, loss: 0.00E+00
+Step 13800, loss: 1.62E-03
+Step 13800, loss: 0.00E+00
+Step 13900, loss: 1.81E-03
+Step 13900, loss: 0.00E+00
+Step 14000, loss: 1.64E-03
+Step 14000, loss: 0.00E+00
+Eval @ Step 14000, loss: 2.49E-03, duration 15.554s
+Step 14100, loss: 1.57E-03
+Step 14100, loss: 0.00E+00
+Step 14200, loss: 1.49E-03
+Step 14200, loss: 0.00E+00
+Step 14300, loss: 1.45E-03
+Step 14300, loss: 0.00E+00
+Step 14400, loss: 2.02E-03
+Step 14400, loss: 0.00E+00
+Step 14500, loss: 1.29E-03
+Step 14500, loss: 0.00E+00
+Eval @ Step 14500, loss: 2.19E-03, duration 15.562s
+Step 14600, loss: 1.63E-03
+Step 14600, loss: 0.00E+00
+Step 14700, loss: 1.25E-03
+Step 14700, loss: 0.00E+00
+Step 14800, loss: 1.47E-03
+Step 14800, loss: 0.00E+00
+Step 14900, loss: 1.61E-03
+Step 14900, loss: 0.00E+00
+Step 15000, loss: 2.86E-03
+Step 15000, loss: 0.00E+00
+Eval @ Step 15000, loss: 2.24E-03, duration 15.563s
+Step 15100, loss: 1.30E-03
+Step 15100, loss: 0.00E+00
+Step 15200, loss: 1.67E-03
+Step 15200, loss: 0.00E+00
+Step 15300, loss: 1.82E-03
+Step 15300, loss: 0.00E+00
+Step 15400, loss: 1.80E-03
+Step 15400, loss: 0.00E+00
+Step 15500, loss: 2.22E-03
+Step 15500, loss: 0.00E+00
+Eval @ Step 15500, loss: 2.33E-03, duration 15.554s
+Step 15600, loss: 1.32E-03
+Step 15600, loss: 0.00E+00
+Step 15700, loss: 1.81E-03
+Step 15700, loss: 0.00E+00
+Step 15800, loss: 2.06E-03
+Step 15800, loss: 0.00E+00
+Step 15900, loss: 1.67E-03
+Step 15900, loss: 0.00E+00
+Step 16000, loss: 1.99E-03
+Step 16000, loss: 0.00E+00
+Eval @ Step 16000, loss: 2.76E-03, duration 15.549s
+Step 16100, loss: 1.63E-03
+Step 16100, loss: 0.00E+00
+Step 16200, loss: 1.77E-03
+Step 16200, loss: 0.00E+00
+Step 16300, loss: 2.15E-03
+Step 16300, loss: 0.00E+00
+Step 16400, loss: 1.62E-03
+Step 16400, loss: 0.00E+00
+Step 16500, loss: 1.55E-03
+Step 16500, loss: 0.00E+00
+Eval @ Step 16500, loss: 2.25E-03, duration 15.569s
+Step 16600, loss: 1.16E-03
+Step 16600, loss: 0.00E+00
+Step 16700, loss: 1.40E-03
+Step 16700, loss: 0.00E+00
+Step 16800, loss: 1.21E-03
+Step 16800, loss: 0.00E+00
+Step 16900, loss: 2.26E-03
+Step 16900, loss: 0.00E+00
+Step 17000, loss: 1.53E-03
+Step 17000, loss: 0.00E+00
+Eval @ Step 17000, loss: 2.24E-03, duration 15.548s
+Step 17100, loss: 1.63E-03
+Step 17100, loss: 0.00E+00
+Step 17200, loss: 2.08E-03
+Step 17200, loss: 0.00E+00
+Step 17300, loss: 1.90E-03
+Step 17300, loss: 0.00E+00
+Step 17400, loss: 1.58E-03
+Step 17400, loss: 0.00E+00
+Step 17500, loss: 1.92E-03
+Step 17500, loss: 0.00E+00
+Eval @ Step 17500, loss: 2.63E-03, duration 15.558s
+Step 17600, loss: 2.15E-03
+Step 17600, loss: 0.00E+00
+Step 17700, loss: 1.33E-03
+Step 17700, loss: 0.00E+00
+Step 17800, loss: 1.69E-03
+Step 17800, loss: 0.00E+00
+Step 17900, loss: 1.63E-03
+Step 17900, loss: 0.00E+00
+Step 18000, loss: 1.78E-03
+Step 18000, loss: 0.00E+00
+Eval @ Step 18000, loss: 2.23E-03, duration 15.582s
+Step 18100, loss: 9.58E-04
+Step 18100, loss: 0.00E+00
+Step 18200, loss: 1.21E-03
+Step 18200, loss: 0.00E+00
+Step 18300, loss: 1.37E-03
+Step 18300, loss: 0.00E+00
+Step 18400, loss: 1.17E-03
+Step 18400, loss: 0.00E+00
+Step 18500, loss: 1.16E-03
+Step 18500, loss: 0.00E+00
+Eval @ Step 18500, loss: 2.05E-03, duration 15.575s
+Step 18600, loss: 1.71E-03
+Step 18600, loss: 0.00E+00
+Step 18700, loss: 1.47E-03
+Step 18700, loss: 0.00E+00
+Step 18800, loss: 1.73E-03
+Step 18800, loss: 0.00E+00
+Step 18900, loss: 1.23E-03
+Step 18900, loss: 0.00E+00
+Step 19000, loss: 1.63E-03
+Step 19000, loss: 0.00E+00
+Eval @ Step 19000, loss: 2.39E-03, duration 15.558s
+Step 19100, loss: 1.37E-03
+Step 19100, loss: 0.00E+00
+Step 19200, loss: 1.05E-03
+Step 19200, loss: 0.00E+00
+Step 19300, loss: 1.13E-03
+Step 19300, loss: 0.00E+00
+Step 19400, loss: 1.27E-03
+Step 19400, loss: 0.00E+00
+Step 19500, loss: 8.27E-04
+Step 19500, loss: 0.00E+00
+Eval @ Step 19500, loss: 1.77E-03, duration 15.565s
+Step 19600, loss: 1.49E-03
+Step 19600, loss: 0.00E+00
+Step 19700, loss: 1.17E-03
+Step 19700, loss: 0.00E+00
+Step 19800, loss: 1.06E-03
+Step 19800, loss: 0.00E+00
+Step 19900, loss: 1.47E-03
+Step 19900, loss: 0.00E+00
+Step 20000, loss: 1.30E-03
+Step 20000, loss: 0.00E+00
+Eval @ Step 20000, loss: 2.12E-03, duration 15.562s
+Step 20100, loss: 1.64E-03
+Step 20100, loss: 0.00E+00
+Step 20200, loss: 1.31E-03
+Step 20200, loss: 0.00E+00
+Step 20300, loss: 1.33E-03
+Step 20300, loss: 0.00E+00
+Step 20400, loss: 1.35E-03
+Step 20400, loss: 0.00E+00
+Step 20500, loss: 1.31E-03
+Step 20500, loss: 0.00E+00
+Eval @ Step 20500, loss: 1.85E-03, duration 15.553s
+Step 20600, loss: 1.27E-03
+Step 20600, loss: 0.00E+00
+Step 20700, loss: 9.82E-04
+Step 20700, loss: 0.00E+00
+Step 20800, loss: 1.68E-03
+Step 20800, loss: 0.00E+00
+Step 20900, loss: 1.03E-03
+Step 20900, loss: 0.00E+00
+Step 21000, loss: 1.09E-03
+Step 21000, loss: 0.00E+00
+Eval @ Step 21000, loss: 1.90E-03, duration 15.578s
+Step 21100, loss: 1.29E-03
+Step 21100, loss: 0.00E+00
+Step 21200, loss: 1.35E-03
+Step 21200, loss: 0.00E+00
+Step 21300, loss: 1.31E-03
+Step 21300, loss: 0.00E+00
+Step 21400, loss: 1.24E-03
+Step 21400, loss: 0.00E+00
+Step 21500, loss: 1.37E-03
+Step 21500, loss: 0.00E+00
+Eval @ Step 21500, loss: 1.94E-03, duration 15.561s
+Step 21600, loss: 1.16E-03
+Step 21600, loss: 0.00E+00
+Step 21700, loss: 1.53E-03
+Step 21700, loss: 0.00E+00
+Step 21800, loss: 1.18E-03
+Step 21800, loss: 0.00E+00
+Step 21900, loss: 1.04E-03
+Step 21900, loss: 0.00E+00
+Step 22000, loss: 1.59E-03
+Step 22000, loss: 0.00E+00
+Eval @ Step 22000, loss: 2.15E-03, duration 15.553s
+Step 22100, loss: 1.26E-03
+Step 22100, loss: 0.00E+00
+Step 22200, loss: 1.07E-03
+Step 22200, loss: 0.00E+00
+Step 22300, loss: 9.89E-04
+Step 22300, loss: 0.00E+00
+Step 22400, loss: 1.16E-03
+Step 22400, loss: 0.00E+00
+Step 22500, loss: 1.14E-03
+Step 22500, loss: 0.00E+00
+Eval @ Step 22500, loss: 1.77E-03, duration 15.569s
+Step 22600, loss: 7.62E-04
+Step 22600, loss: 0.00E+00
+Step 22700, loss: 1.35E-03
+Step 22700, loss: 0.00E+00
+Step 22800, loss: 1.10E-03
+Step 22800, loss: 0.00E+00
+Step 22900, loss: 1.49E-03
+Step 22900, loss: 0.00E+00
+Step 23000, loss: 1.43E-03
+Step 23000, loss: 0.00E+00
+Eval @ Step 23000, loss: 2.00E-03, duration 15.578s
+Step 23100, loss: 1.76E-03
+Step 23100, loss: 0.00E+00
+Step 23200, loss: 1.40E-03
+Step 23200, loss: 0.00E+00
+Step 23300, loss: 1.47E-03
+Step 23300, loss: 0.00E+00
+Step 23400, loss: 1.65E-03
+Step 23400, loss: 0.00E+00
+Step 23500, loss: 1.10E-03
+Step 23500, loss: 0.00E+00
+Eval @ Step 23500, loss: 1.92E-03, duration 15.548s
+Step 23600, loss: 1.05E-03
+Step 23600, loss: 0.00E+00
+Step 23700, loss: 1.11E-03
+Step 23700, loss: 0.00E+00
+Step 23800, loss: 1.07E-03
+Step 23800, loss: 0.00E+00
+Step 23900, loss: 1.32E-03
+Step 23900, loss: 0.00E+00
+Step 24000, loss: 1.40E-03
+Step 24000, loss: 0.00E+00
+Eval @ Step 24000, loss: 2.02E-03, duration 15.576s
+Step 24100, loss: 8.27E-04
+Step 24100, loss: 0.00E+00
+Step 24200, loss: 8.37E-04
+Step 24200, loss: 0.00E+00
+Step 24300, loss: 9.63E-04
+Step 24300, loss: 0.00E+00
+Step 24400, loss: 1.21E-03
+Step 24400, loss: 0.00E+00
+Step 24500, loss: 1.02E-03
+Step 24500, loss: 0.00E+00
+Eval @ Step 24500, loss: 1.65E-03, duration 15.559s
+Step 24600, loss: 1.08E-03
+Step 24600, loss: 0.00E+00
+Step 24700, loss: 1.35E-03
+Step 24700, loss: 0.00E+00
+Step 24800, loss: 1.14E-03
+Step 24800, loss: 0.00E+00
+Step 24900, loss: 1.71E-03
+Step 24900, loss: 0.00E+00
+Step 25000, loss: 1.63E-03
+Step 25000, loss: 0.00E+00
+Eval @ Step 25000, loss: 2.76E-03, duration 15.560s
+Step 25100, loss: 7.21E-04
+Step 25100, loss: 0.00E+00
+Step 25200, loss: 5.96E-04
+Step 25200, loss: 0.00E+00
+Step 25300, loss: 5.18E-04
+Step 25300, loss: 0.00E+00
+Step 25400, loss: 6.06E-04
+Step 25400, loss: 0.00E+00
+Step 25500, loss: 5.08E-04
+Step 25500, loss: 0.00E+00
+Eval @ Step 25500, loss: 1.23E-03, duration 15.583s
+Step 25600, loss: 6.27E-04
+Step 25600, loss: 0.00E+00
+Step 25700, loss: 5.36E-04
+Step 25700, loss: 0.00E+00
+Step 25800, loss: 5.80E-04
+Step 25800, loss: 0.00E+00
+Step 25900, loss: 4.76E-04
+Step 25900, loss: 0.00E+00
+Step 26000, loss: 5.64E-04
+Step 26000, loss: 0.00E+00
+Eval @ Step 26000, loss: 1.22E-03, duration 15.555s
+Step 26100, loss: 5.50E-04
+Step 26100, loss: 0.00E+00
+Step 26200, loss: 6.18E-04
+Step 26200, loss: 0.00E+00
+Step 26300, loss: 5.33E-04
+Step 26300, loss: 0.00E+00
+Step 26400, loss: 5.59E-04
+Step 26400, loss: 0.00E+00
+Step 26500, loss: 5.46E-04
+Step 26500, loss: 0.00E+00
+Eval @ Step 26500, loss: 1.21E-03, duration 15.567s
+Step 26600, loss: 5.56E-04
+Step 26600, loss: 0.00E+00
+Step 26700, loss: 5.29E-04
+Step 26700, loss: 0.00E+00
+Step 26800, loss: 6.56E-04
+Step 26800, loss: 0.00E+00
+Step 26900, loss: 4.32E-04
+Step 26900, loss: 0.00E+00
+Step 27000, loss: 5.64E-04
+Step 27000, loss: 0.00E+00
+Eval @ Step 27000, loss: 1.25E-03, duration 15.569s
+Step 27100, loss: 5.79E-04
+Step 27100, loss: 0.00E+00
+Step 27200, loss: 5.67E-04
+Step 27200, loss: 0.00E+00
+Step 27300, loss: 4.38E-04
+Step 27300, loss: 0.00E+00
+Step 27400, loss: 4.51E-04
+Step 27400, loss: 0.00E+00
+Step 27500, loss: 5.62E-04
+Step 27500, loss: 0.00E+00
+Eval @ Step 27500, loss: 1.22E-03, duration 15.576s
+Step 27600, loss: 5.65E-04
+Step 27600, loss: 0.00E+00
+Step 27700, loss: 6.33E-04
+Step 27700, loss: 0.00E+00
+Step 27800, loss: 5.31E-04
+Step 27800, loss: 0.00E+00
+Step 27900, loss: 5.06E-04
+Step 27900, loss: 0.00E+00
+Step 28000, loss: 4.89E-04
+Step 28000, loss: 0.00E+00
+Eval @ Step 28000, loss: 1.24E-03, duration 15.553s
+Step 28100, loss: 3.60E-04
+Step 28100, loss: 0.00E+00
+Step 28200, loss: 5.89E-04
+Step 28200, loss: 0.00E+00
+Step 28300, loss: 4.37E-04
+Step 28300, loss: 0.00E+00
+Step 28400, loss: 6.15E-04
+Step 28400, loss: 0.00E+00
+Step 28500, loss: 6.52E-04
+Step 28500, loss: 0.00E+00
+Eval @ Step 28500, loss: 1.24E-03, duration 15.578s
+Step 28600, loss: 4.74E-04
+Step 28600, loss: 0.00E+00
+Step 28700, loss: 5.35E-04
+Step 28700, loss: 0.00E+00
+Step 28800, loss: 4.87E-04
+Step 28800, loss: 0.00E+00
+Step 28900, loss: 6.24E-04
+Step 28900, loss: 0.00E+00
+Step 29000, loss: 5.03E-04
+Step 29000, loss: 0.00E+00
+Eval @ Step 29000, loss: 1.21E-03, duration 15.575s
+Step 29100, loss: 8.02E-04
+Step 29100, loss: 0.00E+00
+Step 29200, loss: 4.97E-04
+Step 29200, loss: 0.00E+00
+Step 29300, loss: 5.74E-04
+Step 29300, loss: 0.00E+00
+Step 29400, loss: 3.51E-04
+Step 29400, loss: 0.00E+00
+Step 29500, loss: 3.74E-04
+Step 29500, loss: 0.00E+00
+Eval @ Step 29500, loss: 1.18E-03, duration 15.572s
+Step 29600, loss: 6.50E-04
+Step 29600, loss: 0.00E+00
+Step 29700, loss: 4.14E-04
+Step 29700, loss: 0.00E+00
+Step 29800, loss: 6.69E-04
+Step 29800, loss: 0.00E+00
+Step 29900, loss: 4.70E-04
+Step 29900, loss: 0.00E+00
+Training tandem model now:
+Step 0, loss: 6.15E-02
+Step 0, loss: 0.00E+00
+Step 100, loss: 4.62E-02
+Step 100, loss: 0.00E+00
+Step 200, loss: 4.65E-02
+Step 200, loss: 0.00E+00
+Step 300, loss: 3.65E-02
+Step 300, loss: 0.00E+00
+Step 400, loss: 3.25E-02
+Step 400, loss: 0.00E+00
+Step 500, loss: 3.16E-02
+Step 500, loss: 0.00E+00
+Eval @ Step 500, loss: 3.51E-02, duration 958.106s
+Step 600, loss: 2.85E-02
+Step 600, loss: 0.00E+00
+Step 700, loss: 3.89E-02
+Step 700, loss: 0.00E+00
+Step 800, loss: 3.57E-02
+Step 800, loss: 0.00E+00
+Step 900, loss: 3.97E-02
+Step 900, loss: 0.00E+00
+Step 1000, loss: 3.11E-02
+Step 1000, loss: 0.00E+00
+Eval @ Step 1000, loss: 3.50E-02, duration 20.323s
+Step 1100, loss: 3.29E-02
+Step 1100, loss: 0.00E+00
+Step 1200, loss: 2.99E-02
+Step 1200, loss: 0.00E+00
+Step 1300, loss: 3.34E-02
+Step 1300, loss: 0.00E+00
+Step 1400, loss: 2.99E-02
+Step 1400, loss: 0.00E+00
+Step 1500, loss: 4.18E-02
+Step 1500, loss: 0.00E+00
+Eval @ Step 1500, loss: 3.51E-02, duration 20.363s
+Step 1600, loss: 3.66E-02
+Step 1600, loss: 0.00E+00
+Step 1700, loss: 2.91E-02
+Step 1700, loss: 0.00E+00
+Step 1800, loss: 3.98E-02
+Step 1800, loss: 0.00E+00
+Step 1900, loss: 3.13E-02
+Step 1900, loss: 0.00E+00
+Step 2000, loss: 3.54E-02
+Step 2000, loss: 0.00E+00
+Eval @ Step 2000, loss: 3.48E-02, duration 20.348s
+Step 2100, loss: 2.74E-02
+Step 2100, loss: 0.00E+00
+Step 2200, loss: 3.19E-02
+Step 2200, loss: 0.00E+00
+Step 2300, loss: 3.66E-02
+Step 2300, loss: 0.00E+00
+Step 2400, loss: 3.64E-02
+Step 2400, loss: 0.00E+00
+Step 2500, loss: 3.38E-02
+Step 2500, loss: 0.00E+00
+Eval @ Step 2500, loss: 3.43E-02, duration 20.314s
+Step 2600, loss: 4.09E-02
+Step 2600, loss: 0.00E+00
+Step 2700, loss: 2.76E-02
+Step 2700, loss: 0.00E+00
+Step 2800, loss: 4.15E-02
+Step 2800, loss: 0.00E+00
+Step 2900, loss: 3.20E-02
+Step 2900, loss: 0.00E+00
+Step 3000, loss: 3.30E-02
+Step 3000, loss: 0.00E+00
+Eval @ Step 3000, loss: 3.43E-02, duration 20.366s
+Step 3100, loss: 3.31E-02
+Step 3100, loss: 0.00E+00
+Step 3200, loss: 3.41E-02
+Step 3200, loss: 0.00E+00
+Step 3300, loss: 3.80E-02
+Step 3300, loss: 0.00E+00
+Step 3400, loss: 2.48E-02
+Step 3400, loss: 0.00E+00
+Step 3500, loss: 2.66E-02
+Step 3500, loss: 0.00E+00
+Eval @ Step 3500, loss: 3.43E-02, duration 20.325s
+Step 3600, loss: 3.17E-02
