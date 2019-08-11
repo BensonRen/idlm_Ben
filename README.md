@@ -65,9 +65,14 @@ Infrastructure Added:
 
 ## 2019.08.09
 
- The tandem training loss is higher than expected. Normalizing the input geomery space for further investigation
+ The tandem training loss is higher than expected. Normalizing the input geomery space for further investigation.
 
+## 2019.08.11
 
+Input normalization done, however during analysis the tandem structure did not learn effective output. Investigating
+Pending to work: 
+1. Backpropagation input normalization
+2. VAE Structure
 
  All possible **heights**:{30, 32, 34, 36, 38, 40, 42.5, 44, 46, 48, 50, 52 ,55}
 
