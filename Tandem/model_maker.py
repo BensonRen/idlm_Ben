@@ -100,7 +100,7 @@ def my_model_fn_tens(backward_out, features, batch_size, clip,
     """
     #Make a condition that if variable is True, train from feature
     print("backward_out.shape", backward_out.shape)
-    print("features.ahep",features.shape)
+    print("features.shape",features.shape)
 	
     train_Forward = tf.get_variable("train_forward",[],dtype = tf.bool,
                                        initializer = tf.zeros_initializer(),trainable =False)

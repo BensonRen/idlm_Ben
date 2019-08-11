@@ -13,7 +13,7 @@ class TandemCnnNetwork(object):
                  tconv_filters=(1, 1, 1),n_filter=5, n_branch=3,
                  reg_scale=.001, learn_rate=1e-4, decay_step=200, decay_rate=0.1,
                  ckpt_dir=os.path.join(os.path.abspath(''), 'models'),
-                 make_folder=True, boundary = [30, 55, 42, 52]):
+                 make_folder=True, boundary = [-1, 1, -1, 1]):
         """
         Initialize a Network class
         :param features: input features

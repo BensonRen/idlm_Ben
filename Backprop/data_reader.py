@@ -159,8 +159,8 @@ def gridShape(input_dir, output_dir, shapeType, r_bounds, h_bounds):
                                                                               ))
 
 
-def read_data(input_size, output_size, x_range, y_range, cross_val=5, val_fold=0, batch_size=100,
-                 shuffle_size=100, data_dir=os.path.abspath(''), rand_seed=1234, forward = True):
+def read_data(input_size, output_size, x_range, y_range, geoboundary, cross_val=5, val_fold=0, batch_size=100,
+                 shuffle_size=100, data_dir=os.path.abspath(''), rand_seed=1234, normalize_input = False ):
     """
       :param input_size: input size of the arrays
       :param output_size: output size of the arrays
@@ -217,12 +217,13 @@ def read_data(input_size, output_size, x_range, y_range, cross_val=5, val_fold=0
     assert np.shape(ftrTrain)[0] == np.shape(lblTrain)[0]
     assert np.shape(ftrTest)[0] == np.shape(lblTest)[0]
 
-    if forward:
-      dataset_train = tf.data.Dataset.from_tensor_slices((ftrTrain, lblTrain))
-      dataset_valid = tf.data.Dataset.from_tensor_slices((ftrTest, lblTest))
-    else: 
-      dataset_train = tf.data.Dataset.from_tensor_slices((lblTrain, ftrTrain))
-      dataset_valid = tf.data.Dataset.from_tensor_slices((lblTest, ftrTest))
+    #Normalize the data if instructed using boundary
+    if normalize_input:
+		    ftrTrain[:,0:4] = (ftrTrain[:,0:4] - (geoboundary[0] + geoboundary[1]) / 2)/(geoboundary[1] - geoboundary[0]) * 2
+		    ftrTest[:,4:] = (ftrTest[:,4:] - (geoboundary[2] + geoboundary[3]) / 2)/(geoboundary[3] - geoboundary[2]) * 2
+
+    dataset_train = tf.data.Dataset.from_tensor_slices((ftrTrain, lblTrain))
+    dataset_valid = tf.data.Dataset.from_tensor_slices((ftrTest, lblTest))
     
     # shuffle then split into training and validation sets
     dataset_train = dataset_train.shuffle(shuffle_size)

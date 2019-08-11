@@ -33,7 +33,8 @@ FORWARDMODEL_CKPT = '20190508_155720'
 FORCE_RUN = True
 MODEL_NAME  = '20190807_003824'
 DATA_DIR = '../'
-
+GEOBOUNDARY =[30,52,42,52]
+NORMALIZE_INPUT = True
 def read_flag():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input-size', type=int, default=INPUT_SIZE, help='input size')
@@ -68,6 +69,8 @@ def read_flag():
     parser.add_argument('--force-run', default=FORCE_RUN, type=bool, help='force it to rerun')
     parser.add_argument('--model-name', default=MODEL_NAME, type=str, help='name of the model')
     parser.add_argument('--data-dir', default=DATA_DIR, type=str, help='data directory')
+    parser.add_argument('--normalize-input', default=NORMALIZE_INPUT, type=bool, help='whether we should normalize the input or not')
+    parser.add_argument('--geoboundary', default=GEOBOUNDARY, type=tuple, help='the boundary of the geometric data')
     # parser.add_argument('--train-file', default=TRAIN_FILE, type=str, help='name of the training file')
     # parser.add_argument('--valid-file', default=VALID_FILE, type=str, help='name of the validation file')
     
@@ -78,17 +81,21 @@ def read_flag():
 def tandemmain(flags):
     # initialize data reader
 
-    spectra, geometry, train_init_op, valid_init_op = data_reader.read_data(input_size=0,
+    geometry, spectra, train_init_op, valid_init_op = data_reader.read_data(input_size=0,
                                                                output_size=0,
                                                                x_range=flags.x_range,
                                                                y_range=flags.y_range,
+																															 geoboundary = flags.geoboundary,
                                                                cross_val=flags.cross_val,
                                                                val_fold=flags.val_fold,
                                                                batch_size=flags.batch_size,
                                                                shuffle_size=flags.shuffle_size,
-                                                               forward = False,
-																															 data_dir = flags.data_dir)
-   
+																															 data_dir = flags.data_dir,
+																															 normalize_input = flags.normalize_input)
+  	#If the input is normalized, then make the boundary useless
+    if flags.normalize_input:
+        flags.geoboundary = [-1, 1, -1, 1]
+
     # make network
     ntwk = Tandem_network_maker.TandemCnnNetwork(geometry, spectra, model_maker.tandem_model, flags.batch_size,
                             clip=flags.clip, forward_fc_filters=flags.forward_fc_filters,
@@ -96,7 +103,8 @@ def tandemmain(flags):
                             learn_rate=flags.learn_rate,tconv_Fnums=flags.tconv_Fnums,
                             tconv_dims=flags.tconv_dims,n_branch=flags.n_branch,
                             tconv_filters=flags.tconv_filters, n_filter=flags.n_filter,
-                            decay_step=flags.decay_step, decay_rate=flags.decay_rate)
+                            decay_step=flags.decay_step, decay_rate=flags.decay_rate,
+														boundary = flags.geoboundary)
     
     
     # define hooks for monitoring training
