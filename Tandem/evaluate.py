@@ -88,5 +88,5 @@ def evaluatemain(flags, eval_forward):
 if __name__ == '__main__':
 	flags = train.read_flag()
 	evaluatemain(flags, eval_forward = False)
-	plotsAnalysis.SpectrumComparisonNGeometryComparison(3,2, (13,8), flags.model_name)	
+	plotsAnalysis.SpectrumComparisonNGeometryComparison(3,2, (13,8), flags.model_name,flags.boundary)	
 

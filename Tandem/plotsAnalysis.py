@@ -45,7 +45,7 @@ def UniqueMarkers():
     markers = itertools.cycle(( 'x','1','+', '.', '*','D','v','h'))
     return markers
   
-def SpectrumComparisonNGeometryComparison(rownum, colnum, Figsize, model_name):
+def SpectrumComparisonNGeometryComparison(rownum, colnum, Figsize, model_name, boundary):
     """
     Read the Prediction files and plot the spectra comparison plots
     :param SubplotArray: 2x2 array indicating the arrangement of the subplots
@@ -100,7 +100,8 @@ def SpectrumComparisonNGeometryComparison(rownum, colnum, Figsize, model_name):
       
       plt.xlabel('h{}'.format(i))
       plt.ylabel('r{}'.format(i))
-      rect = mpl.patches.Rectangle((30,42),25,10,linewidth=1,edgecolor='r',
+      rect = mpl.patches.Rectangle((boundary[0],boundary[2]),boundary[1] - boundary[0], boundary[3] - boundary[2],
+																		linewidth=1,edgecolor='r',
                                    facecolor='none',linestyle = '--',label = 'data region')
       ax.add_patch(rect)
       plt.autoscale()

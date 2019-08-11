@@ -220,6 +220,8 @@ def read_data(input_size, output_size, x_range, y_range, geoboundary, cross_val=
     #Normalize the data if instructed using boundary
     if normalize_input:
 		    ftrTrain[:,0:4] = (ftrTrain[:,0:4] - (geoboundary[0] + geoboundary[1]) / 2)/(geoboundary[1] - geoboundary[0]) * 2
+		    ftrTest[:,0:4] = (ftrTest[:,0:4] - (geoboundary[0] + geoboundary[1]) / 2)/(geoboundary[1] - geoboundary[0]) * 2
+		    ftrTrain[:,4:] = (ftrTrain[:,4:] - (geoboundary[2] + geoboundary[3]) / 2)/(geoboundary[3] - geoboundary[2]) * 2
 		    ftrTest[:,4:] = (ftrTest[:,4:] - (geoboundary[2] + geoboundary[3]) / 2)/(geoboundary[3] - geoboundary[2]) * 2
 
     dataset_train = tf.data.Dataset.from_tensor_slices((ftrTrain, lblTrain))

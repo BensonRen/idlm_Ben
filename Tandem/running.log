@@ -1,0 +1,195 @@
+getting data files...
+['bp35_OutMod.csv', 'bp36OutMod.csv', 'bp23_24_fix_Out.csv', 'bp27_28_fix_Out.csv', 'bp29_30_fix_Out.csv', 'bp25_OutMod.csv', 'bp26_OutMod.csv', 'bp32_OutMod.csv', 'bp28_OutMod.csv', 'bp35_36_fix_Out.csv', 'bp23_OutMod.csv', 'bp22_OutMod.csv', 'bp29_OutMod.csv', 'bp30_OutMod.csv', 'bp21_22_fix_Out.csv', 'bp27_OutMod.csv', 'bp31_OutMod.csv', 'bp21_OutMod.csv', 'bp24_OutMod.csv', 'bp25_26_fix_Out.csv', 'bp31_32_fix_Out.csv']
+['bp24_OutMod.csv']
+total number of training samples is 20998
+total number of test samples is 1000 length of an input spectrum is 2001
+downsampling output curves
+length of downsampled train spectra is 300 for first, 300 for final,  set final layer size to be compatible with this number
+length of downsampled test spectra is 300,  set final layer size to be compatible with this number
+generating TF dataset
+Before Backward Model there is: [<tf.Variable 'global_step:0' shape=() dtype=int64_ref>]
+Backward_out.shape (10, 8)
+backward_out.shape (10, 8)
+features.shape (10, 8)
+Geometry_tensor_shape (10, 8)
+[[-1. -1. -1. -1.]]
+shape of h: (10, 4)
+shape of r: (10, 4)
+shape of h_low: (1, 4)
+Backward_out tensor is: Tensor("BackwardModel/backward_fc12/LeakyRelu:0", shape=(10, 8), dtype=float32)
+[<tf.Variable 'global_step:0' shape=() dtype=int64_ref>, <tf.Variable 'BackwardModel/Conv1d/kernel:0' shape=(2, 1, 1) dtype=float32>, <tf.Variable 'BackwardModel/Conv1d/bias:0' shape=(1,) dtype=float32>, <tf.Variable 'backward_fc0/kernel:0' shape=(150, 100) dtype=float32_ref>, <tf.Variable 'backward_fc0/bias:0' shape=(100,) dtype=float32_ref>, <tf.Variable 'backward_fc1/kernel:0' shape=(100, 500) dtype=float32_ref>, <tf.Variable 'backward_fc1/bias:0' shape=(500,) dtype=float32_ref>, <tf.Variable 'backward_fc2/kernel:0' shape=(500, 1000) dtype=float32_ref>, <tf.Variable 'backward_fc2/bias:0' shape=(1000,) dtype=float32_ref>, <tf.Variable 'backward_fc3/kernel:0' shape=(1000, 1500) dtype=float32_ref>, <tf.Variable 'backward_fc3/bias:0' shape=(1500,) dtype=float32_ref>, <tf.Variable 'backward_fc4/kernel:0' shape=(1500, 2000) dtype=float32_ref>, <tf.Variable 'backward_fc4/bias:0' shape=(2000,) dtype=float32_ref>, <tf.Variable 'backward_fc5/kernel:0' shape=(2000, 2000) dtype=float32_ref>, <tf.Variable 'backward_fc5/bias:0' shape=(2000,) dtype=float32_ref>, <tf.Variable 'backward_fc6/kernel:0' shape=(2000, 1500) dtype=float32_ref>, <tf.Variable 'backward_fc6/bias:0' shape=(1500,) dtype=float32_ref>, <tf.Variable 'backward_fc7/kernel:0' shape=(1500, 1000) dtype=float32_ref>, <tf.Variable 'backward_fc7/bias:0' shape=(1000,) dtype=float32_ref>, <tf.Variable 'backward_fc8/kernel:0' shape=(1000, 500) dtype=float32_ref>, <tf.Variable 'backward_fc8/bias:0' shape=(500,) dtype=float32_ref>, <tf.Variable 'backward_fc9/kernel:0' shape=(500, 500) dtype=float32_ref>, <tf.Variable 'backward_fc9/bias:0' shape=(500,) dtype=float32_ref>, <tf.Variable 'backward_fc10/kernel:0' shape=(500, 300) dtype=float32_ref>, <tf.Variable 'backward_fc10/bias:0' shape=(300,) dtype=float32_ref>, <tf.Variable 'backward_fc11/kernel:0' shape=(300, 100) dtype=float32_ref>, <tf.Variable 'backward_fc11/bias:0' shape=(100,) dtype=float32_ref>, <tf.Variable 'backward_fc12/kernel:0' shape=(100, 8) dtype=float32_ref>, <tf.Variable 'backward_fc12/bias:0' shape=(8,) dtype=float32_ref>]
+Training forward model now:
+Step 0, loss: 3.14E-01
+Step 0, loss: 0.00E+00
+Step 100, loss: 1.15E-01
+Step 100, loss: 0.00E+00
+Step 200, loss: 3.33E-02
+Step 200, loss: 0.00E+00
+Step 300, loss: 2.64E-02
+Step 300, loss: 0.00E+00
+Step 400, loss: 2.26E-02
+Step 400, loss: 0.00E+00
+Step 500, loss: 1.39E-02
+Step 500, loss: 0.00E+00
+Eval @ Step 500, loss: 1.96E-02, duration 19.361s
+Step 600, loss: 1.28E-02
+Step 600, loss: 0.00E+00
+Step 700, loss: 1.68E-02
+Step 700, loss: 0.00E+00
+Step 800, loss: 1.65E-02
+Step 800, loss: 0.00E+00
+Step 900, loss: 2.26E-02
+Step 900, loss: 0.00E+00
+Step 1000, loss: 1.43E-02
+Step 1000, loss: 0.00E+00
+Eval @ Step 1000, loss: 1.34E-02, duration 15.840s
+Step 1100, loss: 1.26E-02
+Step 1100, loss: 0.00E+00
+Step 1200, loss: 9.83E-03
+Step 1200, loss: 0.00E+00
+Step 1300, loss: 9.76E-03
+Step 1300, loss: 0.00E+00
+Step 1400, loss: 1.09E-02
+Step 1400, loss: 0.00E+00
+Step 1500, loss: 6.36E-03
+Step 1500, loss: 0.00E+00
+Eval @ Step 1500, loss: 8.35E-03, duration 15.605s
+Step 1600, loss: 6.66E-03
+Step 1600, loss: 0.00E+00
+Step 1700, loss: 5.20E-03
+Step 1700, loss: 0.00E+00
+Step 1800, loss: 6.14E-03
+Step 1800, loss: 0.00E+00
+Step 1900, loss: 7.85E-03
+Step 1900, loss: 0.00E+00
+Step 2000, loss: 4.96E-03
+Step 2000, loss: 0.00E+00
+Eval @ Step 2000, loss: 6.61E-03, duration 15.613s
+Step 2100, loss: 7.35E-03
+Step 2100, loss: 0.00E+00
+Step 2200, loss: 3.95E-03
+Step 2200, loss: 0.00E+00
+Step 2300, loss: 5.28E-03
+Step 2300, loss: 0.00E+00
+Step 2400, loss: 7.59E-03
+Step 2400, loss: 0.00E+00
+Step 2500, loss: 3.45E-03
+Step 2500, loss: 0.00E+00
+Eval @ Step 2500, loss: 5.23E-03, duration 15.615s
+Step 2600, loss: 4.95E-03
+Step 2600, loss: 0.00E+00
+Step 2700, loss: 4.14E-03
+Step 2700, loss: 0.00E+00
+Step 2800, loss: 5.18E-03
+Step 2800, loss: 0.00E+00
+Step 2900, loss: 3.89E-03
+Step 2900, loss: 0.00E+00
+Step 3000, loss: 7.17E-03
+Step 3000, loss: 0.00E+00
+Eval @ Step 3000, loss: 5.06E-03, duration 15.613s
+Step 3100, loss: 5.08E-03
+Step 3100, loss: 0.00E+00
+Step 3200, loss: 3.67E-03
+Step 3200, loss: 0.00E+00
+Step 3300, loss: 3.45E-03
+Step 3300, loss: 0.00E+00
+Step 3400, loss: 3.59E-03
+Step 3400, loss: 0.00E+00
+Step 3500, loss: 3.01E-03
+Step 3500, loss: 0.00E+00
+Eval @ Step 3500, loss: 4.17E-03, duration 15.620s
+Step 3600, loss: 3.19E-03
+Step 3600, loss: 0.00E+00
+Step 3700, loss: 4.21E-03
+Step 3700, loss: 0.00E+00
+Step 3800, loss: 2.28E-03
+Step 3800, loss: 0.00E+00
+Step 3900, loss: 3.64E-03
+Step 3900, loss: 0.00E+00
+Step 4000, loss: 3.71E-03
+Step 4000, loss: 0.00E+00
+Eval @ Step 4000, loss: 3.76E-03, duration 15.598s
+Step 4100, loss: 2.62E-03
+Step 4100, loss: 0.00E+00
+Step 4200, loss: 2.70E-03
+Step 4200, loss: 0.00E+00
+Step 4300, loss: 3.83E-03
+Step 4300, loss: 0.00E+00
+Step 4400, loss: 3.52E-03
+Step 4400, loss: 0.00E+00
+Step 4500, loss: 2.95E-03
+Step 4500, loss: 0.00E+00
+Eval @ Step 4500, loss: 3.74E-03, duration 15.627s
+Step 4600, loss: 3.52E-03
+Step 4600, loss: 0.00E+00
+Step 4700, loss: 3.04E-03
+Step 4700, loss: 0.00E+00
+Step 4800, loss: 2.71E-03
+Step 4800, loss: 0.00E+00
+Step 4900, loss: 3.17E-03
+Step 4900, loss: 0.00E+00
+Step 5000, loss: 2.37E-03
+Step 5000, loss: 0.00E+00
+Eval @ Step 5000, loss: 3.24E-03, duration 15.611s
+Step 5100, loss: 1.63E-03
+Step 5100, loss: 0.00E+00
+Step 5200, loss: 2.49E-03
+Step 5200, loss: 0.00E+00
+Step 5300, loss: 2.25E-03
+Step 5300, loss: 0.00E+00
+Step 5400, loss: 2.18E-03
+Step 5400, loss: 0.00E+00
+Step 5500, loss: 1.64E-03
+Step 5500, loss: 0.00E+00
+Eval @ Step 5500, loss: 2.70E-03, duration 15.606s
+Step 5600, loss: 2.42E-03
+Step 5600, loss: 0.00E+00
+Step 5700, loss: 2.63E-03
+Step 5700, loss: 0.00E+00
+Step 5800, loss: 2.38E-03
+Step 5800, loss: 0.00E+00
+Step 5900, loss: 1.59E-03
+Step 5900, loss: 0.00E+00
+Step 6000, loss: 2.41E-03
+Step 6000, loss: 0.00E+00
+Eval @ Step 6000, loss: 2.70E-03, duration 15.600s
+Step 6100, loss: 1.92E-03
+Step 6100, loss: 0.00E+00
+Step 6200, loss: 2.10E-03
+Step 6200, loss: 0.00E+00
+Step 6300, loss: 2.29E-03
+Step 6300, loss: 0.00E+00
+Step 6400, loss: 1.80E-03
+Step 6400, loss: 0.00E+00
+Step 6500, loss: 2.45E-03
+Step 6500, loss: 0.00E+00
+Eval @ Step 6500, loss: 2.43E-03, duration 15.633s
+Step 6600, loss: 1.98E-03
+Step 6600, loss: 0.00E+00
+Step 6700, loss: 2.21E-03
+Step 6700, loss: 0.00E+00
+Step 6800, loss: 1.65E-03
+Step 6800, loss: 0.00E+00
+Step 6900, loss: 1.69E-03
+Step 6900, loss: 0.00E+00
+Step 7000, loss: 1.78E-03
+Step 7000, loss: 0.00E+00
+Eval @ Step 7000, loss: 2.47E-03, duration 15.619s
+Step 7100, loss: 1.42E-03
+Step 7100, loss: 0.00E+00
+Step 7200, loss: 1.79E-03
+Step 7200, loss: 0.00E+00
+Step 7300, loss: 1.44E-03
+Step 7300, loss: 0.00E+00
+Step 7400, loss: 1.57E-03
+Step 7400, loss: 0.00E+00
+Step 7500, loss: 2.52E-03
+Step 7500, loss: 0.00E+00
+Eval @ Step 7500, loss: 2.64E-03, duration 15.626s
+Step 7600, loss: 1.58E-03
+Step 7600, loss: 0.00E+00
+Step 7700, loss: 1.75E-03
+Step 7700, loss: 0.00E+00
+Step 7800, loss: 1.63E-03
+Step 7800, loss: 0.00E+00
+Step 7900, loss: 1.43E-03

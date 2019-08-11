@@ -69,10 +69,15 @@ Infrastructure Added:
 
 ## 2019.08.11
 
-Input normalization done, however during analysis the tandem structure did not learn effective output. Investigating
+Input normalization done, however during analysis the tandem structure did not learn effective output. 
+Bug fixed:
+1. partial normalization problem;
+2. Plot boundary problem
+
 Pending to work: 
 1. Backpropagation input normalization
 2. VAE Structure
+3. Tandem: load a pre-trained forward model and start training on that
 
  All possible **heights**:{30, 32, 34, 36, 38, 40, 42.5, 44, 46, 48, 50, 52 ,55}
 
