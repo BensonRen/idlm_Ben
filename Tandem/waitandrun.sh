@@ -5,7 +5,7 @@ do
         sleep 10m
 done
 
-nohup python train.py 1>runningnext.log 2>runningnext.err 
+nohup python train.py 1>running.log 2>running.err 
 
 {
 	echo To: rensimiao.ben@gmail.com

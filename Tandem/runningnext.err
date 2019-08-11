@@ -87,3 +87,5 @@ pciBusID: 0000:68:00.0
 2019-08-11 16:00:21.812911: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1412] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
 W0811 16:00:21.944385 140394171205376 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Tandem/Tandem_network_maker.py:163: The name tf.summary.FileWriter is deprecated. Please use tf.compat.v1.summary.FileWriter instead.
 
+W0811 16:49:53.815236 140394171205376 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Tandem/Tandem_network_maker.py:131: The name tf.train.Saver is deprecated. Please use tf.compat.v1.train.Saver instead.
+
