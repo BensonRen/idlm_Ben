@@ -5,9 +5,7 @@ do
         sleep 10m
 done
 
-#nohup matlab -nodisplay -nosplash -nodesktop < ~/matlabmd/xxxxxxx 1 > running.log 2>error.log
-
-nohup python train.py 1>running.log 2>running.err 
+nohup python train.py 1>runningnext.log 2>runningnext.err 
 
 {
 	echo To: rensimiao.ben@gmail.com
