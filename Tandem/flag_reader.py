@@ -2,7 +2,6 @@ import argparse
 import tensorflow as tf
 import data_reader
 import network_helper
-import Tandem_network_maker
 import model_maker
 INPUT_SIZE = 2
 CLIP = 15
@@ -20,9 +19,9 @@ BATCH_SIZE = 10
 SHUFFLE_SIZE = 2000
 VERB_STEP = 100
 EVAL_STEP = 500
-TRAIN_STEP = 30000
-BACKWARD_TRAIN_STEP = 200000
-LEARN_RATE = 1e-3
+TRAIN_STEP = 50000
+BACKWARD_TRAIN_STEP = 50000
+LEARN_RATE = 1e-4
 DECAY_STEP = 25000
 DECAY_RATE = 0.5
 X_RANGE = [i for i in range(2, 10 )]
@@ -30,7 +29,7 @@ Y_RANGE = [i for i in range(10 , 2011 )]
 # TRAIN_FILE = 'bp2_OutMod.csv'
 # VALID_FILE = 'bp2_OutMod.csv'
 FORWARDMODEL_CKPT = None#'models/20190811_124959'
-STOP_THRESHOLD = 5e-1
+STOP_THRESHOLD = 1e-3
 FORCE_RUN = True
 MODEL_NAME  = '20190811_124959'
 DATA_DIR = '../'

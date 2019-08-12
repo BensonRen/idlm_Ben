@@ -1,4 +1,7 @@
 dataIn
+*/*.log
+*/*.err
+*/nohup.out
 */models
 */data
 */dataGrid

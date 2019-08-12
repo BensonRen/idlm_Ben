@@ -8,24 +8,29 @@ import flag_reader
 def backpropmain(flags):
     # initialize data reader
 
-    spectra, geometry, train_init_op, valid_init_op = data_reader.read_data(input_size=0,
+    geometry, spectra, train_init_op, valid_init_op = data_reader.read_data(input_size=0,
                                                                output_size=0,
                                                                x_range=flags.x_range,
                                                                y_range=flags.y_range,
+                                                               geoboundary = flags.geoboundary,
                                                                cross_val=flags.cross_val,
                                                                val_fold=flags.val_fold,
                                                                batch_size=flags.batch_size,
                                                                shuffle_size=flags.shuffle_size,
-                                                               forward = False
-																															 data_dir = flags.data_dir)
-    
+                                                               normalize_input = flags.normalize_input,
+								data_dir = flags.data_dir)
+    if flags.normalize_input:
+        flags.geoboundary = [-1, 1, -1, 1]
+
+
     # make network
     ntwk = Backprop_network_maker.BackPropCnnNetwork(geometry, spectra, model_maker.back_prop_model, flags.batch_size,
                             clip=flags.clip, forward_fc_filters=flags.forward_fc_filters, reg_scale=flags.reg_scale,
                             learn_rate=flags.learn_rate,tconv_Fnums=flags.tconv_Fnums,
                             tconv_dims=flags.tconv_dims,n_branch=flags.n_branch,
                             tconv_filters=flags.tconv_filters, n_filter=flags.n_filter,
-                            decay_step=flags.decay_step, decay_rate=flags.decay_rate)
+                            decay_step=flags.decay_step, decay_rate=flags.decay_rate
+                            boundary = flags.geoboundary)
     
     
     # define hooks for monitoring training
@@ -36,7 +41,8 @@ def backpropmain(flags):
     #lr_hook = TrainValueHook(flags.verb_step, ntwk.learn_rate, ckpt_dir=ntwk.ckpt_dir,
     #                                        write_summary=True, value_name='learning_rate')
     valid_forward_hook = network_helper.ValidationHook(flags.eval_step, valid_init_op, ntwk.labels, ntwk.logits,ntwk.loss,
-                                        value_name = 'forward_test_loss', ckpt_dir=ntwk.ckpt_dir, write_summary=True)
+                                        stop_threshold= flags.stop_threshold, value_name = 'forward_test_loss', 
+                                        ckpt_dir=ntwk.ckpt_dir, write_summary=True)
     
     
     # train the network

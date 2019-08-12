@@ -182,7 +182,8 @@ class BackPropCnnNetwork(object):
             
             self.save(sess)
 
-    def evaluate(self, valid_init_op, train_init_op, ckpt_dir, back_prop_ephoch = 1000, save_file=os.path.join(os.path.abspath(''), 'data'),
+    def evaluate(self, valid_init_op, train_init_op, ckpt_dir, back_prop_ephoch = 1000, 
+                 save_file=os.path.join(os.path.abspath(''), 'data'),
                  model_name='', write_summary=False, eval_forward = False):
         """
         Evaluate the model, and save predictions to save_file
