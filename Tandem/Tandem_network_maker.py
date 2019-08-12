@@ -183,11 +183,11 @@ class TandemCnnNetwork(object):
                 		"""
                     for hook in forward_hooks:
                         hook.run(sess, writer=summary_writer)
-										if forward_hooks[-1].stop:     #if it either trains to the threshold or have NAN value, stop here
-										  break
-                else:
-								    print("Loading forward model now:")
-										self.load(sess, load_forward_ckpt)
+                    if forward_hooks[-1].stop:     #if it either trains to the threshold or have NAN value, stop here
+                        break
+            else:
+                print("Loading forward model now:")
+                self.load(sess, load_forward_ckpt)
 
             print("Training tandem model now:")
             assign_false_op = self.train_Forward.assign(False)
@@ -205,8 +205,8 @@ class TandemCnnNetwork(object):
                 """
                 for hook in tandem_hooks:
                     hook.run(sess, writer = summary_writer)
-								if tandem_hooks[-1].stop:   			#If it either trains to threshold or have NAN appear, stop here
-								    break
+                if tandem_hooks[-1].stop:   			#If it either trains to threshold or have NAN appear, stop here
+                    break
             self.save(sess)
 
     def evaluate(self, valid_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'data'),

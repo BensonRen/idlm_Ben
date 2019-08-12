@@ -12,13 +12,13 @@ def tandemmain(flags):
                                                                output_size=0,
                                                                x_range=flags.x_range,
                                                                y_range=flags.y_range,
-																															 geoboundary = flags.geoboundary,
+								geoboundary = flags.geoboundary,
                                                                cross_val=flags.cross_val,
                                                                val_fold=flags.val_fold,
                                                                batch_size=flags.batch_size,
                                                                shuffle_size=flags.shuffle_size,
-																															 data_dir = flags.data_dir,
-																															 normalize_input = flags.normalize_input)
+							        data_dir = flags.data_dir,
+								normalize_input = flags.normalize_input)
   	#If the input is normalized, then make the boundary useless
     if flags.normalize_input:
         flags.geoboundary = [-1, 1, -1, 1]
@@ -31,7 +31,7 @@ def tandemmain(flags):
                             tconv_dims=flags.tconv_dims,n_branch=flags.n_branch,
                             tconv_filters=flags.tconv_filters, n_filter=flags.n_filter,
                             decay_step=flags.decay_step, decay_rate=flags.decay_rate,
-														boundary = flags.geoboundary)
+                            boundary = flags.geoboundary)
     
     
     # define hooks for monitoring training
@@ -54,16 +54,15 @@ def tandemmain(flags):
     #lr_hook = TrainValueHook(flags.verb_step, ntwk.learn_rate, ckpt_dir=ntwk.ckpt_dir,
     #                                        write_summary=True, value_name='learning_rate')
     valid_tandem_hook = network_helper.ValidationHook(flags.eval_step, valid_init_op, ntwk.labels, ntwk.logits,  ntwk.loss,
-                                       							stop_threshold = flags.stop_threshold, value_name = 'tandem_test_loss',
-                                										ckpt_dir=ntwk.ckpt_dir, write_summary=True)
-    
-    
+                                                        stop_threshold = flags.stop_threshold, value_name = 'tandem_test_loss',
+                                			ckpt_dir=ntwk.ckpt_dir, write_summary=True)
+   
     # train the network
     #ntwk.train(train_init_op, flags.train_step, [train_hook, valid_hook, lr_hook], write_summary=True)
     ntwk.train(train_init_op, flags.train_step, flags.backward_train_step, 
-							[train_forward_hook,forward_Boundary_hook, valid_forward_hook], 
+	        [train_forward_hook,forward_Boundary_hook, valid_forward_hook], 
                [train_tandem_hook,tandem_Boundary_hook, valid_tandem_hook],
-							 write_summary=True,load_forward_ckpt = flags.forward_model_ckpt)
+		write_summary=True, load_forward_ckpt = flags.forward_model_ckpt)
  
     
 if __name__ == '__main__':

@@ -43,25 +43,25 @@ def evaluatemain(flags, eval_forward):
                                                                output_size=output_size-2*clip,
                                                                x_range=flags.x_range,
                                                                y_range=flags.y_range,
-																															 geoboundary=flags.geoboundary,
+							        geoboundary=flags.geoboundary,
                                                                cross_val=flags.cross_val,
                                                                val_fold=flags.val_fold,
                                                                batch_size=flags.batch_size,
                                                                shuffle_size=flags.shuffle_size,
-																															 data_dir = flags.data_dir,
-																															 normalize_input = flags.normalize_input)
+								data_dir = flags.data_dir,
+							        normalize_input = flags.normalize_input)
     #if the input is normalized
     if flags.normalize_input:
 		    flags.boundary = [-1, 1, -1, 1]
 		
 		# make network
     ntwk = Tandem_network_maker.TandemCnnNetwork(features, labels, model_maker.tandem_model, flags.batch_size,
-				                        											clip=flags.clip, forward_fc_filters=flags.forward_fc_filters,
-														     											backward_fc_filters=flags.backward_fc_filters,reg_scale=flags.reg_scale,
-																											learn_rate=flags.learn_rate,tconv_Fnums=flags.tconv_Fnums,
-																											tconv_dims=flags.tconv_dims,n_branch=flags.n_branch,
-																											tconv_filters=flags.tconv_filters, n_filter=flags.n_filter,
-																											decay_step=flags.decay_step, decay_rate=flags.decay_rate, boundary = flags.geoboundary)
+                                clip=flags.clip, forward_fc_filters=flags.forward_fc_filters,
+                                backward_fc_filters=flags.backward_fc_filters,reg_scale=flags.reg_scale,
+	                        learn_rate=flags.learn_rate,tconv_Fnums=flags.tconv_Fnums,
+				tconv_dims=flags.tconv_dims,n_branch=flags.n_branch,
+			        tconv_filters=flags.tconv_filters, n_filter=flags.n_filter,
+				decay_step=flags.decay_step, decay_rate=flags.decay_rate, boundary = flags.geoboundary)
     # evaluate the results if the results do not exist or user force to re-run evaluation
     save_file = os.path.join(os.path.abspath(''), 'data', 'test_pred_{}.csv'.format(flags.model_name))
     if flags.force_run or (not os.path.exists(save_file)):

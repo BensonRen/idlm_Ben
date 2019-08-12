@@ -114,15 +114,15 @@ class ValidationHook(Hook):
             except tf.errors.OutOfRangeError:
                 pass
             loss_mean = np.mean(loss_val)
-            print('Eval @ Step {}, loss: {:.2E}, duration {:.3f}s'.\
+            print('Eval @ Step {}, loss: {:.2E}, duration {:.3f}s'.
                   format(self.step, loss_mean, time.time()-self.time_cnt))
-            if loss_mean < self.stop_threshold:
-                print('Validation loss is lower than threshold{}, training is stopped'.format(self.stop_threshold))
-                self.stop = True
+	if loss_mean < self.stop_threshold:
+						    print('Validation loss is lower than threshold{}, training is stopped'.format(self.stop_threshold))
+								self.stop = True
             if math.isnan(loss_mean):
-                print("The validation loss is NAN, please adjust (Lower) your learning rate and retrain. Aborting now")
-                self.stop  = True
-            self.time_cnt = time.time()
+						    print("The validation loss is NAN, please adjust (Lower) your learning rate and retrain. Aborting now")
+							  self.stop  = True
+						self.time_cnt = time.time()
             if self.write_summary:
                 self.valid_mse_summary.log(loss_mean, self.step, sess, writer)
                 #self.valid_curve_summary.log(pred=pred,
