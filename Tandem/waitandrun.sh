@@ -16,10 +16,15 @@ PID=`cat pidfile.txt`
 while [ -e /proc/$PID ]
 do
     echo "Process: $PID is still running" 
-        sleep 10m
+        sleep 3m
 done
 
+#If the running time is less than 200 seconds (check every 180s), it must have been an error, abort
 duration=$SECONDS
+if [200 -gt $duration]
+then
+    exit
+fi
 
 {
 	echo To: rensimiao.ben@gmail.com

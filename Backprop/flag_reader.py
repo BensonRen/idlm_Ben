@@ -3,7 +3,7 @@ import tensorflow as tf
 import data_reader
 import network_helper
 import model_maker
-import parameter
+from parameters import *
 def read_flag():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input-size', type=int, default=INPUT_SIZE, help='input size')
