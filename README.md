@@ -77,14 +77,15 @@ Bug fixed / added function:
 ## 2019.08.12
 
 Bug fixed / added function:
+1. Tandem loading pre-training forward model and train from the backward model
+2. 
 
 
 Pending to work: 
 1. Backpropagation input normalization
 2. VAE Structure
-3. Tandem: load a pre-trained forward model and start training on that
-4. Early Stopping Hook
-5. NAN stopping Hook
+3. Early Stopping Hook
+4. NAN stopping Hook
 
  All possible **heights**:{30, 32, 34, 36, 38, 40, 42.5, 44, 46, 48, 50, 52 ,55}
 
