@@ -84,7 +84,8 @@ Bug fixed / added function:
 5. Running Hyper-parameter logging (Running flags)
 
 Pending to work: 
-1. VAE Structure
+1. Hyper-parameter swapping module
+2. VAE Structure
 
  All possible **heights**:{30, 32, 34, 36, 38, 40, 42.5, 44, 46, 48, 50, 52 ,55}
 
