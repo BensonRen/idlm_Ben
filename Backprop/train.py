@@ -29,7 +29,7 @@ def backpropmain(flags):
                             learn_rate=flags.learn_rate,tconv_Fnums=flags.tconv_Fnums,
                             tconv_dims=flags.tconv_dims,n_branch=flags.n_branch,
                             tconv_filters=flags.tconv_filters, n_filter=flags.n_filter,
-                            decay_step=flags.decay_step, decay_rate=flags.decay_rate
+                            decay_step=flags.decay_step, decay_rate=flags.decay_rate,
                             boundary = flags.geoboundary)
     
     
