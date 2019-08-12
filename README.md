@@ -78,14 +78,13 @@ Bug fixed / added function:
 
 Bug fixed / added function:
 1. Tandem loading pre-training forward model and train from the backward model
-2. 
-
+2. Early stopping Hook
+3. NAN stopping Hook 
+4. Backpropagation input normalization
 
 Pending to work: 
 1. Backpropagation input normalization
 2. VAE Structure
-3. Early Stopping Hook
-4. NAN stopping Hook
 
  All possible **heights**:{30, 32, 34, 36, 38, 40, 42.5, 44, 46, 48, 50, 52 ,55}
 
