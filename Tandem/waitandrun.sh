@@ -12,7 +12,6 @@ SECONDS=0
 nohup python $COMMAND 1>running.log 2>running.err & 
 echo $! > pidfile.txt
 
-
 PID=`cat pidfile.txt`
 while [ -e /proc/$PID ]
 do
@@ -36,6 +35,13 @@ duration=$SECONDS
         ENDTIME:
 
 	PWD:  $PWD\n"
+        cat parameters.py
 } | ssmtp rensimiao.ben@gmail.com
+
 echo "Process $PID has finished"
 
+#Copying the parameters to the models folder as a record
+Lastfile=`ls -t models/ | head -1`
+cp parameters.py models/$Lastfile/.
+cp running.log models/$Lastfile/.
+cp running.err models/$Lastfile/.

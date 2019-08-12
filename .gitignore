@@ -1,6 +1,6 @@
 dataIn
-*/*.log
-*/*.err
+*/running.log
+*/running.err
 */nohup.out
 */models
 */data
