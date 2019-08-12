@@ -6,6 +6,7 @@ import tensorflow as tf
 import matplotlib
 matplotlib.use('agg') 		#To make it silent and dont output image and thus cause error
 import matplotlib.pyplot as plt
+import math
 class Hook(object):
     """
     Parent class of all hooks
@@ -16,7 +17,6 @@ class Hook(object):
 
     def run(self, sess, writer=None):
         raise NotImplementedError
-
 
 class TrainValueHook(Hook):
     """
@@ -62,7 +62,7 @@ class ValidationHook(Hook):
     """
     This hook monitors performance on the validation set
     """
-    def __init__(self, valid_step, valid_init_op, truth, pred, loss, value_name = 'valid_mse', ckpt_dir=None, 
+    def __init__(self, valid_step, valid_init_op, truth, pred, loss, stop_threshold, value_name = 'valid_mse', ckpt_dir=None, 
                  write_summary=False, curve_num=6):
         """
         Initialize the hook
@@ -74,6 +74,8 @@ class ValidationHook(Hook):
         :param ckpt_dir: ckpt_dir: checkpoint directory, only use it if write_summary is True
         :param write_summary: log summary or not
         :param curve_num: #curve plots in validation images
+				:param stop_threshold: The Loss threshold to stop the algorithm
+				:param stop: Boolean value to stop the training
         """
         super(ValidationHook, self).__init__()
         self.valid_step = valid_step
@@ -82,7 +84,9 @@ class ValidationHook(Hook):
         self.pred = pred
         self.loss = loss
         self.write_summary = write_summary
-        self.curve_num = curve_num
+        self.curve_num = curve_numi
+				self.stop_threshold = stop_threshold
+				self.stop = False
         if self.write_summary:
             assert ckpt_dir is not None
             self.valid_mse_summary = HookValueSummary(value_name)
@@ -112,7 +116,13 @@ class ValidationHook(Hook):
             loss_mean = np.mean(loss_val)
             print('Eval @ Step {}, loss: {:.2E}, duration {:.3f}s'.
                   format(self.step, loss_mean, time.time()-self.time_cnt))
-            self.time_cnt = time.time()
+						if loss_mean < self.stop_threshold:
+						    print('Validation loss is lower than threshold{}, training is stopped'.format(self.stop_threshold))
+								self.stop = True
+            if math.isnan(loss_mean):
+						    print("The validation loss is NAN, please adjust (Lower) your learning rate and retrain. Aborting now")
+							  self.stop  = True
+						self.time_cnt = time.time()
             if self.write_summary:
                 self.valid_mse_summary.log(loss_mean, self.step, sess, writer)
                 #self.valid_curve_summary.log(pred=pred,

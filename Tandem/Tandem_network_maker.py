@@ -151,7 +151,7 @@ class TandemCnnNetwork(object):
         First train the forward model and then the tandem part
         :param train_init_op: training dataset init operation
         :param step_num: number of steps to train
-        :param hooks: hooks for monitoring the training process
+        :param hooks: hooks for monitoring the training process !!!ALWASYS PUT VALIDATION HOOK THE LAST ONE
         :param write_summary: write summary into tensorboard or not
         :return:
         """
@@ -183,6 +183,8 @@ class TandemCnnNetwork(object):
                 		"""
                     for hook in forward_hooks:
                         hook.run(sess, writer=summary_writer)
+										if forward_hooks[-1].stop:     #if it either trains to the threshold or have NAN value, stop here
+										  break
                 else:
 								    print("Loading forward model now:")
 										self.load(sess, load_forward_ckpt)
@@ -203,9 +205,8 @@ class TandemCnnNetwork(object):
                 """
                 for hook in tandem_hooks:
                     hook.run(sess, writer = summary_writer)
-            
-            
-            
+								if tandem_hooks[-1].stop:   			#If it either trains to threshold or have NAN appear, stop here
+								    break
             self.save(sess)
 
     def evaluate(self, valid_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'data'),

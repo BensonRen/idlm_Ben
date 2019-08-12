@@ -42,7 +42,8 @@ def tandemmain(flags):
     #lr_hook = TrainValueHook(flags.verb_step, ntwk.learn_rate, ckpt_dir=ntwk.ckpt_dir,
     #                                        write_summary=True, value_name='learning_rate')
     valid_forward_hook = network_helper.ValidationHook(flags.eval_step, valid_init_op, ntwk.labels, ntwk.logits,ntwk.loss,
-                                        value_name = 'forward_test_loss', ckpt_dir=ntwk.ckpt_dir, write_summary=True)
+                                        stop_threshold = flags.stop_threshold,value_name = 'forward_test_loss', 
+																				ckpt_dir=ntwk.ckpt_dir, write_summary=True)
     
     # define hooks for monitoring training
     train_tandem_hook = network_helper.TrainValueHook(flags.verb_step, ntwk.loss, value_name = 'tandem_train_loss',
@@ -53,8 +54,8 @@ def tandemmain(flags):
     #lr_hook = TrainValueHook(flags.verb_step, ntwk.learn_rate, ckpt_dir=ntwk.ckpt_dir,
     #                                        write_summary=True, value_name='learning_rate')
     valid_tandem_hook = network_helper.ValidationHook(flags.eval_step, valid_init_op, ntwk.labels, ntwk.logits,  ntwk.loss,
-                                        value_name = 'tandem_test_loss',
-                                ckpt_dir=ntwk.ckpt_dir, write_summary=True)
+                                       							stop_threshold = flags.stop_threshold, value_name = 'tandem_test_loss',
+                                										ckpt_dir=ntwk.ckpt_dir, write_summary=True)
     
     
     # train the network
