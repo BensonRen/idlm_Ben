@@ -157,34 +157,36 @@ class TandemCnnNetwork(object):
         """
         with tf.Session() as sess:
             sess.run([tf.global_variables_initializer(), tf.local_variables_initializer()])
-            if load_forward_ckpt != None:
-              self.load(sess, load_forward_ckpt)
             if write_summary:
                 summary_writer = tf.summary.FileWriter(self.ckpt_dir, sess.graph)
             else:
                 summary_writer = None
             
-            print("Training forward model now:")
+            if load_forward_ckpt == None: #If choose not to load the forward model
+                print("Training forward model now:")
             
-            assign_true_op = self.train_Forward.assign(True)
+                assign_true_op = self.train_Forward.assign(True)
             
-            ##Train the forward model
-            for i in range(int(step_num)):
-                sess.run([train_init_op, assign_true_op])
-                sess.run(self.optm)
-                """
-                if (i%100 == 0):
-                  bo, fi, fea, tb = sess.run([self.backward_out,self.forward_in,
-                                             self.features,self.train_Forward])
-                                             #,feed_dict={self.train_Forward: True})
-                  print("Backward_out:",bo[0,:])
-                  print("Forward_in",fi[0,:])
-                  print("Feature:",fea[0,:])
-                  print("Train_bool:",tb)
-                """
-                for hook in forward_hooks:
-                    hook.run(sess, writer=summary_writer)
-            
+                ##Train the forward model
+                for i in range(int(step_num)):
+                    sess.run([train_init_op, assign_true_op])
+                    sess.run(self.optm)
+                    """
+                    if (i%100 == 0):
+                      bo, fi, fea, tb = sess.run([self.backward_out,self.forward_in,
+                                                 self.features,self.train_Forward])
+                                                 #,feed_dict={self.train_Forward: True})
+                      print("Backward_out:",bo[0,:])
+                  		print("Forward_in",fi[0,:])
+                  		print("Feature:",fea[0,:])
+                 		 	print("Train_bool:",tb)
+                		"""
+                    for hook in forward_hooks:
+                        hook.run(sess, writer=summary_writer)
+                else:
+								    print("Loading forward model now:")
+										self.load(sess, load_forward_ckpt)
+
             print("Training tandem model now:")
             assign_false_op = self.train_Forward.assign(False)
             ##Train the tandem model

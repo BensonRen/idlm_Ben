@@ -59,8 +59,10 @@ def tandemmain(flags):
     
     # train the network
     #ntwk.train(train_init_op, flags.train_step, [train_hook, valid_hook, lr_hook], write_summary=True)
-    ntwk.train(train_init_op, flags.train_step, flags.backward_train_step, [train_forward_hook,forward_Boundary_hook, valid_forward_hook], 
-               [train_tandem_hook,tandem_Boundary_hook, valid_tandem_hook],write_summary=True)#,load_forward_ckpt = flags.forward_model_ckpt)
+    ntwk.train(train_init_op, flags.train_step, flags.backward_train_step, 
+							[train_forward_hook,forward_Boundary_hook, valid_forward_hook], 
+               [train_tandem_hook,tandem_Boundary_hook, valid_tandem_hook],
+							 write_summary=True,load_forward_ckpt = flags.forward_model_ckpt)
  
     
 if __name__ == '__main__':

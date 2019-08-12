@@ -74,6 +74,11 @@ Bug fixed / added function:
 1. partial normalization problem;
 2. Plot boundary problem
 
+## 2019.08.12
+
+Bug fixed / added function:
+
+
 Pending to work: 
 1. Backpropagation input normalization
 2. VAE Structure
