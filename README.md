@@ -87,6 +87,10 @@ Pending to work:
 1. Hyper-parameter swapping module
 2. VAE Structure
 
+
+### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!
+1. The hyper-parameter logging module only records the flags inside the .py file. If it is supplied by the command line argument, it can't be recorded but the original value would be recorded...
+
  All possible **heights**:{30, 32, 34, 36, 38, 40, 42.5, 44, 46, 48, 50, 52 ,55}
 
  All possible **radius**: {42, 42.8, 43.7, 44.5, 45.3, 46.2, 47, 47.8, 48.6, 49.5, 50.4, 51.2, 52}
