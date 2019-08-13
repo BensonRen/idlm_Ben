@@ -1,9 +1,11 @@
-#PID=22228
-#while [ -e /proc/$PID ]
-#do
-#    echo "Process: $PID is still running" 
-#        sleep 10m
-#done
+PID=12231
+while [ -e /proc/$PID ]
+do
+    echo "Process: $PID is still running" 
+        sleep 10m
+done
+
+
 TIME=`date`
 PWD=`pwd`
 COMMAND=hyperswipe.py
@@ -47,11 +49,7 @@ echo "Process $PID has finished"
 
 #Copying the parameters to the models folder as a record
 Lastfile=`ls -t models/ | head -1`
-<<<<<<< Updated upstream
 mv parameters.txt models/$Lastfile/.
-=======
-
 #cp parameters.py models/$Lastfile/.
->>>>>>> Stashed changes
 cp running.log models/$Lastfile/.
 cp running.err models/$Lastfile/.

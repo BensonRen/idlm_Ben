@@ -70,6 +70,7 @@ Infrastructure Added:
 ## 2019.08.11
 
 Input normalization done, however during analysis the tandem structure did not learn effective output. 
+
 Bug fixed / added function:
 1. partial normalization problem;
 2. Plot boundary problem
@@ -97,9 +98,12 @@ Bug fixed / added function:
 
 Pending to work: 
 1. VAE Structure
+2. Random split for the training and testing data points
 
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!
+1. The logging system is not compatible with the hyper-parameter swiping scheme!!!
+
 Cool you've fixed all bugs found, congrats!
 
 

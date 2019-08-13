@@ -1,4 +1,4 @@
-{'backward_fc_filters': (100, 500, 1000, 1000, 500, 300, 100, 8),
+{'backward_fc_filters': (100, 500, 1000, 1000, 1000, 500, 300, 100, 8),
  'backward_train_step': 50000,
  'batch_size': 10,
  'clip': 15,

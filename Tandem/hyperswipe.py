@@ -6,7 +6,7 @@ import flag_reader
 if __name__ == '__main__':
     flags = flag_reader.read_flag()  	#setting the base case
     
-    backward_fc_filters_front = ( 100, 500, 1000 )
+    backward_fc_filters_front = ( 100, 500, 1000,1000,1000,1000,1000,1000 )
     backward_fc_filters_back = (500, 300, 100, 8)
     
     added_layer_size = 1000
