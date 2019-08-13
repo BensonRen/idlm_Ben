@@ -84,20 +84,24 @@ Bug fixed / added function:
 5. Running Hyper-parameter logging (Running flags)
 6. Solved the bug of Hyper-parameter logging where only default parameter is recorded. Currently the running flags would be recorded to file called 'parameters.txt'
 
-Pending to work: 
-1. Hyper-parameter swapping module
-2. VAE Structure
-
 ## 2019.08.13
 
 Problem found:
 
 The tandem structure struggled to learn effective backward representation of the geometry of the material. The test accuracy is not significantly higher than the training one which is signifying it is not over-fitting but. After consulting Evan, hyper-parameter search for a better architecture would be the first thing worth trying and trend of the training shall be analyzed.
 
+Bug fixed / added function:
+1. Flag altering training function added to train.py in Tandem structure
+2. Hyper parameter search module added called 'hyperswipe.py'
+3. Bug fixed for flag logging would change the original data strcuture for coloumn 'y_range'
 
+Pending to work: 
+1. VAE Structure
 
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!
+Cool you've fixed all bugs found, congrats!
+
 
  All possible **heights**:{30, 32, 34, 36, 38, 40, 42.5, 44, 46, 48, 50, 52 ,55}
 
