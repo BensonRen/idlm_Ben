@@ -6,25 +6,25 @@
 #done
 TIME=`date`
 PWD=`pwd`
-COMMAND=train.py
+COMMAND=hyperswipe.py
 SPACE='        '
 SECONDS=0
 nohup python $COMMAND 1>running.log 2>running.err & 
 echo $! > pidfile.txt
 
-#PID=`cat pidfile.txt`
-#while [ -e /proc/$PID ]
-#do
-#    echo "Process: $PID is still running" 
-#        sleep 3m
-#done
-sleep 10s
+PID=`cat pidfile.txt`
+while [ -e /proc/$PID ]
+do
+    echo "Process: $PID is still running" 
+        sleep 3m
+done
+leep 10s
 #If the running time is less than 200 seconds (check every 180s), it must have been an error, abort
 duration=$SECONDS
-#if [200 -gt $duration]
-#then
-#    exit
-#fi
+if [200 -gt $duration]
+then
+    exit
+fi
 
 CURRENTTIME=`date`
 {
@@ -41,12 +41,17 @@ CURRENTTIME=`date`
         ENDTIME: $CURRENTTIME \n
 	PWD:  $PWD\n"
         cat parameters.py
-} #| ssmtp rensimiao.ben@gmail.com
+} | ssmtp rensimiao.ben@gmail.com
 
 echo "Process $PID has finished"
 
 #Copying the parameters to the models folder as a record
 Lastfile=`ls -t models/ | head -1`
+<<<<<<< Updated upstream
 mv parameters.txt models/$Lastfile/.
+=======
+
+#cp parameters.py models/$Lastfile/.
+>>>>>>> Stashed changes
 cp running.log models/$Lastfile/.
 cp running.err models/$Lastfile/.

@@ -1,3 +1,5 @@
+*/*.swp
+*/pidfile.txt
 dataIn
 */running.log
 */running.err

@@ -88,9 +88,16 @@ Pending to work:
 1. Hyper-parameter swapping module
 2. VAE Structure
 
+## 2019.08.13
+
+Problem found:
+
+The tandem structure struggled to learn effective backward representation of the geometry of the material. The test accuracy is not significantly higher than the training one which is signifying it is not over-fitting but. After consulting Evan, hyper-parameter search for a better architecture would be the first thing worth trying and trend of the training shall be analyzed.
+
+
+
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!
-1. The hyper-parameter logging module only records the flags inside the .py file. If it is supplied by the command line argument, it can't be recorded but the original value would be recorded...
 
  All possible **heights**:{30, 32, 34, 36, 38, 40, 42.5, 44, 46, 48, 50, 52 ,55}
 

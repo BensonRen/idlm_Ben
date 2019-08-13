@@ -54,12 +54,14 @@ def read_flag():
 
 def write_flags(flags):
     #To avoid terrible looking shape of y_range
-	yrange = flags.y_range
-	flags.y_range = yrange[0] + ' to ' + yrange[-1]
-	flags_dict = vars(flags)
-	dict_str = pprint.pformat(flags_dict)
-	with open("parameters.txt","w") as log_file:
-	    log_file.write(dict_str)
+    yrange = flags.y_range
+    yrange_str = str(yrange[0]) + ' to ' + str(yrange[-1])
+    flags_dict = vars(flags)
+    flags_dict_copy = flags_dict.copy() #in order to not corrupt the original data strucutre
+    flags_dict_copy['y_range'] = yrange_str
+    dict_str = pprint.pformat(flags_dict_copy)
+    with open("parameters.txt","w") as log_file:
+        log_file.write(dict_str)
 	#pprint(flags_dict)
-	return dict_str
+    return dict_str
 
