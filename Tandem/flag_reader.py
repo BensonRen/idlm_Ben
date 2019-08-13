@@ -3,6 +3,7 @@ import tensorflow as tf
 import data_reader
 import network_helper
 import model_maker
+import pprint
 from parameters import *
 def read_flag():
     parser = argparse.ArgumentParser()
@@ -46,4 +47,19 @@ def read_flag():
     
     flags = parser.parse_args()  #This is for command line version of the code
     #flags = parser.parse_args(args = [])#This is for jupyter notebook version of the code
+    
+	#flagsVar = vars(flags)
+
     return flags
+
+def write_flags(flags):
+    #To avoid terrible looking shape of y_range
+	yrange = flags.y_range
+	flags.y_range = yrange[0] + ' to ' + yrange[-1]
+	flags_dict = vars(flags)
+	dict_str = pprint.pformat(flags_dict)
+	with open("parameters.txt","w") as log_file:
+	    log_file.write(dict_str)
+	#pprint(flags_dict)
+	return dict_str
+

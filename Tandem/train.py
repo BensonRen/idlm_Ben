@@ -64,8 +64,13 @@ def tandemmain(flags):
                [train_tandem_hook,tandem_Boundary_hook, valid_tandem_hook],
 		write_summary=True, load_forward_ckpt = flags.forward_model_ckpt)
  
+ def train_from_flag(flags): 
+    flag_reader.flag_reader.write_flags(flags)
+	tf.reset_default_graph()
+	tandemmain(flags)
     
 if __name__ == '__main__':
 	flags = flag_reader.read_flag()
+    flag_reader.flag_reader.write_flags(flags)
 	tf.reset_default_graph()
 	tandemmain(flags)

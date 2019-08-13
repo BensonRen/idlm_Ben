@@ -82,6 +82,7 @@ Bug fixed / added function:
 3. NAN stopping Hook 
 4. Backpropagation input normalization
 5. Running Hyper-parameter logging (Running flags)
+6. Solved the bug of Hyper-parameter logging where only default parameter is recorded. Currently the running flags would be recorded to file called 'parameters.txt'
 
 Pending to work: 
 1. Hyper-parameter swapping module

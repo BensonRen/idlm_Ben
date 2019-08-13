@@ -47,6 +47,6 @@ echo "Process $PID has finished"
 
 #Copying the parameters to the models folder as a record
 Lastfile=`ls -t models/ | head -1`
-cp parameters.py models/$Lastfile/.
+mv parameters.txt models/$Lastfile/.
 cp running.log models/$Lastfile/.
 cp running.err models/$Lastfile/.
