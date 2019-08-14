@@ -27,6 +27,7 @@ def tandemmain(flags):
     if flags.normalize_input:
         flags.geoboundary = [-1, 1, -1, 1]
 
+    print("making network now")
     # make network
     ntwk = Tandem_network_maker.TandemCnnNetwork(geometry, spectra, model_maker.tandem_model, flags.batch_size,
                             clip=flags.clip, forward_fc_filters=flags.forward_fc_filters,
@@ -37,7 +38,7 @@ def tandemmain(flags):
                             decay_step=flags.decay_step, decay_rate=flags.decay_rate,
                             boundary = flags.geoboundary)
     
-    
+    print("Setting the hooks now")
     # define hooks for monitoring training
     train_forward_hook = network_helper.TrainValueHook(flags.verb_step, ntwk.loss, value_name = 'forward_train_loss',
                                ckpt_dir=ntwk.ckpt_dir, write_summary=True)
@@ -62,6 +63,7 @@ def tandemmain(flags):
                                 			ckpt_dir=ntwk.ckpt_dir, write_summary=True)
    
     # train the network
+    print("Start the training now")
     #ntwk.train(train_init_op, flags.train_step, [train_hook, valid_hook, lr_hook], write_summary=True)
     ntwk.train(train_init_op, flags.train_step, flags.backward_train_step, 
 	        [train_forward_hook,forward_Boundary_hook, valid_forward_hook], 

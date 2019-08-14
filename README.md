@@ -103,7 +103,7 @@ Pending to work:
 
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!
-
+Emmmm fatal error while running previously working code in train.py... Now the program would give no feedback even using kill -9......... Need to rewind to the nearest version of code and check why
 Cool you've fixed all bugs found, congrats!
 
 
