@@ -95,14 +95,14 @@ Bug fixed / added function:
 1. Flag altering training function added to train.py in Tandem structure
 2. Hyper parameter search module added called 'hyperswipe.py'
 3. Bug fixed for flag logging would change the original data strcuture for coloumn 'y_range'
+4. Bug fixed for flag logging would fail under hyper-parameter swiping (Now store once one model is trained)
+5. Random Split for the training and testing data points
 
 Pending to work: 
 1. VAE Structure
-2. Random split for the training and testing data points
 
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!
-1. The logging system is not compatible with the hyper-parameter swiping scheme!!!
 
 Cool you've fixed all bugs found, congrats!
 

@@ -5,6 +5,9 @@ import network_helper
 import Tandem_network_maker
 import model_maker
 import flag_reader
+import os
+import glob
+import shutil
 def tandemmain(flags):
     # initialize data reader
 
@@ -18,7 +21,8 @@ def tandemmain(flags):
                                                                batch_size=flags.batch_size,
                                                                shuffle_size=flags.shuffle_size,
 							        data_dir = flags.data_dir,
-								normalize_input = flags.normalize_input)
+								normalize_input = flags.normalize_input,
+                                                                test_ratio = 0.2)
   	#If the input is normalized, then make the boundary useless
     if flags.normalize_input:
         flags.geoboundary = [-1, 1, -1, 1]
@@ -63,7 +67,17 @@ def tandemmain(flags):
 	        [train_forward_hook,forward_Boundary_hook, valid_forward_hook], 
                [train_tandem_hook,tandem_Boundary_hook, valid_tandem_hook],
 		write_summary=True, load_forward_ckpt = flags.forward_model_ckpt)
- 
+
+    #Put the parameter.txt file into the latest folder from model
+    put_param_into_folder()
+
+def put_param_into_folder():
+    list_of_files = glob.glob('models/*')
+    latest_file = max(list_of_files, key = os.path.getctime)
+    print("The parameter.txt is put into folder " + latest_file)
+    destination = os.path.join(latest_file, "parameters.txt");
+    shutil.move("parameters.txt",destination)
+    
 def train_from_flag(flags): 
     flag_reader.write_flags(flags)
     tf.reset_default_graph()

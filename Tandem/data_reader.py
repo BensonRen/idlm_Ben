@@ -9,7 +9,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from sklearn.model_selection import KFold
 import seaborn as sns
-
+from sklearn.model_selection import train_test_split
 
 def importData(directory, x_range, y_range):
     # pull data into python, should be either for training set or eval set
@@ -160,7 +160,7 @@ def gridShape(input_dir, output_dir, shapeType, r_bounds, h_bounds):
 
 
 def read_data(input_size, output_size, x_range, y_range, geoboundary, cross_val=5, val_fold=0, batch_size=100,
-                 shuffle_size=100, data_dir=os.path.abspath(''), rand_seed=1234, normalize_input = False ):
+                 shuffle_size=100, data_dir=os.path.abspath(''), rand_seed=1234, normalize_input = False, test_ratio = 0.2 ):
     """
       :param input_size: input size of the arrays
       :param output_size: output size of the arrays
@@ -172,6 +172,8 @@ def read_data(input_size, output_size, x_range, y_range, geoboundary, cross_val=
       :param shuffle_size: size of the batch when shuffle the dataset
       :param data_dir: parent directory of where the data is stored, by default it's the current directory
       :param rand_seed: random seed
+      :param test_ratio: if this is not 0, then split test data from training data at this ratio
+                         if this is 0, use the dataIn/eval files to make the test set
       """
     """
     Read feature and label
@@ -183,7 +185,12 @@ def read_data(input_size, output_size, x_range, y_range, geoboundary, cross_val=
     # get data files
     print('getting data files...')
     ftrTrain, lblTrain = importData(os.path.join(data_dir, 'dataIn'), x_range, y_range)
-    ftrTest, lblTest = importData(os.path.join(data_dir, 'dataIn', 'eval'), x_range, y_range)
+    if (test_ratio > 0):
+        print("Splitting training data into test set, the ratio is:", str(test_ratio))
+        ftrTrain, ftrTest, lblTrain, lblTest = train_test_split(ftrTrain, lblTrain, test_size = test_ratio, random_state = rand_seed)
+    else:
+        print("Using separate file from dataIn/Eval as test set")
+        ftrTest, lblTest = importData(os.path.join(data_dir, 'dataIn', 'eval'), x_range, y_range)
 
     print('total number of training samples is {}'.format(len(ftrTrain)))
     print('total number of test samples is {}'.format(len(ftrTest)),

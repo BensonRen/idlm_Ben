@@ -1,16 +1,18 @@
-PID=12231
-while [ -e /proc/$PID ]
-do
-    echo "Process: $PID is still running" 
-        sleep 10m
-done
+#PID=12231
+#while [ -e /proc/$PID ]
+#do
+#    echo "Process: $PID is still running" 
+#        sleep 10m
+#done
 
 
 TIME=`date`
 PWD=`pwd`
-COMMAND=hyperswipe.py
+#COMMAND=hyperswipe.py
+COMMAND=train.py
+#COMMAND=evaluate.py
 SPACE='        '
-SECONDS=0
+#SECONDS=0
 nohup python $COMMAND 1>running.log 2>running.err & 
 echo $! > pidfile.txt
 
@@ -20,10 +22,10 @@ do
     echo "Process: $PID is still running" 
         sleep 3m
 done
-leep 10s
+#sleep 3s
 #If the running time is less than 200 seconds (check every 180s), it must have been an error, abort
 duration=$SECONDS
-if [200 -gt $duration]
+if [ 2 -gt $duration]
 then
     exit
 fi
@@ -33,7 +35,7 @@ CURRENTTIME=`date`
 	echo To: rensimiao.ben@gmail.com
 	echo From: Cerus Machine
 	echo Subject: Your Job has finished!
-	echo -e 'Dear mighty Machine Learning researcher Ben, \n \n'
+	echo -e "Dear mighty Machine Learning researcher Ben, \n \n"
 	echo -e  "    Your job has been finished and again, you saved so many fairies!!!\n \n"
 	echo -e  "Details of your job:\n
         Job:  $COMMAND \n   
@@ -48,8 +50,8 @@ CURRENTTIME=`date`
 echo "Process $PID has finished"
 
 #Copying the parameters to the models folder as a record
-Lastfile=`ls -t models/ | head -1`
-mv parameters.txt models/$Lastfile/.
+#Lastfile=`ls -t models/ | head -1`
+#mv parameters.txt models/$Lastfile/.
 #cp parameters.py models/$Lastfile/.
-cp running.log models/$Lastfile/.
-cp running.err models/$Lastfile/.
+#cp running.log models/$Lastfile/.
+#cp running.err models/$Lastfile/.

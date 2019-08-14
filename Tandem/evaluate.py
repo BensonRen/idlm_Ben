@@ -49,7 +49,9 @@ def evaluatemain(flags, eval_forward):
                                                                batch_size=flags.batch_size,
                                                                shuffle_size=flags.shuffle_size,
 								data_dir = flags.data_dir,
-							        normalize_input = flags.normalize_input)
+							        normalize_input = flags.normalize_input,
+                                                                test_ratio = 0.2)
+
     #if the input is normalized
     if flags.normalize_input:
 		    flags.boundary = [-1, 1, -1, 1]
