@@ -8,8 +8,8 @@
 
 TIME=`date`
 PWD=`pwd`
-#COMMAND=hyperswipe.py
-COMMAND=train.py
+COMMAND=hyperswipe.py
+#COMMAND=train.py
 #COMMAND=evaluate.py
 SPACE='        '
 #SECONDS=0
@@ -25,7 +25,8 @@ done
 #sleep 3s
 #If the running time is less than 200 seconds (check every 180s), it must have been an error, abort
 duration=$SECONDS
-if [ 2 -gt $duration]
+echo $duration
+if [ 200 -gt $duration ]
 then
     exit
 fi
