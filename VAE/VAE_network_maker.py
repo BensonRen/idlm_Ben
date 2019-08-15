@@ -7,22 +7,16 @@ import struct
 
 
 class VAENetwork(object):
-    def __init__(self, features, labels, model_fn, batch_size,
-                 clip=0, backward_fc_filters=(5, 10, 15),
-                 forward_fc_filters=(5, 10, 15),tconv_Fnums=(4,4), tconv_dims=(60, 120, 240), 
-                 tconv_filters=(1, 1, 1),n_filter=5, n_branch=3,
-                 reg_scale=.001, learn_rate=1e-4, decay_step=200, decay_rate=0.1,
-                 ckpt_dir=os.path.join(os.path.abspath(''), 'models'),
-                 make_folder=True, boundary = [-1, 1, -1, 1]):
+    def __init__(self, features, labels, model_fn, batch_size, spectra_fc_filters=(5, 10, 15), decoder_fc_filters=(5,10,15),
+                 encoder_fc_filters=(5, 10, 15), reg_scale=.001, learn_rate=1e-4, decay_step=200, decay_rate=0.1,
+                 ckpt_dir=os.path.join(os.path.abspath(''), 'models'), make_folder=True):
         """
         Initialize a Network class
         :param features: input features
         :param labels: input labels
         :param model_fn: model definition function, can be customized by user
         :param batch_size: batch size
-        :param fc_filters: #neurons in each fully connected layers
-        :param tconv_dims: dimensionality of data after each transpose convolution
-        :param tconv_filters: #filters at each transpose convolution
+        :param XXX_fc_filters: #neurons in each fully connected layers in module XXX
         :param learn_rate: learning rate
         :param decay_step: decay learning rate at this number of steps
         :param decay_rate: decay learn rate by multiplying this factor
@@ -33,18 +27,21 @@ class VAENetwork(object):
         self.labels = labels
         self.model_fn = model_fn
         self.batch_size = batch_size
-        self.clip = clip
-        self.backward_fc_filters = backward_fc_filters
-        assert len(tconv_dims) == len(tconv_filters)
-        assert len(tconv_Fnums) == len(tconv_filters)
-        self.tconv_Fnums = tconv_Fnums
-        self.tconv_dims = tconv_dims
-        self.tconv_filters = tconv_filters
-        self.n_filter = n_filter
-        self.n_branch = n_branch
-        self.forward_fc_filters = forward_fc_filters
+        #self.clip = clip
+        self.spectra_fc_filters = spectra_fc_filters
+        #assert len(tconv_dims) == len(tconv_filters)
+        #assert len(tconv_Fnums) == len(tconv_filters)
+        #self.tconv_Fnums = tconv_Fnums
+        #self.tconv_dims = tconv_dims
+        #self.tconv_filters = tconv_filters
+        #self.n_filter = n_filter
+        #self.n_branch = n_branch
+        self.encoder_fc_filters = encoder_fc_filters
+        self.decoder_fc_filters = decoder_fc_filters
         self.reg_scale = reg_scale
-        self.boundary = boundary
+        self.latent_dim = latent_dim
+        #self.boundary = boundary
+        
         self.global_step = tf.Variable(0, dtype=tf.int64, trainable=False, name='global_step')
         self.learn_rate = tf.train.exponential_decay(learn_rate, self.global_step,
                                                      decay_step, decay_rate, staircase=True)

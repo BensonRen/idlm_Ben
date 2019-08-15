@@ -98,13 +98,18 @@ Bug fixed / added function:
 4. Bug fixed for flag logging would fail under hyper-parameter swiping (Now store once one model is trained)
 5. Random Split for the training and testing data points
 
-## 2019.08.04
+## 2019.08.14
 
 Bug fixed / added function:
 1. Credit to Chrisitan and Bohao added with their personal profile and url linked at README front page
 2. VAE structure sub modules: Spectra_encoder, encoder and decoder
 
+## 2019.08.15
 
+Bug fixed / added function:
+1. VAE model Connection
+2. VAE Model maker
+3. waitnrun bug for arithmetic expression
 
 Pending to work: 
 1. VAE Connection model
