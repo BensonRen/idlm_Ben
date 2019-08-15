@@ -9,7 +9,7 @@ import struct
 class VAENetwork(object):
     def __init__(self, features, labels, model_fn, batch_size, spectra_fc_filters=(5, 10, 15), decoder_fc_filters=(5,10,15),
                  encoder_fc_filters=(5, 10, 15), reg_scale=.001, learn_rate=1e-4, decay_step=200, decay_rate=0.1,
-                 ckpt_dir=os.path.join(os.path.abspath(''), 'models'), make_folder=True):
+                 ckpt_dir=os.path.join(os.path.abspath(''), 'models'), make_folder=True, geoboundary = [-1 , 1, -1, 1]):
         """
         Initialize a Network class
         :param features: input features
@@ -40,7 +40,7 @@ class VAENetwork(object):
         self.decoder_fc_filters = decoder_fc_filters
         self.reg_scale = reg_scale
         self.latent_dim = latent_dim
-        #self.boundary = boundary
+        self.boundary = geoboundary
         
         self.global_step = tf.Variable(0, dtype=tf.int64, trainable=False, name='global_step')
         self.learn_rate = tf.train.exponential_decay(learn_rate, self.global_step,
@@ -51,26 +51,21 @@ class VAENetwork(object):
             os.makedirs(self.ckpt_dir)
             self.write_record()
 
-        self.forward_in, self.logits, self.merged_summary_op, self.ForwardCollectionName, \
-        self.BackCollectionName, self.backward_out, self.train_Forward, self.Boundary_loss  = self.create_graph()
-        print("Backward_out tensor is:",self.backward_out)
+        self.logits, self.z_mean, self.z_log_var, self.boundary_loss = self.create_graph()
         #self.model = tf.keras.Model(self.features, self.logits,name = 'Backward')
         if self.labels==[]:
             print('labels list is empty')
         else:
             self.loss = self.make_loss()
             self.optm = self.make_optimizer()
-            self.tandem_optm = self.make_tandem_optimizer()
   
     def create_graph(self):
         """
         Create model graph
         :return: outputs of the last layer
         """
-        return self.model_fn(self.features,self.labels, self.backward_fc_filters, self.batch_size, 
-                             self.clip, self.forward_fc_filters, self.tconv_Fnums,
-                             self.tconv_dims, self.tconv_filters,
-                             self.n_filter, self.n_branch, self.reg_scale, self.boundary)
+        return self.model_fn(self.features,self.labels, self.latent_dim, self.batch_size, self.reg_scale,
+                                self.spectra_fc_filters, self.encoder_fc_filters, self.decoder_fc_filters, self.boundary)
      
 
     def write_record(self):
@@ -97,8 +92,12 @@ class VAENetwork(object):
         """
         with tf.variable_scope('loss'):
             loss = tf.losses.mean_squared_error(self.labels, self.logits)
+            kl_loss = 1 + self.z_log_var - K.square(self.z_mean) - K.exp(self.z_log_var)
+            kl_loss = K.sum(kl_loss, axis = -1)
+            kl_loss *= -0.5
+            loss += kl_loss
             loss += tf.losses.get_regularization_loss()
-            loss += self.Boundary_loss
+            #loss += self.Boundary_loss
             return loss
             
     def make_optimizer(self):
@@ -108,17 +107,6 @@ class VAENetwork(object):
         """
         return tf.train.AdamOptimizer(learning_rate=self.learn_rate).minimize(self.loss, self.global_step)
     
-    def make_tandem_optimizer(self):
-        """
-        Make an Adam optimizer with the learning rate defined when the class is initialized
-        :return: an AdamOptimizer
-        """
-        varlist = tf.get_collection(self.BackCollectionName)
-        print(varlist)
-        return tf.train.AdamOptimizer(learning_rate=self.learn_rate).minimize(self.loss, 
-                                                                              self.global_step,
-                                                                              var_list = varlist)
-
     def save(self, sess):
         """
         Save the model to the checkpoint directory
@@ -141,7 +129,7 @@ class VAENetwork(object):
         saver.restore(sess, latest_check_point)
         print('loaded {}'.format(latest_check_point))
 
-    def train(self, train_init_op, step_num,backward_step_num, forward_hooks, tandem_hooks,\
+    def train(self, train_init_op, step_num,backward_step_num, forward_hooks, 
               write_summary=False,load_forward_ckpt = None):
         """
         Train the model with step_num steps
@@ -159,50 +147,17 @@ class VAENetwork(object):
             else:
                 summary_writer = None
             
-            if load_forward_ckpt == None: #If choose not to load the forward model
-                print("Training forward model now:")
+            print("Training forward model now:")
             
-                assign_true_op = self.train_Forward.assign(True)
+            #assign_true_op = self.train_Forward.assign(True)
             
-                ##Train the forward model
-                for i in range(int(step_num)):
-                    sess.run([train_init_op, assign_true_op])
-                    sess.run(self.optm)
-                    """
-                    if (i%100 == 0):
-                      bo, fi, fea, tb = sess.run([self.backward_out,self.forward_in,
-                                                 self.features,self.train_Forward])
-                                                 #,feed_dict={self.train_Forward: True})
-                      print("Backward_out:",bo[0,:])
-                  		print("Forward_in",fi[0,:])
-                  		print("Feature:",fea[0,:])
-                 		 	print("Train_bool:",tb)
-                		"""
-                    for hook in forward_hooks:
-                        hook.run(sess, writer=summary_writer)
-                    if forward_hooks[-1].stop:     #if it either trains to the threshold or have NAN value, stop here
-                        break
-            else:
-                print("Loading forward model now:")
-                self.load(sess, load_forward_ckpt)
-
-            print("Training tandem model now:")
-            assign_false_op = self.train_Forward.assign(False)
-            ##Train the tandem model
-            for i in range(int(backward_step_num)):
-                sess.run([train_init_op,assign_false_op])
-                sess.run(self.tandem_optm)
-                
-                """
-                if (i%100 == 0):
-                  print("Backward_out:",sess.run(self.backward_out)[0,:])
-                  print("Forward_in",sess.run(self.forward_in)[0,:])
-                  print("Feature:",sess.run(self.features)[0,:])
-                  print("Train_bool:",sess.run(self.train_Forward))
-                """
-                for hook in tandem_hooks:
-                    hook.run(sess, writer = summary_writer)
-                if tandem_hooks[-1].stop:   			#If it either trains to threshold or have NAN appear, stop here
+            ##Train the forward model
+            for i in range(int(step_num)):
+                sess.run([train_init_op])#, assign_true_op])
+                sess.run(self.optm)
+                for hook in forward_hooks:
+                    hook.run(sess, writer=summary_writer)
+                if forward_hooks[-1].stop:     #if it either trains to the threshold or have NAN value, stop here
                     break
             self.save(sess)
 

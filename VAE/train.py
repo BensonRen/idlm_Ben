@@ -2,10 +2,10 @@ import argparse
 import tensorflow as tf
 import data_reader
 import network_helper
-import Tandem_network_maker
+import VAE_network_maker
 import model_maker
 import flag_reader
-def tandemmain(flags):
+def VAEtrainmain(flags):
     # initialize data reader
 
     geometry, spectra, train_init_op, valid_init_op = data_reader.read_data(input_size=0,
@@ -24,53 +24,31 @@ def tandemmain(flags):
         flags.geoboundary = [-1, 1, -1, 1]
 
     # make network
-    ntwk = Tandem_network_maker.TandemCnnNetwork(geometry, spectra, model_maker.tandem_model, flags.batch_size,
-                            clip=flags.clip, forward_fc_filters=flags.forward_fc_filters,
-                            backward_fc_filters=flags.backward_fc_filters,reg_scale=flags.reg_scale,
-                            learn_rate=flags.learn_rate,tconv_Fnums=flags.tconv_Fnums,
-                            tconv_dims=flags.tconv_dims,n_branch=flags.n_branch,
-                            tconv_filters=flags.tconv_filters, n_filter=flags.n_filter,
-                            decay_step=flags.decay_step, decay_rate=flags.decay_rate,
+    ntwk = VAE_network_maker.VAEnework(geometry, spectra, model_maker.VAE, flags.batch_sizei,
+                            spectra_fc_filters=flags.spectra_fc_filters, decoder_fc_filters=flags.decoder_fc_filters,
+                            encoder_fc_filters=flags.encoder_fc_filters,reg_scale=flags.reg_scale,
+                            learn_rate=flags.learn_rate, decay_step=flags.decay_step, decay_rate=flags.decay_rate,
                             boundary = flags.geoboundary)
     
     
     # define hooks for monitoring training
-    train_forward_hook = network_helper.TrainValueHook(flags.verb_step, ntwk.loss, value_name = 'forward_train_loss',
+    train_VAE_hook = network_helper.TrainValueHook(flags.verb_step, ntwk.loss, value_name = 'VAE_train_loss',
                                ckpt_dir=ntwk.ckpt_dir, write_summary=True)
-    forward_Boundary_hook = network_helper.TrainValueHook(flags.verb_step, ntwk.Boundary_loss, value_name = 'forward_Boundary_loss',
+    VAE_Boundary_hook = network_helper.TrainValueHook(flags.verb_step, ntwk.Boundary_loss, value_name = 'VAE_Boundary_loss',
                                ckpt_dir=ntwk.ckpt_dir, write_summary=True)
     #lr_hook = TrainValueHook(flags.verb_step, ntwk.learn_rate, ckpt_dir=ntwk.ckpt_dir,
     #                                        write_summary=True, value_name='learning_rate')
-    valid_forward_hook = network_helper.ValidationHook(flags.eval_step, valid_init_op, ntwk.labels, ntwk.logits,ntwk.loss,
-                                        stop_threshold = flags.stop_threshold,value_name = 'forward_test_loss', 
-																				ckpt_dir=ntwk.ckpt_dir, write_summary=True)
+    valid_VAE_hook = network_helper.ValidationHook(flags.eval_step, valid_init_op, ntwk.labels, ntwk.logits,ntwk.loss,
+                                        stop_threshold = flags.stop_threshold,value_name = 'VAE_test_loss', 
+                                        ckpt_dir=ntwk.ckpt_dir, write_summary=True)
     
-    # define hooks for monitoring training
-    train_tandem_hook = network_helper.TrainValueHook(flags.verb_step, ntwk.loss, value_name = 'tandem_train_loss',
-                               ckpt_dir=ntwk.ckpt_dir, write_summary=True)
-    tandem_Boundary_hook = network_helper.TrainValueHook(flags.verb_step, ntwk.Boundary_loss, value_name = 'tandem_Boundary_loss',
-                               ckpt_dir=ntwk.ckpt_dir, write_summary=True)
-    
-    #lr_hook = TrainValueHook(flags.verb_step, ntwk.learn_rate, ckpt_dir=ntwk.ckpt_dir,
-    #                                        write_summary=True, value_name='learning_rate')
-    valid_tandem_hook = network_helper.ValidationHook(flags.eval_step, valid_init_op, ntwk.labels, ntwk.logits,  ntwk.loss,
-                                                        stop_threshold = flags.stop_threshold, value_name = 'tandem_test_loss',
-                                			ckpt_dir=ntwk.ckpt_dir, write_summary=True)
-   
-    # train the network
-    #ntwk.train(train_init_op, flags.train_step, [train_hook, valid_hook, lr_hook], write_summary=True)
-    ntwk.train(train_init_op, flags.train_step, flags.backward_train_step, 
-	        [train_forward_hook,forward_Boundary_hook, valid_forward_hook], 
-               [train_tandem_hook,tandem_Boundary_hook, valid_tandem_hook],
-		write_summary=True, load_forward_ckpt = flags.forward_model_ckpt)
- 
 def train_from_flag(flags): 
     flag_reader.write_flags(flags)
     tf.reset_default_graph()
-    tandemmain(flags)
+    VAEtrainmain(flags)
     
 if __name__ == '__main__':
     flags = flag_reader.read_flag()
     flag_reader.write_flags(flags)
     tf.reset_default_graph()
-    tandemmain(flags)
+    VAEtrainmain(flags)
