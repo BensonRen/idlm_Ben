@@ -26,7 +26,7 @@ done
 #If the running time is less than 200 seconds (check every 180s), it must have been an error, abort
 duration=$SECONDS
 echo $duration
-if [ 200 -gt $duration ]
+if [ $duration -lt 200 ]
 then
     exit
 fi

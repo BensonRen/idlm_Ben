@@ -77,7 +77,7 @@ def MakeBoundaryLoss(Geometry_tensor, boundary):
                                   tf.math.maximum(zero, tf.math.subtract(r, r_high)) + tf.math.maximum(zero, tf.math.subtract(r_low, r) ))
     return Boundary_loss
 #The backward model part
-def my_model_backward(labels,  fc_filters,  reg_scale):
+def spectra_encoder(labels,  fc_filters,  reg_scale):
     """
     My customized model function
     :param labels: input spectrum
@@ -101,89 +101,39 @@ def my_model_backward(labels,  fc_filters,  reg_scale):
           backward_fc = tf.layers.dense(inputs=backward_fc, units=filters, activation=tf.nn.leaky_relu, name='backward_fc{}'.format(cnt),
                                kernel_initializer=tf.random_normal_initializer(stddev=0.02),
                                kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
-      backward_out = backward_fc
+      spectra_out = backward_fc
       merged_summary_op = tf.summary.merge_all()
       
     ##Take record of the variables that created
     BackCollectionName = "Backward_Model_Collection"
     for var in tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES):
       tf.add_to_collection(BackCollectionName, var)
-    print("Backward_out.shape", backward_out.shape)
-    return backward_out, merged_summary_op, BackCollectionName, BeforeBackCollectionName
+    print("spectra_out.shape", spectra_out.shape)
+    return spectra_out, merged_summary_op, BackCollectionName, BeforeBackCollectionName
 
-def my_model_fn_tens(backward_out, features, batch_size, clip,
-                   fc_filters, tconv_fNums, tconv_dims, tconv_filters,
-                   n_filter, n_branch, reg_scale, 
-                     BackCollectionName, boundary):
-    """
-    My customized model function
-    :param features: input features
-    :param output_size: dimension of output data
-    :return:
-    """
-    #Make a condition that if variable is True, train from feature
-    print("backward_out.shape", backward_out.shape)
-    print("features.shape",features.shape)
-	
-    train_Forward = tf.get_variable("train_forward",[],dtype = tf.bool,
-                                       initializer = tf.zeros_initializer(),trainable =False)
-    
-    forward_in = tf.cond(train_Forward, true_fn= lambda: features, false_fn= lambda: backward_out);
-	
-	#Make the Boundary Loss
-    Boundary_loss = MakeBoundaryLoss(forward_in, boundary)
-    
-    fc = forward_in
-    
-    #print("Backward_Out:", backward_out)
-    #print("features:", features)
-    #print("FC layer:",fc)
-    for cnt, filters in enumerate(fc_filters):
-        fc = tf.layers.dense(inputs=fc, units=filters, activation=tf.nn.leaky_relu, name='fc{}'.format(cnt),
-                             kernel_initializer=tf.random_normal_initializer(stddev=0.02),
-                             kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
-    preTconv = fc
-    tf.summary.histogram("preTconv", preTconv[0])  # select 0th element or else histogram reduces the batch
-    up = tf.expand_dims(preTconv, axis=2)
-    feature_dim = fc_filters[-1]
-    
-    last_filter = 1
-    for cnt, (up_fNum, up_size, up_filter) in enumerate(zip(tconv_fNums, tconv_dims, tconv_filters)):
-        assert up_size % feature_dim == 0, "up_size={} while feature_dim={} (cnt={})! " \
-                                        "Thus mod is {}".format(up_size, feature_dim, cnt, up_size%feature_dim)
-        stride = up_size // feature_dim
-        feature_dim = up_size
-        f = tf.Variable(tf.random_normal([up_fNum, up_filter, last_filter]))
-        up = conv1d_transpose_wrap(up, f, [batch_size, up_size, up_filter], stride, name='up{}'.format(cnt))
-        last_filter = up_filter
 
-    preconv = up
-    up = tf.layers.conv1d(preconv, 1, 1, activation=None, name='conv_final')
-    up = up[:, clip:-clip]
-    up = tf.squeeze(up, axis=2)
-    # up = tf.layers.dense(inputs=up, units=tconv_dims[-1], activation=tf.nn.leaky_relu, name='fc_final',
-    #                           kernel_initializer=tf.random_normal_initializer(stddev=0.02))
-    merged_summary_op = tf.summary.merge_all()
-    
-    ##Get a collection of variables that created in forward model
-    ForwardCollectionName = "Forward_Model_Collection"
-    for var in tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES):
-      if var not in tf.get_collection(BackCollectionName):
-        tf.add_to_collection(ForwardCollectionName, var)
-    return forward_in, up, preconv, preTconv, merged_summary_op, ForwardCollectionName, train_Forward, Boundary_loss
-  
-def tandem_model(features,labels, backward_fc,   batch_size, clip,
-                 fc_filters, tconv_fNums, tconv_dims, tconv_filters,
-                 n_filter, n_branch, reg_scale, boundary):
-    """
-    Customized tandem model which combines 2 model
-    """
-    backward_out, summary_out,BackCollectionName, BeforeBackCollectionName =\
-                          my_model_backward(labels, backward_fc, reg_scale)
-    forward_in, up, preconv, preTconv,merged_summary_op, ForwardCollectionName, train_Forward, Boundary_loss = \
-                          my_model_fn_tens(backward_out,features,batch_size, clip,
-                                            fc_filters, tconv_fNums, tconv_dims, tconv_filters,
-                                            n_filter, n_branch, reg_scale, BackCollectionName, boundary)
-    return forward_in, up, merged_summary_op, ForwardCollectionName,\
-            BackCollectionName, backward_out, train_Forward, Boundary_loss
+def Encoder(geometry, spectra_out, latent_dim, batch_size, reg_scale, encoder_fc_filters):
+    XY_pair = concatenate([geometry, spectra_out], name = 'XY_pair')
+    encoder_fc = XY_pair
+    for cnt, filters in enumerate(encoder_fc_filters):
+        encoder_fc = tf.layers.dense(inputs=encoder_fc, units=filters, activation=tf.nn.leaky_relu, name='encoder_fc{}'.format(cnt),
+                               kernel_initializer=tf.random_normal_initializer(stddev=0.02),
+                               kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
+    z_mean = tf.layers.dense(inputs = encoder_fc, units = latent_dim, activation = tf.nn.leaky_relu,
+                                name = 'z_mean',kernel_initializer = tf.random_normal_initializer(stddev=0.02),
+                                kernel_initializer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
+    z_log_var = tf.layers.dense(inputs = encoder_fc, units = latent_dim, activation = tf.nn.leaky_relu,
+                                name = 'z_log_var',kernel_initializer = tf.random_normal_initializer(stddev=0.02),
+                                kernel_initializer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
+    return z_mean, z_log_var
 
+def Decoder(z_mean, z_log_var, spectra_out, latent_dim, sampling, batch_size, reg_scale, decoder_fc_filters):
+    #First, use the reparameterization trick to push the sampling out as input
+    z = Lambda(sampling, output_shape=(latent_dim,), name = 'z')([z_mean, z_log_var])
+    decoder_fc = concatenate([z, spectra_out])
+    for cnt, filters in enumerate(decoder_fc_filters):
+        decoder_fc = tf.layers.dense(inputs=decoder_fc, units=filters, activation=tf.nn.leaky_relu, name='decoder_fc{}'.format(cnt),
+                               kernel_initializer=tf.random_normal_initializer(stddev=0.02),
+                               kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
+    decoder_out = decoder_fc
+    return decoder_out

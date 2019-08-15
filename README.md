@@ -98,12 +98,23 @@ Bug fixed / added function:
 4. Bug fixed for flag logging would fail under hyper-parameter swiping (Now store once one model is trained)
 5. Random Split for the training and testing data points
 
-Pending to work: 
-1. VAE Structure
+## 2019.08.04
 
+Bug fixed / added function:
+1. Credit to Chrisitan and Bohao added with their personal profile and url linked at README front page
+2. VAE structure sub modules: Spectra_encoder, encoder and decoder
+
+
+
+Pending to work: 
+1. VAE Connection model
+2. VAE Loss function
+3. VAE training
+4. VAE Evaluate 
+5. VAE testing code
+6. Weight monitoring in checkpoint files
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!
-Emmmm fatal error while running previously working code in train.py... Now the program would give no feedback even using kill -9......... Need to rewind to the nearest version of code and check why
 Cool you've fixed all bugs found, congrats!
 
 
