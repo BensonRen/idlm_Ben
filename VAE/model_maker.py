@@ -92,7 +92,7 @@ def spectra_encoder(labels,  fc_filters,  reg_scale):
     print("Before Backward Model there is:",tf.get_collection(BeforeBackCollectionName))
     
     ##Building the model
-    with tf.name_scope("BackwardModel"):
+    with tf.name_scope("Spectra_encoder"):
       preConv = tf.expand_dims(labels, axis=2)
       conv = tf.keras.layers.Conv1D(1, 2, strides = 2,padding = 'same',
                                     activation = None, name = 'Conv1d')(preConv)
@@ -102,14 +102,9 @@ def spectra_encoder(labels,  fc_filters,  reg_scale):
                                kernel_initializer=tf.random_normal_initializer(stddev=0.02),
                                kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
       spectra_out = backward_fc
-      merged_summary_op = tf.summary.merge_all()
       
-    ##Take record of the variables that created
-    BackCollectionName = "Backward_Model_Collection"
-    for var in tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES):
-      tf.add_to_collection(BackCollectionName, var)
     print("spectra_out.shape", spectra_out.shape)
-    return spectra_out, merged_summary_op, BackCollectionName, BeforeBackCollectionName
+    return spectra_out
 
 
 def Encoder(geometry, spectra_out, latent_dim, batch_size, reg_scale, encoder_fc_filters):
@@ -125,11 +120,11 @@ def Encoder(geometry, spectra_out, latent_dim, batch_size, reg_scale, encoder_fc
     z_log_var = tf.layers.dense(inputs = encoder_fc, units = latent_dim, activation = tf.nn.leaky_relu,
                                 name = 'z_log_var',kernel_initializer = tf.random_normal_initializer(stddev=0.02),
                                 kernel_initializer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
-    return z_mean, z_log_var
+    
+    return z_mean, z_log_var, z
 
-def Decoder(z_mean, z_log_var, spectra_out, latent_dim, sampling, batch_size, reg_scale, decoder_fc_filters):
+def Decoder(z, spectra_out,  batch_size, reg_scale, decoder_fc_filters):
     #First, use the reparameterization trick to push the sampling out as input
-    z = Lambda(sampling, output_shape=(latent_dim,), name = 'z')([z_mean, z_log_var])
     decoder_fc = concatenate([z, spectra_out])
     for cnt, filters in enumerate(decoder_fc_filters):
         decoder_fc = tf.layers.dense(inputs=decoder_fc, units=filters, activation=tf.nn.leaky_relu, name='decoder_fc{}'.format(cnt),
@@ -137,3 +132,13 @@ def Decoder(z_mean, z_log_var, spectra_out, latent_dim, sampling, batch_size, re
                                kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
     decoder_out = decoder_fc
     return decoder_out
+
+
+
+def VAE(geometry, spectra, latent_dim, sampling, batch_size, reg_scale, spectra_fc_filters,
+        encoder_fc_filters, decoder_fc_filters):
+    spectra_out = spectra_encoder(spectra, spectra_fc_filters, reg_scale)
+    z_mean, z_log_var = Encoder(geometry, spectra_out, latent_dim, batch_size, reg_scale, encoder_fc_filters)
+    z = Lambda(sampling, output_shape=(latent_dim,), name = 'z')([z_mean, z_log_var])
+    decoder_out = Decoder(z, spectra_out, batch_size, reg_scale, decoder_fc_filters)
+    return z_mean, z_log_var, decoder_out
