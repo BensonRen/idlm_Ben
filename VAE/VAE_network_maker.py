@@ -6,7 +6,7 @@ import tensorflow as tf
 import struct
 
 
-class TandemCnnNetwork(object):
+class VAENetwork(object):
     def __init__(self, features, labels, model_fn, batch_size,
                  clip=0, backward_fc_filters=(5, 10, 15),
                  forward_fc_filters=(5, 10, 15),tconv_Fnums=(4,4), tconv_dims=(60, 120, 240), 

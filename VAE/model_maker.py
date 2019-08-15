@@ -1,5 +1,8 @@
 import tensorflow as tf
 import numpy as np
+from keras import backend as K
+from keras.layers import Lambda, Input, Dense, concatenate
+
 """conv1d_tranpose function"""
 def conv1d_transpose_wrap(value,
                           filter,
@@ -26,6 +29,26 @@ def conv1d_transpose_wrap(value,
         name=name
     )
 
+# reparameterization trick
+# instead of sampling from Q(z|X), sample eps = N(0,I)
+# z = z_mean + sqrt(var)*eps
+def sampling(args):
+    """Reparameterization trick by sampling fr an isotropic unit Gaussian.
+
+    # Arguments
+        args (tensor): mean and log of variance of Q(z|X)
+
+    # Returns
+        z (tensor): sampled latent vector
+    """
+
+    z_mean, z_log_var = args
+    batch = K.shape(z_mean)[0]
+    dim = K.int_shape(z_mean)[1]
+    # by default, random_normal has mean=0 and std=1.0
+    epsilon = K.random_normal(shape=(batch, dim))
+    return z_mean + K.exp(0.5 * z_log_var) * epsilon
+ 
 def MakeBoundaryLoss(Geometry_tensor, boundary):
     """
     Make the boundary loss using boundary given
