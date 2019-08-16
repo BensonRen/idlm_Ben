@@ -115,9 +115,17 @@ Bug fixed / added function:
 
 ## 2019.08.16
 
+Problem Found:
+
+Both tandem strcuture as well as the VAE model, the testing loss is very high. After swiping through model complexity, VAE model overfitted and Tandem one just couldn't fit given a long training time.
+
+Investigation towards proper convolution that deal with spectra is the next step.
+
 Pending to work: 
+0. Investigate the convolution of back propagation
 1. VAE Evaluate 
 2. Weight monitoring in checkpoint files
+
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!
 Cool you've fixed all bugs found, congrats!
