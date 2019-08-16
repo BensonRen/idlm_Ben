@@ -41,7 +41,9 @@ def VAEtrainmain(flags):
     valid_VAE_hook = network_helper.ValidationHook(flags.eval_step, valid_init_op, ntwk.labels, ntwk.logits,ntwk.loss,
                                         stop_threshold = flags.stop_threshold,value_name = 'VAE_test_loss', 
                                         ckpt_dir=ntwk.ckpt_dir, write_summary=True)
-    
+    ntwk.train(train_init_op, flags.train_step, [train_VAE_hook, VAE_Boundary_hook, valid_VAE_hook],
+                write_summary=True)
+
 def train_from_flag(flags): 
     flag_reader.write_flags(flags)
     tf.reset_default_graph()

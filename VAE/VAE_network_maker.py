@@ -4,7 +4,7 @@ import inspect #The built-in lib of Python, inspecting the live objects
 import numpy as np
 import tensorflow as tf
 import struct
-
+from tensorflow.keras import backend as K
 
 class VAENetwork(object):
     def __init__(self, features, labels, model_fn, batch_size, latent_dim, 
@@ -52,7 +52,7 @@ class VAENetwork(object):
             os.makedirs(self.ckpt_dir)
             self.write_record()
 
-        self.logits, self.z_mean, self.z_log_var, self.boundary_loss = self.create_graph()
+        self.z_mean, self.z_log_var, self.logits, self.Boundary_loss = self.create_graph()
         #self.model = tf.keras.Model(self.features, self.logits,name = 'Backward')
         if self.labels==[]:
             print('labels list is empty')
@@ -92,13 +92,17 @@ class VAENetwork(object):
         :return: mean cross entropy loss of the batch
         """
         with tf.variable_scope('loss'):
-            loss = tf.losses.mean_squared_error(self.labels, self.logits)
+            loss = tf.losses.mean_squared_error(self.features, self.logits)
+            print("LOSS IS:" , loss)
             kl_loss = 1 + self.z_log_var - K.square(self.z_mean) - K.exp(self.z_log_var)
             kl_loss = K.sum(kl_loss, axis = -1)
+            kl_loss = K.sum(kl_loss, axis = -1) / self.batch_size 
             kl_loss *= -0.5
+            print("KL_LOSS IS:" , kl_loss)
             loss += kl_loss
             loss += tf.losses.get_regularization_loss()
             #loss += self.Boundary_loss
+            print("LOSS IS:" , loss)
             return loss
             
     def make_optimizer(self):
@@ -130,8 +134,7 @@ class VAENetwork(object):
         saver.restore(sess, latest_check_point)
         print('loaded {}'.format(latest_check_point))
 
-    def train(self, train_init_op, step_num,backward_step_num, forward_hooks, 
-              write_summary=False,load_forward_ckpt = None):
+    def train(self, train_init_op, step_num, forward_hooks, write_summary=False):
         """
         Train the model with step_num steps
         First train the forward model and then the tandem part
