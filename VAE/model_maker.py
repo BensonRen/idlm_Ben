@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
-from keras import backend as K
-from keras.layers import Lambda, Input, Dense, concatenate
+from tensorflow.keras import backend as K
+from tensorflow.keras.layers import Lambda, Input, Dense, concatenate
 
 """conv1d_tranpose function"""
 def conv1d_transpose_wrap(value,
@@ -121,7 +121,7 @@ def Encoder(geometry, spectra_out, latent_dim, batch_size, reg_scale, encoder_fc
                                 name = 'z_log_var',kernel_initializer = tf.random_normal_initializer(stddev=0.02),
                                 kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
     
-    return z_mean, z_log_var, z
+    return z_mean, z_log_var
 
 def Decoder(z, spectra_out,  batch_size, reg_scale, decoder_fc_filters):
     #First, use the reparameterization trick to push the sampling out as input
