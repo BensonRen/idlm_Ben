@@ -121,10 +121,12 @@ Both tandem strcuture as well as the VAE model, the testing loss is very high. A
 
 Investigation towards proper convolution that deal with spectra is the next step.
 
+Function Added:
+1. Tandem model backward convolution customization
+<!2. Weight monitoring in checkpoint file>
+
 Pending to work: 
-0. Investigate the convolution of back propagation
 1. VAE Evaluate 
-2. Weight monitoring in checkpoint files
 
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!
