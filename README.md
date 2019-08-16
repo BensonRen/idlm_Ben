@@ -110,14 +110,14 @@ Bug fixed / added function:
 1. VAE model Connection
 2. VAE Model maker
 3. waitnrun bug for arithmetic expression
+4. VAE Loss
+5. VAE Testing
+
+## 2019.08.16
 
 Pending to work: 
-1. VAE Connection model
-2. VAE Loss function
-3. VAE training
-4. VAE Evaluate 
-5. VAE testing code
-6. Weight monitoring in checkpoint files
+1. VAE Evaluate 
+2. Weight monitoring in checkpoint files
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!
 Cool you've fixed all bugs found, congrats!
