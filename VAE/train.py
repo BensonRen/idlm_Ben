@@ -24,11 +24,11 @@ def VAEtrainmain(flags):
         flags.geoboundary = [-1, 1, -1, 1]
 
     # make network
-    ntwk = VAE_network_maker.VAEnework(geometry, spectra, model_maker.VAE, flags.batch_sizei,
+    ntwk = VAE_network_maker.VAENetwork(geometry, spectra, model_maker.VAE, flags.batch_size, flags.latent_dim,
                             spectra_fc_filters=flags.spectra_fc_filters, decoder_fc_filters=flags.decoder_fc_filters,
                             encoder_fc_filters=flags.encoder_fc_filters,reg_scale=flags.reg_scale,
                             learn_rate=flags.learn_rate, decay_step=flags.decay_step, decay_rate=flags.decay_rate,
-                            boundary = flags.geoboundary)
+                            geoboundary = flags.geoboundary)
     
     
     # define hooks for monitoring training

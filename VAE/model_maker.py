@@ -116,10 +116,10 @@ def Encoder(geometry, spectra_out, latent_dim, batch_size, reg_scale, encoder_fc
                                kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
     z_mean = tf.layers.dense(inputs = encoder_fc, units = latent_dim, activation = tf.nn.leaky_relu,
                                 name = 'z_mean',kernel_initializer = tf.random_normal_initializer(stddev=0.02),
-                                kernel_initializer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
+                                kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
     z_log_var = tf.layers.dense(inputs = encoder_fc, units = latent_dim, activation = tf.nn.leaky_relu,
                                 name = 'z_log_var',kernel_initializer = tf.random_normal_initializer(stddev=0.02),
-                                kernel_initializer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
+                                kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
     
     return z_mean, z_log_var, z
 

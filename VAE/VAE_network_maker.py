@@ -7,7 +7,8 @@ import struct
 
 
 class VAENetwork(object):
-    def __init__(self, features, labels, model_fn, batch_size, spectra_fc_filters=(5, 10, 15), decoder_fc_filters=(5,10,15),
+    def __init__(self, features, labels, model_fn, batch_size, latent_dim, 
+                 spectra_fc_filters=(5, 10, 15), decoder_fc_filters=(5,10,15),
                  encoder_fc_filters=(5, 10, 15), reg_scale=.001, learn_rate=1e-4, decay_step=200, decay_rate=0.1,
                  ckpt_dir=os.path.join(os.path.abspath(''), 'models'), make_folder=True, geoboundary = [-1 , 1, -1, 1]):
         """

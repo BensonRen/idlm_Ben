@@ -1,15 +1,18 @@
+#!/bin/bash
+
+
 #PID=12231
 #while [ -e /proc/$PID ]
 #do
 #    echo "Process: $PID is still running" 
 #        sleep 10m
 #done
-
+#env > /temp/cron.job
 
 TIME=`date`
 PWD=`pwd`
-#COMMAND=hyperswipe.py
-COMMAND=train.py
+COMMAND=hyperswipe.py
+#COMMAND=train.py
 #COMMAND=evaluate.py
 SPACE='        '
 #SECONDS=0
@@ -22,20 +25,18 @@ do
     echo "Process: $PID is still running" 
         sleep 3m
 done
-#sleep 30s
 #If the running time is less than 200 seconds (check every 180s), it must have been an error, abort
 duration=$SECONDS
-echo $duration
-limit=20
-if (($duration < $limit)) 
+limit=0
+if (( $duration < $limit )) 
 then
     echo The program ends very shortly after its launch, probably it failed
     exit
 fi
 
-H=$(( $duration / 3600 ))
-M=$((( ($duration % 3600 )) / 60 ))
-S=$(( $duration % 60 ))
+H=$(( $duration/3600 ))
+M=$((( ($duration%3600 )) / 60 ))
+S=$(( $duration%60 ))
 #echo $H
 #echo $M
 #echo $S
@@ -55,7 +56,7 @@ CURRENTTIME=`date`
         ENDTIME: $CURRENTTIME \n
 	PWD:  $PWD\n"
         cat parameters.py
-} # | ssmtp rensimiao.ben@gmail.com
+} | ssmtp rensimiao.ben@gmail.com
 
 echo "Process $PID has finished"
 
