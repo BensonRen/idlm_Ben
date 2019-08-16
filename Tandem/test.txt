@@ -1,0 +1,28 @@
+getting data files...
+['bp35_OutMod.csv', 'bp36OutMod.csv', 'bp23_24_fix_Out.csv', 'bp27_28_fix_Out.csv', 'bp29_30_fix_Out.csv', 'bp25_OutMod.csv', 'bp26_OutMod.csv', 'bp32_OutMod.csv', 'bp28_OutMod.csv', 'bp35_36_fix_Out.csv', 'bp23_OutMod.csv', 'bp22_OutMod.csv', 'bp29_OutMod.csv', 'bp30_OutMod.csv', 'bp21_22_fix_Out.csv', 'bp27_OutMod.csv', 'bp31_OutMod.csv', 'bp21_OutMod.csv', 'bp24_OutMod.csv', 'bp25_26_fix_Out.csv', 'bp31_32_fix_Out.csv']
+Splitting training data into test set, the ratio is: 0.2
+total number of training samples is 16798
+total number of test samples is 4200 length of an input spectrum is 2001
+downsampling output curves
+length of downsampled train spectra is 300 for first, 300 for final,  set final layer size to be compatible with this number
+length of downsampled test spectra is 300,  set final layer size to be compatible with this number
+generating TF dataset
+making network now
+Before Backward Model there is: [<tf.Variable 'global_step:0' shape=() dtype=int64_ref>]
+Before convolution: Tensor("IteratorGetNext:1", shape=(32, 300), dtype=float32)
+After convolution: Tensor("BackwardModel/Squeeze:0", shape=(32, 150), dtype=float32)
+Backward_out.shape (32, 8)
+backward_out.shape (32, 8)
+features.shape (32, 8)
+Geometry_tensor_shape (32, 8)
+[[-1. -1. -1. -1.]]
+shape of h: (32, 4)
+shape of r: (32, 4)
+shape of h_low: (1, 4)
+Backward_out tensor is: Tensor("BackwardModel/backward_fc11/LeakyRelu:0", shape=(32, 8), dtype=float32)
+[<tf.Variable 'global_step:0' shape=() dtype=int64_ref>, <tf.Variable 'BackwardModel/Conv1d/kernel:0' shape=(2, 1, 1) dtype=float32>, <tf.Variable 'BackwardModel/Conv1d/bias:0' shape=(1,) dtype=float32>, <tf.Variable 'backward_fc0/kernel:0' shape=(150, 100) dtype=float32_ref>, <tf.Variable 'backward_fc0/bias:0' shape=(100,) dtype=float32_ref>, <tf.Variable 'backward_fc1/kernel:0' shape=(100, 500) dtype=float32_ref>, <tf.Variable 'backward_fc1/bias:0' shape=(500,) dtype=float32_ref>, <tf.Variable 'backward_fc2/kernel:0' shape=(500, 1000) dtype=float32_ref>, <tf.Variable 'backward_fc2/bias:0' shape=(1000,) dtype=float32_ref>, <tf.Variable 'backward_fc3/kernel:0' shape=(1000, 1000) dtype=float32_ref>, <tf.Variable 'backward_fc3/bias:0' shape=(1000,) dtype=float32_ref>, <tf.Variable 'backward_fc4/kernel:0' shape=(1000, 1000) dtype=float32_ref>, <tf.Variable 'backward_fc4/bias:0' shape=(1000,) dtype=float32_ref>, <tf.Variable 'backward_fc5/kernel:0' shape=(1000, 1000) dtype=float32_ref>, <tf.Variable 'backward_fc5/bias:0' shape=(1000,) dtype=float32_ref>, <tf.Variable 'backward_fc6/kernel:0' shape=(1000, 1000) dtype=float32_ref>, <tf.Variable 'backward_fc6/bias:0' shape=(1000,) dtype=float32_ref>, <tf.Variable 'backward_fc7/kernel:0' shape=(1000, 500) dtype=float32_ref>, <tf.Variable 'backward_fc7/bias:0' shape=(500,) dtype=float32_ref>, <tf.Variable 'backward_fc8/kernel:0' shape=(500, 500) dtype=float32_ref>, <tf.Variable 'backward_fc8/bias:0' shape=(500,) dtype=float32_ref>, <tf.Variable 'backward_fc9/kernel:0' shape=(500, 300) dtype=float32_ref>, <tf.Variable 'backward_fc9/bias:0' shape=(300,) dtype=float32_ref>, <tf.Variable 'backward_fc10/kernel:0' shape=(300, 100) dtype=float32_ref>, <tf.Variable 'backward_fc10/bias:0' shape=(100,) dtype=float32_ref>, <tf.Variable 'backward_fc11/kernel:0' shape=(100, 8) dtype=float32_ref>, <tf.Variable 'backward_fc11/bias:0' shape=(8,) dtype=float32_ref>]
+Setting the hooks now
+Start the training now
+Training forward model now:
+Step 0, loss: 2.79E-01
+Step 0, loss: 0.00E+00

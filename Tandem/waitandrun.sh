@@ -1,13 +1,12 @@
 #!/bin/bash
 
 
-#PID=12231
-#while [ -e /proc/$PID ]
-#do
-#    echo "Process: $PID is still running" 
-#        sleep 10m
-#done
-#env > /temp/cron.job
+PID=5023
+while [ -e /proc/$PID ]
+do
+    echo "Process: $PID is still running" 
+        sleep 10m
+done
 
 TIME=`date`
 PWD=`pwd`

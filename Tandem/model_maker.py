@@ -54,7 +54,7 @@ def MakeBoundaryLoss(Geometry_tensor, boundary):
                                   tf.math.maximum(zero, tf.math.subtract(r, r_high)) + tf.math.maximum(zero, tf.math.subtract(r_low, r) ))
     return Boundary_loss
 #The backward model part
-def my_model_backward(labels,  fc_filters,  reg_scale):
+def my_model_backward(labels,  fc_filters,  reg_scale, conv1d_filters, filter_channel_list ):
     """
     My customized model function
     :param labels: input spectrum
@@ -70,10 +70,18 @@ def my_model_backward(labels,  fc_filters,  reg_scale):
     
     ##Building the model
     with tf.name_scope("BackwardModel"):
+      print("Before convolution:", labels)
       preConv = tf.expand_dims(labels, axis=2)
-      conv = tf.keras.layers.Conv1D(1, 2, strides = 2,padding = 'same',
-                                    activation = None, name = 'Conv1d')(preConv)
-      backward_fc = tf.squeeze(conv, axis=2)
+      for cnt, (filters_length, filter_channels) in enumerate(zip(conv1d_filters, filter_channel_list)):
+          convf = tf.Variable(tf.random_normal([filters_length,  preConv.shape().as_list()[-1], filter_channels]))
+          preConv = tf.nn.conv1d(preConv, convf, stride = 1, padding='VALID')
+          print("At prev_conV level{} the precoV shape is {}".format(cnt, preConv.shape()))
+      #preConv = tf.expand_dims(labels, axis=2)
+      #3conv = tf.keras.layers.Conv1D(1, 2, strides = 2,padding = 'same',
+      #                              activation = None, name = 'Conv1d')(preConv)
+      #backward_fc = tf.squeeze(conv, axis=2)
+      backward_fc = preConv
+      print("After convolution:",backward_fc)
       for cnt, filters in enumerate(fc_filters):
           backward_fc = tf.layers.dense(inputs=backward_fc, units=filters, activation=tf.nn.leaky_relu, name='backward_fc{}'.format(cnt),
                                kernel_initializer=tf.random_normal_initializer(stddev=0.02),
@@ -104,17 +112,10 @@ def my_model_fn_tens(backward_out, features, batch_size, clip,
 	
     train_Forward = tf.get_variable("train_forward",[],dtype = tf.bool,
                                        initializer = tf.zeros_initializer(),trainable =False)
-    
     forward_in = tf.cond(train_Forward, true_fn= lambda: features, false_fn= lambda: backward_out);
-	
-	#Make the Boundary Loss
+    #Make the Boundary Loss
     Boundary_loss = MakeBoundaryLoss(forward_in, boundary)
-    
     fc = forward_in
-    
-    #print("Backward_Out:", backward_out)
-    #print("features:", features)
-    #print("FC layer:",fc)
     for cnt, filters in enumerate(fc_filters):
         fc = tf.layers.dense(inputs=fc, units=filters, activation=tf.nn.leaky_relu, name='fc{}'.format(cnt),
                              kernel_initializer=tf.random_normal_initializer(stddev=0.02),
@@ -151,12 +152,12 @@ def my_model_fn_tens(backward_out, features, batch_size, clip,
   
 def tandem_model(features,labels, backward_fc,   batch_size, clip,
                  fc_filters, tconv_fNums, tconv_dims, tconv_filters,
-                 n_filter, n_branch, reg_scale, boundary):
+                 n_filter, n_branch, reg_scale, boundary, conv1d_filters, filter_channel_list):
     """
     Customized tandem model which combines 2 model
     """
     backward_out, summary_out,BackCollectionName, BeforeBackCollectionName =\
-                          my_model_backward(labels, backward_fc, reg_scale)
+                          my_model_backward(labels, backward_fc, reg_scale, conv1d_filters,filter_channel_list)
     forward_in, up, preconv, preTconv,merged_summary_op, ForwardCollectionName, train_Forward, Boundary_loss = \
                           my_model_fn_tens(backward_out,features,batch_size, clip,
                                             fc_filters, tconv_fNums, tconv_dims, tconv_filters,
