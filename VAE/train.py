@@ -5,6 +5,9 @@ import network_helper
 import VAE_network_maker
 import model_maker
 import flag_reader
+import os
+import glob
+import shutil
 def VAEtrainmain(flags):
     # initialize data reader
 
@@ -43,7 +46,19 @@ def VAEtrainmain(flags):
                                         ckpt_dir=ntwk.ckpt_dir, write_summary=True)
     ntwk.train(train_init_op, flags.train_step, [train_VAE_hook, VAE_Boundary_hook, valid_VAE_hook],
                 write_summary=True)
+    
+    #Put the parameter.txt file into the latest folder from model
+    put_param_into_folder()
 
+
+
+def put_param_into_folder():
+    list_of_files = glob.glob('models/*')
+    latest_file = max(list_of_files, key = os.path.getctime)
+    print("The parameter.txt is put into folder " + latest_file)
+    destination = os.path.join(latest_file, "parameters.txt");
+    shutil.move("parameters.txt",destination)
+    
 def train_from_flag(flags): 
     flag_reader.write_flags(flags)
     tf.reset_default_graph()

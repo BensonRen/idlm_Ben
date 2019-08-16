@@ -85,12 +85,6 @@ def spectra_encoder(labels,  fc_filters,  reg_scale):
     :return:
     """
     
-    ##Record the variables before Backwardmodel is created
-    BeforeBackCollectionName = "BeforeBack_Collection"
-    for var in tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES):
-      tf.add_to_collection(BeforeBackCollectionName, var)
-    print("Before Backward Model there is:",tf.get_collection(BeforeBackCollectionName))
-    
     ##Building the model
     with tf.name_scope("Spectra_encoder"):
       preConv = tf.expand_dims(labels, axis=2)
@@ -98,7 +92,7 @@ def spectra_encoder(labels,  fc_filters,  reg_scale):
                                     activation = None, name = 'Conv1d')(preConv)
       backward_fc = tf.squeeze(conv, axis=2)
       for cnt, filters in enumerate(fc_filters):
-          backward_fc = tf.layers.dense(inputs=backward_fc, units=filters, activation=tf.nn.leaky_relu, name='backward_fc{}'.format(cnt),
+          backward_fc = tf.layers.dense(inputs=backward_fc, units=filters, activation=tf.nn.leaky_relu, name='spectra_fc{}'.format(cnt),
                                kernel_initializer=tf.random_normal_initializer(stddev=0.02),
                                kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
       spectra_out = backward_fc
