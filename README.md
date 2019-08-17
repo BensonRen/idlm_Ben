@@ -130,10 +130,10 @@ Function Added:
 <!2. Weight monitoring in checkpoint file>
 
 Pending to work: 
-1. Make summary weight system
-2. Make trace back to lowest loss Hooks
-3. Heat Map plotting (Need some thoughts)
-4. Turn off the conv1D and swipe across other architectures
+1. Make summary weight system (fc.kernel is the weight matrix, just add the histogram of that to summary, priority level: 2)
+2. Make trace back to lowest loss Hooks (pl:1)
+3. Heat Map plotting (record the lowest test loss and print to the parameter file? pl : 1)
+4. Turn off the conv1D and swipe across other architectures (pl:1)
 5. VAE Evaluate 
 
 

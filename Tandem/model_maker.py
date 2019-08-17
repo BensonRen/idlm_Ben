@@ -83,7 +83,8 @@ def my_model_backward(labels,  fc_filters,  reg_scale, conv1d_filters, filter_ch
       backward_fc = preConv
       print("After convolution:",backward_fc)
       for cnt, filters in enumerate(fc_filters):
-          backward_fc = tf.layers.dense(inputs=backward_fc, units=filters, activation=tf.nn.leaky_relu, name='backward_fc{}'.format(cnt),
+          backward_fc = tf.layers.dense(inputs=backward_fc, units=filters, activation=tf.nn.leaky_relu, 
+                                name='backward_fc{}'.format(cnt),
                                kernel_initializer=tf.random_normal_initializer(stddev=0.02),
                                kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
       backward_out = backward_fc
