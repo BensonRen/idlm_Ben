@@ -162,7 +162,7 @@ def tandem_model(features,labels, backward_fc,   batch_size, clip,
     """
     backward_out, summary_out,BackCollectionName, BeforeBackCollectionName =\
                           my_model_backward(labels, backward_fc, reg_scale, conv1d_filters,filter_channel_list)
-    forward_in, up, preconv, preTconv,merged_summary_op, ForwardCollectionName, train_Forward, Boundary_loss = \
+    forward_in, up, preconv, preTconv, merged_summary_op, ForwardCollectionName, train_Forward, Boundary_loss = \
                           my_model_fn_tens(backward_out,features,batch_size, clip,
                                             fc_filters, tconv_fNums, tconv_dims, tconv_filters,
                                             n_filter, n_branch, reg_scale, BackCollectionName, boundary)

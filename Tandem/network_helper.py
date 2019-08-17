@@ -62,7 +62,7 @@ class SummaryWritingHook(Hook):
     """
     This is a hook for writing summary periodically into the tensorboard
     """
-    def __init__(self, write_step, summary_op):
+    def __init__(self, summary_op, write_step = 3000):
         """
         :param write_step: The #steps to write to summary
         :param summary_op: The summary operation to run
@@ -72,10 +72,12 @@ class SummaryWritingHook(Hook):
         self.write_step = write_step
         self.summary_op = summary_op
     def run(self, sess, writer):
+        self.step +=1
         if (self.step % self.write_step == 0):
             summary = sess.run(self.summary_op)
             writer.add_summary(summary, self.step)
             writer.flush()
+            print("writing histograms")
 
 
 class ValidationHook(Hook):

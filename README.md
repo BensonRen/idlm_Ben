@@ -129,14 +129,16 @@ Function Added:
 5. Make trace back to lowest loss Hooks
 6. Turn off the conv1D and swipe across other architectures (pl:1)
 
+## 2019.08.17
 
-<!2. Weight monitoring in checkpoint file>
+Functions Added/ bug fixed:
+1. Weight summary system added. A new hook has been added to the network_helper.py file and auto added towards the training hooks
+2. Bug fixed and weight summary system tested
+3. Heat mapping prerequisite done by adding the best_validation_loss into the parameter.txt file
 
 Pending to work: 
-1. Make summary weight system (fc.kernel is the weight matrix, just add the histogram of that to summary, priority level: 2)
-3. Heat Map plotting (record the lowest test loss and print to the parameter file? pl : 1)
-4. Turn off the conv1D and swipe across other architectures (pl:1)
-5. VAE Evaluate 
+1. Heat Map plotting (record the lowest test loss and print to the parameter file? pl : 1)
+2. VAE Evaluate 
 
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!

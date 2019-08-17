@@ -113,4 +113,13 @@ def SpectrumComparisonNGeometryComparison(rownum, colnum, Figsize, model_name, b
     #f.colorbar(predplot)
     f.savefig('Geometry Comparison_{}'.format(model_name))
 
+def HeatMapBVL():
+    """
+    Plotting a HeatMap of the Best Validation Loss for a batch of hyperswiping thing
+    First, copy those models to a folder called "HeatMap"
+    """
+    
+
+
+
 

@@ -72,7 +72,8 @@ def get_hook_list(flags, ntwk, valid_init_op, losses, loss_names,  forward_or_ba
             hook_list.append(network_helper.TrainValueHook(flags.verb_step, loss, value_name = forward_or_backward_str + name,
                                                             ckpt_dir=ntwk.ckpt_dir, write_summary=True))
     #add a summary op hook for histograms
-    summary_op_hook = network_helper.SummaryWritingHook(flags.write_weight_step, ntwk.merged_summary_op)
+    print("Merged Summary op:", ntwk.merged_summary_op)
+    summary_op_hook = network_helper.SummaryWritingHook(ntwk.merged_summary_op, flags.write_weight_step)
     hook_list.append(summary_op_hook)
 
     #Add a validation hook at the END!! (THE end controls the stopping of the training
