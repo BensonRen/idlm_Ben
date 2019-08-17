@@ -123,10 +123,18 @@ Investigation towards proper convolution that deal with spectra is the next step
 
 Function Added:
 1. Tandem model backward convolution customization
+2. Tandem model conv1D swiping test
+3. MSE/REG/BDY loss separation summary
+4. Hook creation function where you only need to provide the loss names and the loss, it returns a list of hook to you
+
 <!2. Weight monitoring in checkpoint file>
 
 Pending to work: 
-1. VAE Evaluate 
+1. Make summary weight system
+2. Make trace back to lowest loss Hooks
+3. Heat Map plotting (Need some thoughts)
+4. Turn off the conv1D and swipe across other architectures
+5. VAE Evaluate 
 
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!

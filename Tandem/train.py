@@ -40,38 +40,34 @@ def tandemmain(flags):
     
     print("Setting the hooks now")
     # define hooks for monitoring training
-    train_forward_hook = network_helper.TrainValueHook(flags.verb_step, ntwk.loss, value_name = 'forward_train_loss',
-                               ckpt_dir=ntwk.ckpt_dir, write_summary=True)
-    forward_Boundary_hook = network_helper.TrainValueHook(flags.verb_step, ntwk.Boundary_loss, value_name = 'forward_Boundary_loss',
-                               ckpt_dir=ntwk.ckpt_dir, write_summary=True)
-    #lr_hook = TrainValueHook(flags.verb_step, ntwk.learn_rate, ckpt_dir=ntwk.ckpt_dir,
-    #                                        write_summary=True, value_name='learning_rate')
-    valid_forward_hook = network_helper.ValidationHook(flags.eval_step, valid_init_op, ntwk.labels, ntwk.logits,ntwk.loss,
-                                        stop_threshold = flags.stop_threshold,value_name = 'forward_test_loss', 
-																				ckpt_dir=ntwk.ckpt_dir, write_summary=True)
+    train_loss_hook_list = []
+    losses = [ntwk.loss, ntwk.mse_loss, ntwk.reg_loss, ntwk.bdy_loss]
+    loss_names = ['train_loss','mse_loss','regularizaiton_loss','boundary_loss']
+    #Forward detailed loss hooks, the training detail depend on input flag
+    forward_hooks = get_hook_list(flags, ntwk, losses, loss_names, 'forward', flags.detail_train_loss_forward) 
+    #Assume Tandem one always show the training detailed loss
+    tandem_hooks = get_hook_list(flags, ntwk, losses, loss_names, 'tandem', detail_train_loss = True)
     
-    # define hooks for monitoring training
-    train_tandem_hook = network_helper.TrainValueHook(flags.verb_step, ntwk.loss, value_name = 'tandem_train_loss',
-                               ckpt_dir=ntwk.ckpt_dir, write_summary=True)
-    tandem_Boundary_hook = network_helper.TrainValueHook(flags.verb_step, ntwk.Boundary_loss, value_name = 'tandem_Boundary_loss',
-                               ckpt_dir=ntwk.ckpt_dir, write_summary=True)
-    
-    #lr_hook = TrainValueHook(flags.verb_step, ntwk.learn_rate, ckpt_dir=ntwk.ckpt_dir,
-    #                                        write_summary=True, value_name='learning_rate')
-    valid_tandem_hook = network_helper.ValidationHook(flags.eval_step, valid_init_op, ntwk.labels, ntwk.logits,  ntwk.loss,
-                                                        stop_threshold = flags.stop_threshold, value_name = 'tandem_test_loss',
-                                			ckpt_dir=ntwk.ckpt_dir, write_summary=True)
-   
     # train the network
     print("Start the training now")
     #ntwk.train(train_init_op, flags.train_step, [train_hook, valid_hook, lr_hook], write_summary=True)
-    ntwk.train(train_init_op, flags.train_step, flags.backward_train_step, 
-	        [train_forward_hook,forward_Boundary_hook, valid_forward_hook], 
-               [train_tandem_hook,tandem_Boundary_hook, valid_tandem_hook],
-		write_summary=True, load_forward_ckpt = flags.forward_model_ckpt)
+    ntwk.train(train_init_op, flags.train_step, flags.backward_train_step, forward_hooks, backward_hooks,
+                write_summary=True, load_forward_ckpt = flags.forward_model_ckpt)
 
     #Put the parameter.txt file into the latest folder from model
     put_param_into_folder()
+
+def get_hook_list(flags, ntwk, losses, loss_name,  forward_or_backward_str, detail_train_loss=True):
+    hook_list = []
+    if (detail_train_loss):
+        for (loss, name) in enumerate(zip(losses, loss_names)):
+            hook_list.append(network_helper.TrainValueHook(flags.verb_step, loss, value_name = forward_or_backward_str + name,
+                                                            ckpt_dir=ntwk.ckpt_dir, write_summary=True))
+    valid_hook = network_helper.ValidationHook(flags.eval_step, valid_init_op, ntwk.labels, ntwk.logits, ntwk.mse_loss,
+                                   stop_threshold = flags.stop_threshold,value_name = forward_or_backward_str + 'test_loss',
+                                   ckpt_dir=ntwk.ckpt_dir, write_summary=True)
+    hook_list.append(valid_hook)                     #The validation hook is always in the list
+    return hook_list
 
 def put_param_into_folder():
     list_of_files = glob.glob('models/*')

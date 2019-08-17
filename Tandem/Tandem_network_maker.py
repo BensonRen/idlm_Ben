@@ -63,7 +63,7 @@ class TandemCnnNetwork(object):
         if self.labels==[]:
             print('labels list is empty')
         else:
-            self.loss = self.make_loss()
+            self.loss, self.mse_loss, self.reg_loss, self.bdy_loss = self.make_loss()
             self.optm = self.make_optimizer()
             self.tandem_optm = self.make_tandem_optimizer()
   
@@ -102,10 +102,11 @@ class TandemCnnNetwork(object):
         :return: mean cross entropy loss of the batch
         """
         with tf.variable_scope('loss'):
-            loss = tf.losses.mean_squared_error(self.labels, self.logits)
-            loss += tf.losses.get_regularization_loss()
-            loss += self.Boundary_loss
-            return loss
+            mse_loss = tf.losses.mean_squared_error(self.labels, self.logits) #reconstruction loss
+            reg_loss = tf.losses.get_regularization_loss()      #regularizaiton loss
+            bdy_loss = self.Boundary_loss                       #boundary loss
+            total_loss = mse_loss + reg_loss + bdy_loss         #Total loss
+            return total_loss, mse_loss, reg_loss, bdy_loss
             
     def make_optimizer(self):
         """
