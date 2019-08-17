@@ -62,7 +62,7 @@ class SummaryWritingHook(Hook):
     """
     This is a hook for writing summary periodically into the tensorboard
     """
-    def __init__(self, write_step, summary_op, writer):
+    def __init__(self, write_step, summary_op):
         """
         :param write_step: The #steps to write to summary
         :param summary_op: The summary operation to run
@@ -71,8 +71,7 @@ class SummaryWritingHook(Hook):
         super(SummaryWritingHook, self).__init__()
         self.write_step = write_step
         self.summary_op = summary_op
-        self.writer = writer
-    def run(self, sess):
+    def run(self, sess, writer):
         if (self.step % self.write_step == 0):
             summary = sess.run(self.summary_op)
             writer.add_summary(summary, self.step)
