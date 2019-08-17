@@ -63,10 +63,14 @@ def write_flags_and_BVE(flags, best_validation_error):
     flags_dict = vars(flags)
     flags_dict_copy = flags_dict.copy() #in order to not corrupt the original data strucutre
     flags_dict_copy['y_range'] = yrange_str
-    flags_dict_copy['best_validation_error'] = best_validation_error
-    dict_str = pprint.pformat(flags_dict_copy)
-    with open("parameters.txt","w") as log_file:
-        log_file.write(dict_str)
-	#pprint(flags_dict)
-    return dict_str
+    flags_dict_copy['best_validation_loss'] = best_validation_loss
+    #Convert the dictionary into pandas data frame which is easier to handle with and write read
+    flags_df = pd.DataFrame.from_dict(flags_dict_copy)
+    flags_df.to_csv("parameters.txt")
+
+    #dict_str = pprint.pformat(flags_dict_copy)
+    ##with open("parameters.txt","w") as log_file:
+    #    log_file.write(dict_str)
+    #pprint(flags_dict)
+    #return dict_str
 

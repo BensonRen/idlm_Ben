@@ -113,11 +113,20 @@ def SpectrumComparisonNGeometryComparison(rownum, colnum, Figsize, model_name, b
     #f.colorbar(predplot)
     f.savefig('Geometry Comparison_{}'.format(model_name))
 
-def HeatMapBVL():
+def HeatMapBVL(HeatMap_dir = 'HeatMap'):
     """
     Plotting a HeatMap of the Best Validation Loss for a batch of hyperswiping thing
     First, copy those models to a folder called "HeatMap"
-    
+    Algorithm: Loop through the directory using os.look and find the parameters.txt files that stores the 
     """
+    for subdir, dirs, files in os.walk(HeatMap_dir):
+        for file_name in files:
+             if (file_name == 'parameter.txt'):
+                file_path = os.join(subdir, file_name) #Get the file relative path from 
+                df = pd.read_csv(file_path)
 
-
+        print("dirs:",dirs)
+        print("subdir:", subdir)
+        print("files:", files)
+        #for file in files:
+        #    print("files",files)

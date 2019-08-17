@@ -195,7 +195,7 @@ class TandemCnnNetwork(object):
                     hook.run(sess, writer = summary_writer)
                 if tandem_hooks[-1].save:                       #If the hook tells to save the model, then save it
                     self.save(sess)
-                    self.best_validation_error = tandem_hooks[-1].best_validation_loss
+                    self.best_validation_loss = tandem_hooks[-1].best_validation_loss
                 if tandem_hooks[-1].stop:   			#If it either trains to threshold or have NAN appear, stop here
                     break
             #self.save(sess)
