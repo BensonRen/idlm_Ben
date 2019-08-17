@@ -13,7 +13,7 @@ class TandemCnnNetwork(object):
                  tconv_filters=(1, 1, 1),n_filter=5, n_branch=3,
                  reg_scale=.001, learn_rate=1e-4, decay_step=200, decay_rate=0.1,
                  ckpt_dir=os.path.join(os.path.abspath(''), 'models'),
-                 make_folder=True, boundary = [-1, 1, -1, 1], conv1d_filters = [240, 120, 60], conv_channel_list = [4, 2, 1]):
+                 make_folder=True, boundary = [-1, 1, -1, 1], conv1d_filters = (240, 120, 60), conv_channel_list = (4, 2, 1)):
         """
         Initialize a Network class
         :param features: input features
@@ -47,6 +47,7 @@ class TandemCnnNetwork(object):
         self.conv_channel_list = conv_channel_list
         self.reg_scale = reg_scale
         self.boundary = boundary
+        self.best_validation_loss = float("inf")
         self.global_step = tf.Variable(0, dtype=tf.int64, trainable=False, name='global_step')
         self.learn_rate = tf.train.exponential_decay(learn_rate, self.global_step,
                                                      decay_step, decay_rate, staircase=True)
@@ -200,18 +201,14 @@ class TandemCnnNetwork(object):
                 sess.run([train_init_op,assign_false_op])
                 sess.run(self.tandem_optm)
                 
-                """
-                if (i%100 == 0):
-                  print("Backward_out:",sess.run(self.backward_out)[0,:])
-                  print("Forward_in",sess.run(self.forward_in)[0,:])
-                  print("Feature:",sess.run(self.features)[0,:])
-                  print("Train_bool:",sess.run(self.train_Forward))
-                """
                 for hook in tandem_hooks:
                     hook.run(sess, writer = summary_writer)
+                if tandem_hooks[-1].save:                       #If the hook tells to save the model, then save it
+                    self.save(sess)
+                    self.best_validation_error = tandem_hooks[-1].best_validation_loss
                 if tandem_hooks[-1].stop:   			#If it either trains to threshold or have NAN appear, stop here
                     break
-            self.save(sess)
+            #self.save(sess)
 
     def evaluate(self, valid_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'data'),
                  model_name='', write_summary=False, eval_forward = False):

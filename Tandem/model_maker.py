@@ -33,7 +33,7 @@ def MakeBoundaryLoss(Geometry_tensor, boundary):
     :param boundary: 4 element numpy array representing [h_low, h_high, r_low, r_high]
     return Boundary_loss: loss that depend on the boundary loss
     """
-    tolerance = 1
+    tolerance = 0.1
     print("Geometry_tensor_shape",Geometry_tensor.shape)
     #Make constants
     print(boundary[0] * np.ones([1,4]))
@@ -71,16 +71,15 @@ def my_model_backward(labels,  fc_filters,  reg_scale, conv1d_filters, filter_ch
     ##Building the model
     with tf.name_scope("BackwardModel"):
       print("Before convolution:", labels)
-      preConv = tf.expand_dims(labels, axis=2)
+      preConv = labels
+      if conv1d_filters:            #If this is not an empty list
+          preConv = tf.expand_dims(preConv, axis=2)
+          print("Your Preconv layer is", preConv)
       for cnt, (filters_length, filter_channels) in enumerate(zip(conv1d_filters, filter_channel_list)):
-          convf = tf.Variable(tf.random_normal([filters_length,  preConv.shape().as_list()[-1], filter_channels]))
-          preConv = tf.nn.conv1d(preConv, convf, stride = 1, padding='VALID')
-          print("At prev_conV level{} the precoV shape is {}".format(cnt, preConv.shape()))
-      #preConv = tf.expand_dims(labels, axis=2)
-      #3conv = tf.keras.layers.Conv1D(1, 2, strides = 2,padding = 'same',
-      #                              activation = None, name = 'Conv1d')(preConv)
-      #backward_fc = tf.squeeze(conv, axis=2)
-      backward_fc = preConv
+          convf = tf.Variable(tf.random_normal([filters_length,  preConv.get_shape().as_list()[-1], filter_channels]))
+          preConv = tf.nn.conv1d(preConv, convf, stride = 1, padding='VALID',data_format = "NWC")
+          print("At prev_conV level{} the precoV shape is {}".format(cnt, preConv.get_shape()))
+      backward_fc = tf.squeeze(preConv)   #Remove the useless 1 dimension that was caused by the Conv
       print("After convolution:",backward_fc)
       for cnt, filters in enumerate(fc_filters):
           backward_fc = tf.layers.dense(inputs=backward_fc, units=filters, activation=tf.nn.leaky_relu, 

@@ -36,40 +36,48 @@ def tandemmain(flags):
                             tconv_dims=flags.tconv_dims,n_branch=flags.n_branch,
                             tconv_filters=flags.tconv_filters, n_filter=flags.n_filter,
                             decay_step=flags.decay_step, decay_rate=flags.decay_rate,
-                            boundary = flags.geoboundary)
+                            boundary = flags.geoboundary, conv1d_filters = flags.conv1d_filters,
+                            conv_channel_list = flags.conv_channel_list)
     
     print("Setting the hooks now")
     # define hooks for monitoring training
     train_loss_hook_list = []
     losses = [ntwk.loss, ntwk.mse_loss, ntwk.reg_loss, ntwk.bdy_loss]
-    loss_names = ['train_loss','mse_loss','regularizaiton_loss','boundary_loss']
+    loss_names = ["train_loss", "mse_loss", "regularizaiton_loss", "boundary_loss"]
     #Forward detailed loss hooks, the training detail depend on input flag
-    forward_hooks = get_hook_list(flags, ntwk, losses, loss_names, 'forward', flags.detail_train_loss_forward) 
+    forward_hooks = get_hook_list(flags, ntwk, valid_init_op, losses, loss_names, "forward_", flags.detail_train_loss_forward) 
     #Assume Tandem one always show the training detailed loss
-    tandem_hooks = get_hook_list(flags, ntwk, losses, loss_names, 'tandem', detail_train_loss = True)
+    tandem_hooks = get_hook_list(flags, ntwk, valid_init_op,  losses, loss_names, "tandem_", detail_train_loss = True)
     
     # train the network
     print("Start the training now")
     #ntwk.train(train_init_op, flags.train_step, [train_hook, valid_hook, lr_hook], write_summary=True)
-    ntwk.train(train_init_op, flags.train_step, flags.backward_train_step, forward_hooks, backward_hooks,
+    ntwk.train(train_init_op, flags.train_step, flags.backward_train_step, forward_hooks, tandem_hooks,
                 write_summary=True, load_forward_ckpt = flags.forward_model_ckpt)
 
+    #Write the flag into the current folder and move it to the models/ folder along with the best validation error
+    flag_reader.write_flags_and_BVE(flags, ntwk.best_validation_loss)
     #Put the parameter.txt file into the latest folder from model
     put_param_into_folder()
 
-def get_hook_list(flags, ntwk, losses, loss_name,  forward_or_backward_str, detail_train_loss=True):
+def get_hook_list(flags, ntwk, valid_init_op, losses, loss_names,  forward_or_backward_str, detail_train_loss=True):
     hook_list = []
     if (detail_train_loss):
-        for (loss, name) in enumerate(zip(losses, loss_names)):
+        print("Losses:", losses)
+        print("loss_name", loss_names)
+        for cnt, (loss, name) in enumerate(zip(losses, loss_names)):
+            print("forward_or_backward_str:",forward_or_backward_str)
+            print("name:", name)
+            print("loss:", loss)
             hook_list.append(network_helper.TrainValueHook(flags.verb_step, loss, value_name = forward_or_backward_str + name,
                                                             ckpt_dir=ntwk.ckpt_dir, write_summary=True))
     valid_hook = network_helper.ValidationHook(flags.eval_step, valid_init_op, ntwk.labels, ntwk.logits, ntwk.mse_loss,
-                                   stop_threshold = flags.stop_threshold,value_name = forward_or_backward_str + 'test_loss',
+                                   stop_threshold = flags.stop_threshold,value_name = forward_or_backward_str + "test_loss",
                                    ckpt_dir=ntwk.ckpt_dir, write_summary=True)
     hook_list.append(valid_hook)                     #The validation hook is always in the list
     return hook_list
 
-def put_param_into_folder():
+def put_param_into_folder():                            #Put the parameter.txt into folder and take the best validation error as well
     list_of_files = glob.glob('models/*')
     latest_file = max(list_of_files, key = os.path.getctime)
     print("The parameter.txt is put into folder " + latest_file)
@@ -77,12 +85,10 @@ def put_param_into_folder():
     shutil.move("parameters.txt",destination)
     
 def train_from_flag(flags): 
-    flag_reader.write_flags(flags)
     tf.reset_default_graph()
     tandemmain(flags)
     
 if __name__ == '__main__':
     flags = flag_reader.read_flag()
-    flag_reader.write_flags(flags)
     tf.reset_default_graph()
     tandemmain(flags)

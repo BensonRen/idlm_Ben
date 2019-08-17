@@ -126,12 +126,14 @@ Function Added:
 2. Tandem model conv1D swiping test
 3. MSE/REG/BDY loss separation summary
 4. Hook creation function where you only need to provide the loss names and the loss, it returns a list of hook to you
+5. Make trace back to lowest loss Hooks
+6. Turn off the conv1D and swipe across other architectures (pl:1)
+
 
 <!2. Weight monitoring in checkpoint file>
 
 Pending to work: 
 1. Make summary weight system (fc.kernel is the weight matrix, just add the histogram of that to summary, priority level: 2)
-2. Make trace back to lowest loss Hooks (pl:1)
 3. Heat Map plotting (record the lowest test loss and print to the parameter file? pl : 1)
 4. Turn off the conv1D and swipe across other architectures (pl:1)
 5. VAE Evaluate 

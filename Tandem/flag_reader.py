@@ -16,6 +16,8 @@ def read_flag():
                         help='dimensionality of data after each transpose convolution')
     parser.add_argument('--tconv-filters', type=tuple, default=TCONV_FILTERS,
                         help='#filters at each transpose convolution')
+    parser.add_argument('--conv1d-filters', type=tuple, default=CONV1D_FILTERS, help='#0 shape dim of each conv layer in backward model')
+    parser.add_argument('--conv-channel-list', type=tuple, default=CONV_CHANNEL_LIST ,help='number of channels in each conv layers')
     parser.add_argument('--n-filter', type=int, default=N_FILTER, help='#neurons in the tensor module'),
     parser.add_argument('--n-branch', type=int, default=N_BRANCH, help='#parallel branches in the tensor module')
     parser.add_argument('--reg-scale', type=float, default=REG_SCALE, help='#scale for regularization of dense layers')
@@ -53,13 +55,14 @@ def read_flag():
 
     return flags
 
-def write_flags(flags):
+def write_flags_and_BVE(flags, best_validation_error):
     #To avoid terrible looking shape of y_range
     yrange = flags.y_range
     yrange_str = str(yrange[0]) + ' to ' + str(yrange[-1])
     flags_dict = vars(flags)
     flags_dict_copy = flags_dict.copy() #in order to not corrupt the original data strucutre
     flags_dict_copy['y_range'] = yrange_str
+    flags_dict_copy['best_validation_error'] = best_validation_error
     dict_str = pprint.pformat(flags_dict_copy)
     with open("parameters.txt","w") as log_file:
         log_file.write(dict_str)

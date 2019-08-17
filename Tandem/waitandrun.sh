@@ -1,17 +1,17 @@
 #!/bin/bash
 
 
-PID=5023
-while [ -e /proc/$PID ]
-do
-    echo "Process: $PID is still running" 
-        sleep 10m
-done
+#PID=5023
+#while [ -e /proc/$PID ]
+#do
+#    echo "Process: $PID is still running" 
+#        sleep 10m
+#done
 
 TIME=`date`
 PWD=`pwd`
-#COMMAND=hyperswipe.py
-COMMAND=train.py
+COMMAND=hyperswipe.py
+#COMMAND=train.py
 #COMMAND=evaluate.py
 SPACE='        '
 #SECONDS=0
