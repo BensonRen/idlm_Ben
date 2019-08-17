@@ -60,7 +60,7 @@ def tandemmain(flags):
     #Put the parameter.txt file into the latest folder from model
     put_param_into_folder()
 
-def get_hook_list(flags, ntwk, valid_init_op, losses, loss_names,  forward_or_backward_str, detail_train_loss=True, summary_op):
+def get_hook_list(flags, ntwk, valid_init_op, losses, loss_names,  forward_or_backward_str, detail_train_loss=True, summary_op=None):
     hook_list = []
     if (detail_train_loss):
         print("Losses:", losses)
@@ -72,7 +72,7 @@ def get_hook_list(flags, ntwk, valid_init_op, losses, loss_names,  forward_or_ba
             hook_list.append(network_helper.TrainValueHook(flags.verb_step, loss, value_name = forward_or_backward_str + name,
                                                             ckpt_dir=ntwk.ckpt_dir, write_summary=True))
     #add a summary op hook for histograms
-    summary_op_hook = network_helper.SummaryWritingHook(flags.write_weight_step, ntwk.imerged_summary_op)
+    summary_op_hook = network_helper.SummaryWritingHook(flags.write_weight_step, ntwk.merged_summary_op)
     hook_list.append(summary_op_hook)
 
     #Add a validation hook at the END!! (THE end controls the stopping of the training

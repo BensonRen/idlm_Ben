@@ -86,7 +86,8 @@ def my_model_backward(labels,  fc_filters,  reg_scale, conv1d_filters, filter_ch
                                 name='backward_fc{}'.format(cnt),
                                kernel_initializer=tf.random_normal_initializer(stddev=0.02),
                                kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
-          tf.summary.histogram(name='backward_fc{}_weights'.format(cnt), backward_fc.kernel)
+          kernel = tf.get_default_graph().get_tensor_by_name('backward_fc{}/kernel:0'.format(cnt))
+          tf.summary.histogram('backward_fc{}_weights'.format(cnt), kernel)
       backward_out = backward_fc
       merged_summary_op = tf.summary.merge_all()
       
@@ -121,7 +122,8 @@ def my_model_fn_tens(backward_out, features, batch_size, clip,
         fc = tf.layers.dense(inputs=fc, units=filters, activation=tf.nn.leaky_relu, name='fc{}'.format(cnt),
                              kernel_initializer=tf.random_normal_initializer(stddev=0.02),
                              kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
-        tf.summary.histogram(name='forward_fc{}_weights'.format(cnt), fc.kernel)
+        kernel = tf.get_default_graph().get_tensor_by_name('fc{}/kernel:0'.format(cnt))
+        tf.summary.histogram('forward_fc{}_weights'.format(cnt), kernel)
     preTconv = fc
     tf.summary.histogram("preTconv", preTconv[0])  # select 0th element or else histogram reduces the batch
     up = tf.expand_dims(preTconv, axis=2)
