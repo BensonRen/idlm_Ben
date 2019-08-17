@@ -117,9 +117,7 @@ def HeatMapBVL():
     """
     Plotting a HeatMap of the Best Validation Loss for a batch of hyperswiping thing
     First, copy those models to a folder called "HeatMap"
-    """
     
-
-
+    """
 
 
