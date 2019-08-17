@@ -176,16 +176,6 @@ class TandemCnnNetwork(object):
                 for i in range(int(step_num)):
                     sess.run([train_init_op, assign_true_op])
                     sess.run(self.optm)
-                    """
-                    if (i%100 == 0):
-                      bo, fi, fea, tb = sess.run([self.backward_out,self.forward_in,
-                                                 self.features,self.train_Forward])
-                                                 #,feed_dict={self.train_Forward: True})
-                      print("Backward_out:",bo[0,:])
-                  		print("Forward_in",fi[0,:])
-                  		print("Feature:",fea[0,:])
-                 		 	print("Train_bool:",tb)
-                		"""
                     for hook in forward_hooks:
                         hook.run(sess, writer=summary_writer)
                     if forward_hooks[-1].stop:     #if it either trains to the threshold or have NAN value, stop here

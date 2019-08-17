@@ -58,6 +58,26 @@ class TrainValueHook(Hook):
             if self.write_summary:
                 self.train_mse_summary.log(loss_val, self.step, sess, writer)
 
+class SummaryWritingHook(Hook):
+    """
+    This is a hook for writing summary periodically into the tensorboard
+    """
+    def __init__(self, write_step, summary_op, writer):
+        """
+        :param write_step: The #steps to write to summary
+        :param summary_op: The summary operation to run
+        :param writer: write to 
+        """
+        super(SummaryWritingHook, self).__init__()
+        self.write_step = write_step
+        self.summary_op = summary_op
+        self.writer = writer
+    def run(self, sess):
+        if (self.step % self.write_step == 0):
+            summary = sess.run(self.summary_op)
+            writer.add_summary(summary, self.step)
+            writer.flush()
+
 
 class ValidationHook(Hook):
     """
