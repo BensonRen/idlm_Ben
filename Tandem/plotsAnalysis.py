@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import evaluate
+import seaborn as sns; sns.set()
 def RetrieveFeaturePredictionNMse(model_name):
     """
     Retrieve the Feature and Prediciton values and place in a np array
@@ -113,20 +114,85 @@ def SpectrumComparisonNGeometryComparison(rownum, colnum, Figsize, model_name, b
     #f.colorbar(predplot)
     f.savefig('Geometry Comparison_{}'.format(model_name))
 
-def HeatMapBVL(HeatMap_dir = 'HeatMap'):
+
+class HMpoint(object):
+    """
+    This is a HeatMap point class where each object is a point in the heat map
+    properties:
+    1. BV_loss: best_validation_loss of this run
+    2. feature_1: feature_1 value
+    3. feature_2: feature_2 value, none is there is no feature 2
+    """
+    def __init__(self, bv_loss, f1, f2 = None, f1_name = 'f1', f2_name = 'f2'):
+        self.bv_loss = bv_loss
+        self.feature_1 = f1
+        self.feature_2_= f2
+    
+    def to_dict(self):
+        return {
+            self.f1_name: self.feature_1,
+            self.f2_name: self.feature_2,
+            self.bv_loss: self.bv_loss
+        }
+
+
+def HeatMapBVL(plot_x_name, plot_y_name, save_name, HeatMap_dir = 'HeatMap',feature_1_name=None, feature_2_name=None):
     """
     Plotting a HeatMap of the Best Validation Loss for a batch of hyperswiping thing
     First, copy those models to a folder called "HeatMap"
-    Algorithm: Loop through the directory using os.look and find the parameters.txt files that stores the 
+    Algorithm: Loop through the directory using os.look and find the parameters.txt files that stores the
+    :param HeatMap_dir: The directory where the checkpoint folders containing the parameters.txt files are located
+    :param feature_1_name: The name of the first feature that you would like to plot on the feature map
+    :param feature_2_name: If you only want to draw the heatmap using 1 single dimension, just leave it as None
     """
+    #Check the data integrity 
+    if (feature_1_name == None):
+        print("Please specify the feature that you want to plot the heatmap");
+        return
+    if (feature_2_name == None):
+        print("You are plotting feature map with only one feature, plotting loss curve instead")
+
+    #Get all the parameters.txt running related data and make HMpoint objects
+    HMpoint_list = []
     for subdir, dirs, files in os.walk(HeatMap_dir):
         for file_name in files:
-             if (file_name == 'parameter.txt'):
-                file_path = os.join(subdir, file_name) #Get the file relative path from 
+             if (file_name == 'parameters.txt'):
+                file_path = os.path.join(subdir, file_name) #Get the file relative path from 
                 df = pd.read_csv(file_path)
+                HMpoint_list.append(df['best_validation_loss'],df[feature_1_name],df[feature_2_name],
+                                        feature_1_name, feature_2_name)
+        
+    #Change the feature if it is a tuple, change to length of it
+    for point in HMpoint_list:
+        assert(isinstance(point.bv_loss, float))        #make sure this is a floating number
+        if (isinstance(point.feature_1, tuple)):
+            point.feature_1 = len(point.feature_1)
+        if (isinstance(point.feature_2, tuple)):
+            point.feature_2 = len(point.feature_2)
 
-        print("dirs:",dirs)
-        print("subdir:", subdir)
-        print("files:", files)
-        #for file in files:
-        #    print("files",files)
+    #After we get the full list of HMpoint object, we can start drawing 
+    if (feature_2_name == None):
+        print("plotting 1 dimension HeatMap (which is actually a line)")
+        HMpoint_list_sorted = sorted(HMpoint_list, key = lambda x: x.feature_1)
+        #Get the 2 lists of plot
+        bv_loss_list = []
+        feature_1_list = []
+        for point in HMpoint_list:
+            bv_loss_list.append(point.bv_loss)
+            feature_1_list.append(point.feature_1)
+        print("bv_loss_list:", bv_loss_list)
+        print("feature_1_list:",feature_1_list)
+        #start plotting
+        f = plt.figure()
+        plt.plot(feature_1_list, bv_loss_list)
+        plt.xlabel(plot_x_name)
+        plt.ylabel(plot_y_name)
+        plt.savefig(save_name)
+    else: #Or this is a 2 dimension HeatMap
+        print("plotting 2 dimension HeatMap")
+        point_df = pandas.DataFrame.from_records([point.to_dict() for point in HMpoint_list])
+        point_df_pivot = point_df.pivot(feature_1_name, feature_2_name, "bv_loss")
+        f = plt.figure()
+        sns.heatmap(point_df_pivot)
+        plt.savefig(save_name)
+
