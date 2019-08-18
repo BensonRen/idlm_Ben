@@ -162,21 +162,11 @@ class BackPropCnnNetwork(object):
             print("Training forward model now:")
             
             assign_true_op = self.train_Forward.assign(True)
+            sess.run([train_init_op, assign_true_op])
             
             ##Train the forward model
             for i in range(int(step_num)):
-                sess.run([train_init_op, assign_true_op])
                 sess.run(self.optm)
-                """
-                if (i%100 == 0):
-                  bo, fi, fea, tb = sess.run([self.backward_out,self.forward_in,
-                                             self.features,self.train_Forward])
-                                             #,feed_dict={self.train_Forward: True})
-                  print("Backward_out:",bo[0,:])
-                  print("Forward_in",fi[0,:])
-                  print("Feature:",fea[0,:])
-                  print("Train_bool:",tb)
-                """
                 for hook in forward_hooks:
                     hook.run(sess, writer=summary_writer)
             
@@ -245,12 +235,37 @@ class BackPropCnnNetwork(object):
                 #print("evaluation took {} seconds".format(time.time() - start_pred))
                 #activation_summary_writer.flush()
                 #activation_summary_writer.close()
-                
-                #print("Xpred",Xpred[0,:])
-                #print("Xtruth",Xtruth[0,:])
-                #print("Ypred",Ypred[0,:])
-                #print("Ytruth",Ytruth[0,:])
             return pred_file, truth_file
+    
+    def evaluate_one(self, target_spectra, back_prop_epoch, sess, verb_step, stop_thres):
+        """
+        The function that evaluate one single given target spectra and return the results
+        :param target_spectra: The target spectra to back prop towards. Should be only 1 row
+        :param back_prop_epoch: #epochs to do the gradient descend
+        :param sess: The current session to do the back prop
+        """
+
+        #First initialize the starting points
+        RN = model_maker.initializeInBoundary(self.geometry_variable.shape, self.boundary)                #Get the random numbers
+        print("Random number within range", self.boundary)
+        assign_var_op = self.geometry_variable.assign(RN) #Assign the variable
+        sess.run([assign_var_op, train_init_op])
+
+        #Set up target output
+        target_spectra_repeat = np.repeat(target_spectra, self.batch_size, axis = 0)
+        #target_spectra_dataset = tf.data.Dataset.from_tensor_slices(target_spectra_repeat)
+        #target_spectra_dataset = target_spectra_dataset.repeat()
+        for i in range(back_prop_epoch):
+            loss_back_prop, optm_out, inferred_spectra = sess.run([self.loss, self.backprop_optm, self.logits], 
+                                                                feed_dict={self.labels: target_spectra_repeat})  
+            if (i % verb_step == 0):
+                print("Loss at inference step{} : {}".format(i,loss_back_prop))
+                if (loss_back_prop < stop_thres):
+                    print("Loss is lower than the threshold{}, inference stop".format(stop_thres)
+        #After the training stops
+        
+
+
     """
     def predict(self, pred_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'dataGrid'),
                 model_name=''):
