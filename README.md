@@ -135,13 +135,14 @@ Functions Added/ bug fixed:
 1. Weight summary system added. A new hook has been added to the network_helper.py file and auto added towards the training hooks
 2. Bug fixed and weight summary system tested
 3. Heat mapping prerequisite done by adding the best_validation_loss into the parameter.txt file
+4. HeatMap plotting Done!! The output parameter storing is changed due to accomondating to the heat map plotting scheme
 
 Pending to work: 
-1. Heat Map plotting (record the lowest test loss and print to the parameter file? pl : 1)
+1. thorough debugging of the heatmap (There is not enough data for 2D heatmap yet)
 2. VAE Evaluate 
 
-
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!
+WELL, SEGMENTATION FAULT COMING FROM HIGH CONCURENCY IS REALLY A PAIN .... STILL NOT SOLVING IT
 Cool you've fixed all bugs found, congrats!
 
 
