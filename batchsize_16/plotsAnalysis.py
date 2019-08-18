@@ -158,7 +158,7 @@ def HeatMapBVL(plot_x_name, plot_y_name, save_name, HeatMap_dir = 'HeatMap',feat
         for file_name in files:
              if (file_name == 'parameters.txt'):
                 file_path = os.path.join(subdir, file_name) #Get the file relative path from 
-                df = pd.read_csv(file_path, index_col = 0)
+                df = pd.read_csv(file_path)
                 HMpoint_list.append(df['best_validation_loss'],df[feature_1_name],df[feature_2_name],
                                         feature_1_name, feature_2_name)
         

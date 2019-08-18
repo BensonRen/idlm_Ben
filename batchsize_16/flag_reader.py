@@ -4,7 +4,6 @@ import data_reader
 import network_helper
 import model_maker
 import pprint
-import pandas as pd
 from parameters import *
 def read_flag():
     parser = argparse.ArgumentParser()
@@ -66,10 +65,8 @@ def write_flags_and_BVE(flags, best_validation_loss):
     flags_dict_copy['y_range'] = yrange_str
     flags_dict_copy['best_validation_loss'] = best_validation_loss
     #Convert the dictionary into pandas data frame which is easier to handle with and write read
-    print(flags_dict_copy)
-    flags_df = pd.DataFrame.from_dict(flags_dict_copy,orient = 'index', columns = ['value'])
-    flags_df_transpose = flags_df.transpose()
-    flags_df_transpose.to_csv("parameters.txt")
+    flags_df = pd.DataFrame.from_dict(flags_dict_copy)
+    flags_df.to_csv("parameters.txt")
 
     #dict_str = pprint.pformat(flags_dict_copy)
     ##with open("parameters.txt","w") as log_file:

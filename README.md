@@ -137,8 +137,14 @@ Functions Added/ bug fixed:
 3. Heat mapping prerequisite done by adding the best_validation_loss into the parameter.txt file
 4. HeatMap plotting Done!! The output parameter storing is changed due to accomondating to the heat map plotting scheme
 
+## 2019.08.18
+
+Functions Added/ bug fixed:
+1. Bug fixed for hyper-parameter recording system. However the mendal bug has still not yet been fixed
+2. Start large scale hyper-swiping
+
 Pending to work: 
-1. thorough debugging of the heatmap (There is not enough data for 2D heatmap yet)
+1. Backpropagation evaluation and training 
 2. VAE Evaluate 
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!
