@@ -6,4 +6,9 @@ import pandas as pd
 #df = pd.read_csv('parameters.txt', index_col = 0);
 #print(df)
 #print(df['best_validation_loss'])
-plotsAnalysis.HeatMapBVL('#backward_layer',None,'HeatMap.png',HeatMap_dir = "../swipe_NC_1000_analysis",feature_1_name = 'backward_fc_filters')
+plotsAnalysis.HeatMapBVL(plot_x_name = '#backward_layer', plot_y_name='#con_layer',
+                        title = 'Loss heatmap for # of backward and conv layers',HeatMap_dir = "../swipe_NC_1000_analysis",
+                        feature_1_name = 'backward_fc_filters', feature_2_name = 'conv1d_filters')
+#plotsAnalysis.HeatMapBVL(plot_x_name = '#backward_layer', plot_y_name='bv_loss',
+#                        title = 'HeatMap.png',HeatMap_dir = "../swipe_NC_1000_analysis",
+#                        feature_1_name = 'backward_fc_filters', feature_2_name = None)
