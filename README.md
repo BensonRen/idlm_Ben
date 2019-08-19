@@ -142,6 +142,9 @@ Functions Added/ bug fixed:
 Functions Added/ bug fixed:
 1. Bug fixed for hyper-parameter recording system. However the mendal bug has still not yet been fixed
 2. Start large scale hyper-swiping
+3. Bug fixed for plot heat map for tuple eval from str
+4. Bug fixed for best_validation_loss 
+
 
 Pending to work: 
 1. Backpropagation evaluation and training 

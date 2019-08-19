@@ -149,6 +149,7 @@ class ValidationHook(Hook):
                     print('Validation loss is lower than threshold{}, training is stopped'.format(self.stop_threshold))
                     self.stop = True
                 if loss_mean < self.best_validation_loss:       #If the loss is smaller than the best, then save this one now
+                    self.best_validation_loss = loss_mean
                     self.save = True
             self.time_cnt = time.time()
             if self.write_summary:
