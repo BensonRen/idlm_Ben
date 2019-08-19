@@ -144,7 +144,7 @@ Functions Added/ bug fixed:
 2. Start large scale hyper-swiping
 3. Bug fixed for plot heat map for tuple eval from str
 4. Bug fixed for best_validation_loss 
-
+5. Bug fixed for 2 dimension heat map drawing
 
 Pending to work: 
 1. Backpropagation evaluation and training 
