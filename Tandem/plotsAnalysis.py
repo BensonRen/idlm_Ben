@@ -1,5 +1,7 @@
 import os
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import pandas as pd
 import evaluate
@@ -126,8 +128,8 @@ class HMpoint(object):
     def __init__(self, bv_loss, f1, f2 = None, f1_name = 'f1', f2_name = 'f2'):
         self.bv_loss = bv_loss
         self.feature_1 = f1
-        self.feature_2_= f2
-    
+        self.feature_2 = f2
+        print(type(f1))
     def to_dict(self):
         return {
             self.f1_name: self.feature_1,
@@ -136,7 +138,8 @@ class HMpoint(object):
         }
 
 
-def HeatMapBVL(plot_x_name, plot_y_name, save_name, HeatMap_dir = 'HeatMap',feature_1_name=None, feature_2_name=None):
+def HeatMapBVL(plot_x_name, plot_y_name, save_name, HeatMap_dir = 'HeatMap',feature_1_name=None, feature_2_name=None,
+                heat_value_name = 'best_validation_loss'):
     """
     Plotting a HeatMap of the Best Validation Loss for a batch of hyperswiping thing
     First, copy those models to a folder called "HeatMap"
@@ -145,11 +148,13 @@ def HeatMapBVL(plot_x_name, plot_y_name, save_name, HeatMap_dir = 'HeatMap',feat
     :param feature_1_name: The name of the first feature that you would like to plot on the feature map
     :param feature_2_name: If you only want to draw the heatmap using 1 single dimension, just leave it as None
     """
+    one_dimension_flag = False          #indication flag of whether it is a 1d or 2d plot to plot
     #Check the data integrity 
     if (feature_1_name == None):
         print("Please specify the feature that you want to plot the heatmap");
         return
     if (feature_2_name == None):
+        one_dimension_flag = True
         print("You are plotting feature map with only one feature, plotting loss curve instead")
 
     #Get all the parameters.txt running related data and make HMpoint objects
@@ -159,11 +164,15 @@ def HeatMapBVL(plot_x_name, plot_y_name, save_name, HeatMap_dir = 'HeatMap',feat
              if (file_name == 'parameters.txt'):
                 file_path = os.path.join(subdir, file_name) #Get the file relative path from 
                 df = pd.read_csv(file_path, index_col = 0)
-                HMpoint_list.append(df['best_validation_loss'],df[feature_1_name],df[feature_2_name],
-                                        feature_1_name, feature_2_name)
-        
+                if (one_dimension_flag):
+                    HMpoint_list.append(HMpoint(float(df[heat_value_name][0]), eval(df[feature_1_name][0]), f1_name = feature_1_name))
+                else:
+                    HMpoint_list.append(HMpoint(float(df[heat_value_name][0]),eval(df[feature_1_name][0]),eval(df[feature_2_name][0]),
+                                        feature_1_name, feature_2_name))
     #Change the feature if it is a tuple, change to length of it
-    for point in HMpoint_list:
+    for cnt, point in enumerate(HMpoint_list):
+        print("For point {} , it has {} loss, {} for feature 1 and {} for feature 2".format(cnt, 
+                                                                point.bv_loss, point.feature_1, point.feature_2))
         assert(isinstance(point.bv_loss, float))        #make sure this is a floating number
         if (isinstance(point.feature_1, tuple)):
             point.feature_1 = len(point.feature_1)

@@ -14,7 +14,7 @@ COMMAND=hyperswipe.py
 #COMMAND=train.py
 #COMMAND=evaluate.py
 SPACE='        '
-#SECONDS=0
+SECONDS=0
 nohup python $COMMAND 1>running.log 2>running.err & 
 echo $! > pidfile.txt
 
@@ -26,7 +26,7 @@ do
 done
 #If the running time is less than 200 seconds (check every 180s), it must have been an error, abort
 duration=$SECONDS
-limit=200
+limit=2000
 if (( $duration < $limit )) 
 then
     echo The program ends very shortly after its launch, probably it failed
