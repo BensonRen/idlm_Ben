@@ -227,7 +227,7 @@ def HeatMapBVL(plot_x_name, plot_y_name, title,  save_name='HeatMap.png', HeatMa
         df_aggregate = df_aggregate.reset_index()
         print(df_aggregate)
         point_df_pivot = df_aggregate.reset_index().pivot(feature_1_name, feature_2_name, heat_value_name)
-        sns.heatmap(point_df_pivot)
+        sns.heatmap(point_df_pivot, vmin = 1.24e-3,cmap = "YlGnBu")
     plt.xlabel(plot_x_name)
     plt.ylabel(plot_y_name)
     plt.title(title)
