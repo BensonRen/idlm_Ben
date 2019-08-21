@@ -32,6 +32,11 @@ The email system used is ssmtp. You have to configure your own ssmtp settings be
 ## Cerus_config.md
 This is the configuration log that I've done to the machine Cerus. Nothing special about it just in case something goes wrong (hopefully not)
 
+## .vimrc
+The vim tool configuration file. 
+
 ## hyperswipe_1C.py
 The hyperswipe code that deals with the 1D convolution layer. To keep a record therefore stored here.
 Hyperswipe.py always changes because of the different thing that I have to swipe over. Versions would be kept a copy here.
+
+
