@@ -33,7 +33,7 @@ def MakeBoundaryLoss(Geometry_tensor, boundary):
     :param boundary: 4 element numpy array representing [h_low, h_high, r_low, r_high]
     return Boundary_loss: loss that depend on the boundary loss
     """
-    tolerance = 0.1
+    tolerance = 0
     print("Geometry_tensor_shape",Geometry_tensor.shape)
     #Make constants
     print(boundary[0] * np.ones([1,4]))
@@ -76,6 +76,7 @@ def my_model_backward(labels,  fc_filters,  reg_scale, conv1d_filters, filter_ch
           preConv = tf.expand_dims(preConv, axis=2)
           print("Your Preconv layer is", preConv)
       for cnt, (filters_length, filter_channels) in enumerate(zip(conv1d_filters, filter_channel_list)):
+          print('window Length {}, Number of Channels: {}'.format(filters_length, filter_channels))
           convf = tf.Variable(tf.random_normal([filters_length,  preConv.get_shape().as_list()[-1], filter_channels]))
           preConv = tf.nn.conv1d(preConv, convf, stride = 1, padding='VALID',data_format = "NWC")
           print("At prev_conV level{} the precoV shape is {}".format(cnt, preConv.get_shape()))

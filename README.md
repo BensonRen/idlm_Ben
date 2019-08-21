@@ -146,20 +146,30 @@ Functions Added/ bug fixed:
 4. Bug fixed for best_validation_loss 
 5. Bug fixed for 2 dimension heat map drawing
 
-## 2019.08.20
+## 2019.08.19
 
 1. Presentation made 
 2. 2D hyper swiping results anaylyzed
 3. Hyperswiping for convolution layers and backward layer number
 
-## 2019.08.21
+## 2019.08.20
 
 **Problem Found**
 When heavy optimization happens to forward model, the backward model found it very hard to find global minima...
 when Forward model is only optimized to 1e-3, tandem can reach 5e-3
 But when forward model is optimized to 7.5e-4, tandem can only reach 1.5e-2 .... This is totally unexpected but very fascinating
 
+## 2019.08.21
+
+Bug Fixed/ Funciton added:
+
+1. The Evaluation graph did not include the added t_conv and used default ones
+2. spectra comparison added to presentation slides
+3. Hyper-swiping the convolution layer to search for better results. The forward model over-optimization really harms the performance
+
+
 Pending to work: 
+1. Compare the top 3 best model Geometry space structure (Think of ways to better show the geometry manifold
 1. Backpropagation multi-initialization evaluation and training 
 2. VAE Multi-initialization evaluation 
 

@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import os
 import pandas as pd
 import train
-
+import flag_reader
 def compare_truth_pred(pred_file, truth_file):
     """
     Read truth and pred from csv files, compute their mean-absolute-error and the mean-squared-error
@@ -63,7 +63,8 @@ def evaluatemain(flags, eval_forward):
 	                        learn_rate=flags.learn_rate,tconv_Fnums=flags.tconv_Fnums,
 				tconv_dims=flags.tconv_dims,n_branch=flags.n_branch,
 			        tconv_filters=flags.tconv_filters, n_filter=flags.n_filter,
-				decay_step=flags.decay_step, decay_rate=flags.decay_rate, boundary = flags.geoboundary)
+				decay_step=flags.decay_step, decay_rate=flags.decay_rate, boundary = flags.geoboundary,
+                                conv1d_filters = flags.conv1d_filters, conv_channel_list = flags.conv_channel_list)
     # evaluate the results if the results do not exist or user force to re-run evaluation
     save_file = os.path.join(os.path.abspath(''), 'data', 'test_pred_{}.csv'.format(flags.model_name))
     if flags.force_run or (not os.path.exists(save_file)):
@@ -88,7 +89,7 @@ def evaluatemain(flags, eval_forward):
     print('Tandem (Avg MSE={:.4e})'.format(np.mean(mse)))
 
 if __name__ == '__main__':
-	flags = train.read_flag()
+	flags = flag_reader.read_flag()
 	evaluatemain(flags, eval_forward = False)
 	plotsAnalysis.SpectrumComparisonNGeometryComparison(3,2, (13,8), flags.model_name,flags.boundary)	
 

@@ -225,6 +225,8 @@ def HeatMapBVL(plot_x_name, plot_y_name, title,  save_name='HeatMap.png', HeatMa
         print("plotting 2 dimension HeatMap")
         #point_df = pd.DataFrame.from_records([point.to_dict() for point in HMpoint_list])
         df_aggregate = df_aggregate.reset_index()
+        df_aggregate.sort_values(feature_1_name, axis = 0, inplace = True)
+        df_aggregate.sort_values(feature_2_name, axis = 0, inplace = True)
         print(df_aggregate)
         point_df_pivot = df_aggregate.reset_index().pivot(feature_1_name, feature_2_name, heat_value_name)
         sns.heatmap(point_df_pivot, vmin = 1.24e-3,cmap = "YlGnBu")
