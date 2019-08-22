@@ -172,7 +172,8 @@ class BackPropCnnNetwork(object):
             
             self.save(sess)
 
-    def evaluate(self, valid_init_op, train_init_op, ckpt_dir, back_prop_ephoch = 1000, 
+    def evaluate(self, valid_init_op, train_init_op, ckpt_dir,verb_step = 500, 
+                back_prop_ephoch = 10000, stop_thres = 1e-3,
                  save_file=os.path.join(os.path.abspath(''), 'data'),
                  model_name='', write_summary=False, eval_forward = False):
         """
@@ -216,28 +217,20 @@ class BackPropCnnNetwork(object):
                 Ytruth = pd.read_csv(truth_file,header= None, delimiter= ' ')
                 h ,w = Ytruth.values.shape
                 print(h)
+            
+            #inference time
             with open(feat_file, 'a') as f1, open(pred_file, 'a') as f3: 
-                for i in range(h // 10):
-                    print("i=",i)
-                    RN = model_maker.initializeInBoundary(self.geometry_variable.shape, self.boundary)                #Get the random numbers
-                    assign_var_op = self.geometry_variable.assign(RN) #Assign the variable
-                    sess.run([assign_var_op, train_init_op])
-                    print("Ytruth.shape:",Ytruth.shape)
-                    Y_current = Ytruth.values[i*10: (i+1) * 10,:]
-                    print("Y_current:", Y_current)
-                    for j in range(back_prop_ephoch):
-                      loss_back_prop, optm_out = sess.run([self.loss,self.backprop_optm], feed_dict={self.labels: Y_current})  
-                      if (j % 100 == 0):
-                          print("Loss at inference step{} : {}".format(j,loss_back_prop))
-                    Xpred, Ypred = sess.run([self.forward_in, self.logits], feed_dict={self.labels: Y_current})
+                #First initialize the starting points
+                RN = model_maker.initializeInBoundary(self.geometry_variable.shape, self.boundary)               
+                print("Random number within range", self.boundary)
+                assign_var_op = self.geometry_variable.assign(RN) #Assign the variable
+                sess.run([assign_var_op, train_init_op])
+                for i in range(h):
+                    Xpred, Ypred = evaluate_one(Ytruth.iloc[i,:], back_prop_ephoch, sess, verb_step, stop_thres, i)
                     np.savetxt(f1, Xpred, fmt='%.3f')
                     np.savetxt(f3, Ypred, fmt='%.3f')
-                #print("evaluation took {} seconds".format(time.time() - start_pred))
-                #activation_summary_writer.flush()
-                #activation_summary_writer.close()
-            return pred_file, truth_file
     
-    def evaluate_one(self, target_spectra, back_prop_epoch, sess, verb_step, stop_thres):
+    def evaluate_one(self, target_spectra, back_prop_epoch, sess, verb_step, stop_thres, point_index):
         """
         The function that evaluate one single given target spectra and return the results
         :param target_spectra: The target spectra to back prop towards. Should be only 1 row
@@ -262,7 +255,14 @@ class BackPropCnnNetwork(object):
                 print("Loss at inference step{} : {}".format(i,loss_back_prop))
                 if (loss_back_prop < stop_thres):
                     print("Loss is lower than the threshold{}, inference stop".format(stop_thres)
-        #After the training stops
+        #Then it is time to get the best performing one
+        Xpred, Ypred = sess.run([self.forward_in, self.logits])
+        loss_list = np.linalg.norm(Ypred - target_spectra_repeat, axis = 1)
+        best_estimate_index = np.argmin(loss_list)
+        print('Best error for point {} is having absolute error of {}'.formate(point_index, loss_list[best_estimate_index]))
+        Xpred_best = Xpred[best_estimate_index,:]
+        Ypred_best = Ypred[best_estimate_index,:]
+        return Xpred_best, Ypred_best
         
 
 

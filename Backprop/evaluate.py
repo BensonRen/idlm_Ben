@@ -59,6 +59,8 @@ def evaluatemain(flags, eval_forward):
         print('Evaluating the model ...')
         pred_file, truth_file = ntwk.evaluate(valid_init_op, train_init_op,
                                               ckpt_dir=ckpt_dir,back_prop_ephoch = 5000,
+                                              stop_thres = flags.stop_threshold,
+                                              verb_step = flags.verb_step,
                                               model_name=flags.model_name,
                                               write_summary=True,
                                               eval_forward = eval_forward)

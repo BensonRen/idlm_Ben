@@ -39,7 +39,7 @@ def read_flag():
     parser.add_argument('--model-name', default=MODEL_NAME, type=str, help='name of the model')
     parser.add_argument('--data-dir', default=DATA_DIR, type=str, help='data directory')
     parser.add_argument('--normalize-input', default=NORMALIZE_INPUT, type=bool, help='whether we should normalize the input or not')
-    parser.add_argument('--stop_threshold', default=STOP_THRESHOLD, type=float, help='The threshold below which training should stop')
+    parser.add_argument('--stop-threshold', default=STOP_THRESHOLD, type=float, help='The threshold below which training should stop')
     parser.add_argument('--geoboundary', default=GEOBOUNDARY, type=tuple, help='the boundary of the geometric data')
     # parser.add_argument('--train-file', default=TRAIN_FILE, type=str, help='name of the training file')
     # parser.add_argument('--valid-file', default=VALID_FILE, type=str, help='name of the validation file')
