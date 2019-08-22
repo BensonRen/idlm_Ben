@@ -11,8 +11,8 @@
 TIME=`date`
 PWD=`pwd`
 #COMMAND=hyperswipe.py
-COMMAND=train.py
-#COMMAND=evaluate.py
+#COMMAND=train.py
+COMMAND=evaluate.py
 SPACE='        '
 SECONDS=0
 nohup python $COMMAND 1>running.log 2>running.err & 

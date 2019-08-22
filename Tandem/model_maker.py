@@ -102,7 +102,7 @@ def my_model_backward(labels,  fc_filters,  reg_scale, conv1d_filters, filter_ch
 def my_model_fn_tens(backward_out, features, batch_size, clip,
                    fc_filters, tconv_fNums, tconv_dims, tconv_filters,
                    n_filter, n_branch, reg_scale, 
-                     BackCollectionName, boundary):
+                     BackCollectionName, geoboundary):
     """
     My customized model function
     :param features: input features
@@ -117,7 +117,7 @@ def my_model_fn_tens(backward_out, features, batch_size, clip,
                                        initializer = tf.zeros_initializer(),trainable =False)
     forward_in = tf.cond(train_Forward, true_fn= lambda: features, false_fn= lambda: backward_out);
     #Make the Boundary Loss
-    Boundary_loss = MakeBoundaryLoss(forward_in, boundary)
+    Boundary_loss = MakeBoundaryLoss(forward_in, geoboundary)
     fc = forward_in
     for cnt, filters in enumerate(fc_filters):
         fc = tf.layers.dense(inputs=fc, units=filters, activation=tf.nn.leaky_relu, name='fc{}'.format(cnt),
@@ -157,7 +157,7 @@ def my_model_fn_tens(backward_out, features, batch_size, clip,
   
 def tandem_model(features,labels, backward_fc,   batch_size, clip,
                  fc_filters, tconv_fNums, tconv_dims, tconv_filters,
-                 n_filter, n_branch, reg_scale, boundary, conv1d_filters, filter_channel_list):
+                 n_filter, n_branch, reg_scale, geoboundary, conv1d_filters, filter_channel_list):
     """
     Customized tandem model which combines 2 model
     """

@@ -8,7 +8,7 @@ import Backprop_network_maker
 import os
 import glob
 import shutil
-def tandemmain(flags):
+def Backpropmain(flags):
     # initialize data reader
 
     geometry, spectra, train_init_op, valid_init_op = data_reader.read_data(input_size=0,
@@ -26,7 +26,8 @@ def tandemmain(flags):
   	#If the input is normalized, then make the boundary useless
     if flags.normalize_input:
         flags.geoboundary = [-1, 1, -1, 1]
-
+    
+    print("boundary is set at:",flags.geoboundary) 
     print("making network now")
     # make network
     ntwk = Backprop_network_maker.BackPropCnnNetwork(geometry, spectra, model_maker.back_prop_model, flags.batch_size,
@@ -89,9 +90,9 @@ def put_param_into_folder():                            #Put the parameter.txt i
     
 def train_from_flag(flags): 
     tf.reset_default_graph()
-    tandemmain(flags)
+    Backpropmain(flags)
     
 if __name__ == '__main__':
     flags = flag_reader.read_flag()
     tf.reset_default_graph()
-    tandemmain(flags)
+    Backpropmain(flags)

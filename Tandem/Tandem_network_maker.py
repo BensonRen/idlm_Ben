@@ -13,7 +13,7 @@ class TandemCnnNetwork(object):
                  tconv_filters=(1, 1, 1),n_filter=5, n_branch=3,
                  reg_scale=.001, learn_rate=1e-4, decay_step=200, decay_rate=0.1,
                  ckpt_dir=os.path.join(os.path.abspath(''), 'models'),
-                 make_folder=True, boundary = [-1, 1, -1, 1], conv1d_filters = (240, 120, 60), conv_channel_list = (4, 2, 1)):
+                 make_folder=True, geoboundary = [-1, 1, -1, 1], conv1d_filters = (240, 120, 60), conv_channel_list = (4, 2, 1)):
         """
         Initialize a Network class
         :param features: input features
@@ -46,7 +46,7 @@ class TandemCnnNetwork(object):
         self.conv1d_filters = conv1d_filters
         self.conv_channel_list = conv_channel_list
         self.reg_scale = reg_scale
-        self.boundary = boundary
+        self.geoboundary = geoboundary
         self.best_validation_loss = float("inf")
         self.global_step = tf.Variable(0, dtype=tf.int64, trainable=False, name='global_step')
         self.learn_rate = tf.train.exponential_decay(learn_rate, self.global_step,
@@ -76,7 +76,7 @@ class TandemCnnNetwork(object):
         return self.model_fn(self.features,self.labels, self.backward_fc_filters, self.batch_size, 
                              self.clip, self.forward_fc_filters, self.tconv_Fnums,
                              self.tconv_dims, self.tconv_filters,
-                             self.n_filter, self.n_branch, self.reg_scale, self.boundary,
+                             self.n_filter, self.n_branch, self.reg_scale, self.geoboundary,
                              self.conv1d_filters, self.conv_channel_list)
      
 

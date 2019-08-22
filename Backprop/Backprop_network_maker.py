@@ -12,7 +12,8 @@ class BackPropCnnNetwork(object):
                  tconv_filters=(1, 1, 1),n_filter=5, n_branch=3,
                  reg_scale=.001, learn_rate=1e-4, decay_step=200, decay_rate=0.1,
                  ckpt_dir=os.path.join(os.path.abspath(''), 'models'),
-                 make_folder=True, boundary = [30, 55, 42, 52]):
+                 make_folder=True, geoboundary = [30, 55, 42, 52]):
+                 
         """
         Initialize a Network class
         :param features: input features
@@ -38,11 +39,12 @@ class BackPropCnnNetwork(object):
         self.tconv_Fnums = tconv_Fnums
         self.tconv_dims = tconv_dims
         self.tconv_filters = tconv_filters
+        self.best_validation_loss = float("inf")
         self.n_filter = n_filter
         self.n_branch = n_branch
         self.forward_fc_filters = forward_fc_filters
         self.reg_scale = reg_scale
-        self.boundary = boundary
+        self.geoboundary = geoboundary
         self.global_step = tf.Variable(0, dtype=tf.int64, trainable=False, name='global_step')
         self.learn_rate = tf.train.exponential_decay(learn_rate, self.global_step,
                                                      decay_step, decay_rate, staircase=True)
@@ -70,7 +72,7 @@ class BackPropCnnNetwork(object):
         return self.model_fn(self.features,  self.batch_size, 
                              self.clip, self.forward_fc_filters, self.tconv_Fnums,
                              self.tconv_dims, self.tconv_filters,
-                             self.n_filter, self.n_branch, self.reg_scale, self.boundary)
+                             self.n_filter, self.n_branch, self.reg_scale, self.geoboundary)
      
 
     def write_record(self):
@@ -173,10 +175,11 @@ class BackPropCnnNetwork(object):
                     print("Feature now is:", feature[0,:])
                 for hook in forward_hooks:
                     hook.run(sess, writer=summary_writer)
+                if forward_hooks[-1].save:                       #If the hook tells to save the model, then save it
+                    self.save(sess)
+                    self.best_validation_loss = forward_hooks[-1].best_validation_loss
                 if forward_hooks[-1].stop:
                     break
-            
-            self.save(sess)
     
     def evaluate_one(self, target_spectra, back_prop_epoch, sess, verb_step, stop_thres, point_index):
         """
@@ -259,15 +262,16 @@ class BackPropCnnNetwork(object):
             #inference time
             with open(feat_file, 'a') as f1, open(pred_file, 'a') as f3: 
                 #First initialize the starting points
-                RN = model_maker.initializeInBoundary(self.geometry_variable.shape, self.boundary)               
-                print("Random number within range", self.boundary)
+                RN = model_maker.initializeInBoundary(self.geometry_variable.shape, self.geoboundary)               
+                print("Random number within range", self.geoboundary)
                 assign_var_op = self.geometry_variable.assign(RN) #Assign the variable
                 sess.run([assign_var_op, train_init_op])
                 for i in range(h):
                     Xpred, Ypred = self.evaluate_one(Ytruth.iloc[i,:], back_prop_ephoch, sess, verb_step, stop_thres, i)
                     np.savetxt(f1, Xpred, fmt='%.3f')
                     np.savetxt(f3, Ypred, fmt='%.3f')
-    
+
+            return pred_file, truth_file
 
 
     """
