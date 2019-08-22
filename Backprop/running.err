@@ -90,3 +90,13 @@ Instructions for updating:
 Use standard file APIs to check for files with this prefix.
 W0821 23:29:04.089538 140337347180288 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py:238: The name tf.summary.FileWriter is deprecated. Please use tf.compat.v1.summary.FileWriter instead.
 
+Traceback (most recent call last):
+  File "evaluate.py", line 93, in <module>
+    evaluatemain(flags, eval_forward = False)
+  File "evaluate.py", line 74, in evaluatemain
+    eval_forward = eval_forward)
+  File "/home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py", line 270, in evaluate
+    Xpred, Ypred = self.evaluate_one(Ytruth.iloc[i,:], back_prop_ephoch, sess, verb_step, stop_thres, i)
+  File "/home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py", line 210, in evaluate_one
+    print('Best error for point {} is having absolute error of {}'.formate(point_index, loss_list[best_estimate_index]))
+AttributeError: 'str' object has no attribute 'formate'

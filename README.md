@@ -167,13 +167,12 @@ Bug Fixed/ Funciton added:
 2. spectra comparison added to presentation slides
 3. Hyper-swiping the convolution layer to search for better results. The forward model over-optimization really harms the performance
 4. Back-propagation multi-initialization evaluation and picking the best from the inferance
+5. Bug fixed for confusion between boundary and geoboundary, should be using geoboundary 
 
 
 Pending to work: 
 1. Compare the top 3 best model Geome
 2. VAE Multi-initialization evaluation 
-3. Bugs found in the backpropagation code that cause the program to shut down amid training
-
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!
 WELL, SEGMENTATION FAULT COMING FROM HIGH CONCURENCY IS REALLY A PAIN .... STILL NOT SOLVING IT
