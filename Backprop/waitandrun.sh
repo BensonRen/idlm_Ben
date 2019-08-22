@@ -26,7 +26,7 @@ do
 done
 #If the running time is less than 200 seconds (check every 180s), it must have been an error, abort
 duration=$SECONDS
-limit=2000
+limit=200
 if (( $duration < $limit )) 
 then
     echo The program ends very shortly after its launch, probably it failed

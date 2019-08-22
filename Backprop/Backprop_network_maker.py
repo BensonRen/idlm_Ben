@@ -202,12 +202,15 @@ class BackPropCnnNetwork(object):
                 print("Loss at inference step{} : {}".format(i,loss_back_prop))
                 if (loss_back_prop < stop_thres):
                     print("Loss is lower than the threshold{}, inference stop".format(stop_thres))
-
+                    break
         #Then it is time to get the best performing one
-        Xpred, Ypred = sess.run([self.forward_in, self.logits])
-        loss_list = np.linalg.norm(Ypred - target_spectra_repeat, axis = 1)
+        Xpred, Ypred, loss = sess.run([self.forward_in, self.logits, self.loss], feed_dict={self.labels: target_spectra_repeat})
+        loss_list = np.sum(np.square(Ypred - target_spectra_repeat), axis = 1) / self.batch_size
         best_estimate_index = np.argmin(loss_list)
-        print('Best error for point {} is having absolute error of {}'.formate(point_index, loss_list[best_estimate_index]))
+        print('best error is {}, in best estimate-indx is {}, squared loss is {}'.format(min(loss_list), 
+                                                                                              loss_list[best_estimate_index],
+                                                                                              loss))
+        print('Best error for point {} is having absolute error of {}'.format(point_index, loss_list[best_estimate_index]))
         Xpred_best = Xpred[best_estimate_index,:]
         Ypred_best = Ypred[best_estimate_index,:]
         return Xpred_best, Ypred_best
