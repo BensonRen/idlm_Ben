@@ -1,30 +1,30 @@
 WARNING: Logging before flag parsing goes to stderr.
-W0812 13:01:36.045906 140371155150592 deprecation_wrapper.py:119] From /home/edal/anaconda3/lib/python3.7/site-packages/tfplot/figure.py:18: The name tf.Summary is deprecated. Please use tf.compat.v1.Summary instead.
+W0821 22:48:19.008476 139945788806912 deprecation_wrapper.py:119] From /home/edal/anaconda3/lib/python3.7/site-packages/tfplot/figure.py:18: The name tf.Summary is deprecated. Please use tf.compat.v1.Summary instead.
 
-W0812 13:01:36.052883 140371155150592 deprecation_wrapper.py:119] From train.py:56: The name tf.reset_default_graph is deprecated. Please use tf.compat.v1.reset_default_graph instead.
+W0821 22:48:19.011718 139945788806912 deprecation_wrapper.py:119] From train.py:96: The name tf.reset_default_graph is deprecated. Please use tf.compat.v1.reset_default_graph instead.
 
-W0812 13:01:51.982149 140371155150592 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/data_reader.py:237: The name tf.data.Iterator is deprecated. Please use tf.compat.v1.data.Iterator instead.
+W0821 22:48:29.813212 139945788806912 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/data_reader.py:244: The name tf.data.Iterator is deprecated. Please use tf.compat.v1.data.Iterator instead.
 
-W0812 13:01:51.982331 140371155150592 deprecation.py:323] From /home/edal/Documents/Ben/idlm_Ben/Backprop/data_reader.py:237: DatasetV1.output_types (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+W0821 22:48:29.813383 139945788806912 deprecation.py:323] From /home/edal/Documents/Ben/idlm_Ben/Backprop/data_reader.py:244: DatasetV1.output_types (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
 Instructions for updating:
 Use `tf.compat.v1.data.get_output_types(dataset)`.
-W0812 13:01:51.982492 140371155150592 deprecation.py:323] From /home/edal/Documents/Ben/idlm_Ben/Backprop/data_reader.py:237: DatasetV1.output_shapes (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+W0821 22:48:29.813492 139945788806912 deprecation.py:323] From /home/edal/Documents/Ben/idlm_Ben/Backprop/data_reader.py:244: DatasetV1.output_shapes (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
 Instructions for updating:
 Use `tf.compat.v1.data.get_output_shapes(dataset)`.
-W0812 13:01:51.986490 140371155150592 deprecation.py:323] From /home/edal/anaconda3/lib/python3.7/site-packages/tensorflow/python/data/ops/iterator_ops.py:348: Iterator.output_types (from tensorflow.python.data.ops.iterator_ops) is deprecated and will be removed in a future version.
+W0821 22:48:29.816179 139945788806912 deprecation.py:323] From /home/edal/anaconda3/lib/python3.7/site-packages/tensorflow/python/data/ops/iterator_ops.py:348: Iterator.output_types (from tensorflow.python.data.ops.iterator_ops) is deprecated and will be removed in a future version.
 Instructions for updating:
 Use `tf.compat.v1.data.get_output_types(iterator)`.
-W0812 13:01:51.987282 140371155150592 deprecation.py:323] From /home/edal/anaconda3/lib/python3.7/site-packages/tensorflow/python/data/ops/iterator_ops.py:349: Iterator.output_shapes (from tensorflow.python.data.ops.iterator_ops) is deprecated and will be removed in a future version.
+W0821 22:48:29.816323 139945788806912 deprecation.py:323] From /home/edal/anaconda3/lib/python3.7/site-packages/tensorflow/python/data/ops/iterator_ops.py:349: Iterator.output_shapes (from tensorflow.python.data.ops.iterator_ops) is deprecated and will be removed in a future version.
 Instructions for updating:
 Use `tf.compat.v1.data.get_output_shapes(iterator)`.
-W0812 13:01:51.987529 140371155150592 deprecation.py:323] From /home/edal/anaconda3/lib/python3.7/site-packages/tensorflow/python/data/ops/iterator_ops.py:351: Iterator.output_classes (from tensorflow.python.data.ops.iterator_ops) is deprecated and will be removed in a future version.
+W0821 22:48:29.816375 139945788806912 deprecation.py:323] From /home/edal/anaconda3/lib/python3.7/site-packages/tensorflow/python/data/ops/iterator_ops.py:351: Iterator.output_classes (from tensorflow.python.data.ops.iterator_ops) is deprecated and will be removed in a future version.
 Instructions for updating:
 Use `tf.compat.v1.data.get_output_classes(iterator)`.
-W0812 13:01:52.007835 140371155150592 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py:47: The name tf.train.exponential_decay is deprecated. Please use tf.compat.v1.train.exponential_decay instead.
+W0821 22:48:29.827618 139945788806912 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py:47: The name tf.train.exponential_decay is deprecated. Please use tf.compat.v1.train.exponential_decay instead.
 
-W0812 13:01:52.032591 140371155150592 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/model_maker.py:66: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.
+W0821 22:48:29.841263 139945788806912 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/model_maker.py:66: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.
 
-W0812 13:01:53.251740 140371155150592 lazy_loader.py:50] 
+W0821 22:48:30.472729 139945788806912 lazy_loader.py:50] 
 The TensorFlow contrib module will not be included in TensorFlow 2.0.
 For more information, please see:
   * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
@@ -32,56 +32,58 @@ For more information, please see:
   * https://github.com/tensorflow/io (for I/O related ops)
 If you depend on functionality not listed there, please file an issue.
 
-W0812 13:01:53.252581 140371155150592 deprecation.py:323] From /home/edal/Documents/Ben/idlm_Ben/Backprop/model_maker.py:86: dense (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+W0821 22:48:30.472973 139945788806912 deprecation.py:323] From /home/edal/Documents/Ben/idlm_Ben/Backprop/model_maker.py:86: dense (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
 Instructions for updating:
 Use keras.layers.dense instead.
-W0812 13:01:53.936567 140371155150592 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/model_maker.py:88: The name tf.summary.histogram is deprecated. Please use tf.compat.v1.summary.histogram instead.
+W0821 22:48:30.818440 139945788806912 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/model_maker.py:88: The name tf.summary.histogram is deprecated. Please use tf.compat.v1.summary.histogram instead.
 
-W0812 13:01:53.948410 140371155150592 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/model_maker.py:98: The name tf.random_normal is deprecated. Please use tf.random.normal instead.
+W0821 22:48:30.822938 139945788806912 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/model_maker.py:98: The name tf.random_normal is deprecated. Please use tf.random.normal instead.
 
-W0812 13:01:54.078314 140371155150592 deprecation.py:323] From /home/edal/Documents/Ben/idlm_Ben/Backprop/model_maker.py:103: conv1d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+W0821 22:48:30.879436 139945788806912 deprecation.py:323] From /home/edal/Documents/Ben/idlm_Ben/Backprop/model_maker.py:103: conv1d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
 Instructions for updating:
 Use `tf.keras.layers.Conv1D` instead.
-W0812 13:01:54.079982 140371155150592 deprecation.py:506] From /home/edal/anaconda3/lib/python3.7/site-packages/tensorflow/python/ops/init_ops.py:1251: calling VarianceScaling.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+W0821 22:48:30.881140 139945788806912 deprecation.py:506] From /home/edal/anaconda3/lib/python3.7/site-packages/tensorflow/python/ops/init_ops.py:1251: calling VarianceScaling.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
 Instructions for updating:
 Call initializer instance with the dtype argument instead of passing it to the constructor
-W0812 13:01:54.244781 140371155150592 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/model_maker.py:108: The name tf.summary.merge_all is deprecated. Please use tf.compat.v1.summary.merge_all instead.
+W0821 22:48:30.970895 139945788806912 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/model_maker.py:108: The name tf.summary.merge_all is deprecated. Please use tf.compat.v1.summary.merge_all instead.
 
-W0812 13:01:54.246727 140371155150592 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py:98: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+W0821 22:48:30.971762 139945788806912 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py:98: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
 
-W0812 13:01:54.246959 140371155150592 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py:99: The name tf.losses.mean_squared_error is deprecated. Please use tf.compat.v1.losses.mean_squared_error instead.
+W0821 22:48:30.972064 139945788806912 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py:99: The name tf.losses.mean_squared_error is deprecated. Please use tf.compat.v1.losses.mean_squared_error instead.
 
-W0812 13:01:54.255556 140371155150592 deprecation.py:323] From /home/edal/anaconda3/lib/python3.7/site-packages/tensorflow/python/ops/losses/losses_impl.py:121: add_dispatch_support.<locals>.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+W0821 22:48:30.980965 139945788806912 deprecation.py:323] From /home/edal/anaconda3/lib/python3.7/site-packages/tensorflow/python/ops/losses/losses_impl.py:121: add_dispatch_support.<locals>.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
 Instructions for updating:
 Use tf.where in 2.0, which has the same broadcast rule as np.where
-W0812 13:01:54.283381 140371155150592 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py:100: The name tf.losses.get_regularization_loss is deprecated. Please use tf.compat.v1.losses.get_regularization_loss instead.
+W0821 22:48:30.988766 139945788806912 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py:100: The name tf.losses.get_regularization_loss is deprecated. Please use tf.compat.v1.losses.get_regularization_loss instead.
 
-W0812 13:01:54.289632 140371155150592 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py:109: The name tf.train.AdamOptimizer is deprecated. Please use tf.compat.v1.train.AdamOptimizer instead.
+W0821 22:48:30.991024 139945788806912 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py:110: The name tf.train.AdamOptimizer is deprecated. Please use tf.compat.v1.train.AdamOptimizer instead.
 
-W0812 13:01:56.267068 140371155150592 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/network_helper.py:154: The name tf.summary.scalar is deprecated. Please use tf.compat.v1.summary.scalar instead.
+W0821 22:48:31.830787 139945788806912 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/network_helper.py:183: The name tf.summary.scalar is deprecated. Please use tf.compat.v1.summary.scalar instead.
 
-2019-08-12 13:01:56.274365: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcuda.so.1
-2019-08-12 13:01:56.282862: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 0 with properties: 
+2019-08-21 22:48:31.839342: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcuda.so.1
+2019-08-21 22:48:31.852177: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 0 with properties: 
 name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
 pciBusID: 0000:1a:00.0
-2019-08-12 13:01:56.283509: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Could not dlopen library 'libcudart.so.10.0'; dlerror: libcudart.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-9.0/lib64
-2019-08-12 13:01:56.284047: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Could not dlopen library 'libcublas.so.10.0'; dlerror: libcublas.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-9.0/lib64
-2019-08-12 13:01:56.284309: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Could not dlopen library 'libcufft.so.10.0'; dlerror: libcufft.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-9.0/lib64
-2019-08-12 13:01:56.284397: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Could not dlopen library 'libcurand.so.10.0'; dlerror: libcurand.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-9.0/lib64
-2019-08-12 13:01:56.284480: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Could not dlopen library 'libcusolver.so.10.0'; dlerror: libcusolver.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-9.0/lib64
-2019-08-12 13:01:56.284599: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Could not dlopen library 'libcusparse.so.10.0'; dlerror: libcusparse.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-9.0/lib64
-2019-08-12 13:01:56.291343: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudnn.so.7
-2019-08-12 13:01:56.291497: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1663] Cannot dlopen some GPU libraries. Skipping registering GPU devices...
-2019-08-12 13:01:56.292590: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2019-08-12 13:01:56.325354: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2900000000 Hz
-2019-08-12 13:01:56.326673: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55a550f9fe90 executing computations on platform Host. Devices:
-2019-08-12 13:01:56.326800: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
-2019-08-12 13:01:56.329055: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1181] Device interconnect StreamExecutor with strength 1 edge matrix:
-2019-08-12 13:01:56.329124: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1187]      
-2019-08-12 13:01:56.550434: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55a550ffe7d0 executing computations on platform CUDA. Devices:
-2019-08-12 13:01:56.550468: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): GeForce GTX 1080 Ti, Compute Capability 6.1
-2019-08-12 13:01:57.281135: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1412] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
-W0812 13:01:57.362096 140371155150592 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py:158: The name tf.summary.FileWriter is deprecated. Please use tf.compat.v1.summary.FileWriter instead.
-
-W0812 13:11:39.649867 140113753487104 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py:126: The name tf.train.Saver is deprecated. Please use tf.compat.v1.train.Saver instead.
+2019-08-21 22:48:31.853064: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1640] Found device 1 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.582
+pciBusID: 0000:68:00.0
+2019-08-21 22:48:31.853178: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Could not dlopen library 'libcudart.so.10.0'; dlerror: libcudart.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-9.0/lib64
+2019-08-21 22:48:31.853229: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Could not dlopen library 'libcublas.so.10.0'; dlerror: libcublas.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-9.0/lib64
+2019-08-21 22:48:31.853271: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Could not dlopen library 'libcufft.so.10.0'; dlerror: libcufft.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-9.0/lib64
+2019-08-21 22:48:31.853311: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Could not dlopen library 'libcurand.so.10.0'; dlerror: libcurand.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-9.0/lib64
+2019-08-21 22:48:31.853362: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Could not dlopen library 'libcusolver.so.10.0'; dlerror: libcusolver.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-9.0/lib64
+2019-08-21 22:48:31.853410: I tensorflow/stream_executor/platform/default/dso_loader.cc:53] Could not dlopen library 'libcusparse.so.10.0'; dlerror: libcusparse.so.10.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-9.0/lib64
+2019-08-21 22:48:31.855992: I tensorflow/stream_executor/platform/default/dso_loader.cc:42] Successfully opened dynamic library libcudnn.so.7
+2019-08-21 22:48:31.856027: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1663] Cannot dlopen some GPU libraries. Skipping registering GPU devices...
+2019-08-21 22:48:31.856400: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2019-08-21 22:48:31.886667: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2900000000 Hz
+2019-08-21 22:48:31.888619: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55b4bc70ed40 executing computations on platform Host. Devices:
+2019-08-21 22:48:31.888685: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
+2019-08-21 22:48:31.888804: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1181] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-08-21 22:48:31.888815: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1187]      
+2019-08-21 22:48:32.214071: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55b4bc76d680 executing computations on platform CUDA. Devices:
+2019-08-21 22:48:32.214140: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): GeForce GTX 1080 Ti, Compute Capability 6.1
+2019-08-21 22:48:32.214149: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (1): GeForce GTX 1080 Ti, Compute Capability 6.1
+2019-08-21 22:48:32.537888: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1412] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+W0821 22:48:32.577436 139945788806912 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py:159: The name tf.summary.FileWriter is deprecated. Please use tf.compat.v1.summary.FileWriter instead.
 

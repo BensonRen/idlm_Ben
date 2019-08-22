@@ -37,6 +37,7 @@ class TrainValueHook(Hook):
         self.verb_step = verb_step
         self.loss = loss
         self.write_summary = write_summary
+        self.name = value_name
         if self.write_summary:
             assert ckpt_dir is not None
             self.train_mse_summary = HookValueSummary(value_name)
@@ -53,9 +54,30 @@ class TrainValueHook(Hook):
         if self.step % self.verb_step == 0:
             loss_val = sess.run(self.loss)
             if self.verb:
-                print('Step {}, loss: {:.2E}'.format(self.step, loss_val))
+                print('Step {},{}  loss: {:.2E}'.format(self.step, self.name, loss_val))
             if self.write_summary:
                 self.train_mse_summary.log(loss_val, self.step, sess, writer)
+
+class SummaryWritingHook(Hook):
+    """
+    This is a hook for writing summary periodically into the tensorboard
+    """
+    def __init__(self, summary_op, write_step = 3000):
+        """
+        :param write_step: The #steps to write to summary
+        :param summary_op: The summary operation to run
+        :param writer: write to 
+        """
+        super(SummaryWritingHook, self).__init__()
+        self.write_step = write_step
+        self.summary_op = summary_op
+    def run(self, sess, writer):
+        self.step +=1
+        if (self.step % self.write_step == 0):
+            summary = sess.run(self.summary_op)
+            writer.add_summary(summary, self.step)
+            writer.flush()
+            print("writing histograms")
 
 
 class ValidationHook(Hook):
@@ -63,7 +85,7 @@ class ValidationHook(Hook):
     This hook monitors performance on the validation set
     """
     def __init__(self, valid_step, valid_init_op, truth, pred, loss, stop_threshold, value_name = 'valid_mse', ckpt_dir=None, 
-                 write_summary=False, curve_num=6):
+                 write_summary=False, curve_num=6, low_validation_loss = 0.03):
         """
         Initialize the hook
         :param valid_step: # steps between evaluations
@@ -74,8 +96,8 @@ class ValidationHook(Hook):
         :param ckpt_dir: ckpt_dir: checkpoint directory, only use it if write_summary is True
         :param write_summary: log summary or not
         :param curve_num: #curve plots in validation images
-				:param stop_threshold: The Loss threshold to stop the algorithm
-				:param stop: Boolean value to stop the training
+	:param stop_threshold: The Loss threshold to stop the algorithm
+	:param stop: Boolean value to stop the training
         """
         super(ValidationHook, self).__init__()
         self.valid_step = valid_step
@@ -86,7 +108,9 @@ class ValidationHook(Hook):
         self.write_summary = write_summary
         self.curve_num = curve_num
         self.stop_threshold = stop_threshold
+        self.best_validation_loss = low_validation_loss #initialize the best validation to a low validation loss
         self.stop = False
+        self.save = False               #Whether save the session in this epoch
         if self.write_summary:
             assert ckpt_dir is not None
             self.valid_mse_summary = HookValueSummary(value_name)
@@ -103,6 +127,7 @@ class ValidationHook(Hook):
         :return:
         """
         self.step += 1
+        self.save = False
         if self.step % self.valid_step == 0 and self.step != 0:
             sess.run(self.valid_init_op)
             loss_val = []
@@ -116,12 +141,16 @@ class ValidationHook(Hook):
             loss_mean = np.mean(loss_val)
             print('Eval @ Step {}, loss: {:.2E}, duration {:.3f}s'.\
                   format(self.step, loss_mean, time.time()-self.time_cnt))
-            if loss_mean < self.stop_threshold:
-                print('Validation loss is lower than threshold{}, training is stopped'.format(self.stop_threshold))
-                self.stop = True
-            if math.isnan(loss_mean):
+            if math.isnan(loss_mean):   #If the loss is NAN, then Stop
                 print("The validation loss is NAN, please adjust (Lower) your learning rate and retrain. Aborting now")
                 self.stop  = True
+            else:                       #If the loss is not NAN
+                if loss_mean < self.stop_threshold:
+                    print('Validation loss is lower than threshold{}, training is stopped'.format(self.stop_threshold))
+                    self.stop = True
+                if loss_mean < self.best_validation_loss:       #If the loss is smaller than the best, then save this one now
+                    self.best_validation_loss = loss_mean
+                    self.save = True
             self.time_cnt = time.time()
             if self.write_summary:
                 self.valid_mse_summary.log(loss_mean, self.step, sess, writer)

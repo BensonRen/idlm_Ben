@@ -58,7 +58,7 @@ class BackPropCnnNetwork(object):
         if self.labels==[]:
             print('labels list is empty')
         else:
-            self.loss = self.make_loss()
+            self.loss, self.mse_loss, self.reg_loss, self.bdy_loss = self.make_loss()
             self.optm = self.make_optimizer()
             self.backprop_optm = self.make_backprop_optimizer()
   
@@ -96,10 +96,11 @@ class BackPropCnnNetwork(object):
         :return: mean cross entropy loss of the batch
         """
         with tf.variable_scope('loss'):
-            loss = tf.losses.mean_squared_error(self.labels, self.logits)
-            loss += tf.losses.get_regularization_loss()
-            loss += self.Boundary_loss
-            return loss
+            mse_loss = tf.losses.mean_squared_error(self.labels, self.logits) #reconstruction loss
+            reg_loss = tf.losses.get_regularization_loss()      #regularizaiton loss
+            bdy_loss = self.Boundary_loss                       #boundary loss
+            total_loss = mse_loss + reg_loss + bdy_loss         #Total loss
+            return total_loss, mse_loss, reg_loss, bdy_loss
             
     def make_optimizer(self):
         """
@@ -166,11 +167,48 @@ class BackPropCnnNetwork(object):
             
             ##Train the forward model
             for i in range(int(step_num)):
-                sess.run(self.optm)
+                sess.run([train_init_op, assign_true_op])
+                [feature, optm_out] = sess.run([self.features ,self.optm])
+                if (i % 500 == 0):
+                    print("Feature now is:", feature[0,:])
                 for hook in forward_hooks:
                     hook.run(sess, writer=summary_writer)
+                if forward_hooks[-1].stop:
+                    break
             
             self.save(sess)
+    
+    def evaluate_one(self, target_spectra, back_prop_epoch, sess, verb_step, stop_thres, point_index):
+        """
+        The function that evaluate one single given target spectra and return the results
+        :param target_spectra: The target spectra to back prop towards. Should be only 1 row
+        :param back_prop_epoch: #epochs to do the gradient descend
+        :param sess: The current session to do the back prop
+        """
+
+        #Set up target output
+        print("shape before repeat",np.shape(target_spectra.values))
+        target_spectra_repeat = np.repeat(np.reshape(target_spectra.values,(1,-1)), self.batch_size, axis = 0)
+        print("Size of the target spectra repeat", np.shape(target_spectra_repeat))
+        #target_spectra_dataset = tf.data.Dataset.from_tensor_slices(target_spectra_repeat)
+        #target_spectra_dataset = target_spectra_dataset.repeat()
+        for i in range(back_prop_epoch):
+            loss_back_prop, optm_out, inferred_spectra = sess.run([self.loss, self.backprop_optm, self.logits], 
+                                                                feed_dict={self.labels: target_spectra_repeat})  
+            if (i % verb_step == 0):
+                print("Loss at inference step{} : {}".format(i,loss_back_prop))
+                if (loss_back_prop < stop_thres):
+                    print("Loss is lower than the threshold{}, inference stop".format(stop_thres))
+
+        #Then it is time to get the best performing one
+        Xpred, Ypred = sess.run([self.forward_in, self.logits])
+        loss_list = np.linalg.norm(Ypred - target_spectra_repeat, axis = 1)
+        best_estimate_index = np.argmin(loss_list)
+        print('Best error for point {} is having absolute error of {}'.formate(point_index, loss_list[best_estimate_index]))
+        Xpred_best = Xpred[best_estimate_index,:]
+        Ypred_best = Ypred[best_estimate_index,:]
+        return Xpred_best, Ypred_best
+        
 
     def evaluate(self, valid_init_op, train_init_op, ckpt_dir,verb_step = 500, 
                 back_prop_ephoch = 10000, stop_thres = 1e-3,
@@ -226,44 +264,10 @@ class BackPropCnnNetwork(object):
                 assign_var_op = self.geometry_variable.assign(RN) #Assign the variable
                 sess.run([assign_var_op, train_init_op])
                 for i in range(h):
-                    Xpred, Ypred = evaluate_one(Ytruth.iloc[i,:], back_prop_ephoch, sess, verb_step, stop_thres, i)
+                    Xpred, Ypred = self.evaluate_one(Ytruth.iloc[i,:], back_prop_ephoch, sess, verb_step, stop_thres, i)
                     np.savetxt(f1, Xpred, fmt='%.3f')
                     np.savetxt(f3, Ypred, fmt='%.3f')
     
-    def evaluate_one(self, target_spectra, back_prop_epoch, sess, verb_step, stop_thres, point_index):
-        """
-        The function that evaluate one single given target spectra and return the results
-        :param target_spectra: The target spectra to back prop towards. Should be only 1 row
-        :param back_prop_epoch: #epochs to do the gradient descend
-        :param sess: The current session to do the back prop
-        """
-
-        #First initialize the starting points
-        RN = model_maker.initializeInBoundary(self.geometry_variable.shape, self.boundary)                #Get the random numbers
-        print("Random number within range", self.boundary)
-        assign_var_op = self.geometry_variable.assign(RN) #Assign the variable
-        sess.run([assign_var_op, train_init_op])
-
-        #Set up target output
-        target_spectra_repeat = np.repeat(target_spectra, self.batch_size, axis = 0)
-        #target_spectra_dataset = tf.data.Dataset.from_tensor_slices(target_spectra_repeat)
-        #target_spectra_dataset = target_spectra_dataset.repeat()
-        for i in range(back_prop_epoch):
-            loss_back_prop, optm_out, inferred_spectra = sess.run([self.loss, self.backprop_optm, self.logits], 
-                                                                feed_dict={self.labels: target_spectra_repeat})  
-            if (i % verb_step == 0):
-                print("Loss at inference step{} : {}".format(i,loss_back_prop))
-                if (loss_back_prop < stop_thres):
-                    print("Loss is lower than the threshold{}, inference stop".format(stop_thres)
-        #Then it is time to get the best performing one
-        Xpred, Ypred = sess.run([self.forward_in, self.logits])
-        loss_list = np.linalg.norm(Ypred - target_spectra_repeat, axis = 1)
-        best_estimate_index = np.argmin(loss_list)
-        print('Best error for point {} is having absolute error of {}'.formate(point_index, loss_list[best_estimate_index]))
-        Xpred_best = Xpred[best_estimate_index,:]
-        Ypred_best = Ypred[best_estimate_index,:]
-        return Xpred_best, Ypred_best
-        
 
 
     """
