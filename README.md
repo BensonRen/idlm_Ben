@@ -169,10 +169,26 @@ Bug Fixed/ Funciton added:
 4. Back-propagation multi-initialization evaluation and picking the best from the inferance
 5. Bug fixed for confusion between boundary and geoboundary, should be using geoboundary 
 
+## 2019.08.22
+Bug Fixed/ Funciton added:
+1. Backpropagation evaluation module finished
+2. Learning rate recording in tensorboard summary
+3. 
+
+Working on now:
+
+1. VAE Multi-initialization evaluation 
+
+Finishing today:
+
+1. Warm-up training 
+2. Try Full-batch trainingg
+
 
 Pending to work: 
 1. Compare the top 3 best model Geome
-2. VAE Multi-initialization evaluation 
+2. Think of quantifying measures for diversity and accuracy (browse through paper for inspirations)
+
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!
 WELL, SEGMENTATION FAULT COMING FROM HIGH CONCURENCY IS REALLY A PAIN .... STILL NOT SOLVING IT
