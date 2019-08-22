@@ -8,13 +8,19 @@ This method has a 2-stage training process. The first stage is the forward train
 ## Loss function
 #### Stage 1 Loss:
 Prediction Loss: Normal MSE loss for evaluating the accuracy of the prediciton. **Error is measured by Mean Squred Error.**
+
+Regularization Loss: Loss that punish large weights to prevent overfitting
+
 #### Stage 2 Loss:
 **Boundary Loss**: The Loss that describes our desired range of geometer parameters. If it is out of range, punish it by this loss.
 
 **Prediction Loss**: Normal MSE loss for evaluating the accuracy of the prediciton. 
+Regularization Loss: Loss that punish large weights to prevent overfitting
+
 
 ## Results:
-Currently doing hyper-parameters swapping. Results to be continued.......
+Check the results inside the Result folder. 
+
 
 ## Citation of this model
 Although there has been very similar thoughts long time ago, the latest paper that I can find which used this method on inverse design:

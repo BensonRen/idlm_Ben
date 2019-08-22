@@ -1,8 +1,11 @@
 # idlm_Ben
-This project is for the problem of inverse mapping for meta-material design using deep learning. Special thanks for [Bohao Huang](https://github.com/bohaohuang) and [Christian nadell](https://github.com/chnadell)  for infrastructure of the code. The previous version for the forward mapping learning can be found following this [link](https://github.com/chnadell/dlmCN)
 
-Developer Log:
-# Real Dataset
+This project is for the problem of inverse mapping for meta-material design using deep learning. 
+
+### Special thanks for [Bohao Huang](https://github.com/bohaohuang) and [Christian nadell](https://github.com/chnadell)  for infrastructure of the code. The previous version for the forward mapping learning can be found following this [link](https://github.com/chnadell/dlmCN)
+
+# Developer Log:
+## Real Dataset
 
 ## 2019.06.19
 
