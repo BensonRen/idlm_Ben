@@ -1,0 +1,143 @@
+/home/edal/Documents/Ben/idlm_Ben/Backprop/models/20190821_225753
+getting data files...
+['bp35_OutMod.csv', 'bp36OutMod.csv', 'bp23_24_fix_Out.csv', 'bp27_28_fix_Out.csv', 'bp29_30_fix_Out.csv', 'bp25_OutMod.csv', 'bp26_OutMod.csv', 'bp32_OutMod.csv', 'bp28_OutMod.csv', 'bp35_36_fix_Out.csv', 'bp23_OutMod.csv', 'bp22_OutMod.csv', 'bp29_OutMod.csv', 'bp30_OutMod.csv', 'bp21_22_fix_Out.csv', 'bp27_OutMod.csv', 'bp31_OutMod.csv', 'bp21_OutMod.csv', 'bp24_OutMod.csv', 'bp25_26_fix_Out.csv', 'bp31_32_fix_Out.csv']
+Splitting training data into test set, the ratio is: 0.2
+total number of training samples is 16798
+total number of test samples is 4200 length of an input spectrum is 2001
+downsampling output curves
+length of downsampled train spectra is 300 for first, 300 for final,  set final layer size to be compatible with this number
+length of downsampled test spectra is 300,  set final layer size to be compatible with this number
+generating TF dataset
+Geometry_tensor_shape (32, 8)
+[[-1. -1. -1. -1.]]
+shape of h: (32, 4)
+shape of r: (32, 4)
+shape of h_low: (1, 4)
+Evaluating the model ...
+loaded /home/edal/Documents/Ben/idlm_Ben/Backprop/models/20190821_225753/model.ckpt
+summary_writer directory is /home/edal/Documents/Ben/idlm_Ben/Backprop/models/20190821_225753/evalSummary
+Train_bool: False
+37728
+Random number within range [-1, 1, -1, 1]
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04663151502609253
+Loss at inference step500 : 0.0007959245704114437
+Loss is lower than the threshold0.001, inference stop
+best error is 0.001074502653016618, in best estimate-indx is 0.001074502653016618, squared loss is 0.0007970510050654411
+Best error for point 0 is having absolute error of 0.001074502653016618
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0749928206205368
+Loss at inference step500 : 0.0015881507424637675
+Loss at inference step1000 : 0.000711076776497066
+Loss is lower than the threshold0.001, inference stop
+best error is 0.00306008613417312, in best estimate-indx is 0.00306008613417312, squared loss is 0.0007088057463988662
+Best error for point 1 is having absolute error of 0.00306008613417312
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.07711315900087357
+Loss at inference step500 : 0.007500420790165663
+Loss at inference step1000 : 0.0007302731974050403
+Loss is lower than the threshold0.001, inference stop
+best error is 0.0027616726049976997, in best estimate-indx is 0.0027616726049976997, squared loss is 0.0007296634139493108
+Best error for point 2 is having absolute error of 0.0027616726049976997
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.03415289521217346
+Loss at inference step500 : 0.00206664833240211
+Loss at inference step1000 : 0.0014903608243912458
+Loss at inference step1500 : 0.0014216582057997584
+Loss at inference step2000 : 0.0013883787905797362
+Loss at inference step2500 : 0.0013684617588296533
+Loss at inference step3000 : 0.0013576035853475332
+Loss at inference step3500 : 0.0012259639333933592
+Loss at inference step4000 : 0.0011514173820614815
+Loss at inference step4500 : 0.0011289897374808788
+best error is 0.005165721390099196, in best estimate-indx is 0.005165721390099196, squared loss is 0.0011473213089630008
+Best error for point 3 is having absolute error of 0.005165721390099196
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.10420801490545273
+Loss at inference step500 : 0.004290176555514336
+Loss at inference step1000 : 0.002434727968648076
+Loss at inference step1500 : 0.002242831513285637
+Loss at inference step2000 : 0.0021898194681853056
+Loss at inference step2500 : 0.0020285840146243572
+Loss at inference step3000 : 0.0019994196482002735
+Loss at inference step3500 : 0.0020598520059138536
+Loss at inference step4000 : 0.0009938026778399944
+Loss is lower than the threshold0.001, inference stop
+best error is 0.002075541350141757, in best estimate-indx is 0.002075541350141757, squared loss is 0.0009930453961715102
+Best error for point 4 is having absolute error of 0.002075541350141757
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0584743432700634
+Loss at inference step500 : 0.001018055249005556
+Loss at inference step1000 : 0.000947674154303968
+Loss is lower than the threshold0.001, inference stop
+best error is 0.0017530680294806644, in best estimate-indx is 0.0017530680294806644, squared loss is 0.0009476140839979053
+Best error for point 5 is having absolute error of 0.0017530680294806644
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.023226464167237282
+Loss at inference step500 : 0.0007728164782747626
+Loss is lower than the threshold0.001, inference stop
+best error is 0.0019149442047736989, in best estimate-indx is 0.0019149442047736989, squared loss is 0.0007726625772193074
+Best error for point 6 is having absolute error of 0.0019149442047736989
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.049742866307497025
+Loss at inference step500 : 0.0007155752391554415
+Loss is lower than the threshold0.001, inference stop
+best error is 0.0031022926539385426, in best estimate-indx is 0.0031022926539385426, squared loss is 0.0007155233179219067
+Best error for point 7 is having absolute error of 0.0031022926539385426
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05915944650769234
+Loss at inference step500 : 0.0024936930276453495
+Loss at inference step1000 : 0.0019925113301724195
+Loss at inference step1500 : 0.0019231209298595786
+Loss at inference step2000 : 0.001816716743633151
+Loss at inference step2500 : 0.0017286165384575725
+Loss at inference step3000 : 0.0016694761579856277
+Loss at inference step3500 : 0.001651769271120429
+Loss at inference step4000 : 0.0016330782091245055
+Loss at inference step4500 : 0.0016083039809018373
+best error is 0.010199048013938901, in best estimate-indx is 0.010199048013938901, squared loss is 0.0016449583927169442
+Best error for point 8 is having absolute error of 0.010199048013938901
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.021692752838134766
+Loss at inference step500 : 0.0009801884880289435
+Loss is lower than the threshold0.001, inference stop
+best error is 0.0029615117537281047, in best estimate-indx is 0.0029615117537281047, squared loss is 0.0009740008390508592
+Best error for point 9 is having absolute error of 0.0029615117537281047
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.033517468720674515
+Loss at inference step500 : 0.0006369312177412212
+Loss is lower than the threshold0.001, inference stop
+best error is 0.003380709566046313, in best estimate-indx is 0.003380709566046313, squared loss is 0.0006299663800746202
+Best error for point 10 is having absolute error of 0.003380709566046313
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.13415271043777466
+Loss at inference step500 : 0.015663715079426765
+Loss at inference step1000 : 0.01240451168268919
+Loss at inference step1500 : 0.009341539815068245
+Loss at inference step2000 : 0.00850345566868782
+Loss at inference step2500 : 0.007913365960121155
+Loss at inference step3000 : 0.007648453116416931
+Loss at inference step3500 : 0.0072768935933709145
+Loss at inference step4000 : 0.0059054852463305
+Loss at inference step4500 : 0.00543129350990057
+best error is 0.007354715485006542, in best estimate-indx is 0.007354715485006542, squared loss is 0.00526075204834342
+Best error for point 11 is having absolute error of 0.007354715485006542
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.07384008169174194
+Loss at inference step500 : 0.002443334786221385
+Loss at inference step1000 : 0.00229401933029294
+Loss at inference step1500 : 0.0021715282928198576
+Loss at inference step2000 : 0.0020880084484815598

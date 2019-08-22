@@ -42,8 +42,8 @@ def tandemmain(flags):
     print("Setting the hooks now")
     # define hooks for monitoring training
     train_loss_hook_list = []
-    losses = [ntwk.loss, ntwk.mse_loss, ntwk.reg_loss, ntwk.bdy_loss]
-    loss_names = ["train_loss", "mse_loss", "regularizaiton_loss", "boundary_loss"]
+    losses = [ntwk.loss, ntwk.mse_loss, ntwk.reg_loss, ntwk.bdy_loss, ntwk.learn_rate]
+    loss_names = ["train_loss", "mse_loss", "regularizaiton_loss", "boundary_loss","Learning_rate"]
     #Forward detailed loss hooks, the training detail depend on input flag
     forward_hooks = get_hook_list(flags, ntwk, valid_init_op, losses, loss_names, "forward_", flags.detail_train_loss_forward) 
     #Assume Tandem one always show the training detailed loss
