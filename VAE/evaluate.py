@@ -2,7 +2,7 @@ import argparse
 import tensorflow as tf
 import data_reader
 import model_maker
-import Tandem_network_maker
+import VAE_network_maker
 import network_helper
 import plotsAnalysis
 import os
@@ -49,26 +49,28 @@ def evaluatemain(flags, eval_forward):
                                                                batch_size=flags.batch_size,
                                                                shuffle_size=flags.shuffle_size,
 								data_dir = flags.data_dir,
-							        normalize_input = flags.normalize_input)
+							        normalize_input = flags.normalize_input,
+                                                                test_ratio = -1)
     #if the input is normalized
     if flags.normalize_input:
 		    flags.boundary = [-1, 1, -1, 1]
-		
-		# make network
-    ntwk = Tandem_network_maker.TandemCnnNetwork(features, labels, model_maker.tandem_model, flags.batch_size,
-                                clip=flags.clip, forward_fc_filters=flags.forward_fc_filters,
-                                backward_fc_filters=flags.backward_fc_filters,reg_scale=flags.reg_scale,
-	                        learn_rate=flags.learn_rate,tconv_Fnums=flags.tconv_Fnums,
-				tconv_dims=flags.tconv_dims,n_branch=flags.n_branch,
-			        tconv_filters=flags.tconv_filters, n_filter=flags.n_filter,
-				decay_step=flags.decay_step, decay_rate=flags.decay_rate, boundary = flags.geoboundary)
+	
+    # make network
+    ntwk = VAE_network_maker.VAENetwork(geometry, spectra, model_maker.VAE, flags.batch_size, flags.latent_dim,
+                            spectra_fc_filters=flags.spectra_fc_filters, decoder_fc_filters=flags.decoder_fc_filters,
+                            encoder_fc_filters=flags.encoder_fc_filters,reg_scale=flags.reg_scale,
+                            learn_rate=flags.learn_rate, decay_step=flags.decay_step, decay_rate=flags.decay_rate,
+                            geoboundary = flags.geoboundary)
+    
     # evaluate the results if the results do not exist or user force to re-run evaluation
     save_file = os.path.join(os.path.abspath(''), 'data', 'test_pred_{}.csv'.format(flags.model_name))
+    
     if flags.force_run or (not os.path.exists(save_file)):
         print('Evaluating the model ...')
-        pred_file, truth_file = ntwk.evaluate(valid_init_op, ckpt_dir=ckpt_dir,
-                                              model_name=flags.model_name, write_summary=True,
-                                              eval_forward = eval_forward)
+        #pred_file, truth_file = ntwk.evaluate(valid_init_op, ckpt_dir=ckpt_dir,
+        Xpred_file = ntwk.evaluate(valid_init_op, ckpt_dir=ckpt_dir, model_name=flags.model_name, write_summary=True,
+                                                                        eval_forward = eval_forward)
+        pred_file, truth_file = get_spectra_from_geometry(Xpred_file)
     else:
         pred_file = save_file
         truth_file = os.path.join(os.path.abspath(''), 'data', 'test_truth.csv')
@@ -79,14 +81,24 @@ def evaluatemain(flags, eval_forward):
     plt.hist(mse, bins=100)
     plt.xlabel('Mean Squared Error')
     plt.ylabel('cnt')
-    plt.suptitle('Tandem (Avg MSE={:.4e})'.format(np.mean(mse)))
+    plt.suptitle('VAE (Avg MSE={:.4e})'.format(np.mean(mse)))
     plt.savefig(os.path.join(os.path.abspath(''), 'data',
-                             'tandem_{}.png'.format(flags.model_name)))
+                             'VAE_{}.png'.format(flags.model_name)))
     plt.show()
-    print('Tandem (Avg MSE={:.4e})'.format(np.mean(mse)))
+    print('VAE (Avg MSE={:.4e})'.format(np.mean(mse)))
 
 if __name__ == '__main__':
 	flags = train.read_flag()
 	evaluatemain(flags, eval_forward = False)
 	plotsAnalysis.SpectrumComparisonNGeometryComparison(3,2, (13,8), flags.model_name,flags.boundary)	
+
+def get_spectra_from_geometry(Xpred_file):
+    """
+    This function is to call the prediction function for the forward model and returns the Yprediction file
+    :param Xpred_file: The prediction X given that used to infer Y values
+    """
+
+
+
+
 

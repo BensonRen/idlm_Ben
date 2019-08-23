@@ -55,7 +55,7 @@ class VAENetwork(object):
             os.makedirs(self.ckpt_dir)
             self.write_record()
 
-        self.z_mean, self.z_log_var, self.logits, self.Boundary_loss, self.merged_summary_op = self.create_graph()
+        self.z_mean, self.z_log_var,self.z, self.logits, self.Boundary_loss, self.merged_summary_op = self.create_graph()
         #self.model = tf.keras.Model(self.features, self.logits,name = 'Backward')
         if self.labels==[]:
             print('labels list is empty')
@@ -172,6 +172,22 @@ class VAENetwork(object):
                 if forward_hooks[-1].stop:     #if it either trains to the threshold or have NAN value, stop here
                     break
             #self.save(sess)
+    def evaluate_one(self, target_spectra, sess):
+        """
+        The function that return the result of evaluation of one target spectra
+        :param target_spectra: The targe spectra to VAE decode, should be only one row
+        :param sess: current tf session
+        :return Xpred: the row of X predictions that the VAE gives
+        """
+
+        #Create random variable for latent variable
+        latent_z = np.random.normal(0, 1, (self.batch_size, self.latent_dim))
+        target_spectra_repeat = np.repeat(np.reshape(target_spectra.values, (1, -1)), self.batch_size, axis=0)
+        Xpred = sess.run(self.logit, feed_dict = {self.z : latent_z, self.labels: target_spectra_repeat})
+        Xpred = np.reshape(Xpred, (1,-1))               #Put Xpred into a long row and output that row
+
+        return Xpred
+
 
     def evaluate(self, valid_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'data'),
                  model_name='', write_summary=False, eval_forward = False):
@@ -184,8 +200,6 @@ class VAENetwork(object):
         :param eval_forward
         :return:
         """
-        assign_eval_forward_op = self.train_Forward.assign(eval_forward) #Change the graph accordingly
-        
         with tf.Session() as sess:
             self.load(sess, ckpt_dir)
 
@@ -204,37 +218,32 @@ class VAENetwork(object):
             
             eval_cnt = 0
             start_pred = time.time()
-            print("Backward_out:",sess.run(self.backward_out)[0,:])
-            print("Forward_in",sess.run(self.forward_in)[0,:])
-            print("Feature:",sess.run(self.features)[0,:])
-            print("Train_bool:",sess.run(self.train_Forward))
             try:
                 while True:
-                    with open(feature_file, 'a') as f0, open(pred_file, 'a') as f1,\
-                          open(truth_file, 'a') as f2, open(feat_file, 'a') as f3:
-                        Xtruth, Ypred, Ytruth, Xpred, summary = sess.run([self.features,
-                                                                         self.logits,
-                                                                         self.labels,
-                                                                         self.forward_in,
-                                                                         self.merged_summary_op])
+                    with open(feature_file, 'a') as f0, open(truth_file, 'a') as f2: 
+                        Xtruth, Ytruth = sess.run([self.features, self.labels])
                         np.savetxt(f0, Xtruth, fmt='%.3f')
-                        np.savetxt(f1, Ypred, fmt='%.3f')
                         np.savetxt(f2, Ytruth, fmt='%.3f')
-                        np.savetxt(f3, Xpred, fmt='%.3f')
-                        if write_summary:
-                            activation_summary_writer.add_summary(summary, eval_cnt)
-                    eval_cnt += 1
             except tf.errors.OutOfRangeError:
-                print("evaluation took {} seconds".format(time.time() - start_pred))
-                activation_summary_writer.flush()
-                activation_summary_writer.close()
-                
-                print("Xpred",Xpred[0,:])
-                print("Xtruth",Xtruth[0,:])
-                print("Ypred",Ypred[0,:])
-                print("Ytruth",Ytruth[0,:])
-                
-                return pred_file, truth_file
+                Ytruth = pd.read_csv(truth_file,header= None, delimiter= ' ')
+                h ,w = Ytruth.values.shape
+                print(h)
+            
+            #inference time
+            with open(feat_file, 'a') as f1:#, open(pred_file, 'a') as f3: 
+                #First initialize the starting points
+                sess.run([train_init_op])
+                for i in range(h):
+                    Xpred = self.evaluate_one(Ytruth.iloc[i,:],  sess)
+                    #Xpred = np.reshape(Xpred, (1, -1))
+                    #Ypred = np.reshape(Ypred, (1, -1))
+                    #print("Xpred is:", Xpred)
+                    np.savetxt(f1, Xpred, fmt='%.3f')
+                    #np.savetxt(f3, Ypred, fmt='%.3f')
+            with open(pred_file, 'a') as f3:
+                f3.write("TBD")
+           # return pred_file, truth_file
+
     """
     def predict(self, pred_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'dataGrid'),
                 model_name=''):

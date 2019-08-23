@@ -33,7 +33,7 @@ def MakeBoundaryLoss(Geometry_tensor, boundary):
     :param boundary: 4 element numpy array representing [h_low, h_high, r_low, r_high]
     return Boundary_loss: loss that depend on the boundary loss
     """
-    tolerance = 1
+    tolerance = 0
     print("Geometry_tensor_shape",Geometry_tensor.shape)
     #Make constants
     print(boundary[0] * np.ones([1,4]))

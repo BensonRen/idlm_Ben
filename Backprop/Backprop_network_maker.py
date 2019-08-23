@@ -213,6 +213,7 @@ class BackPropCnnNetwork(object):
         print('Best error for point {} is having absolute error of {}'.format(point_index, loss_list[best_estimate_index]))
         Xpred_best = Xpred[best_estimate_index,:]
         Ypred_best = Ypred[best_estimate_index,:]
+       # print("Xpred_best:", Xpred_best)
         return Xpred_best, Ypred_best
         
 
@@ -250,7 +251,6 @@ class BackPropCnnNetwork(object):
             
             eval_cnt = 0
             start_pred = time.time()
-            print("Train_bool:",sess.run(self.train_Forward))
             try:
                 while True:
                     with open(feature_file, 'a') as f0, open(truth_file, 'a') as f2: 
@@ -271,6 +271,9 @@ class BackPropCnnNetwork(object):
                 sess.run([assign_var_op, train_init_op])
                 for i in range(h):
                     Xpred, Ypred = self.evaluate_one(Ytruth.iloc[i,:], back_prop_epoch, sess, verb_step, stop_thres, i)
+                    Xpred = np.reshape(Xpred, (1, -1))
+                    Ypred = np.reshape(Ypred, (1, -1))
+                    #print("Xpred is:", Xpred)
                     np.savetxt(f1, Xpred, fmt='%.3f')
                     np.savetxt(f3, Ypred, fmt='%.3f')
 

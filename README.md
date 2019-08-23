@@ -184,13 +184,12 @@ Bug Fixed/ Function added:
 
 Working on now:
 
-1. VAE Multi-initialization evaluation 
+1. VAE Multi-initialization evaluation (Single output!) 
 2. Backprop formating problem
 
 Finishing today:
 
 1. Warm-up training 
-2. Try Full-batch trainingg
 
 
 Pending to work: 
