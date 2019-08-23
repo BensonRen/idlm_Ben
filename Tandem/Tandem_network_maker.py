@@ -100,7 +100,10 @@ class TandemCnnNetwork(object):
     def make_loss(self):
         """
         Make cross entropy loss for forward part of the model
-        :return: mean cross entropy loss of the batch
+        :return: total_loss: The total loss
+        :return: mse_loss: The mean squared error loss for reconstruction
+        :return: reg_loss: The regularization loss to prevent overfitting
+        :return: bdy_loss: Boundary loss that confines the geometry inside the boundary
         """
         with tf.variable_scope('loss'):
             mse_loss = tf.losses.mean_squared_error(self.labels, self.logits) #reconstruction loss

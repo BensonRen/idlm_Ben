@@ -36,7 +36,7 @@ def tandemmain(flags):
                             tconv_dims=flags.tconv_dims,n_branch=flags.n_branch,
                             tconv_filters=flags.tconv_filters, n_filter=flags.n_filter,
                             decay_step=flags.decay_step, decay_rate=flags.decay_rate,
-                            boundary = flags.geoboundary, conv1d_filters = flags.conv1d_filters,
+                            geoboundary = flags.geoboundary, conv1d_filters = flags.conv1d_filters,
                             conv_channel_list = flags.conv_channel_list)
     
     print("Setting the hooks now")

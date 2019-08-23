@@ -63,7 +63,7 @@ def evaluatemain(flags, eval_forward):
 	                        learn_rate=flags.learn_rate,tconv_Fnums=flags.tconv_Fnums,
 				tconv_dims=flags.tconv_dims,n_branch=flags.n_branch,
 			        tconv_filters=flags.tconv_filters, n_filter=flags.n_filter,
-				decay_step=flags.decay_step, decay_rate=flags.decay_rate, boundary = flags.geoboundary,
+				decay_step=flags.decay_step, decay_rate=flags.decay_rate, geoboundary = flags.geoboundary,
                                 conv1d_filters = flags.conv1d_filters, conv_channel_list = flags.conv_channel_list)
     # evaluate the results if the results do not exist or user force to re-run evaluation
     save_file = os.path.join(os.path.abspath(''), 'data', 'test_pred_{}.csv'.format(flags.model_name))

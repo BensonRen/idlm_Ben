@@ -217,7 +217,7 @@ class BackPropCnnNetwork(object):
         
 
     def evaluate(self, valid_init_op, train_init_op, ckpt_dir,verb_step = 500, 
-                back_prop_ephoch = 10000, stop_thres = 1e-3,
+                back_prop_epoch = 10000, stop_thres = 1e-3,
                  save_file=os.path.join(os.path.abspath(''), 'data'),
                  model_name='', write_summary=False, eval_forward = False):
         """
@@ -270,7 +270,7 @@ class BackPropCnnNetwork(object):
                 assign_var_op = self.geometry_variable.assign(RN) #Assign the variable
                 sess.run([assign_var_op, train_init_op])
                 for i in range(h):
-                    Xpred, Ypred = self.evaluate_one(Ytruth.iloc[i,:], back_prop_ephoch, sess, verb_step, stop_thres, i)
+                    Xpred, Ypred = self.evaluate_one(Ytruth.iloc[i,:], back_prop_epoch, sess, verb_step, stop_thres, i)
                     np.savetxt(f1, Xpred, fmt='%.3f')
                     np.savetxt(f3, Ypred, fmt='%.3f')
 

@@ -45,7 +45,8 @@ def evaluatemain(flags, eval_forward):
                                                                batch_size=flags.batch_size,
                                                                shuffle_size=flags.shuffle_size,
                                                                normalize_input = flags.normalize_input,
-							        data_dir = flags.data_dir)
+							        data_dir = flags.data_dir,
+                                                                test_ratio = -1) #negative test_ratio means test from eval
     
     #if the input is normalized
     if flags.normalize_input:
@@ -66,7 +67,7 @@ def evaluatemain(flags, eval_forward):
     if flags.force_run or (not os.path.exists(save_file)):
         print('Evaluating the model ...')
         pred_file, truth_file = ntwk.evaluate(valid_init_op, train_init_op,
-                                              ckpt_dir=ckpt_dir,back_prop_ephoch = 5000,
+                                              ckpt_dir=ckpt_dir,back_prop_epoch = flags.back_prop_epoch,
                                               stop_thres = flags.stop_threshold,
                                               verb_step = flags.verb_step,
                                               model_name=flags.model_name,

@@ -58,8 +58,10 @@ def my_model_backward(labels,  fc_filters,  reg_scale, conv1d_filters, filter_ch
     """
     My customized model function
     :param labels: input spectrum
-    :param output_size: dimension of output data
-    :return:
+    :param fc_filters: the fully connected filters
+    :param reg_scale: the degree of regularization to prevent overfitting
+    :param conv1d_filters: the convolution filters to applied to the spectra
+    :param filter_channel_list: the number of channels of convolution for the spectra
     """
     
     ##Record the variables before Backwardmodel is created
@@ -166,7 +168,7 @@ def tandem_model(features,labels, backward_fc,   batch_size, clip,
     forward_in, up, preconv, preTconv, merged_summary_op, ForwardCollectionName, train_Forward, Boundary_loss = \
                           my_model_fn_tens(backward_out,features,batch_size, clip,
                                             fc_filters, tconv_fNums, tconv_dims, tconv_filters,
-                                            n_filter, n_branch, reg_scale, BackCollectionName, boundary)
+                                            n_filter, n_branch, reg_scale, BackCollectionName, geoboundary)
     return forward_in, up, merged_summary_op, ForwardCollectionName,\
             BackCollectionName, backward_out, train_Forward, Boundary_loss
 

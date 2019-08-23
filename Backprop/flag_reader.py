@@ -47,6 +47,7 @@ def read_flag():
     parser.add_argument('--geoboundary', default=GEOBOUNDARY, type=tuple, help='the boundary of the geometric data')
     parser.add_argument('--detail-train-loss-forward', default=DETAIL_TRAIN_LOSS_FORWARD, type=bool, help='whether make hook for detailed training process')
     parser.add_argument('--write-weight-step', default=WRITE_WEIGHT_STEP, type=int, help='#steps to write the weight summary histogram into tensorboard')
+    parser.add_argument('--back-prop-epoch', default=BACK_PROP_EPOCH, type=int, help='#steps to back-propagation during inference')
     # parser.add_argument('--train-file', default=TRAIN_FILE, type=str, help='name of the training file')
     # parser.add_argument('--valid-file', default=VALID_FILE, type=str, help='name of the validation file')
     

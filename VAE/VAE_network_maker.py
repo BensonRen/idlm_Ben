@@ -10,7 +10,8 @@ class VAENetwork(object):
     def __init__(self, features, labels, model_fn, batch_size, latent_dim, 
                  spectra_fc_filters=(5, 10, 15), decoder_fc_filters=(5,10,15),
                  encoder_fc_filters=(5, 10, 15), reg_scale=.001, learn_rate=1e-4, decay_step=200, decay_rate=0.1,
-                 ckpt_dir=os.path.join(os.path.abspath(''), 'models'), make_folder=True, geoboundary = [-1 , 1, -1, 1]):
+                 ckpt_dir=os.path.join(os.path.abspath(''), 'models'), make_folder=True, geoboundary = [-1 , 1, -1, 1],
+                 conv1d_filters = (160,5), filter_channel_list = (4,1)):
         """
         Initialize a Network class
         :param features: input features
@@ -30,6 +31,8 @@ class VAENetwork(object):
         self.batch_size = batch_size
         #self.clip = clip
         self.spectra_fc_filters = spectra_fc_filters
+        self.conv1d_filters = conv1d_filters
+        self.filter_channel_list = filter_channel_list
         #assert len(tconv_dims) == len(tconv_filters)
         #assert len(tconv_Fnums) == len(tconv_filters)
         #self.tconv_Fnums = tconv_Fnums
@@ -41,8 +44,8 @@ class VAENetwork(object):
         self.decoder_fc_filters = decoder_fc_filters
         self.reg_scale = reg_scale
         self.latent_dim = latent_dim
-        self.boundary = geoboundary
-        
+        self.geoboundary = geoboundary
+        self.best_validation_loss = float('inf') 
         self.global_step = tf.Variable(0, dtype=tf.int64, trainable=False, name='global_step')
         self.learn_rate = tf.train.exponential_decay(learn_rate, self.global_step,
                                                      decay_step, decay_rate, staircase=True)
@@ -57,7 +60,7 @@ class VAENetwork(object):
         if self.labels==[]:
             print('labels list is empty')
         else:
-            self.loss = self.make_loss()
+            self.loss, self.mse_loss, self.reg_loss, self.bdy_loss, self.kl_loss= self.make_loss()
             self.optm = self.make_optimizer()
   
     def create_graph(self):
@@ -66,7 +69,8 @@ class VAENetwork(object):
         :return: outputs of the last layer
         """
         return self.model_fn(self.features,self.labels, self.latent_dim, self.batch_size, self.reg_scale,
-                                self.spectra_fc_filters, self.encoder_fc_filters, self.decoder_fc_filters, self.boundary)
+                                self.spectra_fc_filters, self.encoder_fc_filters, self.decoder_fc_filters, self.geoboundary,
+                                self.conv1d_filters, self.filter_channel_list)
      
 
     def write_record(self):
@@ -89,21 +93,22 @@ class VAENetwork(object):
     def make_loss(self):
         """
         Make cross entropy loss for forward part of the model
-        :return: mean cross entropy loss of the batch
+        :return: total_loss: The total loss
+        :return: mse_loss: The mean squared error loss for reconstruction
+        :return: reg_loss: The regularization loss to prevent overfitting
+        :return: bdy_loss: Boundary loss that confines the geometry inside the boundary
+        :return: kl_loss: the KL_divergence loss that tells how far the latent distribution is compared with a normal one
         """
         with tf.variable_scope('loss'):
-            loss = tf.losses.mean_squared_error(self.features, self.logits)
-            print("LOSS IS:" , loss)
+            mse_loss = tf.losses.mean_squared_error(self.features, self.logits) #reconstruction loss
+            reg_loss = tf.losses.get_regularization_loss()      #regularizaiton loss
+            bdy_loss = self.Boundary_loss                       #boundary loss
             kl_loss = 1 + self.z_log_var - K.square(self.z_mean) - K.exp(self.z_log_var)
             kl_loss = K.sum(kl_loss, axis = -1)
             kl_loss = K.sum(kl_loss, axis = -1) / self.batch_size 
             kl_loss *= -0.5
-            print("KL_LOSS IS:" , kl_loss)
-            loss += kl_loss
-            loss += tf.losses.get_regularization_loss()
-            #loss += self.Boundary_loss
-            print("LOSS IS:" , loss)
-            return loss
+            total_loss = kl_loss + mse_loss + reg_loss + bdy_loss
+            return total_loss, mse_loss, reg_loss, bdy_loss, kl_loss
             
     def make_optimizer(self):
         """
@@ -161,9 +166,12 @@ class VAENetwork(object):
                 sess.run(self.optm)
                 for hook in forward_hooks:
                     hook.run(sess, writer=summary_writer)
+                if forward_hooks[-1].save:                       #If the hook tells to save the model, then save it
+                    self.save(sess)
+                    self.best_validation_loss = forward_hooks[-1].best_validation_loss
                 if forward_hooks[-1].stop:     #if it either trains to the threshold or have NAN value, stop here
                     break
-            self.save(sess)
+            #self.save(sess)
 
     def evaluate(self, valid_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'data'),
                  model_name='', write_summary=False, eval_forward = False):
