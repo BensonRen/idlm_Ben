@@ -189,12 +189,11 @@ Working on now:
 
 Finishing today:
 
-1. Warm-up training 
-
-
 Pending to work: 
+1. VAE Forward Model prediction problem
 1. Compare the top 3 best model Geome
 2. Think of quantifying measures for diversity and accuracy (browse through paper for inspirations)
+3. Warm-up training 
 
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!

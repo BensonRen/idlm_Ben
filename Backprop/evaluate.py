@@ -7,6 +7,7 @@ import network_helper
 import plotsAnalysis
 import os
 import flag_reader
+import numpy as np
 def compare_truth_pred(pred_file, truth_file):
     """
     Read truth and pred from csv files, compute their mean-absolute-error and the mean-squared-error
@@ -83,11 +84,11 @@ def evaluatemain(flags, eval_forward):
     plt.hist(mse, bins=100)
     plt.xlabel('Mean Squared Error')
     plt.ylabel('cnt')
-    plt.suptitle('Tandem (Avg MSE={:.4e})'.format(np.mean(mse)))
+    plt.suptitle('Backprop (Avg MSE={:.4e})'.format(np.mean(mse)))
     plt.savefig(os.path.join(os.path.abspath(''), 'data',
-                             'tandem_{}.png'.format(flags.model_name)))
+                             'Backprop_{}.png'.format(flags.model_name)))
     plt.show()
-    print('Tandem (Avg MSE={:.4e})'.format(np.mean(mse)))
+    print('Backprop (Avg MSE={:.4e})'.format(np.mean(mse)))
 
 if __name__ == '__main__':
 	flags = flag_reader.read_flag()
