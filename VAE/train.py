@@ -41,10 +41,10 @@ def VAEtrainmain(flags):
     losses = [ntwk.loss, ntwk.mse_loss, ntwk.reg_loss, ntwk.bdy_loss,ntwk.kl_loss, ntwk.learn_rate]
     loss_names = ["train_loss", "mse_loss", "regularizaiton_loss", "boundary_loss","KL_loss","Learning_rate"]
     #Forward detailed loss hooks, the training detail depend on input flag
-    forward_hooks = get_hook_list(flags, ntwk, valid_init_op, losses, loss_names, "VAE_") 
+    VAE_hooks = get_hook_list(flags, ntwk, valid_init_op, losses, loss_names, "VAE_") 
     
     print("Starting training now")
-    ntwk.train(train_init_op, flags.train_step, [train_VAE_hook, VAE_Boundary_hook, valid_VAE_hook],
+    ntwk.train(train_init_op, flags.train_step, VAE_hooks,
                 write_summary=True)
     
     #Write the flag into the current folder and move it to the models/ folder along with the best validation error

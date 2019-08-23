@@ -55,7 +55,7 @@ class VAENetwork(object):
             os.makedirs(self.ckpt_dir)
             self.write_record()
 
-        self.z_mean, self.z_log_var, self.logits, self.Boundary_loss = self.create_graph()
+        self.z_mean, self.z_log_var, self.logits, self.Boundary_loss, self.merged_summary_op = self.create_graph()
         #self.model = tf.keras.Model(self.features, self.logits,name = 'Backward')
         if self.labels==[]:
             print('labels list is empty')

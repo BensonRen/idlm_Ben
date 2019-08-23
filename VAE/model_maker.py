@@ -149,4 +149,4 @@ def VAE(geometry, spectra, latent_dim,  batch_size, reg_scale, spectra_fc_filter
     z = Lambda(sampling, output_shape=(latent_dim,), name = 'z')([z_mean, z_log_var])
     decoder_out = Decoder(z, spectra_out, batch_size, reg_scale, decoder_fc_filters)
     Boundary_loss = MakeBoundaryLoss(decoder_out, geoboundary)
-    return z_mean, z_log_var, decoder_out, Boundary_loss
+    return z_mean, z_log_var, decoder_out, Boundary_loss, merged_summary_op

@@ -176,11 +176,16 @@ Bug Fixed/ Funciton added:
 Bug Fixed/ Funciton added:
 1. Backpropagation evaluation module finished
 2. Learning rate recording in tensorboard summary
-3. 
+
+## 2019.08.23
+Bug Fixed/ Function added:
+1. VAE training updated with kl_loss monitoring and hooks summary for weights
+2. Full batch training swiping and waiting for results
 
 Working on now:
 
 1. VAE Multi-initialization evaluation 
+2. Backprop formating problem
 
 Finishing today:
 
