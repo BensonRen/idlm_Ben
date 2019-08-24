@@ -265,40 +265,65 @@ class TandemCnnNetwork(object):
                 print("Ytruth",Ytruth[0,:])
                 
                 return pred_file, truth_file
-    """
-    def predict(self, pred_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'dataGrid'),
+    
+
+    def predict_spec2geo(self, pred_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'data','pred'),
                 model_name=''):
-        """"""
+        """
+        Prediction of Tandem model where you only have a Y_truth and want to predict Y_pred and X_pred
         Evaluate the model, and save predictions to save_file
         :param ckpt_dir directory
         :param save_file: full path to pred file
         :param model_name: name of the model
         :return:
-        """"""
+        """
         with tf.Session() as sess:
             self.load(sess, ckpt_dir)
-            sess.run(pred_init_op)
-            pred_file = os.path.join(save_file, 'test_pred_{}.csv'.format(model_name))
-            feat_file = os.path.join(save_file, 'test_feat_{}'.format(model_name) + '.csv')
-            with open(pred_file, 'w'):
-                pass
+            assign_false_op = self.train_Forward.assign(False)  #For prediction purpose, this is always False   
+            sess.run([pred_init_op, assign_false_op])  #Run the pred_init_op to prepare the prediction files
+            Xpred_file = os.path.join(save_file, 'test_Xpred_{}.csv'.format(model_name)) #Prediction of X
+            Ypred_file = os.path.join(save_file, 'test_Ypred_{}.csv'.format(model_name))
             try:
                 start = time.time()
                 cnt = 1
                 while True:
-                    with open(pred_file, 'a') as f1: #, open(feat_file, 'a') as f2
-                        pred_batch, features_batch = sess.run([self.logits, self.features])
-                        for pred, features in zip(pred_batch, features_batch):
-                            pred_str = [str(el) for el in pred]
-                            features_str = [ str(el) for el in features]
-                            f1.write(','.join(pred_str)+'\n')
-                            # f2.write(','.join(features_str)+'\n')
+                    with open(Xpred_file, 'a') as f1, open(Ypred_file, 'a') as f2
+                        Ypred_batch, Xpred_batch = sess.run([self.logits, self.forward_in])
+                        np.savetxt(f1, Xpred_batch, fmt='%.3f')
+                        np.savetxt(f2, Ypred_batch, fmt='%.3f')
                     if (cnt % 100) == 0:
-                        print('cnt is {}, time elapsed is {}, features are {} '.format(cnt,
-                                                                                       np.round(time.time()-start),
-                                                                                       features_batch))
+                        print('cnt is {}, time elapsed is {} '.format(cnt, np.round(time.time()-start)))
                     cnt += 1
             except tf.errors.OutOfRangeError:
-                return pred_file, feat_file
+                return Xpred_file, Ypred_file
                 pass
-    """
+    
+    def predict_geo2spec(self, pred_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'data','pred'),
+                model_name=''):
+        """
+        Prediction of Tandem model where you only have a X_truth and want to predict Y_pred
+        Evaluate the model, and save predictions to save_file
+        :param ckpt_dir directory
+        :param save_file: full path to pred file
+        :param model_name: name of the model
+        :return:
+        """
+        with tf.Session() as sess:
+            self.load(sess, ckpt_dir)
+            assign_true_op = self.train_Forward.assign(True)  #For prediction purpose, this is always True   
+            sess.run([pred_init_op, assign_true_op])  #Run the pred_init_op to prepare the prediction files
+            Ypred_file = os.path.join(save_file, 'test_Ypred_{}.csv'.format(model_name))
+            try:
+                start = time.time()
+                cnt = 1
+                while True:
+                    with open(Ypred_file, 'a') as f2
+                        Ypred_batch = sess.run([self.logits])
+                        np.savetxt(f2, Ypred_batch, fmt='%.3f')
+                    if (cnt % 100) == 0:
+                        print('cnt is {}, time elapsed is {} '.format(cnt, np.round(time.time()-start)))
+                    cnt += 1
+            except tf.errors.OutOfRangeError:
+                return Ypred_file
+                pass
+    
