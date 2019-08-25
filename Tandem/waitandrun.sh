@@ -10,8 +10,8 @@
 
 TIME=`date`
 PWD=`pwd`
-COMMAND=hyperswipe.py
-#COMMAND=train.py
+#COMMAND=hyperswipe.py
+COMMAND=train.py
 #COMMAND=evaluate.py
 SPACE='        '
 SECONDS=0

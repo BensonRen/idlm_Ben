@@ -14,7 +14,7 @@ import train
 import flag_reader
 
 
-def read_tensor_from_test_data(data_path, flags):
+def read_tensor_from_test_data(data_path, batch_size):
     """
     The function to read the data tensors for the test data for prediction
     :param data_path: data path of the source, specific to name
@@ -22,11 +22,11 @@ def read_tensor_from_test_data(data_path, flags):
     """
     print("Getting data tensor for test case...")
     data = pd.read_csv(data_path, header = None, delimiter = ' ')
-    print(data.info())
-    data_tensor_slice = tf.data.Dataset.from_tensor_slices(data.values)
+    data = np.array(data, dtype = 'float32')
+    data_tensor_slice = tf.data.Dataset.from_tensor_slices(data)
     print("data tensor before batch", data_tensor_slice)
-    data_tensor_slice = data_tensor_slice.batch(flags.batch_size, drop_remainder=False)
-    print("Data tensor after batch", data_tensor_slice)
+    print("batch_size:", batch_size)
+    data_tensor_slice = data_tensor_slice.batch(batch_size, drop_remainder=True)
     #iterator = data_tensor_slice.make_one_shot_iterator()
     iterator = tf.data.Iterator.from_structure(data_tensor_slice.output_types, data_tensor_slice.output_shapes)
     data_tensor = iterator.get_next()
@@ -68,9 +68,9 @@ def predict(flags, geo2spec, data_path):
     #Adjust the input of geometry and spectra given the flag
     if (spec2geo_flag):
         geometry = features;
-        spectra, pred_init_op = read_tensor_from_test_data(data_path, flags)
+        spectra, pred_init_op = read_tensor_from_test_data(data_path, flags.batch_size)
     else:
-        geometry, pred_init_op = read_tensor_from_test_data(data_path, flags)
+        geometry, pred_init_op = read_tensor_from_test_data(data_path, flags.batch_size)
         spectra = labels
 
     # make network

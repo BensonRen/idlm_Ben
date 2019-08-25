@@ -236,16 +236,19 @@ def read_data(input_size, output_size, x_range, y_range, geoboundary, cross_val=
     
     # shuffle then split into training and validation sets
     dataset_train = dataset_train.shuffle(shuffle_size)
-
+    print("before batch operation", dataset_valid)
     dataset_train = dataset_train.repeat()
     dataset_train = dataset_train.batch(batch_size, drop_remainder=True)
     dataset_valid = dataset_valid.batch(batch_size, drop_remainder=True)
-
+    print("data_valid", dataset_valid)
     iterator = tf.data.Iterator.from_structure(dataset_train.output_types, dataset_train.output_shapes)
+    print("iterator",iterator)
     features, labels = iterator.get_next()
     train_init_op = iterator.make_initializer(dataset_train)
     valid_init_op = iterator.make_initializer(dataset_valid)
 
+    print("feature", features)
+    print("labels", labels)
     return features, labels, train_init_op, valid_init_op
 
 #if __name__ == '__main__':

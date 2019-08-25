@@ -36,7 +36,6 @@ def MakeBoundaryLoss(Geometry_tensor, boundary):
     tolerance = 0
     print("Geometry_tensor_shape",Geometry_tensor.shape)
     #Make constants
-    print(boundary[0] * np.ones([1,4]))
     h_low  = tf.constant((boundary[0] - tolerance) * np.ones([1,4]), name= 'h_low',dtype=tf.float32)
     h_high = tf.constant((boundary[1] + tolerance) * np.ones([1,4]), name= 'h_high',dtype=tf.float32)
     r_low  = tf.constant((boundary[2] - tolerance) * np.ones([1,4]), name= 'r_low',dtype=tf.float32)
