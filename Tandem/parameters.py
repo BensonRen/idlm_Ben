@@ -34,5 +34,5 @@ DETAIL_TRAIN_LOSS_FORWARD = False
 CONV1D_FILTERS = ()#(160, 20, 5)
 CONV_CHANNEL_LIST = ()#(4,2,1)
 WRITE_WEIGHT_STEP = 5000
-
+PREDICT_FILE_PATH = 'data/pred/test_Xtruth_pred.csv'
 
