@@ -182,6 +182,19 @@ Bug Fixed/ Function added:
 1. VAE training updated with kl_loss monitoring and hooks summary for weights
 2. Full batch training swiping and waiting for results
 
+## 2019.08.24
+Bug Fixed/ Function added:
+1. Tandem model prediction module (Not tested)
+2. Forward model prediction module (Not tested)
+3. Backprop formating problem solved
+4. VAE Multi-initialization evaluation (Single output!) (Withouth the Loss!)
+
+## 2019.08.25
+Bug Fixed/ Function added:
+1. VAE evaluation module connect with the forward model prediction which gives the loss
+2.
+3.
+
 Working on now:
 
 1. VAE Multi-initialization evaluation (Single output!) 

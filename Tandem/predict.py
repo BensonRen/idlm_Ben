@@ -12,7 +12,25 @@ import os
 import pandas as pd
 import train
 import flag_reader
-def predictmain(flags):
+
+
+def read_tensor_from_test_data(data_path, flags):
+    """
+    The function to read the data tensors for the test data for prediction
+    :param data_path: data path of the source, specific to name
+    return data_tensor
+    """
+    print("Getting data tensor for test case...")
+    data = pd.read_csv(data_path, header = None)
+    data_tensor_slice = tf.data.Dataset.from_tensor_slice(data)
+    data_tensor_slice = data_tensor.batch(flags.batch_size, drop_remainder=False)
+    iterator = data_tensor_slice.make_one_shot_iterator()
+    #iterator = tf.data.Iterator.from_strcture(data_tensor.output_types, data_tensor.output_shapes)
+    data_tensor = iterator.get_next()
+    return data_tensor
+
+
+def predict_config(flags):
     #Clear the default graph first for resolving potential name conflicts
     tf.reset_default_graph()
     
