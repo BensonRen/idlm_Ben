@@ -21,19 +21,24 @@ def read_tensor_from_test_data(data_path, flags):
     return data_tensor
     """
     print("Getting data tensor for test case...")
-    data = pd.read_csv(data_path, header = None)
-    data_tensor_slice = tf.data.Dataset.from_tensor_slice(data)
-    data_tensor_slice = data_tensor.batch(flags.batch_size, drop_remainder=False)
-    iterator = data_tensor_slice.make_one_shot_iterator()
-    #iterator = tf.data.Iterator.from_strcture(data_tensor.output_types, data_tensor.output_shapes)
+    data = pd.read_csv(data_path, header = None, delimiter = ' ')
+    print(data.info())
+    data_tensor_slice = tf.data.Dataset.from_tensor_slices(data.values)
+    print("data tensor before batch", data_tensor_slice)
+    data_tensor_slice = data_tensor_slice.batch(flags.batch_size, drop_remainder=False)
+    print("Data tensor after batch", data_tensor_slice)
+    #iterator = data_tensor_slice.make_one_shot_iterator()
+    iterator = tf.data.Iterator.from_structure(data_tensor_slice.output_types, data_tensor_slice.output_shapes)
     data_tensor = iterator.get_next()
-    return data_tensor
+    pred_init_op = iterator.make_initializer(data_tensor_slice)
+    print("Data_tensor:",data_tensor)
+    return data_tensor, pred_init_op
 
 
-def predict(flags, spec2geo_flag, data_path):
+def predict(flags, geo2spec, data_path):
     #Clear the default graph first for resolving potential name conflicts
     tf.reset_default_graph()
-    
+    spec2geo_flag = not geo2spec #Get geo2spec from spec2geo flagg
     ckpt_dir = os.path.join(os.path.abspath(''), 'models', flags.model_name)
     clip, forward_fc_filters, tconv_Fnums, tconv_dims, tconv_filters, \
     n_filter, n_branch, reg_scale = network_helper.get_parameters(ckpt_dir)
@@ -63,9 +68,9 @@ def predict(flags, spec2geo_flag, data_path):
     #Adjust the input of geometry and spectra given the flag
     if (spec2geo_flag):
         geometry = features;
-        spectra = read_tensor_from_test_data(data_path, flags)
+        spectra, pred_init_op = read_tensor_from_test_data(data_path, flags)
     else:
-        geometry = read_tensor_from_test_data(data_path, flags)
+        geometry, pred_init_op = read_tensor_from_test_data(data_path, flags)
         spectra = labels
 
     # make network
@@ -79,19 +84,11 @@ def predict(flags, spec2geo_flag, data_path):
                                 conv1d_filters = flags.conv1d_filters, conv_channel_list = flags.conv_channel_list)
 
     if (spec2geo_flag):
-        ntwk.predict_spec2geo(train_init_op, ckpt_dir = ckpt_dir, model_name = flags.model_name)
+        ntwk.predict_spec2geo([train_init_op, pred_init_op], ckpt_dir = ckpt_dir, model_name = flags.model_name)
     else:
-        ntwk.predict_geo2spec(train_init_op, ckpt_dir = ckpt_dir, model_name = flags.model_name)
+        ntwk.predict_geo2spec([train_init_op, pred_init_op], ckpt_dir = ckpt_dir, model_name = flags.model_name)
         
 if __name__ == '__main__':
-	flags = flag_reader.read_flag()
-        #Set up the model
-        assert(len(sys.argv) == 2 ) , "Make sure you provide a argument that is either : --spec2geo or --geo2spec"
-        assert((sys.argv[1] == 'spec2geo') or (sys.argv[1] == 'geo2spec')), \
-                                        "Make sure you provide a argument that is either : spec2geo or geo2spec"
-	print("You are doing prediction using", sys.argv[1])
-
-        if (sys.argv[1] == 'spec2geo'):
-            predict(flags, spec2geo = True, flags.predict_file_path)
-        else:
-            predict(flags, spec2geo = False,flags.predict_file_path)
+    flags = flag_reader.read_flag()
+    #Set up the model
+    predict(flags, geo2spec = flags.predict_geo2spec, data_path = flags.predict_file_path)

@@ -280,14 +280,15 @@ class TandemCnnNetwork(object):
         with tf.Session() as sess:
             self.load(sess, ckpt_dir)
             assign_false_op = self.train_Forward.assign(False)  #For prediction purpose, this is always False   
-            sess.run([pred_init_op, assign_false_op])  #Run the pred_init_op to prepare the prediction files
+            sess.run(assign_false_op)  #Run the pred_init_op to prepare the prediction files
+            sess.run(pred_init_op)  #Run the pred_init_op to prepare the prediction files
             Xpred_file = os.path.join(save_file, 'test_Xpred_{}.csv'.format(model_name)) #Prediction of X
             Ypred_file = os.path.join(save_file, 'test_Ypred_{}.csv'.format(model_name))
             try:
                 start = time.time()
                 cnt = 1
                 while True:
-                    with open(Xpred_file, 'a') as f1, open(Ypred_file, 'a') as f2
+                    with open(Xpred_file, 'a') as f1, open(Ypred_file, 'a') as f2:
                         Ypred_batch, Xpred_batch = sess.run([self.logits, self.forward_in])
                         np.savetxt(f1, Xpred_batch, fmt='%.3f')
                         np.savetxt(f2, Ypred_batch, fmt='%.3f')
@@ -311,13 +312,14 @@ class TandemCnnNetwork(object):
         with tf.Session() as sess:
             self.load(sess, ckpt_dir)
             assign_true_op = self.train_Forward.assign(True)  #For prediction purpose, this is always True   
-            sess.run([pred_init_op, assign_true_op])  #Run the pred_init_op to prepare the prediction files
+            sess.run(assign_true_op)  #Run the pred_init_op to prepare the prediction files
+            sess.run(pred_init_op)  #Run the pred_init_op to prepare the prediction files
             Ypred_file = os.path.join(save_file, 'test_Ypred_{}.csv'.format(model_name))
             try:
                 start = time.time()
                 cnt = 1
                 while True:
-                    with open(Ypred_file, 'a') as f2
+                    with open(Ypred_file, 'a') as f2:
                         Ypred_batch = sess.run([self.logits])
                         np.savetxt(f2, Ypred_batch, fmt='%.3f')
                     if (cnt % 100) == 0:
