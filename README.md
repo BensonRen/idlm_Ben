@@ -196,6 +196,7 @@ Bug Fixed/ Function added:
 3. Tandem Model spec2geo module bug fix, tested
 4. Diversity Quality Measure formulation
 5. Time record system for time analysis
+5. Bug fixed for inadequate test cases
 
 Working on now:
 1. Geometry possible space plotting for Tandem model 
