@@ -321,6 +321,7 @@ class TandemCnnNetwork(object):
                 while True:
                     with open(Ypred_file, 'a') as f2:
                         Ypred_batch = sess.run([self.logits])
+                        Ypred_batch = np.reshape(Ypred_batch, [self.batch_size, -1])
                         np.savetxt(f2, Ypred_batch, fmt='%.3f')
                     if (cnt % 100) == 0:
                         print('cnt is {}, time elapsed is {} '.format(cnt, np.round(time.time()-start)))

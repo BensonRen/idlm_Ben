@@ -189,16 +189,14 @@ Bug Fixed/ Function added:
 3. Backprop formating problem solved
 4. VAE Multi-initialization evaluation (Single output!) (Withouth the Loss!)
 
-## 2019.08.25
+## 2019.08.26
 Bug Fixed/ Function added:
 1. VAE evaluation module connect with the forward model prediction which gives the loss
-2.
-3.
+2. Tandem Model geo2spec module bug fix, tested
+3. 
 
 Working on now:
-
-1. VAE Multi-initialization evaluation (Single output!) 
-2. Backprop formating problem
+1. Tandem Model spec2geo module bug fix, tested
 
 Finishing today:
 

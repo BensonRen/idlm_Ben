@@ -10,8 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import pandas as pd
-import train
-
+import flag_reader
 def compare_truth_pred(pred_file, truth_file):
     """
     Read truth and pred from csv files, compute their mean-absolute-error and the mean-squared-error
@@ -31,16 +30,8 @@ def evaluatemain(flags, eval_forward):
     tf.reset_default_graph()
     
     ckpt_dir = os.path.join(os.path.abspath(''), 'models', flags.model_name)
-    clip, forward_fc_filters, tconv_Fnums, tconv_dims, tconv_filters, \
-    n_filter, n_branch, reg_scale = network_helper.get_parameters(ckpt_dir)
-    print(ckpt_dir)
-    # initialize data reader
-    if len(tconv_dims) == 0:
-        output_size = fc_filters[-1]
-    else:
-        output_size = tconv_dims[-1]
-    features, labels, train_init_op, valid_init_op = data_reader.read_data(input_size=flags.input_size,
-                                                               output_size=output_size-2*clip,
+    geometry, spectra, train_init_op, valid_init_op = data_reader.read_data(input_size=flags.input_size,
+                                                               output_size=300,
                                                                x_range=flags.x_range,
                                                                y_range=flags.y_range,
 							        geoboundary=flags.geoboundary,
@@ -70,11 +61,8 @@ def evaluatemain(flags, eval_forward):
         #pred_file, truth_file = ntwk.evaluate(valid_init_op, ckpt_dir=ckpt_dir,
         Xpred_file = ntwk.evaluate(valid_init_op, ckpt_dir=ckpt_dir, model_name=flags.model_name, write_summary=True,
                                                                         eval_forward = eval_forward)
-        pred_file, truth_file = get_spectra_from_geometry(Xpred_file)
-    else:
-        pred_file = save_file
-        truth_file = os.path.join(os.path.abspath(''), 'data', 'test_truth.csv')
-
+        #pred_file, truth_file = get_spectra_from_geometry(Xpred_file)
+    """
     mae, mse = compare_truth_pred(pred_file, truth_file)
 
     plt.figure(figsize=(12, 6))
@@ -86,9 +74,9 @@ def evaluatemain(flags, eval_forward):
                              'VAE_{}.png'.format(flags.model_name)))
     plt.show()
     print('VAE (Avg MSE={:.4e})'.format(np.mean(mse)))
-
+    """
 if __name__ == '__main__':
-	flags = train.read_flag()
+	flags = flag_reader.read_flag()
 	evaluatemain(flags, eval_forward = False)
 	plotsAnalysis.SpectrumComparisonNGeometryComparison(3,2, (13,8), flags.model_name,flags.boundary)	
 
@@ -97,7 +85,7 @@ def get_spectra_from_geometry(Xpred_file):
     This function is to call the prediction function for the forward model and returns the Yprediction file
     :param Xpred_file: The prediction X given that used to infer Y values
     """
-
+    forward_model.predict.main()
 
 
 

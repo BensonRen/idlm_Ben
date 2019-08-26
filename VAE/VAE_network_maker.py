@@ -235,16 +235,63 @@ class VAENetwork(object):
                 sess.run([train_init_op])
                 for i in range(h):
                     Xpred = self.evaluate_one(Ytruth.iloc[i,:],  sess)
-                    #Xpred = np.reshape(Xpred, (1, -1))
-                    #Ypred = np.reshape(Ypred, (1, -1))
-                    #print("Xpred is:", Xpred)
                     np.savetxt(f1, Xpred, fmt='%.3f')
                     #np.savetxt(f3, Ypred, fmt='%.3f')
             with open(pred_file, 'a') as f3:
                 f3.write("TBD")
            # return pred_file, truth_file
 
-    """
+    def predict(self, valid_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'data'),
+                 model_name='', write_summary=False, eval_forward = False):
+        """
+        Predict the model, and save predictions to save_file
+        :param valid_init_op: validation dataset init operation
+        :param checkpoint directory
+        :param save_file: full path to pred file
+        :param model_name: name of the model
+        :param eval_forward
+        :return:
+        """
+        with tf.Session() as sess:
+            self.load(sess, ckpt_dir)
+
+            if write_summary:
+                writer_path = os.path.join(ckpt_dir, 'evalSummary')
+                print("summary_writer directory is {}".format(writer_path))
+                activation_summary_writer = tf.summary.FileWriter(writer_path, sess.graph)
+            else:
+                activation_summary_writer = None
+            
+            sess.run([valid_init_op,assign_eval_forward_op])
+            pred_file = os.path.join(save_file, 'test_Ypred_{}.csv'.format(model_name))
+            feature_file = os.path.join(save_file, 'test_Xtruth_{}.csv'.format(model_name))
+            truth_file = os.path.join(save_file, 'test_Ytruth_{}.csv'.format(model_name))
+            feat_file = os.path.join(save_file, 'test_Xpred_{}.csv'.format(model_name))
+            
+            eval_cnt = 0
+            start_pred = time.time()
+            try:
+                while True:
+                    with open(truth_file, 'a') as f2: 
+                        Xtruth, Ytruth = sess.run([self.features, self.labels])
+                        np.savetxt(f2, Ytruth, fmt='%.3f')
+            except tf.errors.OutOfRangeError:
+                Ytruth = pd.read_csv(truth_file,header= None, delimiter= ' ')
+                h ,w = Ytruth.values.shape
+                print(h)
+            
+            #inference time
+            with open(feat_file, 'a') as f1:#, open(pred_file, 'a') as f3: 
+                #First initialize the starting points
+                sess.run([train_init_op])
+                for i in range(h):
+                    Xpred = self.evaluate_one(Ytruth.iloc[i,:],  sess)
+                    np.savetxt(f1, Xpred, fmt='%.3f')
+                    #np.savetxt(f3, Ypred, fmt='%.3f')
+            with open(pred_file, 'a') as f3:
+                f3.write("TBD")
+   
+   """
     def predict(self, pred_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'dataGrid'),
                 model_name=''):
         """"""
