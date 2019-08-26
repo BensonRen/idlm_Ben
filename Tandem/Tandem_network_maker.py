@@ -234,10 +234,6 @@ class TandemCnnNetwork(object):
             
             eval_cnt = 0
             start_pred = time.time()
-            print("Backward_out:",sess.run(self.backward_out)[0,:])
-            print("Forward_in",sess.run(self.forward_in)[0,:])
-            print("Feature:",sess.run(self.features)[0,:])
-            print("Train_bool:",sess.run(self.train_Forward))
             try:
                 while True:
                     with open(feature_file, 'a') as f0, open(pred_file, 'a') as f1,\
@@ -258,12 +254,6 @@ class TandemCnnNetwork(object):
                 print("evaluation took {} seconds".format(time.time() - start_pred))
                 activation_summary_writer.flush()
                 activation_summary_writer.close()
-                
-                print("Xpred",Xpred[0,:])
-                print("Xtruth",Xtruth[0,:])
-                print("Ypred",Ypred[0,:])
-                print("Ytruth",Ytruth[0,:])
-                
                 return pred_file, truth_file
     
 

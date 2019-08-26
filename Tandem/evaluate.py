@@ -8,10 +8,11 @@ import plotsAnalysis
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-import os
+import time
 import pandas as pd
 import train
 import flag_reader
+import time_recorder
 def compare_truth_pred(pred_file, truth_file):
     """
     Read truth and pred from csv files, compute their mean-absolute-error and the mean-squared-error
@@ -26,8 +27,11 @@ def compare_truth_pred(pred_file, truth_file):
     mse = np.mean(np.square(pred-truth), axis=1)
 
     return mae, mse
-def evaluatemain(flags, eval_forward):
+def evaluatemain(flags, eval_forward, test_ratio,plot_histo = True):
     #Clear the default graph first for resolving potential name conflicts
+    print("Start Evaluating now...")
+    TK = time_recorder.time_keeper(time_keeping_file = "data/time_keeper.txt")
+
     tf.reset_default_graph()
     
     ckpt_dir = os.path.join(os.path.abspath(''), 'models', flags.model_name)
@@ -50,7 +54,7 @@ def evaluatemain(flags, eval_forward):
                                                                shuffle_size=flags.shuffle_size,
 								data_dir = flags.data_dir,
 							        normalize_input = flags.normalize_input,
-                                                                test_ratio = 0.2)
+                                                                test_ratio = test_ratio) #Test ratio < 0 means manual pick of test set
 
     #if the input is normalized
     if flags.normalize_input:
@@ -75,21 +79,31 @@ def evaluatemain(flags, eval_forward):
     else:
         pred_file = save_file
         truth_file = os.path.join(os.path.abspath(''), 'data', 'test_truth.csv')
-
+    
+    TK.record(write_number = 22000 * test_ratio)
     mae, mse = compare_truth_pred(pred_file, truth_file)
-
-    plt.figure(figsize=(12, 6))
-    plt.hist(mse, bins=100)
-    plt.xlabel('Mean Squared Error')
-    plt.ylabel('cnt')
-    plt.suptitle('Tandem (Avg MSE={:.4e})'.format(np.mean(mse)))
-    plt.savefig(os.path.join(os.path.abspath(''), 'data',
+    
+    if (plot_histo):
+        plt.figure(figsize=(12, 6))
+        plt.hist(mse, bins=100)
+        plt.xlabel('Mean Squared Error')
+        plt.ylabel('cnt')
+        plt.suptitle('Tandem (Avg MSE={:.4e})'.format(np.mean(mse)))
+        plt.savefig(os.path.join(os.path.abspath(''), 'data',
                              'tandem_{}.png'.format(flags.model_name)))
-    plt.show()
+        plt.show()
     print('Tandem (Avg MSE={:.4e})'.format(np.mean(mse)))
+    
+def evaluate_with_ratio(test_ratio):
+    flags = flag_reader.read_flag()
+    evaluatemain(flags, eval_forward = False, test_ratio = test_ratio,plot_histo = False)
+    plotsAnalysis.SpectrumComparisonNGeometryComparison(3,2, (13,8), flags.model_name,flags.boundary)	
+    
 
 if __name__ == '__main__':
-	flags = flag_reader.read_flag()
-	evaluatemain(flags, eval_forward = False)
-	plotsAnalysis.SpectrumComparisonNGeometryComparison(3,2, (13,8), flags.model_name,flags.boundary)	
+    flags = flag_reader.read_flag()
+    evaluatemain(flags, eval_forward = False, test_ratio = -1)
+    plotsAnalysis.SpectrumComparisonNGeometryComparison(3,2, (13,8), flags.model_name,flags.boundary)	
+
+
 
