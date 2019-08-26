@@ -193,17 +193,18 @@ Bug Fixed/ Function added:
 Bug Fixed/ Function added:
 1. VAE evaluation module connect with the forward model prediction which gives the loss
 2. Tandem Model geo2spec module bug fix, tested
-3. 
+3. Tandem Model spec2geo module bug fix, tested
+4. Diversity Quality Measure formulation
 
 Working on now:
-1. Tandem Model spec2geo module bug fix, tested
+1. Geometry possible space plotting for Tandem model 
+
 
 Finishing today:
 
 Pending to work: 
 1. VAE Forward Model prediction problem
 1. Compare the top 3 best model Geome
-2. Think of quantifying measures for diversity and accuracy (browse through paper for inspirations)
 3. Warm-up training 
 
 
