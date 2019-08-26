@@ -184,8 +184,8 @@ Bug Fixed/ Function added:
 
 ## 2019.08.24
 Bug Fixed/ Function added:
-1. Tandem model prediction module (Not tested)
-2. Forward model prediction module (Not tested)
+1. Tandem model prediction module 
+2. Forward model prediction module
 3. Backprop formating problem solved
 4. VAE Multi-initialization evaluation (Single output!) (Withouth the Loss!)
 
@@ -197,9 +197,10 @@ Bug Fixed/ Function added:
 4. Diversity Quality Measure formulation
 5. Time record system for time analysis
 5. Bug fixed for inadequate test cases
+6. Geometry Possible Space plotting module added, not tested yet
 
 Working on now:
-1. Geometry possible space plotting for Tandem model 
+1. Wait until the TANDEM full geometry search done and then test the possibe geometry plotting 
 
 
 Finishing today:

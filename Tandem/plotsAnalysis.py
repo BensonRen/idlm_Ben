@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import evaluate
 import seaborn as sns; sns.set()
+import get_pred_truth_file
+
 def RetrieveFeaturePredictionNMse(model_name):
     """
     Retrieve the Feature and Prediciton values and place in a np array
@@ -234,3 +236,30 @@ def HeatMapBVL(plot_x_name, plot_y_name, title,  save_name='HeatMap.png', HeatMa
     plt.ylabel(plot_y_name)
     plt.title(title)
     plt.savefig(save_name)
+
+
+def PlotPossibleGeoSpace(figname, Xpred_dir):
+    """
+    Function to plot the possible geometry space for a model evaluation result.
+    It reads from Xpred_dir folder and finds the Xpred result insdie and plot that result
+    :params figname: The name of the figure to save
+    :params Xpred_dir: The directory to look for Xpred file which is the source of plotting
+    :output A plot containing 4 subplots showing the 8 geomoetry dimensions
+    """
+    Xpredfile = os.path.join(Xpred_dir, get_pred_truth_file.get_Xpred(Xpred_dir))
+    Xpred = pd.read_csv(Xpredfile, header=None, delimiter=' ')
+
+    f = plt.figure(figsize = Figsize)
+    ax0 = plt.gca()
+    for i in range(4):
+      ax = plt.subplot(2, 2, i+1)
+      predArr = [[Xpred[j, i], Xpred[j, i]] ,[Xpred[j, i + 4], Xpred[j, i + 4]]]
+      ax.scatter(Xpred[:,i], Xpred[:,i + 4])
+      plt.xlabel('h{}'.format(i))
+      plt.ylabel('r{}'.format(i))
+      plt.xlim([-1 1])
+      plt.ylim([-1 1])
+    f.title(figname)
+    f.savefig(figname+'.png')
+
+

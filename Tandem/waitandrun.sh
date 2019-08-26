@@ -1,16 +1,16 @@
 #!/bin/bash
 
 
-#PID=5023
-#while [ -e /proc/$PID ]
-#do
-#    echo "Process: $PID is still running" 
-#        sleep 10m
-#done
-
+PID=8264
+while [ -e /proc/$PID ]
+do
+    echo "Process: $PID is still running" 
+        sleep 10m
+done
+rm data/*.csv
 TIME=`date`
 PWD=`pwd`
-COMMAND=evaluate_time_analysis.py
+COMMAND=evaluate.py
 #COMMAND=hyperswipe.py
 #COMMAND=train.py
 #COMMAND=evaluate.py

@@ -78,14 +78,8 @@ def evaluatemain(flags, eval_forward):
 if __name__ == '__main__':
 	flags = flag_reader.read_flag()
 	evaluatemain(flags, eval_forward = False)
-	plotsAnalysis.SpectrumComparisonNGeometryComparison(3,2, (13,8), flags.model_name,flags.boundary)	
+	#plotsAnalysis.SpectrumComparisonNGeometryComparison(3,2, (13,8), flags.model_name,flags.boundary)	
 
-def get_spectra_from_geometry(Xpred_file):
-    """
-    This function is to call the prediction function for the forward model and returns the Yprediction file
-    :param Xpred_file: The prediction X given that used to infer Y values
-    """
-    forward_model.predict.main()
 
 
 

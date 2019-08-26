@@ -24,4 +24,4 @@ if __name__ == '__main__':
     plt.ylabel('Time spent (s)')
     plt.xlabel('Number of inferenced points')
     plt.title('Inference Time vs Sample Size for Tandem Model')
-    f.savefig("Tandem Model Inference Time Analysis.png")
+    f.savefig("data/Tandem Model Inference Time Analysis.png")

@@ -113,4 +113,12 @@ def SpectrumComparisonNGeometryComparison(rownum, colnum, Figsize, model_name, b
     #f.colorbar(predplot)
     f.savefig('Geometry Comparison_{}'.format(model_name))
 
-
+def PlotPossibleGeoSpace(figname, Xpred_dir):
+    """
+    Function to plot the possible geometry space for a model evaluation result.
+    It reads from Xpred_dir folder and finds the Xpred result insdie and plot that result
+    :params figname: The name of the figure to save
+    :params Xpred_dir: The directory to look for Xpred file which is the source of plotting
+    :output A plot containing 4 subplots showing the 8 geomoetry dimensions
+    """
+    

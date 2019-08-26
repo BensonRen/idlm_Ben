@@ -171,7 +171,7 @@ class VAENetwork(object):
                     self.best_validation_loss = forward_hooks[-1].best_validation_loss
                 if forward_hooks[-1].stop:     #if it either trains to the threshold or have NAN value, stop here
                     break
-            #self.save(sess)
+            self.save(sess)
     def evaluate_one(self, target_spectra, sess):
         """
         The function that return the result of evaluation of one target spectra
@@ -237,8 +237,8 @@ class VAENetwork(object):
                     Xpred = self.evaluate_one(Ytruth.iloc[i,:],  sess)
                     np.savetxt(f1, Xpred, fmt='%.3f')
                     #np.savetxt(f3, Ypred, fmt='%.3f')
-            with open(pred_file, 'a') as f3:
-                f3.write("TBD")
+            #with open(pred_file, 'a') as f3:
+            #    f3.write("TBD")
            # return pred_file, truth_file
 
     def predict(self, valid_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'data'),
@@ -288,10 +288,10 @@ class VAENetwork(object):
                     Xpred = self.evaluate_one(Ytruth.iloc[i,:],  sess)
                     np.savetxt(f1, Xpred, fmt='%.3f')
                     #np.savetxt(f3, Ypred, fmt='%.3f')
-            with open(pred_file, 'a') as f3:
-                f3.write("TBD")
+            #with open(pred_file, 'a') as f3:
+            #    f3.write("TBD")
    
-   """
+        """
     def predict(self, pred_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'dataGrid'),
                 model_name=''):
         """"""
@@ -327,4 +327,4 @@ class VAENetwork(object):
             except tf.errors.OutOfRangeError:
                 return pred_file, feat_file
                 pass
-    """
+        """
