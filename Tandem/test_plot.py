@@ -10,11 +10,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 if __name__ == '__main__':
     #Swipe through different size of test sets and evaluate them all
-    for ratio in np.arange(0.01, 1, 0.02):
-        evaluate.evaluate_with_ratio(ratio)
+    #for ratio in np.arange(0.01, 1, 0.02):
+    #    evaluate.evaluate_with_ratio(ratio)
 
     #Plot the anaylsis graph into a real analysis
-    time_analysis = pd.read_csv("data/time_keeper.txt",names = ["number", "time"])
+    time_analysis = pd.read_csv("time_keeper.txt",names = ["number", "time"])
     time_analysis.info()
     time_analysis = time_analysis.sort_values(by = ['number'])
 

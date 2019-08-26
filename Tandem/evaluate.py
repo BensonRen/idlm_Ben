@@ -80,7 +80,7 @@ def evaluatemain(flags, eval_forward, test_ratio,plot_histo = True):
         pred_file = save_file
         truth_file = os.path.join(os.path.abspath(''), 'data', 'test_truth.csv')
     
-    TK.record(write_number = 22000 * test_ratio)
+    TK.record(write_number = int(22000 * test_ratio))
     mae, mse = compare_truth_pred(pred_file, truth_file)
     
     if (plot_histo):
