@@ -86,3 +86,9 @@ Instructions for updating:
 Use standard file APIs to check for files with this prefix.
 W0826 20:07:48.060539 140460939597568 deprecation_wrapper.py:119] From /home/edal/Documents/Ben/idlm_Ben/Backprop/Backprop_network_maker.py:244: The name tf.summary.FileWriter is deprecated. Please use tf.compat.v1.summary.FileWriter instead.
 
+Traceback (most recent call last):
+  File "evaluate.py", line 98, in <module>
+    evaluatemain(flags, eval_forward = False)
+  File "evaluate.py", line 86, in evaluatemain
+    plt.figure(figsize=(12, 6))
+NameError: name 'plt' is not defined

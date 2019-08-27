@@ -238,7 +238,7 @@ def HeatMapBVL(plot_x_name, plot_y_name, title,  save_name='HeatMap.png', HeatMa
     plt.savefig(save_name)
 
 
-def PlotPossibleGeoSpace(figname, Xpred_dir):
+def PlotPossibleGeoSpace(figname, Xpred_dir, compare_original = False):
     """
     Function to plot the possible geometry space for a model evaluation result.
     It reads from Xpred_dir folder and finds the Xpred result insdie and plot that result
@@ -246,10 +246,11 @@ def PlotPossibleGeoSpace(figname, Xpred_dir):
     :params Xpred_dir: The directory to look for Xpred file which is the source of plotting
     :output A plot containing 4 subplots showing the 8 geomoetry dimensions
     """
-    Xpred_file = get_pred_truth_file.get_Xpred(Xpred_dir)
-    print(Xpred_file)
     Xpredfile = os.path.join(Xpred_dir, get_pred_truth_file.get_Xpred(Xpred_dir))
     Xpred = pd.read_csv(Xpredfile, header=None, delimiter=' ').values
+    
+    Xtruthfile = os.path.join(Xpred_dir, get_pred_truth_file.get_Xtruth(Xpred_dir))
+    Xtruth = pd.read_csv(Xtruthfile, header=None, delimiter=' ').values
 
     f = plt.figure()
     ax0 = plt.gca()
@@ -258,11 +259,14 @@ def PlotPossibleGeoSpace(figname, Xpred_dir):
     plt.title(figname)
     for i in range(4):
       ax = plt.subplot(2, 2, i+1)
-      ax.scatter(Xpred[:,i], Xpred[:,i + 4])
+      ax.scatter(Xpred[:,i], Xpred[:,i + 4],label = "Xpred")
+      if (compare_original):
+          ax.scatter(Xtruth[:,i], Xtruth[:,i+4], label = "Xtruth")
       plt.xlabel('h{}'.format(i))
       plt.ylabel('r{}'.format(i))
       plt.xlim(-1,1)
       plt.ylim(-1,1)
+      plt.legend()
     #plt.title(figname)
     f.savefig(figname+'.png')
 

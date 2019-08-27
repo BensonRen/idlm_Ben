@@ -4,7 +4,7 @@ import pandas as pd
 import time_recorder
 import plotsAnalysis
 
-plotsAnalysis.PlotPossibleGeoSpace("Possible geo space for tandem structure","data/")
+plotsAnalysis.PlotPossibleGeoSpace("Possible geo space for tandem structure","data/", compare_original = False)
 
 #TK = time_recorder.time_keeper()
 #TK.record(5)

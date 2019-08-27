@@ -1,4 +1,5 @@
 import argparse
+import matplotlib.pyplot as plt
 import tensorflow as tf
 import data_reader
 import model_maker
