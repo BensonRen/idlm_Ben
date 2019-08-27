@@ -22,7 +22,7 @@ def tandemmain(flags):
                                                                shuffle_size=flags.shuffle_size,
 							        data_dir = flags.data_dir,
 								normalize_input = flags.normalize_input,
-                                                                test_ratio = 0.2)
+                                                                test_ratio = 0.1)
   	#If the input is normalized, then make the boundary useless
     if flags.normalize_input:
         flags.geoboundary = [-1, 1, -1, 1]

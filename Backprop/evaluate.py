@@ -7,6 +7,7 @@ import network_helper
 import plotsAnalysis
 import os
 import flag_reader
+import time_recorder
 import numpy as np
 def compare_truth_pred(pred_file, truth_file):
     """
@@ -26,7 +27,8 @@ def compare_truth_pred(pred_file, truth_file):
 def evaluatemain(flags, eval_forward):
     #Clear the default graph first for resolving potential name conflicts
     tf.reset_default_graph()
-    
+    TK = time_recorder.time_keeper(time_keeping_file = "data/time_keeper.txt")
+
     ckpt_dir = os.path.join(os.path.abspath(''), 'models', flags.model_name)
     clip, forward_fc_filters, tconv_Fnums, tconv_dims, tconv_filters, \
     n_filter, n_branch, reg_scale = network_helper.get_parameters(ckpt_dir)
@@ -47,7 +49,7 @@ def evaluatemain(flags, eval_forward):
                                                                shuffle_size=flags.shuffle_size,
                                                                normalize_input = flags.normalize_input,
 							        data_dir = flags.data_dir,
-                                                                test_ratio = -1) #negative test_ratio means test from eval
+                                                                test_ratio = 0.01) #negative test_ratio means test from eval
     
     #if the input is normalized
     if flags.normalize_input:
@@ -73,7 +75,8 @@ def evaluatemain(flags, eval_forward):
                                               verb_step = flags.verb_step,
                                               model_name=flags.model_name,
                                               write_summary=True,
-                                              eval_forward = eval_forward)
+                                              eval_forward = eval_forward,
+                                              time_recorder = TK)
     else:
         pred_file = save_file
         truth_file = os.path.join(os.path.abspath(''), 'data', 'test_truth.csv')

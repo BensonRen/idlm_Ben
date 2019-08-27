@@ -6,6 +6,7 @@ import tensorflow as tf
 import struct
 import pandas as pd
 import model_maker
+import time_recorder
 class BackPropCnnNetwork(object):
     def __init__(self, features, labels, model_fn, batch_size,
                  clip=0,forward_fc_filters=(5, 10, 15),tconv_Fnums=(4,4), tconv_dims=(60, 120, 240), 
@@ -220,7 +221,8 @@ class BackPropCnnNetwork(object):
     def evaluate(self, valid_init_op, train_init_op, ckpt_dir,verb_step = 500, 
                 back_prop_epoch = 10000, stop_thres = 1e-3,
                  save_file=os.path.join(os.path.abspath(''), 'data'),
-                 model_name='', write_summary=False, eval_forward = False):
+                 model_name='', write_summary=False, eval_forward = False,
+                 time_recorder = None):
         """
         Evaluate the model, and save predictions to save_file
         :param valid_init_op: validation dataset init operation
@@ -270,13 +272,15 @@ class BackPropCnnNetwork(object):
                 assign_var_op = self.geometry_variable.assign(RN) #Assign the variable
                 sess.run([assign_var_op, train_init_op])
                 for i in range(h):
+                    sess.run([assign_var_op, train_init_op])
                     Xpred, Ypred = self.evaluate_one(Ytruth.iloc[i,:], back_prop_epoch, sess, verb_step, stop_thres, i)
                     Xpred = np.reshape(Xpred, (1, -1))
                     Ypred = np.reshape(Ypred, (1, -1))
                     #print("Xpred is:", Xpred)
                     np.savetxt(f1, Xpred, fmt='%.3f')
                     np.savetxt(f3, Ypred, fmt='%.3f')
-
+                    if (time_recorder != None):
+                        time_recorder.record(write_number = i)
             return pred_file, truth_file
 
 

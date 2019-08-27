@@ -257,8 +257,8 @@ def PlotPossibleGeoSpace(figname, Xpred_dir):
       ax.scatter(Xpred[:,i], Xpred[:,i + 4])
       plt.xlabel('h{}'.format(i))
       plt.ylabel('r{}'.format(i))
-      plt.xlim([-1 1])
-      plt.ylim([-1 1])
+      plt.xlim(-1,1)
+      plt.ylim(-1,1)
     f.title(figname)
     f.savefig(figname+'.png')
 
