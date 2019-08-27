@@ -6,11 +6,11 @@ import train
 import tensorflow as tf
 import flag_reader
 if __name__ == '__main__':
-    backward_fc_filters_front = ( 500, )
-    backward_fc_filters_back = (500, 300, 100, 8)
-    added_layer_size = 1000
+    backward_fc_filters_front = ( 300, )
+    backward_fc_filters_back = (  100, 8)
+    added_layer_size = 300
     #Setting the loop for setting the parameter
-    for i in range(4,5,1):
+    for i in range(5):
         flags = flag_reader.read_flag()  	#setting the base case
         backward_fc_filters = backward_fc_filters_front
         for j in range(i):
