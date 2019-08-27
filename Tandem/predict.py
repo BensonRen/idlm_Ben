@@ -35,7 +35,7 @@ def read_tensor_from_test_data(data_path, batch_size):
     return data_tensor, pred_init_op
 
 
-def predict(flags, geo2spec, data_path):
+def predict(flags, geo2spec, data_path, save_path):
     #Clear the default graph first for resolving potential name conflicts
     tf.reset_default_graph()
     spec2geo_flag = not geo2spec #Get geo2spec from spec2geo flagg
@@ -84,11 +84,13 @@ def predict(flags, geo2spec, data_path):
                                 conv1d_filters = flags.conv1d_filters, conv_channel_list = flags.conv_channel_list)
 
     if (spec2geo_flag):
-        ntwk.predict_spec2geo([train_init_op, pred_init_op], ckpt_dir = ckpt_dir, model_name = flags.model_name)
+        ntwk.predict_spec2geo([train_init_op, pred_init_op], ckpt_dir = ckpt_dir, 
+                                model_name = flags.model_name, save_file = save_path)
     else:
-        ntwk.predict_geo2spec([train_init_op, pred_init_op], ckpt_dir = ckpt_dir, model_name = flags.model_name)
+        ntwk.predict_geo2spec([train_init_op, pred_init_op], ckpt_dir = ckpt_dir, 
+                                model_name = flags.model_name, save_file = save_path)
         
 if __name__ == '__main__':
     flags = flag_reader.read_flag()
     #Set up the model
-    predict(flags, geo2spec = flags.predict_geo2spec, data_path = flags.predict_file_path)
+    predict(flags, geo2spec = flags.predict_geo2spec, data_path = flags.predict_file_path, save_path = flags.predict_save_path)

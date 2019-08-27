@@ -5,7 +5,7 @@ import numpy as np
 import tensorflow as tf
 import struct
 from tensorflow.keras import backend as K
-
+import pandas as pd
 class VAENetwork(object):
     def __init__(self, features, labels, model_fn, batch_size, latent_dim, 
                  spectra_fc_filters=(5, 10, 15), decoder_fc_filters=(5,10,15),
@@ -183,14 +183,14 @@ class VAENetwork(object):
         #Create random variable for latent variable
         latent_z = np.random.normal(0, 1, (self.batch_size, self.latent_dim))
         target_spectra_repeat = np.repeat(np.reshape(target_spectra.values, (1, -1)), self.batch_size, axis=0)
-        Xpred = sess.run(self.logit, feed_dict = {self.z : latent_z, self.labels: target_spectra_repeat})
+        Xpred = sess.run(self.logits, feed_dict = {self.z : latent_z, self.labels: target_spectra_repeat})
         Xpred = np.reshape(Xpred, (1,-1))               #Put Xpred into a long row and output that row
 
         return Xpred
 
 
-    def evaluate(self, valid_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'data'),
-                 model_name='', write_summary=False, eval_forward = False):
+    def evaluate(self, valid_init_op, train_init_op, ckpt_dir, save_file=os.path.join(os.path.abspath(''), 'data'),
+                 model_name='', write_summary=False, eval_forward = False, time_keeper = None):
         """
         Evaluate the model, and save predictions to save_file
         :param valid_init_op: validation dataset init operation
@@ -210,7 +210,7 @@ class VAENetwork(object):
             else:
                 activation_summary_writer = None
             
-            sess.run([valid_init_op,assign_eval_forward_op])
+            sess.run(valid_init_op)
             pred_file = os.path.join(save_file, 'test_Ypred_{}.csv'.format(model_name))
             feature_file = os.path.join(save_file, 'test_Xtruth_{}.csv'.format(model_name))
             truth_file = os.path.join(save_file, 'test_Ytruth_{}.csv'.format(model_name))
@@ -236,6 +236,8 @@ class VAENetwork(object):
                 for i in range(h):
                     Xpred = self.evaluate_one(Ytruth.iloc[i,:],  sess)
                     np.savetxt(f1, Xpred, fmt='%.3f')
+                    if (time_keeper != None):
+                        time_keeper.record(write_number = i)
                     #np.savetxt(f3, Ypred, fmt='%.3f')
             #with open(pred_file, 'a') as f3:
             #    f3.write("TBD")
@@ -262,7 +264,7 @@ class VAENetwork(object):
             else:
                 activation_summary_writer = None
             
-            sess.run([valid_init_op,assign_eval_forward_op])
+            sess.run(valid_init_op)
             pred_file = os.path.join(save_file, 'test_Ypred_{}.csv'.format(model_name))
             feature_file = os.path.join(save_file, 'test_Xtruth_{}.csv'.format(model_name))
             truth_file = os.path.join(save_file, 'test_Ytruth_{}.csv'.format(model_name))

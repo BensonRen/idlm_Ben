@@ -1,8 +1,13 @@
 import os
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import pandas as pd
 import evaluate
+import seaborn as sns; sns.set()
+import get_pred_truth_file
+
 def RetrieveFeaturePredictionNMse(model_name):
     """
     Retrieve the Feature and Prediciton values and place in a np array
@@ -113,7 +118,127 @@ def SpectrumComparisonNGeometryComparison(rownum, colnum, Figsize, model_name, b
     #f.colorbar(predplot)
     f.savefig('Geometry Comparison_{}'.format(model_name))
 
-def PlotPossibleGeoSpace(figname, Xpred_dir):
+
+class HMpoint(object):
+    """
+    This is a HeatMap point class where each object is a point in the heat map
+    properties:
+    1. BV_loss: best_validation_loss of this run
+    2. feature_1: feature_1 value
+    3. feature_2: feature_2 value, none is there is no feature 2
+    """
+    def __init__(self, bv_loss, f1, f2 = None, f1_name = 'f1', f2_name = 'f2'):
+        self.bv_loss = bv_loss
+        self.feature_1 = f1
+        self.feature_2 = f2
+        self.f1_name = f1_name
+        self.f2_name = f2_name
+        #print(type(f1))
+    def to_dict(self):
+        return {
+            self.f1_name: self.feature_1,
+            self.f2_name: self.feature_2,
+            self.bv_loss: self.bv_loss
+        }
+
+
+def HeatMapBVL(plot_x_name, plot_y_name, title,  save_name='HeatMap.png', HeatMap_dir = 'HeatMap',
+                feature_1_name=None, feature_2_name=None,
+                heat_value_name = 'best_validation_loss'):
+    """
+    Plotting a HeatMap of the Best Validation Loss for a batch of hyperswiping thing
+    First, copy those models to a folder called "HeatMap"
+    Algorithm: Loop through the directory using os.look and find the parameters.txt files that stores the
+    :param HeatMap_dir: The directory where the checkpoint folders containing the parameters.txt files are located
+    :param feature_1_name: The name of the first feature that you would like to plot on the feature map
+    :param feature_2_name: If you only want to draw the heatmap using 1 single dimension, just leave it as None
+    """
+    one_dimension_flag = False          #indication flag of whether it is a 1d or 2d plot to plot
+    #Check the data integrity 
+    if (feature_1_name == None):
+        print("Please specify the feature that you want to plot the heatmap");
+        return
+    if (feature_2_name == None):
+        one_dimension_flag = True
+        print("You are plotting feature map with only one feature, plotting loss curve instead")
+
+    #Get all the parameters.txt running related data and make HMpoint objects
+    HMpoint_list = []
+    df_list = []                        #make a list of data frame for further use
+    for subdir, dirs, files in os.walk(HeatMap_dir):
+        for file_name in files:
+             if (file_name == 'parameters.txt'):
+                file_path = os.path.join(subdir, file_name) #Get the file relative path from 
+                df = pd.read_csv(file_path, index_col = 0)
+                #df = df.reset_index()                           #reset the index to get ride of 
+                if (one_dimension_flag):
+                    df_list.append(df[[heat_value_name, feature_1_name]])
+                    HMpoint_list.append(HMpoint(float(df[heat_value_name][0]), eval(df[feature_1_name][0]), f1_name = feature_1_name))
+                else:
+                    df_list.append(df[[heat_value_name, feature_1_name, feature_2_name]])
+                    HMpoint_list.append(HMpoint(float(df[heat_value_name][0]),eval(df[feature_1_name][0]),eval(df[feature_2_name][0]),
+                                        feature_1_name, feature_2_name))
+   
+    #Concatenate all the dfs into a single aggregate one for 2 dimensional usee
+    df_aggregate = pd.concat(df_list, ignore_index = True, sort = False)
+    print(df_aggregate[heat_value_name])
+    print(type(df_aggregate[heat_value_name]))
+    df_aggregate.astype({heat_value_name: 'float'})
+    print(type(df_aggregate[heat_value_name]))
+    #df_aggregate = df_aggregate.reset_index()
+    print("before transformation:", df_aggregate)
+    [h, w] = df_aggregate.shape
+    for i in range(h):
+        for j in range(w):
+            #print(i,j, df_aggregate.iloc[i,j])
+            if (isinstance(df_aggregate.iloc[i,j],str)):
+                ij_tuple = eval(df_aggregate.iloc[i,j])
+                df_aggregate.iloc[i,j] = len(ij_tuple)
+
+    print("after transoformation:",df_aggregate)
+    
+    #Change the feature if it is a tuple, change to length of it
+    for cnt, point in enumerate(HMpoint_list):
+        print("For point {} , it has {} loss, {} for feature 1 and {} for feature 2".format(cnt, 
+                                                                point.bv_loss, point.feature_1, point.feature_2))
+        assert(isinstance(point.bv_loss, float))        #make sure this is a floating number
+        if (isinstance(point.feature_1, tuple)):
+            point.feature_1 = len(point.feature_1)
+        if (isinstance(point.feature_2, tuple)):
+            point.feature_2 = len(point.feature_2)
+
+    
+    f = plt.figure()
+    #After we get the full list of HMpoint object, we can start drawing 
+    if (feature_2_name == None):
+        print("plotting 1 dimension HeatMap (which is actually a line)")
+        HMpoint_list_sorted = sorted(HMpoint_list, key = lambda x: x.feature_1)
+        #Get the 2 lists of plot
+        bv_loss_list = []
+        feature_1_list = []
+        for point in HMpoint_list_sorted:
+            bv_loss_list.append(point.bv_loss)
+            feature_1_list.append(point.feature_1)
+        print("bv_loss_list:", bv_loss_list)
+        print("feature_1_list:",feature_1_list)
+        #start plotting
+        plt.plot(feature_1_list, bv_loss_list,'o-')
+    else: #Or this is a 2 dimension HeatMap
+        print("plotting 2 dimension HeatMap")
+        #point_df = pd.DataFrame.from_records([point.to_dict() for point in HMpoint_list])
+        df_aggregate = df_aggregate.reset_index()
+        df_aggregate.sort_values(feature_1_name, axis = 0, inplace = True)
+        df_aggregate.sort_values(feature_2_name, axis = 0, inplace = True)
+        print(df_aggregate)
+        point_df_pivot = df_aggregate.reset_index().pivot(feature_1_name, feature_2_name, heat_value_name)
+        sns.heatmap(point_df_pivot, vmin = 1.24e-3,cmap = "YlGnBu")
+    plt.xlabel(plot_x_name)
+    plt.ylabel(plot_y_name)
+    plt.title(title)
+    plt.savefig(save_name)
+
+
+def PlotPossibleGeoSpace(figname, Xpred_dir, compare_original = False):
     """
     Function to plot the possible geometry space for a model evaluation result.
     It reads from Xpred_dir folder and finds the Xpred result insdie and plot that result
@@ -121,4 +246,28 @@ def PlotPossibleGeoSpace(figname, Xpred_dir):
     :params Xpred_dir: The directory to look for Xpred file which is the source of plotting
     :output A plot containing 4 subplots showing the 8 geomoetry dimensions
     """
+    Xpredfile = os.path.join(Xpred_dir, get_pred_truth_file.get_Xpred(Xpred_dir))
+    Xpred = pd.read_csv(Xpredfile, header=None, delimiter=' ').values
     
+    Xtruthfile = os.path.join(Xpred_dir, get_pred_truth_file.get_Xtruth(Xpred_dir))
+    Xtruth = pd.read_csv(Xtruthfile, header=None, delimiter=' ').values
+
+    f = plt.figure()
+    ax0 = plt.gca()
+    print(np.shape(Xpred))
+    #print(Xpred)
+    plt.title(figname)
+    for i in range(4):
+      ax = plt.subplot(2, 2, i+1)
+      ax.scatter(Xpred[:,i], Xpred[:,i + 4],label = "Xpred")
+      if (compare_original):
+          ax.scatter(Xtruth[:,i], Xtruth[:,i+4], label = "Xtruth")
+      plt.xlabel('h{}'.format(i))
+      plt.ylabel('r{}'.format(i))
+      plt.xlim(-1,1)
+      plt.ylim(-1,1)
+      plt.legend()
+    #plt.title(figname)
+    f.savefig(figname+'.png')
+
+

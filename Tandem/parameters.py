@@ -34,8 +34,8 @@ DETAIL_TRAIN_LOSS_FORWARD = False
 CONV1D_FILTERS = (160, 5)
 CONV_CHANNEL_LIST = (4,1)
 WRITE_WEIGHT_STEP = 5000
-PREDICT_FILE_PATH = 'data/pred/test_Ytruth_pred.csv'
+PREDICT_FILE_PATH = '../swipe_test/data/test_Xpred_20190826_210307.csv'
 PREDICT_GEO2SPEC = False
-
+PREDICT_SAVE_PATH = '../swipe_test/data'
 
 

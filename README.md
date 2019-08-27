@@ -202,9 +202,11 @@ Bug Fixed/ Function added:
 ## 2019.08.27
 Bug Fixed/ Function added/Work Done:
 1. Plot both possible solution space and the original space
+2. 3 Model Inference time comparison
+
 
 Things to do:
-1. __Plot both possible solution space and the original space__
+1. Modify Tandem predictioin geo2spec module to fit the need of VAE inference (Take the best result)
 2. Wait the Tandem model same param running and plot all the space
 3. VAE solution space
 4. Inference Time comparison
