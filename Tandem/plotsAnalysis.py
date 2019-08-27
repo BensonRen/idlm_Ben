@@ -246,20 +246,23 @@ def PlotPossibleGeoSpace(figname, Xpred_dir):
     :params Xpred_dir: The directory to look for Xpred file which is the source of plotting
     :output A plot containing 4 subplots showing the 8 geomoetry dimensions
     """
+    Xpred_file = get_pred_truth_file.get_Xpred(Xpred_dir)
+    print(Xpred_file)
     Xpredfile = os.path.join(Xpred_dir, get_pred_truth_file.get_Xpred(Xpred_dir))
-    Xpred = pd.read_csv(Xpredfile, header=None, delimiter=' ')
+    Xpred = pd.read_csv(Xpredfile, header=None, delimiter=' ').values
 
-    f = plt.figure(figsize = Figsize)
+    f = plt.figure()
     ax0 = plt.gca()
+    print(np.shape(Xpred))
+    #print(Xpred)
     for i in range(4):
       ax = plt.subplot(2, 2, i+1)
-      predArr = [[Xpred[j, i], Xpred[j, i]] ,[Xpred[j, i + 4], Xpred[j, i + 4]]]
       ax.scatter(Xpred[:,i], Xpred[:,i + 4])
       plt.xlabel('h{}'.format(i))
       plt.ylabel('r{}'.format(i))
       plt.xlim(-1,1)
       plt.ylim(-1,1)
-    f.title(figname)
+    plt.title(figname)
     f.savefig(figname+'.png')
 
 

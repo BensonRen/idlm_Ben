@@ -2,8 +2,12 @@ import plotsAnalysis
 import flag_reader
 import pandas as pd
 import time_recorder
-TK = time_recorder.time_keeper()
-TK.record(5)
+import plotsAnalysis
+
+plotsAnalysis.PlotPossibleGeoSpace("Possible geo space for tandem structure","data/")
+
+#TK = time_recorder.time_keeper()
+#TK.record(5)
 #flags = flag_reader.read_flag()
 #flag_reader.write_flags_and_BVE(flags, 0.01)
 #df = pd.read_csv('parameters.txt', index_col = 0);

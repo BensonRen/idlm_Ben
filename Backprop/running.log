@@ -1,0 +1,2857 @@
+/home/edal/Documents/Ben/idlm_Ben/Backprop/models/20190821_225753
+getting data files...
+['bp35_OutMod.csv', 'bp36OutMod.csv', 'bp23_24_fix_Out.csv', 'bp27_28_fix_Out.csv', 'bp29_30_fix_Out.csv', 'bp25_OutMod.csv', 'bp26_OutMod.csv', 'bp32_OutMod.csv', 'bp28_OutMod.csv', 'bp35_36_fix_Out.csv', 'bp23_OutMod.csv', 'bp22_OutMod.csv', 'bp29_OutMod.csv', 'bp30_OutMod.csv', 'bp21_22_fix_Out.csv', 'bp27_OutMod.csv', 'bp31_OutMod.csv', 'bp21_OutMod.csv', 'bp24_OutMod.csv', 'bp25_26_fix_Out.csv', 'bp31_32_fix_Out.csv']
+Splitting training data into test set, the ratio is: 0.01
+total number of training samples is 20788
+total number of test samples is 210 length of an input spectrum is 2001
+downsampling output curves
+length of downsampled train spectra is 300 for first, 300 for final,  set final layer size to be compatible with this number
+length of downsampled test spectra is 300,  set final layer size to be compatible with this number
+generating TF dataset
+Geometry_tensor_shape (32, 8)
+[[-1. -1. -1. -1.]]
+shape of h: (32, 4)
+shape of r: (32, 4)
+shape of h_low: (1, 4)
+Evaluating the model ...
+loaded /home/edal/Documents/Ben/idlm_Ben/Backprop/models/20190821_225753/model.ckpt
+summary_writer directory is /home/edal/Documents/Ben/idlm_Ben/Backprop/models/20190821_225753/evalSummary
+192
+Random number within range [-1, 1, -1, 1]
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04489591717720032
+Loss at inference step500 : 0.005393539555370808
+Loss is lower than the threshold0.01, inference stop
+best error is 0.003976850334018316, in best estimate-indx is 0.003976850334018316, squared loss is 0.005380681715905666
+Best error for point 0 is having absolute error of 0.003976850334018316
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05159851163625717
+Loss at inference step500 : 0.0014348025433719158
+Loss is lower than the threshold0.01, inference stop
+best error is 0.003315916350505222, in best estimate-indx is 0.003315916350505222, squared loss is 0.0014322141651064157
+Best error for point 1 is having absolute error of 0.003315916350505222
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.07133910804986954
+Loss at inference step500 : 0.03299444541335106
+Loss at inference step1000 : 0.20697927474975586
+Loss at inference step1500 : 0.06344516575336456
+Loss at inference step2000 : 0.09779606014490128
+Loss at inference step2500 : 0.393498033285141
+Loss at inference step3000 : 0.24985268712043762
+Loss at inference step3500 : 0.06449709087610245
+Loss at inference step4000 : 0.06385990232229233
+Loss at inference step4500 : 0.0654229149222374
+Loss at inference step5000 : 0.1874818205833435
+Loss at inference step5500 : 0.21851253509521484
+Loss at inference step6000 : 0.06357267498970032
+Loss at inference step6500 : 0.21883836388587952
+Loss at inference step7000 : 0.19096319377422333
+Loss at inference step7500 : 0.3310275375843048
+Loss at inference step8000 : 0.06911956518888474
+Loss at inference step8500 : 0.23330405354499817
+Loss at inference step9000 : 0.4983066916465759
+Loss at inference step9500 : 0.9524698853492737
+Loss at inference step10000 : 0.06902952492237091
+Loss at inference step10500 : 0.05581815913319588
+Loss at inference step11000 : 0.05506608635187149
+Loss at inference step11500 : 0.08410787582397461
+Loss at inference step12000 : 0.05171481892466545
+Loss at inference step12500 : 0.05206263065338135
+Loss at inference step13000 : 0.04988811910152435
+Loss at inference step13500 : 0.0505218505859375
+Loss at inference step14000 : 0.051205188035964966
+Loss at inference step14500 : 0.06383806467056274
+Loss at inference step15000 : 0.05300455912947655
+Loss at inference step15500 : 0.06537221372127533
+Loss at inference step16000 : 0.0531437061727047
+Loss at inference step16500 : 0.28581756353378296
+Loss at inference step17000 : 0.049656547605991364
+Loss at inference step17500 : 0.05095288157463074
+Loss at inference step18000 : 0.05310162529349327
+Loss at inference step18500 : 0.049956753849983215
+Loss at inference step19000 : 0.0510806143283844
+Loss at inference step19500 : 0.048961810767650604
+best error is 0.0026794498791278395, in best estimate-indx is 0.0026794498791278395, squared loss is 0.04721597954630852
+Best error for point 2 is having absolute error of 0.0026794498791278395
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04357675090432167
+Loss at inference step500 : 0.005590479820966721
+Loss is lower than the threshold0.01, inference stop
+best error is 0.008862104414954487, in best estimate-indx is 0.008862104414954487, squared loss is 0.005563288927078247
+Best error for point 3 is having absolute error of 0.008862104414954487
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0774398222565651
+Loss at inference step500 : 0.05396980419754982
+Loss at inference step1000 : 0.04109397158026695
+Loss at inference step1500 : 0.2985326647758484
+Loss at inference step2000 : 0.03357940539717674
+Loss at inference step2500 : 0.042780570685863495
+Loss at inference step3000 : 0.036462344229221344
+Loss at inference step3500 : 0.1387697160243988
+Loss at inference step4000 : 0.10560992360115051
+Loss at inference step4500 : 0.042940497398376465
+Loss at inference step5000 : 0.2597211003303528
+Loss at inference step5500 : 0.05113247409462929
+Loss at inference step6000 : 0.03861093148589134
+Loss at inference step6500 : 0.2606280446052551
+Loss at inference step7000 : 0.07961201667785645
+Loss at inference step7500 : 0.033458445221185684
+Loss at inference step8000 : 0.03250620514154434
+Loss at inference step8500 : 0.03377237170934677
+Loss at inference step9000 : 0.044926684349775314
+Loss at inference step9500 : 0.05380288511514664
+Loss at inference step10000 : 0.029200056567788124
+Loss at inference step10500 : 0.02822602540254593
+Loss at inference step11000 : 0.036252461373806
+Loss at inference step11500 : 0.039032574743032455
+Loss at inference step12000 : 0.03491982817649841
+Loss at inference step12500 : 0.14580069482326508
+Loss at inference step13000 : 0.07314443588256836
+Loss at inference step13500 : 0.032467395067214966
+Loss at inference step14000 : 0.032466236501932144
+Loss at inference step14500 : 0.026927251368761063
+Loss at inference step15000 : 0.050027020275592804
+Loss at inference step15500 : 0.060062795877456665
+Loss at inference step16000 : 0.05405130609869957
+Loss at inference step16500 : 0.03655015304684639
+Loss at inference step17000 : 0.04137617349624634
+Loss at inference step17500 : 0.0339505597949028
+Loss at inference step18000 : 0.14761614799499512
+Loss at inference step18500 : 0.038996532559394836
+Loss at inference step19000 : 0.03684045746922493
+Loss at inference step19500 : 0.040617767721414566
+best error is 0.12051992183395581, in best estimate-indx is 0.12051992183395581, squared loss is 0.05714365467429161
+Best error for point 4 is having absolute error of 0.12051992183395581
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.03930549696087837
+Loss at inference step500 : 0.0043625738471746445
+Loss is lower than the threshold0.01, inference stop
+best error is 0.00579715685781223, in best estimate-indx is 0.00579715685781223, squared loss is 0.10577823221683502
+Best error for point 5 is having absolute error of 0.00579715685781223
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.054946549236774445
+Loss at inference step500 : 0.005284214857965708
+Loss is lower than the threshold0.01, inference stop
+best error is 0.004698653830346284, in best estimate-indx is 0.004698653830346284, squared loss is 0.005270670168101788
+Best error for point 6 is having absolute error of 0.004698653830346284
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0403091236948967
+Loss at inference step500 : 0.004054009914398193
+Loss is lower than the threshold0.01, inference stop
+best error is 0.005760327620469465, in best estimate-indx is 0.005760327620469465, squared loss is 0.0040517947636544704
+Best error for point 7 is having absolute error of 0.005760327620469465
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.052198149263858795
+Loss at inference step500 : 0.01274539902806282
+Loss at inference step1000 : 0.012385398149490356
+Loss at inference step1500 : 0.00860429834574461
+Loss is lower than the threshold0.01, inference stop
+best error is 0.019995993165381306, in best estimate-indx is 0.019995993165381306, squared loss is 0.008962263353168964
+Best error for point 8 is having absolute error of 0.019995993165381306
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.07533472776412964
+Loss at inference step500 : 0.00141265825368464
+Loss is lower than the threshold0.01, inference stop
+best error is 0.004106193243832674, in best estimate-indx is 0.004106193243832674, squared loss is 0.0014091210905462503
+Best error for point 9 is having absolute error of 0.004106193243832674
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.06595144420862198
+Loss at inference step500 : 0.0015230851713567972
+Loss is lower than the threshold0.01, inference stop
+best error is 0.0036846961144201724, in best estimate-indx is 0.0036846961144201724, squared loss is 0.001521346508525312
+Best error for point 10 is having absolute error of 0.0036846961144201724
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.07717138528823853
+Loss at inference step500 : 0.04335848242044449
+Loss at inference step1000 : 0.03923924267292023
+Loss at inference step1500 : 0.03847869113087654
+Loss at inference step2000 : 0.0394316241145134
+Loss at inference step2500 : 0.04110703989863396
+Loss at inference step3000 : 0.055912721902132034
+Loss at inference step3500 : 0.08902373164892197
+Loss at inference step4000 : 0.04666057229042053
+Loss at inference step4500 : 0.04757385328412056
+Loss at inference step5000 : 0.04997747018933296
+Loss at inference step5500 : 0.04741852357983589
+Loss at inference step6000 : 0.045347265899181366
+Loss at inference step6500 : 0.043657369911670685
+Loss at inference step7000 : 0.04408872127532959
+Loss at inference step7500 : 0.046690378338098526
+Loss at inference step8000 : 0.047897182404994965
+Loss at inference step8500 : 0.047806136310100555
+Loss at inference step9000 : 0.047366056591272354
+Loss at inference step9500 : 0.05107109993696213
+Loss at inference step10000 : 0.049264971166849136
+Loss at inference step10500 : 0.05241810902953148
+Loss at inference step11000 : 0.047436829656362534
+Loss at inference step11500 : 0.09959667921066284
+Loss at inference step12000 : 0.04588618129491806
+Loss at inference step12500 : 0.0490107536315918
+Loss at inference step13000 : 0.049345873296260834
+Loss at inference step13500 : 0.04482942819595337
+Loss at inference step14000 : 0.05159697309136391
+Loss at inference step14500 : 0.050703488290309906
+Loss at inference step15000 : 0.04794549196958542
+Loss at inference step15500 : 0.0488189272582531
+Loss at inference step16000 : 0.05122213438153267
+Loss at inference step16500 : 0.05880948528647423
+Loss at inference step17000 : 0.050646062940359116
+Loss at inference step17500 : 0.050513915717601776
+Loss at inference step18000 : 0.04307551309466362
+Loss at inference step18500 : 0.05299236997961998
+Loss at inference step19000 : 0.05003621056675911
+Loss at inference step19500 : 0.053809139877557755
+best error is 0.2074925362404274, in best estimate-indx is 0.2074925362404274, squared loss is 0.052934788167476654
+Best error for point 11 is having absolute error of 0.2074925362404274
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05920979380607605
+Loss at inference step500 : 0.022332841530442238
+Loss at inference step1000 : 0.028520997613668442
+Loss at inference step1500 : 0.017034651711583138
+Loss at inference step2000 : 0.01899915747344494
+Loss at inference step2500 : 0.017912564799189568
+Loss at inference step3000 : 0.01659543439745903
+Loss at inference step3500 : 0.02251036837697029
+Loss at inference step4000 : 0.01850287616252899
+Loss at inference step4500 : 0.018672456964850426
+Loss at inference step5000 : 0.023255903273820877
+Loss at inference step5500 : 0.024764688685536385
+Loss at inference step6000 : 0.025047285482287407
+Loss at inference step6500 : 0.016452191397547722
+Loss at inference step7000 : 0.023125503212213516
+Loss at inference step7500 : 0.020954454317688942
+Loss at inference step8000 : 0.023568663746118546
+Loss at inference step8500 : 0.012115412391722202
+Loss at inference step9000 : 0.02764039672911167
+Loss at inference step9500 : 0.026536250486969948
+Loss at inference step10000 : 0.023089908063411713
+Loss at inference step10500 : 0.015956897288560867
+Loss at inference step11000 : 0.018572228029370308
+Loss at inference step11500 : 0.01404582429677248
+Loss at inference step12000 : 0.02429397590458393
+Loss at inference step12500 : 0.021951382979750633
+Loss at inference step13000 : 0.018188802525401115
+Loss at inference step13500 : 0.022729801014065742
+Loss at inference step14000 : 0.021943338215351105
+Loss at inference step14500 : 0.019884103909134865
+Loss at inference step15000 : 0.01920410618185997
+Loss at inference step15500 : 0.014037814922630787
+Loss at inference step16000 : 0.010131318122148514
+Loss at inference step16500 : 0.013281322084367275
+Loss at inference step17000 : 0.032911110669374466
+Loss at inference step17500 : 0.02085069753229618
+Loss at inference step18000 : 0.01525155920535326
+Loss at inference step18500 : 0.010393928736448288
+Loss at inference step19000 : 0.03223944455385208
+Loss at inference step19500 : 0.022846397012472153
+best error is 0.02201856762887419, in best estimate-indx is 0.02201856762887419, squared loss is 0.01956810988485813
+Best error for point 12 is having absolute error of 0.02201856762887419
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05918155238032341
+Loss at inference step500 : 0.03241749107837677
+Loss at inference step1000 : 0.02744591049849987
+Loss at inference step1500 : 0.026456639170646667
+Loss at inference step2000 : 0.026780735701322556
+Loss at inference step2500 : 0.02522927150130272
+Loss at inference step3000 : 0.026282036677002907
+Loss at inference step3500 : 0.02748086489737034
+Loss at inference step4000 : 0.022330787032842636
+Loss at inference step4500 : 0.023466071113944054
+Loss at inference step5000 : 0.027257435023784637
+Loss at inference step5500 : 0.023841237649321556
+Loss at inference step6000 : 0.02727445773780346
+Loss at inference step6500 : 0.024643324315547943
+Loss at inference step7000 : 0.025653401389718056
+Loss at inference step7500 : 0.021386845037341118
+Loss at inference step8000 : 0.02235686592757702
+Loss at inference step8500 : 0.02442282997071743
+Loss at inference step9000 : 0.021938122808933258
+Loss at inference step9500 : 0.020181819796562195
+Loss at inference step10000 : 0.02338125929236412
+Loss at inference step10500 : 0.019961897283792496
+Loss at inference step11000 : 0.02251983992755413
+Loss at inference step11500 : 0.0243462435901165
+Loss at inference step12000 : 0.019930753856897354
+Loss at inference step12500 : 0.02309083566069603
+Loss at inference step13000 : 0.021419880911707878
+Loss at inference step13500 : 0.02353135123848915
+Loss at inference step14000 : 0.0224870927631855
+Loss at inference step14500 : 0.021293846890330315
+Loss at inference step15000 : 0.025863323360681534
+Loss at inference step15500 : 0.020082343369722366
+Loss at inference step16000 : 0.022772548720240593
+Loss at inference step16500 : 0.023545049130916595
+Loss at inference step17000 : 0.02169497311115265
+Loss at inference step17500 : 0.02036668173968792
+Loss at inference step18000 : 0.023398691788315773
+Loss at inference step18500 : 0.021793603897094727
+Loss at inference step19000 : 0.019769592210650444
+Loss at inference step19500 : 0.02087561786174774
+best error is 0.05178131602927235, in best estimate-indx is 0.05178131602927235, squared loss is 0.02464294619858265
+Best error for point 13 is having absolute error of 0.05178131602927235
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0982985645532608
+Loss at inference step500 : 0.06250015646219254
+Loss at inference step1000 : 0.062200795859098434
+Loss at inference step1500 : 0.05330193415284157
+Loss at inference step2000 : 0.04392993077635765
+Loss at inference step2500 : 0.046229396015405655
+Loss at inference step3000 : 0.04155808314681053
+Loss at inference step3500 : 0.04157392308115959
+Loss at inference step4000 : 0.043147627264261246
+Loss at inference step4500 : 0.037453021854162216
+Loss at inference step5000 : 0.03998251631855965
+Loss at inference step5500 : 0.039035968482494354
+Loss at inference step6000 : 0.032510463148355484
+Loss at inference step6500 : 0.028722940012812614
+Loss at inference step7000 : 0.02694249339401722
+Loss at inference step7500 : 0.02744983695447445
+Loss at inference step8000 : 0.02656637690961361
+Loss at inference step8500 : 0.02517782896757126
+Loss at inference step9000 : 0.025543587282299995
+Loss at inference step9500 : 0.025455687195062637
+Loss at inference step10000 : 0.025692427530884743
+Loss at inference step10500 : 0.02498503401875496
+Loss at inference step11000 : 0.025295455008745193
+Loss at inference step11500 : 0.02660629153251648
+Loss at inference step12000 : 0.02634001523256302
+Loss at inference step12500 : 0.024071261286735535
+Loss at inference step13000 : 0.025838308036327362
+Loss at inference step13500 : 0.02558615244925022
+Loss at inference step14000 : 0.02502140961587429
+Loss at inference step14500 : 0.025939468294382095
+Loss at inference step15000 : 0.024589121341705322
+Loss at inference step15500 : 0.025679443031549454
+Loss at inference step16000 : 0.02416973002254963
+Loss at inference step16500 : 0.024494431912899017
+Loss at inference step17000 : 0.02332879602909088
+Loss at inference step17500 : 0.02374940551817417
+Loss at inference step18000 : 0.023271044716238976
+Loss at inference step18500 : 0.02479282207787037
+Loss at inference step19000 : 0.024499354884028435
+Loss at inference step19500 : 0.025123368948698044
+best error is 0.1482840608633454, in best estimate-indx is 0.1482840608633454, squared loss is 0.024590475484728813
+Best error for point 14 is having absolute error of 0.1482840608633454
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.07176028937101364
+Loss at inference step500 : 0.025554819032549858
+Loss at inference step1000 : 0.010034799575805664
+Loss at inference step1500 : 0.004411714617162943
+Loss is lower than the threshold0.01, inference stop
+best error is 0.014851850301591113, in best estimate-indx is 0.014851850301591113, squared loss is 0.004405378829687834
+Best error for point 15 is having absolute error of 0.014851850301591113
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04624277725815773
+Loss at inference step500 : 0.01658700965344906
+Loss at inference step1000 : 0.010308091528713703
+Loss at inference step1500 : 0.007432814687490463
+Loss is lower than the threshold0.01, inference stop
+best error is 0.003110176646204843, in best estimate-indx is 0.003110176646204843, squared loss is 0.007432552985846996
+Best error for point 16 is having absolute error of 0.003110176646204843
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.06544572860002518
+Loss at inference step500 : 0.022944144904613495
+Loss at inference step1000 : 0.016305427998304367
+Loss at inference step1500 : 0.01383309904485941
+Loss at inference step2000 : 0.010180303826928139
+Loss at inference step2500 : 0.008794816210865974
+Loss is lower than the threshold0.01, inference stop
+best error is 0.0028022177993046156, in best estimate-indx is 0.0028022177993046156, squared loss is 0.008790637366473675
+Best error for point 17 is having absolute error of 0.0028022177993046156
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.07580621540546417
+Loss at inference step500 : 0.030353687703609467
+Loss at inference step1000 : 0.024061648175120354
+Loss at inference step1500 : 0.022853726521134377
+Loss at inference step2000 : 0.021469932049512863
+Loss at inference step2500 : 0.0209718756377697
+Loss at inference step3000 : 0.02039024606347084
+Loss at inference step3500 : 0.019370371475815773
+Loss at inference step4000 : 0.01696266233921051
+Loss at inference step4500 : 0.016998499631881714
+Loss at inference step5000 : 0.01660344935953617
+Loss at inference step5500 : 0.01583166979253292
+Loss at inference step6000 : 0.015304287895560265
+Loss at inference step6500 : 0.015343360602855682
+Loss at inference step7000 : 0.015157223679125309
+Loss at inference step7500 : 0.01504939142614603
+Loss at inference step8000 : 0.015147291123867035
+Loss at inference step8500 : 0.014970419928431511
+Loss at inference step9000 : 0.014894803985953331
+Loss at inference step9500 : 0.014774635434150696
+Loss at inference step10000 : 0.014876922592520714
+Loss at inference step10500 : 0.014799701981246471
+Loss at inference step11000 : 0.01484895683825016
+Loss at inference step11500 : 0.014573448337614536
+Loss at inference step12000 : 0.014742746017873287
+Loss at inference step12500 : 0.014326474629342556
+Loss at inference step13000 : 0.014179656282067299
+Loss at inference step13500 : 0.0141230383887887
+Loss at inference step14000 : 0.014436767436563969
+Loss at inference step14500 : 0.014294791966676712
+Loss at inference step15000 : 0.014319791458547115
+Loss at inference step15500 : 0.014348356984555721
+Loss at inference step16000 : 0.014681465923786163
+Loss at inference step16500 : 0.014316858723759651
+Loss at inference step17000 : 0.014071187004446983
+Loss at inference step17500 : 0.014139993116259575
+Loss at inference step18000 : 0.014189408160746098
+Loss at inference step18500 : 0.01450909860432148
+Loss at inference step19000 : 0.014549890533089638
+Loss at inference step19500 : 0.014479653909802437
+best error is 0.003720809270801017, in best estimate-indx is 0.003720809270801017, squared loss is 0.014241359196603298
+Best error for point 18 is having absolute error of 0.003720809270801017
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.07733035087585449
+Loss at inference step500 : 0.05012951046228409
+Loss at inference step1000 : 0.024216191843152046
+Loss at inference step1500 : 0.017657816410064697
+Loss at inference step2000 : 0.015966540202498436
+Loss at inference step2500 : 0.014820607379078865
+Loss at inference step3000 : 0.013552363030612469
+Loss at inference step3500 : 0.01348557136952877
+Loss at inference step4000 : 0.01145628746598959
+Loss at inference step4500 : 0.011285526677966118
+Loss at inference step5000 : 0.010481209494173527
+Loss at inference step5500 : 0.01069124136120081
+Loss at inference step6000 : 0.010260798037052155
+Loss at inference step6500 : 0.010056046769022942
+Loss at inference step7000 : 0.010259539820253849
+Loss at inference step7500 : 0.010004892013967037
+Loss at inference step8000 : 0.00989498384296894
+Loss is lower than the threshold0.01, inference stop
+best error is 0.02792998568533609, in best estimate-indx is 0.02792998568533609, squared loss is 0.009889579378068447
+Best error for point 19 is having absolute error of 0.02792998568533609
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05748554319143295
+Loss at inference step500 : 0.016027098521590233
+Loss at inference step1000 : 0.01239448506385088
+Loss at inference step1500 : 0.011128850281238556
+Loss at inference step2000 : 0.009613594971597195
+Loss is lower than the threshold0.01, inference stop
+best error is 0.007722723055768663, in best estimate-indx is 0.007722723055768663, squared loss is 0.009611692279577255
+Best error for point 20 is having absolute error of 0.007722723055768663
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04719221964478493
+Loss at inference step500 : 0.023352868854999542
+Loss at inference step1000 : 0.015767201781272888
+Loss at inference step1500 : 0.010158929042518139
+Loss at inference step2000 : 0.006372338160872459
+Loss is lower than the threshold0.01, inference stop
+best error is 0.006760470689872654, in best estimate-indx is 0.006760470689872654, squared loss is 0.006366414483636618
+Best error for point 21 is having absolute error of 0.006760470689872654
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.07285845279693604
+Loss at inference step500 : 0.02563476748764515
+Loss at inference step1000 : 0.01732671447098255
+Loss at inference step1500 : 0.010460983030498028
+Loss at inference step2000 : 0.007716278545558453
+Loss is lower than the threshold0.01, inference stop
+best error is 0.007485084058120735, in best estimate-indx is 0.007485084058120735, squared loss is 0.007712236605584621
+Best error for point 22 is having absolute error of 0.007485084058120735
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05541864410042763
+Loss at inference step500 : 0.02270892634987831
+Loss at inference step1000 : 0.013884435407817364
+Loss at inference step1500 : 0.009222750551998615
+Loss is lower than the threshold0.01, inference stop
+best error is 0.005550004640326531, in best estimate-indx is 0.005550004640326531, squared loss is 0.009216152131557465
+Best error for point 23 is having absolute error of 0.005550004640326531
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.06479895114898682
+Loss at inference step500 : 0.02550605684518814
+Loss at inference step1000 : 0.019328661262989044
+Loss at inference step1500 : 0.015009336173534393
+Loss at inference step2000 : 0.012420459650456905
+Loss at inference step2500 : 0.010421031154692173
+Loss at inference step3000 : 0.00936947949230671
+Loss is lower than the threshold0.01, inference stop
+best error is 0.003868299297445886, in best estimate-indx is 0.003868299297445886, squared loss is 0.009370927698910236
+Best error for point 24 is having absolute error of 0.003868299297445886
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.06206272169947624
+Loss at inference step500 : 0.020792793482542038
+Loss at inference step1000 : 0.016189105808734894
+Loss at inference step1500 : 0.013006241992115974
+Loss at inference step2000 : 0.010058809071779251
+Loss at inference step2500 : 0.008115934208035469
+Loss is lower than the threshold0.01, inference stop
+best error is 0.009982534725069747, in best estimate-indx is 0.009982534725069747, squared loss is 0.008111360482871532
+Best error for point 25 is having absolute error of 0.009982534725069747
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.08190179616212845
+Loss at inference step500 : 0.02052629552781582
+Loss at inference step1000 : 0.015544245019555092
+Loss at inference step1500 : 0.01401958055794239
+Loss at inference step2000 : 0.010525843128561974
+Loss at inference step2500 : 0.00980824138969183
+Loss is lower than the threshold0.01, inference stop
+best error is 0.011602698138694231, in best estimate-indx is 0.011602698138694231, squared loss is 0.009806846268475056
+Best error for point 26 is having absolute error of 0.011602698138694231
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04370478540658951
+Loss at inference step500 : 0.013650101609528065
+Loss at inference step1000 : 0.011116460897028446
+Loss at inference step1500 : 0.008791607804596424
+Loss is lower than the threshold0.01, inference stop
+best error is 0.005825526143635961, in best estimate-indx is 0.005825526143635961, squared loss is 0.00878572091460228
+Best error for point 27 is having absolute error of 0.005825526143635961
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.03402546048164368
+Loss at inference step500 : 0.013480179943144321
+Loss at inference step1000 : 0.010792273096740246
+Loss at inference step1500 : 0.008890968747437
+Loss is lower than the threshold0.01, inference stop
+best error is 0.006803974274684387, in best estimate-indx is 0.006803974274684387, squared loss is 0.00888863205909729
+Best error for point 28 is having absolute error of 0.006803974274684387
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.03780117630958557
+Loss at inference step500 : 0.012984138913452625
+Loss at inference step1000 : 0.009963231161236763
+Loss is lower than the threshold0.01, inference stop
+best error is 0.004931711727950563, in best estimate-indx is 0.004931711727950563, squared loss is 0.009959765709936619
+Best error for point 29 is having absolute error of 0.004931711727950563
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.03906288370490074
+Loss at inference step500 : 0.006174002308398485
+Loss is lower than the threshold0.01, inference stop
+best error is 0.008186150943910672, in best estimate-indx is 0.008186150943910672, squared loss is 0.006168997380882502
+Best error for point 30 is having absolute error of 0.008186150943910672
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.049784913659095764
+Loss at inference step500 : 0.016499554738402367
+Loss at inference step1000 : 0.013985628262162209
+Loss at inference step1500 : 0.01220522541552782
+Loss at inference step2000 : 0.011567638255655766
+Loss at inference step2500 : 0.010500519536435604
+Loss at inference step3000 : 0.00935415644198656
+Loss is lower than the threshold0.01, inference stop
+best error is 0.0055897605088935385, in best estimate-indx is 0.0055897605088935385, squared loss is 0.009353307075798512
+Best error for point 31 is having absolute error of 0.0055897605088935385
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.06817635148763657
+Loss at inference step500 : 0.01764228567481041
+Loss at inference step1000 : 0.013433870859444141
+Loss at inference step1500 : 0.011792579665780067
+Loss at inference step2000 : 0.011232197284698486
+Loss at inference step2500 : 0.009239867329597473
+Loss is lower than the threshold0.01, inference stop
+best error is 0.01203086859892804, in best estimate-indx is 0.01203086859892804, squared loss is 0.009235022589564323
+Best error for point 32 is having absolute error of 0.01203086859892804
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.043760135769844055
+Loss at inference step500 : 0.012054000049829483
+Loss at inference step1000 : 0.009008774533867836
+Loss is lower than the threshold0.01, inference stop
+best error is 0.007181303162739296, in best estimate-indx is 0.007181303162739296, squared loss is 0.009006975218653679
+Best error for point 33 is having absolute error of 0.007181303162739296
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.058400899171829224
+Loss at inference step500 : 0.019706767052412033
+Loss at inference step1000 : 0.017107311636209488
+Loss at inference step1500 : 0.015132545493543148
+Loss at inference step2000 : 0.0131808677688241
+Loss at inference step2500 : 0.011929051019251347
+Loss at inference step3000 : 0.010907839052379131
+Loss at inference step3500 : 0.01011576410382986
+Loss at inference step4000 : 0.009636967442929745
+Loss is lower than the threshold0.01, inference stop
+best error is 0.003732987787925326, in best estimate-indx is 0.003732987787925326, squared loss is 0.009638205170631409
+Best error for point 34 is having absolute error of 0.003732987787925326
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04953695461153984
+Loss at inference step500 : 0.012646431103348732
+Loss at inference step1000 : 0.008471899665892124
+Loss is lower than the threshold0.01, inference stop
+best error is 0.007410670286922771, in best estimate-indx is 0.007410670286922771, squared loss is 0.008466530591249466
+Best error for point 35 is having absolute error of 0.007410670286922771
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05042228847742081
+Loss at inference step500 : 0.011792424134910107
+Loss at inference step1000 : 0.006672735791653395
+Loss is lower than the threshold0.01, inference stop
+best error is 0.0044748433669233876, in best estimate-indx is 0.0044748433669233876, squared loss is 0.006668465677648783
+Best error for point 36 is having absolute error of 0.0044748433669233876
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.08184198290109634
+Loss at inference step500 : 0.039480604231357574
+Loss at inference step1000 : 0.03400789573788643
+Loss at inference step1500 : 0.030531875789165497
+Loss at inference step2000 : 0.029044650495052338
+Loss at inference step2500 : 0.027846507728099823
+Loss at inference step3000 : 0.02689918875694275
+Loss at inference step3500 : 0.025925954803824425
+Loss at inference step4000 : 0.02494700998067856
+Loss at inference step4500 : 0.024228869006037712
+Loss at inference step5000 : 0.023548176512122154
+Loss at inference step5500 : 0.022995494306087494
+Loss at inference step6000 : 0.02269107848405838
+Loss at inference step6500 : 0.022607073187828064
+Loss at inference step7000 : 0.022255096584558487
+Loss at inference step7500 : 0.02223559282720089
+Loss at inference step8000 : 0.022053277119994164
+Loss at inference step8500 : 0.021876508370041847
+Loss at inference step9000 : 0.02176031842827797
+Loss at inference step9500 : 0.021780850365757942
+Loss at inference step10000 : 0.02175314351916313
+Loss at inference step10500 : 0.021739937365055084
+Loss at inference step11000 : 0.021635187789797783
+Loss at inference step11500 : 0.021722933277487755
+Loss at inference step12000 : 0.021719295531511307
+Loss at inference step12500 : 0.021794572472572327
+Loss at inference step13000 : 0.02168886363506317
+Loss at inference step13500 : 0.021686751395463943
+Loss at inference step14000 : 0.02172612026333809
+Loss at inference step14500 : 0.021757064387202263
+Loss at inference step15000 : 0.021570157259702682
+Loss at inference step15500 : 0.021598568186163902
+Loss at inference step16000 : 0.021479012444615364
+Loss at inference step16500 : 0.02159520611166954
+Loss at inference step17000 : 0.021504797041416168
+Loss at inference step17500 : 0.02158524841070175
+Loss at inference step18000 : 0.0215225238353014
+Loss at inference step18500 : 0.021535780280828476
+Loss at inference step19000 : 0.021654436364769936
+Loss at inference step19500 : 0.02154504880309105
+best error is 0.012842184107725963, in best estimate-indx is 0.012842184107725963, squared loss is 0.02143610268831253
+Best error for point 37 is having absolute error of 0.012842184107725963
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0474819615483284
+Loss at inference step500 : 0.017804259434342384
+Loss at inference step1000 : 0.01601385325193405
+Loss at inference step1500 : 0.014689807780086994
+Loss at inference step2000 : 0.013534621335566044
+Loss at inference step2500 : 0.012368818745017052
+Loss at inference step3000 : 0.011555962264537811
+Loss at inference step3500 : 0.01062969584017992
+Loss at inference step4000 : 0.0095912991091609
+Loss is lower than the threshold0.01, inference stop
+best error is 0.003998576814923382, in best estimate-indx is 0.003998576814923382, squared loss is 0.009589582681655884
+Best error for point 38 is having absolute error of 0.003998576814923382
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.07718908786773682
+Loss at inference step500 : 0.027898257598280907
+Loss at inference step1000 : 0.022912845015525818
+Loss at inference step1500 : 0.020698798820376396
+Loss at inference step2000 : 0.01970207877457142
+Loss at inference step2500 : 0.018900666385889053
+Loss at inference step3000 : 0.018126990646123886
+Loss at inference step3500 : 0.01764005981385708
+Loss at inference step4000 : 0.017063718289136887
+Loss at inference step4500 : 0.016710737720131874
+Loss at inference step5000 : 0.016368957236409187
+Loss at inference step5500 : 0.01590109057724476
+Loss at inference step6000 : 0.01524748932570219
+Loss at inference step6500 : 0.01463247835636139
+Loss at inference step7000 : 0.013959384523332119
+Loss at inference step7500 : 0.013579112477600574
+Loss at inference step8000 : 0.013340813107788563
+Loss at inference step8500 : 0.013019002974033356
+Loss at inference step9000 : 0.012745091691613197
+Loss at inference step9500 : 0.01220330223441124
+Loss at inference step10000 : 0.012118551880121231
+Loss at inference step10500 : 0.012070720084011555
+Loss at inference step11000 : 0.012082829140126705
+Loss at inference step11500 : 0.012014130130410194
+Loss at inference step12000 : 0.011976271867752075
+Loss at inference step12500 : 0.011949094012379646
+Loss at inference step13000 : 0.011957923881709576
+Loss at inference step13500 : 0.011974897235631943
+Loss at inference step14000 : 0.011955195106565952
+Loss at inference step14500 : 0.011917087249457836
+Loss at inference step15000 : 0.011912671849131584
+Loss at inference step15500 : 0.01190404873341322
+Loss at inference step16000 : 0.011927972547709942
+Loss at inference step16500 : 0.011900118552148342
+Loss at inference step17000 : 0.01189390942454338
+Loss at inference step17500 : 0.011907972395420074
+Loss at inference step18000 : 0.011906523257493973
+Loss at inference step18500 : 0.011879036203026772
+Loss at inference step19000 : 0.011898601427674294
+Loss at inference step19500 : 0.011909966357052326
+best error is 0.014662665337152091, in best estimate-indx is 0.014662665337152091, squared loss is 0.011892220936715603
+Best error for point 39 is having absolute error of 0.014662665337152091
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.056525032967329025
+Loss at inference step500 : 0.017141180112957954
+Loss at inference step1000 : 0.014597301371395588
+Loss at inference step1500 : 0.01318053063005209
+Loss at inference step2000 : 0.01195757370442152
+Loss at inference step2500 : 0.010744151659309864
+Loss at inference step3000 : 0.009109090082347393
+Loss is lower than the threshold0.01, inference stop
+best error is 0.004218666938475205, in best estimate-indx is 0.004218666938475205, squared loss is 0.009106237441301346
+Best error for point 40 is having absolute error of 0.004218666938475205
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.06449633836746216
+Loss at inference step500 : 0.0489446222782135
+Loss at inference step1000 : 0.040166277438402176
+Loss at inference step1500 : 0.03321029245853424
+Loss at inference step2000 : 0.029694706201553345
+Loss at inference step2500 : 0.028013842180371284
+Loss at inference step3000 : 0.026495568454265594
+Loss at inference step3500 : 0.024650240316987038
+Loss at inference step4000 : 0.022255929186940193
+Loss at inference step4500 : 0.020551474764943123
+Loss at inference step5000 : 0.019264455884695053
+Loss at inference step5500 : 0.016781169921159744
+Loss at inference step6000 : 0.016226358711719513
+Loss at inference step6500 : 0.015895729884505272
+Loss at inference step7000 : 0.01534285768866539
+Loss at inference step7500 : 0.015116759575903416
+Loss at inference step8000 : 0.014949963428080082
+Loss at inference step8500 : 0.01481015793979168
+Loss at inference step9000 : 0.014709558337926865
+Loss at inference step9500 : 0.014636506326496601
+Loss at inference step10000 : 0.014574125409126282
+Loss at inference step10500 : 0.014512056484818459
+Loss at inference step11000 : 0.014468630775809288
+Loss at inference step11500 : 0.014442595653235912
+Loss at inference step12000 : 0.014414628967642784
+Loss at inference step12500 : 0.014383872970938683
+Loss at inference step13000 : 0.01435881108045578
+Loss at inference step13500 : 0.014330446720123291
+Loss at inference step14000 : 0.013151018880307674
+Loss at inference step14500 : 0.012950701639056206
+Loss at inference step15000 : 0.012899765744805336
+Loss at inference step15500 : 0.012880394235253334
+Loss at inference step16000 : 0.012858192436397076
+Loss at inference step16500 : 0.012838504277169704
+Loss at inference step17000 : 0.012810226529836655
+Loss at inference step17500 : 0.012811137363314629
+Loss at inference step18000 : 0.012811695225536823
+Loss at inference step18500 : 0.012807397171854973
+Loss at inference step19000 : 0.012803148478269577
+Loss at inference step19500 : 0.012789464555680752
+best error is 0.003016868218481696, in best estimate-indx is 0.003016868218481696, squared loss is 0.012789607048034668
+Best error for point 41 is having absolute error of 0.003016868218481696
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.03739854320883751
+Loss at inference step500 : 0.006730762775987387
+Loss is lower than the threshold0.01, inference stop
+best error is 0.0016496563898910019, in best estimate-indx is 0.0016496563898910019, squared loss is 0.006719718221575022
+Best error for point 42 is having absolute error of 0.0016496563898910019
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04629584774374962
+Loss at inference step500 : 0.016587892547249794
+Loss at inference step1000 : 0.010759853757917881
+Loss at inference step1500 : 0.007963432930409908
+Loss is lower than the threshold0.01, inference stop
+best error is 0.00206506351748826, in best estimate-indx is 0.00206506351748826, squared loss is 0.007958659902215004
+Best error for point 43 is having absolute error of 0.00206506351748826
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05208470672369003
+Loss at inference step500 : 0.024600952863693237
+Loss at inference step1000 : 0.019748469814658165
+Loss at inference step1500 : 0.01651592366397381
+Loss at inference step2000 : 0.01400283444672823
+Loss at inference step2500 : 0.011707792058587074
+Loss at inference step3000 : 0.009879511781036854
+Loss is lower than the threshold0.01, inference stop
+best error is 0.0029677236757273476, in best estimate-indx is 0.0029677236757273476, squared loss is 0.009876434691250324
+Best error for point 44 is having absolute error of 0.0029677236757273476
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0443357452750206
+Loss at inference step500 : 0.02317766100168228
+Loss at inference step1000 : 0.015799155458807945
+Loss at inference step1500 : 0.011500434018671513
+Loss at inference step2000 : 0.00895771849900484
+Loss is lower than the threshold0.01, inference stop
+best error is 0.0032588276155851676, in best estimate-indx is 0.0032588276155851676, squared loss is 0.00895396526902914
+Best error for point 45 is having absolute error of 0.0032588276155851676
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05585036054253578
+Loss at inference step500 : 0.03769087418913841
+Loss at inference step1000 : 0.029395850375294685
+Loss at inference step1500 : 0.024102065712213516
+Loss at inference step2000 : 0.020291805267333984
+Loss at inference step2500 : 0.017448600381612778
+Loss at inference step3000 : 0.015290501527488232
+Loss at inference step3500 : 0.013251226395368576
+Loss at inference step4000 : 0.01142511423677206
+Loss at inference step4500 : 0.009994657710194588
+Loss is lower than the threshold0.01, inference stop
+best error is 0.002535994318254549, in best estimate-indx is 0.002535994318254549, squared loss is 0.009992022067308426
+Best error for point 46 is having absolute error of 0.002535994318254549
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.06753000617027283
+Loss at inference step500 : 0.048040732741355896
+Loss at inference step1000 : 0.040246378630399704
+Loss at inference step1500 : 0.036590784788131714
+Loss at inference step2000 : 0.03361755982041359
+Loss at inference step2500 : 0.03043985925614834
+Loss at inference step3000 : 0.026728155091404915
+Loss at inference step3500 : 0.02333054505288601
+Loss at inference step4000 : 0.020382529124617577
+Loss at inference step4500 : 0.018286207690835
+Loss at inference step5000 : 0.017017727717757225
+Loss at inference step5500 : 0.016170600429177284
+Loss at inference step6000 : 0.015285074710845947
+Loss at inference step6500 : 0.01421245839446783
+Loss at inference step7000 : 0.013102753087878227
+Loss at inference step7500 : 0.012583356350660324
+Loss at inference step8000 : 0.012385423295199871
+Loss at inference step8500 : 0.012272302992641926
+Loss at inference step9000 : 0.012177878059446812
+Loss at inference step9500 : 0.012089955620467663
+Loss at inference step10000 : 0.011971338652074337
+Loss at inference step10500 : 0.011879082769155502
+Loss at inference step11000 : 0.011745511554181576
+Loss at inference step11500 : 0.011619464494287968
+Loss at inference step12000 : 0.011503780260682106
+Loss at inference step12500 : 0.011418016627430916
+Loss at inference step13000 : 0.011317777447402477
+Loss at inference step13500 : 0.011199546977877617
+Loss at inference step14000 : 0.011109157465398312
+Loss at inference step14500 : 0.011059587821364403
+Loss at inference step15000 : 0.011024094186723232
+Loss at inference step15500 : 0.010991443879902363
+Loss at inference step16000 : 0.010956362821161747
+Loss at inference step16500 : 0.010937930084764957
+Loss at inference step17000 : 0.01092479471117258
+Loss at inference step17500 : 0.010908997617661953
+Loss at inference step18000 : 0.010894166305661201
+Loss at inference step18500 : 0.010879553854465485
+Loss at inference step19000 : 0.010865379124879837
+Loss at inference step19500 : 0.010854831896722317
+best error is 0.010495055082440717, in best estimate-indx is 0.010495055082440717, squared loss is 0.010847073048353195
+Best error for point 47 is having absolute error of 0.010495055082440717
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.047720130532979965
+Loss at inference step500 : 0.036951128393411636
+Loss at inference step1000 : 0.03257591649889946
+Loss at inference step1500 : 0.02923233062028885
+Loss at inference step2000 : 0.026420878246426582
+Loss at inference step2500 : 0.023918751627206802
+Loss at inference step3000 : 0.02172187902033329
+Loss at inference step3500 : 0.019805975258350372
+Loss at inference step4000 : 0.01808406412601471
+Loss at inference step4500 : 0.01660449616611004
+Loss at inference step5000 : 0.015287686139345169
+Loss at inference step5500 : 0.014063489623367786
+Loss at inference step6000 : 0.01306221541017294
+Loss at inference step6500 : 0.012285779230296612
+Loss at inference step7000 : 0.011713240295648575
+Loss at inference step7500 : 0.01133632566779852
+Loss at inference step8000 : 0.01108291931450367
+Loss at inference step8500 : 0.010914906859397888
+Loss at inference step9000 : 0.010800378397107124
+Loss at inference step9500 : 0.01071874424815178
+Loss at inference step10000 : 0.01066746935248375
+Loss at inference step10500 : 0.010615752078592777
+Loss at inference step11000 : 0.010574855841696262
+Loss at inference step11500 : 0.010534938424825668
+Loss at inference step12000 : 0.010503260418772697
+Loss at inference step12500 : 0.010476149618625641
+Loss at inference step13000 : 0.010449148714542389
+Loss at inference step13500 : 0.010430485010147095
+Loss at inference step14000 : 0.010400292463600636
+Loss at inference step14500 : 0.010363787412643433
+Loss at inference step15000 : 0.010341630317270756
+Loss at inference step15500 : 0.010321746580302715
+Loss at inference step16000 : 0.010305889882147312
+Loss at inference step16500 : 0.010283684358000755
+Loss at inference step17000 : 0.010279187932610512
+Loss at inference step17500 : 0.010270101949572563
+Loss at inference step18000 : 0.010262970812618732
+Loss at inference step18500 : 0.010257137008011341
+Loss at inference step19000 : 0.010248126462101936
+Loss at inference step19500 : 0.010235427878797054
+best error is 0.0029414094525690364, in best estimate-indx is 0.0029414094525690364, squared loss is 0.010230829007923603
+Best error for point 48 is having absolute error of 0.0029414094525690364
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.06518056988716125
+Loss at inference step500 : 0.046157777309417725
+Loss at inference step1000 : 0.03890722617506981
+Loss at inference step1500 : 0.03628949448466301
+Loss at inference step2000 : 0.034077778458595276
+Loss at inference step2500 : 0.03204406052827835
+Loss at inference step3000 : 0.030180765315890312
+Loss at inference step3500 : 0.028386840596795082
+Loss at inference step4000 : 0.026685334742069244
+Loss at inference step4500 : 0.025142095983028412
+Loss at inference step5000 : 0.02376643754541874
+Loss at inference step5500 : 0.022508200258016586
+Loss at inference step6000 : 0.02139890193939209
+Loss at inference step6500 : 0.020370978862047195
+Loss at inference step7000 : 0.01940971612930298
+Loss at inference step7500 : 0.01856471598148346
+Loss at inference step8000 : 0.01784835383296013
+Loss at inference step8500 : 0.01722564920783043
+Loss at inference step9000 : 0.016658838838338852
+Loss at inference step9500 : 0.01611953042447567
+Loss at inference step10000 : 0.015654603019356728
+Loss at inference step10500 : 0.015267999842762947
+Loss at inference step11000 : 0.014944324269890785
+Loss at inference step11500 : 0.014666490256786346
+Loss at inference step12000 : 0.014390137046575546
+Loss at inference step12500 : 0.014133427292108536
+Loss at inference step13000 : 0.013900400139391422
+Loss at inference step13500 : 0.013727301731705666
+Loss at inference step14000 : 0.013537801802158356
+Loss at inference step14500 : 0.013348044827580452
+Loss at inference step15000 : 0.013180641457438469
+Loss at inference step15500 : 0.012996124103665352
+Loss at inference step16000 : 0.012826340273022652
+Loss at inference step16500 : 0.012674118392169476
+Loss at inference step17000 : 0.012544709257781506
+Loss at inference step17500 : 0.012432141229510307
+Loss at inference step18000 : 0.012337873689830303
+Loss at inference step18500 : 0.012247046455740929
+Loss at inference step19000 : 0.012167008593678474
+Loss at inference step19500 : 0.01209940668195486
+best error is 0.002468176057519254, in best estimate-indx is 0.002468176057519254, squared loss is 0.012040131725370884
+Best error for point 49 is having absolute error of 0.002468176057519254
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05942758172750473
+Loss at inference step500 : 0.05379076302051544
+Loss at inference step1000 : 0.0507921539247036
+Loss at inference step1500 : 0.04822847619652748
+Loss at inference step2000 : 0.045828793197870255
+Loss at inference step2500 : 0.04360185191035271
+Loss at inference step3000 : 0.041415970772504807
+Loss at inference step3500 : 0.03925003856420517
+Loss at inference step4000 : 0.037160519510507584
+Loss at inference step4500 : 0.03522239997982979
+Loss at inference step5000 : 0.033347345888614655
+Loss at inference step5500 : 0.03154004365205765
+Loss at inference step6000 : 0.029868971556425095
+Loss at inference step6500 : 0.02903568185865879
+Loss at inference step7000 : 0.028172003105282784
+Loss at inference step7500 : 0.02734142169356346
+Loss at inference step8000 : 0.026521293446421623
+Loss at inference step8500 : 0.025677833706140518
+Loss at inference step9000 : 0.02485242672264576
+Loss at inference step9500 : 0.024055011570453644
+Loss at inference step10000 : 0.02329874038696289
+Loss at inference step10500 : 0.022574199363589287
+Loss at inference step11000 : 0.021892791613936424
+Loss at inference step11500 : 0.021254954859614372
+Loss at inference step12000 : 0.020622748881578445
+Loss at inference step12500 : 0.0200091190636158
+Loss at inference step13000 : 0.01942579261958599
+Loss at inference step13500 : 0.018874909728765488
+Loss at inference step14000 : 0.018358632922172546
+Loss at inference step14500 : 0.017887312918901443
+Loss at inference step15000 : 0.017422020435333252
+Loss at inference step15500 : 0.01696026511490345
+Loss at inference step16000 : 0.016497697681188583
+Loss at inference step16500 : 0.016028190031647682
+Loss at inference step17000 : 0.015553915873169899
+Loss at inference step17500 : 0.015119056217372417
+Loss at inference step18000 : 0.014699149876832962
+Loss at inference step18500 : 0.014302976429462433
+Loss at inference step19000 : 0.013936172239482403
+Loss at inference step19500 : 0.013593762181699276
+best error is 0.007348191421986391, in best estimate-indx is 0.007348191421986391, squared loss is 0.013253174722194672
+Best error for point 50 is having absolute error of 0.007348191421986391
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05567251518368721
+Loss at inference step500 : 0.05256952717900276
+Loss at inference step1000 : 0.050922513008117676
+Loss at inference step1500 : 0.04951561987400055
+Loss at inference step2000 : 0.0482046902179718
+Loss at inference step2500 : 0.046966809779405594
+Loss at inference step3000 : 0.04581920802593231
+Loss at inference step3500 : 0.044721584767103195
+Loss at inference step4000 : 0.043628428131341934
+Loss at inference step4500 : 0.0425451323390007
+Loss at inference step5000 : 0.041513361036777496
+Loss at inference step5500 : 0.04051968455314636
+Loss at inference step6000 : 0.03953105956315994
+Loss at inference step6500 : 0.03856296092271805
+Loss at inference step7000 : 0.03760777786374092
+Loss at inference step7500 : 0.03669155389070511
+Loss at inference step8000 : 0.03582920879125595
+Loss at inference step8500 : 0.034962933510541916
+Loss at inference step9000 : 0.03409755975008011
+Loss at inference step9500 : 0.03323148563504219
+Loss at inference step10000 : 0.032360490411520004
+Loss at inference step10500 : 0.031483184546232224
+Loss at inference step11000 : 0.030693544074892998
+Loss at inference step11500 : 0.030266407877206802
+Loss at inference step12000 : 0.02984185516834259
+Loss at inference step12500 : 0.02942509949207306
+Loss at inference step13000 : 0.028998740017414093
+Loss at inference step13500 : 0.028594080358743668
+Loss at inference step14000 : 0.028207315132021904
+Loss at inference step14500 : 0.027834124863147736
+Loss at inference step15000 : 0.027470111846923828
+Loss at inference step15500 : 0.02711295709013939
+Loss at inference step16000 : 0.02676471322774887
+Loss at inference step16500 : 0.02642858400940895
+Loss at inference step17000 : 0.026104170829057693
+Loss at inference step17500 : 0.025783371180295944
+Loss at inference step18000 : 0.025465551763772964
+Loss at inference step18500 : 0.02515539899468422
+Loss at inference step19000 : 0.024846550077199936
+Loss at inference step19500 : 0.024549799039959908
+best error is 0.010657954851872611, in best estimate-indx is 0.010657954851872611, squared loss is 0.024272285401821136
+Best error for point 51 is having absolute error of 0.010657954851872611
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04490262642502785
+Loss at inference step500 : 0.04277331382036209
+Loss at inference step1000 : 0.04149235039949417
+Loss at inference step1500 : 0.04038069397211075
+Loss at inference step2000 : 0.03937789052724838
+Loss at inference step2500 : 0.038417331874370575
+Loss at inference step3000 : 0.037489015609025955
+Loss at inference step3500 : 0.036594975739717484
+Loss at inference step4000 : 0.035721730440855026
+Loss at inference step4500 : 0.03486284241080284
+Loss at inference step5000 : 0.03401055186986923
+Loss at inference step5500 : 0.03318227827548981
+Loss at inference step6000 : 0.03235612064599991
+Loss at inference step6500 : 0.03154178708791733
+Loss at inference step7000 : 0.03074745461344719
+Loss at inference step7500 : 0.02996358461678028
+Loss at inference step8000 : 0.029214629903435707
+Loss at inference step8500 : 0.028502127155661583
+Loss at inference step9000 : 0.02780798450112343
+Loss at inference step9500 : 0.027142709121108055
+Loss at inference step10000 : 0.0264907144010067
+Loss at inference step10500 : 0.025848953053355217
+Loss at inference step11000 : 0.025239016860723495
+Loss at inference step11500 : 0.024656075984239578
+Loss at inference step12000 : 0.024081174284219742
+Loss at inference step12500 : 0.02350928820669651
+Loss at inference step13000 : 0.02294197492301464
+Loss at inference step13500 : 0.02240063063800335
+Loss at inference step14000 : 0.021872317418456078
+Loss at inference step14500 : 0.02136257290840149
+Loss at inference step15000 : 0.02086501568555832
+Loss at inference step15500 : 0.020387573167681694
+Loss at inference step16000 : 0.01994134671986103
+Loss at inference step16500 : 0.019711973145604134
+Loss at inference step17000 : 0.019481150433421135
+Loss at inference step17500 : 0.019252395257353783
+Loss at inference step18000 : 0.019028447568416595
+Loss at inference step18500 : 0.018810825422406197
+Loss at inference step19000 : 0.018593832850456238
+Loss at inference step19500 : 0.018383322283625603
+best error is 0.008906117593341752, in best estimate-indx is 0.008906117593341752, squared loss is 0.018175704404711723
+Best error for point 52 is having absolute error of 0.008906117593341752
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0438169427216053
+Loss at inference step500 : 0.04282443970441818
+Loss at inference step1000 : 0.04219619184732437
+Loss at inference step1500 : 0.04164714366197586
+Loss at inference step2000 : 0.041128721088171005
+Loss at inference step2500 : 0.04062984511256218
+Loss at inference step3000 : 0.040142208337783813
+Loss at inference step3500 : 0.0396590419113636
+Loss at inference step4000 : 0.039184119552373886
+Loss at inference step4500 : 0.03871991112828255
+Loss at inference step5000 : 0.038262393325567245
+Loss at inference step5500 : 0.03781818598508835
+Loss at inference step6000 : 0.03738334774971008
+Loss at inference step6500 : 0.03695080056786537
+Loss at inference step7000 : 0.03652024641633034
+Loss at inference step7500 : 0.03609035536646843
+Loss at inference step8000 : 0.03566107526421547
+Loss at inference step8500 : 0.035238515585660934
+Loss at inference step9000 : 0.03481758385896683
+Loss at inference step9500 : 0.034403979778289795
+Loss at inference step10000 : 0.033994533121585846
+Loss at inference step10500 : 0.03359338268637657
+Loss at inference step11000 : 0.03320150822401047
+Loss at inference step11500 : 0.03281666338443756
+Loss at inference step12000 : 0.032434310764074326
+Loss at inference step12500 : 0.0320565402507782
+Loss at inference step13000 : 0.0316830612719059
+Loss at inference step13500 : 0.031312257051467896
+Loss at inference step14000 : 0.030941737815737724
+Loss at inference step14500 : 0.030580880120396614
+Loss at inference step15000 : 0.03023064322769642
+Loss at inference step15500 : 0.029887286946177483
+Loss at inference step16000 : 0.02955373376607895
+Loss at inference step16500 : 0.029222624376416206
+Loss at inference step17000 : 0.02889128401875496
+Loss at inference step17500 : 0.02855430543422699
+Loss at inference step18000 : 0.028212804347276688
+Loss at inference step18500 : 0.027874141931533813
+Loss at inference step19000 : 0.02754354663193226
+Loss at inference step19500 : 0.027220716699957848
+best error is 0.015941722957540625, in best estimate-indx is 0.015941722957540625, squared loss is 0.02690194360911846
+Best error for point 53 is having absolute error of 0.015941722957540625
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05058653652667999
+Loss at inference step500 : 0.04976337403059006
+Loss at inference step1000 : 0.049240510910749435
+Loss at inference step1500 : 0.048997651785612106
+Loss at inference step2000 : 0.04876599460840225
+Loss at inference step2500 : 0.04853855445981026
+Loss at inference step3000 : 0.04831630364060402
+Loss at inference step3500 : 0.04809659719467163
+Loss at inference step4000 : 0.047878000885248184
+Loss at inference step4500 : 0.04766174033284187
+Loss at inference step5000 : 0.04744343459606171
+Loss at inference step5500 : 0.047223933041095734
+Loss at inference step6000 : 0.04700541868805885
+Loss at inference step6500 : 0.04678582772612572
+Loss at inference step7000 : 0.0465666763484478
+Loss at inference step7500 : 0.046348411589860916
+Loss at inference step8000 : 0.04613169655203819
+Loss at inference step8500 : 0.04591512680053711
+Loss at inference step9000 : 0.045699119567871094
+Loss at inference step9500 : 0.045486725866794586
+Loss at inference step10000 : 0.045276936143636703
+Loss at inference step10500 : 0.04507181793451309
+Loss at inference step11000 : 0.04486538842320442
+Loss at inference step11500 : 0.044657956808805466
+Loss at inference step12000 : 0.0444481335580349
+Loss at inference step12500 : 0.044239770621061325
+Loss at inference step13000 : 0.04403150826692581
+Loss at inference step13500 : 0.0438249446451664
+Loss at inference step14000 : 0.043619055300951004
+Loss at inference step14500 : 0.043413080275058746
+Loss at inference step15000 : 0.04321007430553436
+Loss at inference step15500 : 0.04300915077328682
+Loss at inference step16000 : 0.04280915856361389
+Loss at inference step16500 : 0.04260900244116783
+Loss at inference step17000 : 0.042409103363752365
+Loss at inference step17500 : 0.04220706969499588
+Loss at inference step18000 : 0.04200509190559387
+Loss at inference step18500 : 0.04180523753166199
+Loss at inference step19000 : 0.041605837643146515
+Loss at inference step19500 : 0.041404884308576584
+best error is 0.06262509282234748, in best estimate-indx is 0.06262509282234748, squared loss is 0.04120583459734917
+Best error for point 54 is having absolute error of 0.06262509282234748
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05168847367167473
+Loss at inference step500 : 0.05139985680580139
+Loss at inference step1000 : 0.051178544759750366
+Loss at inference step1500 : 0.05097389966249466
+Loss at inference step2000 : 0.05077500641345978
+Loss at inference step2500 : 0.050578899681568146
+Loss at inference step3000 : 0.05038479343056679
+Loss at inference step3500 : 0.05019235238432884
+Loss at inference step4000 : 0.050001226365566254
+Loss at inference step4500 : 0.049808256328105927
+Loss at inference step5000 : 0.04961468651890755
+Loss at inference step5500 : 0.04942050948739052
+Loss at inference step6000 : 0.04923441633582115
+Loss at inference step6500 : 0.049138281494379044
+Loss at inference step7000 : 0.04904143512248993
+Loss at inference step7500 : 0.048944082111120224
+Loss at inference step8000 : 0.04884626343846321
+Loss at inference step8500 : 0.04874909296631813
+Loss at inference step9000 : 0.04865233227610588
+Loss at inference step9500 : 0.04855584725737572
+Loss at inference step10000 : 0.04845946654677391
+Loss at inference step10500 : 0.04836314171552658
+Loss at inference step11000 : 0.04826699197292328
+Loss at inference step11500 : 0.04817060008645058
+Loss at inference step12000 : 0.048074573278427124
+Loss at inference step12500 : 0.04797840863466263
+Loss at inference step13000 : 0.04788146913051605
+Loss at inference step13500 : 0.047785453498363495
+Loss at inference step14000 : 0.047690361738204956
+Loss at inference step14500 : 0.04759567230939865
+Loss at inference step15000 : 0.04750128090381622
+Loss at inference step15500 : 0.04740700125694275
+Loss at inference step16000 : 0.047312717884778976
+Loss at inference step16500 : 0.04721918702125549
+Loss at inference step17000 : 0.04712598770856857
+Loss at inference step17500 : 0.047033071517944336
+Loss at inference step18000 : 0.04694059491157532
+Loss at inference step18500 : 0.04684799537062645
+Loss at inference step19000 : 0.046755921095609665
+Loss at inference step19500 : 0.04666432365775108
+best error is 0.06174691736441084, in best estimate-indx is 0.06174691736441084, squared loss is 0.04657241329550743
+Best error for point 55 is having absolute error of 0.06174691736441084
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04571782052516937
+Loss at inference step500 : 0.04549071937799454
+Loss at inference step1000 : 0.045322809368371964
+Loss at inference step1500 : 0.04516902565956116
+Loss at inference step2000 : 0.045021552592515945
+Loss at inference step2500 : 0.044876828789711
+Loss at inference step3000 : 0.044734179973602295
+Loss at inference step3500 : 0.04459347575902939
+Loss at inference step4000 : 0.04445295408368111
+Loss at inference step4500 : 0.04431280493736267
+Loss at inference step5000 : 0.04417267069220543
+Loss at inference step5500 : 0.04403289780020714
+Loss at inference step6000 : 0.0438937284052372
+Loss at inference step6500 : 0.043755486607551575
+Loss at inference step7000 : 0.04361819103360176
+Loss at inference step7500 : 0.04348097741603851
+Loss at inference step8000 : 0.043343544006347656
+Loss at inference step8500 : 0.04320680350065231
+Loss at inference step9000 : 0.043070390820503235
+Loss at inference step9500 : 0.04293394833803177
+Loss at inference step10000 : 0.042797334492206573
+Loss at inference step10500 : 0.0426604226231575
+Loss at inference step11000 : 0.04252873361110687
+Loss at inference step11500 : 0.04246031492948532
+Loss at inference step12000 : 0.04239221662282944
+Loss at inference step12500 : 0.04232430458068848
+Loss at inference step13000 : 0.04225626587867737
+Loss at inference step13500 : 0.04218805953860283
+Loss at inference step14000 : 0.04212050884962082
+Loss at inference step14500 : 0.04205320402979851
+Loss at inference step15000 : 0.041985683143138885
+Loss at inference step15500 : 0.04191821068525314
+Loss at inference step16000 : 0.04185088351368904
+Loss at inference step16500 : 0.04178377240896225
+Loss at inference step17000 : 0.04171673581004143
+Loss at inference step17500 : 0.04164962098002434
+Loss at inference step18000 : 0.04158278927206993
+Loss at inference step18500 : 0.041516102850437164
+Loss at inference step19000 : 0.04144915193319321
+Loss at inference step19500 : 0.04138217866420746
+best error is 0.03478418763326148, in best estimate-indx is 0.03478418763326148, squared loss is 0.0413154661655426
+Best error for point 56 is having absolute error of 0.03478418763326148
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04345974326133728
+Loss at inference step500 : 0.04340653866529465
+Loss at inference step1000 : 0.04336092621088028
+Loss at inference step1500 : 0.04331587255001068
+Loss at inference step2000 : 0.04327039420604706
+Loss at inference step2500 : 0.04322418197989464
+Loss at inference step3000 : 0.043177276849746704
+Loss at inference step3500 : 0.04312998056411743
+Loss at inference step4000 : 0.043082013726234436
+Loss at inference step4500 : 0.04303368553519249
+Loss at inference step5000 : 0.042985402047634125
+Loss at inference step5500 : 0.042936936020851135
+Loss at inference step6000 : 0.04288816079497337
+Loss at inference step6500 : 0.04283956438302994
+Loss at inference step7000 : 0.042790792882442474
+Loss at inference step7500 : 0.04274209961295128
+Loss at inference step8000 : 0.0426933690905571
+Loss at inference step8500 : 0.042644500732421875
+Loss at inference step9000 : 0.042595863342285156
+Loss at inference step9500 : 0.042547039687633514
+Loss at inference step10000 : 0.04249834269285202
+Loss at inference step10500 : 0.04244992882013321
+Loss at inference step11000 : 0.04240170493721962
+Loss at inference step11500 : 0.042353324592113495
+Loss at inference step12000 : 0.042304880917072296
+Loss at inference step12500 : 0.04225659742951393
+Loss at inference step13000 : 0.042208220809698105
+Loss at inference step13500 : 0.042159851640462875
+Loss at inference step14000 : 0.04211172088980675
+Loss at inference step14500 : 0.04206342622637749
+Loss at inference step15000 : 0.0420147106051445
+Loss at inference step15500 : 0.04196600243449211
+Loss at inference step16000 : 0.04191930219531059
+Loss at inference step16500 : 0.04189504310488701
+Loss at inference step17000 : 0.041870757937431335
+Loss at inference step17500 : 0.041846491396427155
+Loss at inference step18000 : 0.04182230308651924
+Loss at inference step18500 : 0.04179810732603073
+Loss at inference step19000 : 0.04177400842308998
+Loss at inference step19500 : 0.041749946773052216
+best error is 0.10629233283602038, in best estimate-indx is 0.10629233283602038, squared loss is 0.04172584041953087
+Best error for point 57 is having absolute error of 0.10629233283602038
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04738705977797508
+Loss at inference step500 : 0.04734509065747261
+Loss at inference step1000 : 0.04731365293264389
+Loss at inference step1500 : 0.04728451371192932
+Loss at inference step2000 : 0.047256141901016235
+Loss at inference step2500 : 0.04722847789525986
+Loss at inference step3000 : 0.04720098152756691
+Loss at inference step3500 : 0.04717346280813217
+Loss at inference step4000 : 0.04714590683579445
+Loss at inference step4500 : 0.04711836203932762
+Loss at inference step5000 : 0.047090668231248856
+Loss at inference step5500 : 0.047062937170267105
+Loss at inference step6000 : 0.047035135328769684
+Loss at inference step6500 : 0.04700735956430435
+Loss at inference step7000 : 0.046979475766420364
+Loss at inference step7500 : 0.04695148393511772
+Loss at inference step8000 : 0.046923521906137466
+Loss at inference step8500 : 0.046895597130060196
+Loss at inference step9000 : 0.046867672353982925
+Loss at inference step9500 : 0.046839695423841476
+Loss at inference step10000 : 0.04681170731782913
+Loss at inference step10500 : 0.04678376019001007
+Loss at inference step11000 : 0.046755917370319366
+Loss at inference step11500 : 0.046728044748306274
+Loss at inference step12000 : 0.046700190752744675
+Loss at inference step12500 : 0.04667239636182785
+Loss at inference step13000 : 0.0466446690261364
+Loss at inference step13500 : 0.046616990119218826
+Loss at inference step14000 : 0.046589404344558716
+Loss at inference step14500 : 0.04656185954809189
+Loss at inference step15000 : 0.04653433710336685
+Loss at inference step15500 : 0.04650679975748062
+Loss at inference step16000 : 0.04647926613688469
+Loss at inference step16500 : 0.046451766043901443
+Loss at inference step17000 : 0.04642430692911148
+Loss at inference step17500 : 0.0463968962430954
+Loss at inference step18000 : 0.04636944830417633
+Loss at inference step18500 : 0.046341877430677414
+Loss at inference step19000 : 0.04631425812840462
+Loss at inference step19500 : 0.04628661647439003
+best error is 0.0442089067482091, in best estimate-indx is 0.0442089067482091, squared loss is 0.046259041875600815
+Best error for point 58 is having absolute error of 0.0442089067482091
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.07762323319911957
+Loss at inference step500 : 0.07757233083248138
+Loss at inference step1000 : 0.07753611356019974
+Loss at inference step1500 : 0.07751884311437607
+Loss at inference step2000 : 0.07750251144170761
+Loss at inference step2500 : 0.07748638838529587
+Loss at inference step3000 : 0.07747028768062592
+Loss at inference step3500 : 0.07745414227247238
+Loss at inference step4000 : 0.07743796706199646
+Loss at inference step4500 : 0.07742174714803696
+Loss at inference step5000 : 0.07740546017885208
+Loss at inference step5500 : 0.07738916575908661
+Loss at inference step6000 : 0.07737284153699875
+Loss at inference step6500 : 0.07735647261142731
+Loss at inference step7000 : 0.07734008133411407
+Loss at inference step7500 : 0.07732369005680084
+Loss at inference step8000 : 0.07730732858181
+Loss at inference step8500 : 0.07729091495275497
+Loss at inference step9000 : 0.07727448642253876
+Loss at inference step9500 : 0.07725801318883896
+Loss at inference step10000 : 0.07724151015281677
+Loss at inference step10500 : 0.07722499221563339
+Loss at inference step11000 : 0.0772084891796112
+Loss at inference step11500 : 0.07719197124242783
+Loss at inference step12000 : 0.07717543840408325
+Loss at inference step12500 : 0.07715878635644913
+Loss at inference step13000 : 0.07714219391345978
+Loss at inference step13500 : 0.07712563872337341
+Loss at inference step14000 : 0.07710910588502884
+Loss at inference step14500 : 0.07709255814552307
+Loss at inference step15000 : 0.0770760178565979
+Loss at inference step15500 : 0.07705947011709213
+Loss at inference step16000 : 0.07704290747642517
+Loss at inference step16500 : 0.07702633738517761
+Loss at inference step17000 : 0.07700987905263901
+Loss at inference step17500 : 0.0769934430718422
+Loss at inference step18000 : 0.07697700709104538
+Loss at inference step18500 : 0.07696055620908737
+Loss at inference step19000 : 0.07694412022829056
+Loss at inference step19500 : 0.07692767679691315
+best error is 0.023187731657959135, in best estimate-indx is 0.023187731657959135, squared loss is 0.07691123336553574
+Best error for point 59 is having absolute error of 0.023187731657959135
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0460977740585804
+Loss at inference step500 : 0.046072524040937424
+Loss at inference step1000 : 0.04605342075228691
+Loss at inference step1500 : 0.04603555053472519
+Loss at inference step2000 : 0.04601862281560898
+Loss at inference step2500 : 0.04600190743803978
+Loss at inference step3000 : 0.04598510265350342
+Loss at inference step3500 : 0.04596820846199989
+Loss at inference step4000 : 0.04595116898417473
+Loss at inference step4500 : 0.04593401774764061
+Loss at inference step5000 : 0.04591681435704231
+Loss at inference step5500 : 0.045899584889411926
+Loss at inference step6000 : 0.04588302597403526
+Loss at inference step6500 : 0.045874398201704025
+Loss at inference step7000 : 0.04586578160524368
+Loss at inference step7500 : 0.045857157558202744
+Loss at inference step8000 : 0.04584855958819389
+Loss at inference step8500 : 0.045839935541152954
+Loss at inference step9000 : 0.04583132639527321
+Loss at inference step9500 : 0.04582272842526436
+Loss at inference step10000 : 0.045814115554094315
+Loss at inference step10500 : 0.04580548778176308
+Loss at inference step11000 : 0.045796867460012436
+Loss at inference step11500 : 0.045788221061229706
+Loss at inference step12000 : 0.04577959328889847
+Loss at inference step12500 : 0.04577096924185753
+Loss at inference step13000 : 0.04576234146952629
+Loss at inference step13500 : 0.04575372859835625
+Loss at inference step14000 : 0.0457451231777668
+Loss at inference step14500 : 0.04573650658130646
+Loss at inference step15000 : 0.045727893710136414
+Loss at inference step15500 : 0.04571928083896637
+Loss at inference step16000 : 0.04571067541837692
+Loss at inference step16500 : 0.04570207744836807
+Loss at inference step17000 : 0.045693475753068924
+Loss at inference step17500 : 0.04568489268422127
+Loss at inference step18000 : 0.04567629471421242
+Loss at inference step18500 : 0.04566771164536476
+Loss at inference step19000 : 0.04565912485122681
+Loss at inference step19500 : 0.04565054550766945
+best error is 0.1295671169457092, in best estimate-indx is 0.1295671169457092, squared loss is 0.04564196243882179
+Best error for point 60 is having absolute error of 0.1295671169457092
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.046215757727622986
+Loss at inference step500 : 0.04620526731014252
+Loss at inference step1000 : 0.04619668051600456
+Loss at inference step1500 : 0.04618881270289421
+Loss at inference step2000 : 0.04618097096681595
+Loss at inference step2500 : 0.046173095703125
+Loss at inference step3000 : 0.04616517573595047
+Loss at inference step3500 : 0.04615720734000206
+Loss at inference step4000 : 0.04614920914173126
+Loss at inference step4500 : 0.04614119604229927
+Loss at inference step5000 : 0.04613314941525459
+Loss at inference step5500 : 0.04612508788704872
+Loss at inference step6000 : 0.04611702263355255
+Loss at inference step6500 : 0.04610895365476608
+Loss at inference step7000 : 0.04610087722539902
+Loss at inference step7500 : 0.046092815697193146
+Loss at inference step8000 : 0.046084750443696976
+Loss at inference step8500 : 0.046076688915491104
+Loss at inference step9000 : 0.046068619936704636
+Loss at inference step9500 : 0.046060554683208466
+Loss at inference step10000 : 0.04605250805616379
+Loss at inference step10500 : 0.04604444280266762
+Loss at inference step11000 : 0.04603668674826622
+Loss at inference step11500 : 0.04603266343474388
+Loss at inference step12000 : 0.04602864384651184
+Loss at inference step12500 : 0.046024613082408905
+Loss at inference step13000 : 0.046020593494176865
+Loss at inference step13500 : 0.04601656645536423
+Loss at inference step14000 : 0.04601254686713219
+Loss at inference step14500 : 0.04600851982831955
+Loss at inference step15000 : 0.04600450396537781
+Loss at inference step15500 : 0.04600048065185547
+Loss at inference step16000 : 0.04599646478891373
+Loss at inference step16500 : 0.04599244147539139
+Loss at inference step17000 : 0.045988425612449646
+Loss at inference step17500 : 0.04598440229892731
+Loss at inference step18000 : 0.045980386435985565
+Loss at inference step18500 : 0.045976366847753525
+Loss at inference step19000 : 0.04597235843539238
+Loss at inference step19500 : 0.04596833884716034
+best error is 0.03717526795887554, in best estimate-indx is 0.03717526795887554, squared loss is 0.0459643118083477
+Best error for point 61 is having absolute error of 0.03717526795887554
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.07087655365467072
+Loss at inference step500 : 0.07087063789367676
+Loss at inference step1000 : 0.0708661675453186
+Loss at inference step1500 : 0.07086189091205597
+Loss at inference step2000 : 0.07085764408111572
+Loss at inference step2500 : 0.07085342705249786
+Loss at inference step3000 : 0.07084918767213821
+Loss at inference step3500 : 0.07084492594003677
+Loss at inference step4000 : 0.07084064185619354
+Loss at inference step4500 : 0.0708363726735115
+Loss at inference step5000 : 0.07083208858966827
+Loss at inference step5500 : 0.07082779705524445
+Loss at inference step6000 : 0.07082351297140121
+Loss at inference step6500 : 0.07081922143697739
+Loss at inference step7000 : 0.07081492990255356
+Loss at inference step7500 : 0.07081065326929092
+Loss at inference step8000 : 0.07080636918544769
+Loss at inference step8500 : 0.07080206274986267
+Loss at inference step9000 : 0.07079777866601944
+Loss at inference step9500 : 0.0707935020327568
+Loss at inference step10000 : 0.07078920304775238
+Loss at inference step10500 : 0.07078491151332855
+Loss at inference step11000 : 0.07078062742948532
+Loss at inference step11500 : 0.07077633589506149
+Loss at inference step12000 : 0.07077205181121826
+Loss at inference step12500 : 0.07076776772737503
+Loss at inference step13000 : 0.0707634687423706
+Loss at inference step13500 : 0.07075919955968857
+Loss at inference step14000 : 0.07075490802526474
+Loss at inference step14500 : 0.07075061649084091
+Loss at inference step15000 : 0.07074633985757828
+Loss at inference step15500 : 0.07074206322431564
+Loss at inference step16000 : 0.07073796540498734
+Loss at inference step16500 : 0.0707363560795784
+Loss at inference step17000 : 0.07073479145765305
+Loss at inference step17500 : 0.0707332193851471
+Loss at inference step18000 : 0.07073165476322174
+Loss at inference step18500 : 0.07073026895523071
+Loss at inference step19000 : 0.07072895020246506
+Loss at inference step19500 : 0.07072766125202179
+best error is 0.378006514172422, in best estimate-indx is 0.378006514172422, squared loss is 0.07072634994983673
+Best error for point 62 is having absolute error of 0.378006514172422
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0667828693985939
+Loss at inference step500 : 0.0667804628610611
+Loss at inference step1000 : 0.06677842140197754
+Loss at inference step1500 : 0.06677647680044174
+Loss at inference step2000 : 0.06677450239658356
+Loss at inference step2500 : 0.06677253544330597
+Loss at inference step3000 : 0.06677057594060898
+Loss at inference step3500 : 0.0667685866355896
+Loss at inference step4000 : 0.06676661968231201
+Loss at inference step4500 : 0.06676466763019562
+Loss at inference step5000 : 0.06676272302865982
+Loss at inference step5500 : 0.0667608305811882
+Loss at inference step6000 : 0.06675899028778076
+Loss at inference step6500 : 0.06675715744495392
+Loss at inference step7000 : 0.06675540655851364
+Loss at inference step7500 : 0.06675372272729874
+Loss at inference step8000 : 0.06675223261117935
+Loss at inference step8500 : 0.06675094366073608
+Loss at inference step9000 : 0.06674972176551819
+Loss at inference step9500 : 0.06674851477146149
+Loss at inference step10000 : 0.06674731522798538
+Loss at inference step10500 : 0.06674610823392868
+Loss at inference step11000 : 0.06674492359161377
+Loss at inference step11500 : 0.06674376875162125
+Loss at inference step12000 : 0.06674263626337051
+Loss at inference step12500 : 0.06674149632453918
+Loss at inference step13000 : 0.06674034148454666
+Loss at inference step13500 : 0.06673920154571533
+Loss at inference step14000 : 0.0667380765080452
+Loss at inference step14500 : 0.06673693656921387
+Loss at inference step15000 : 0.06673577427864075
+Loss at inference step15500 : 0.06673464179039001
+Loss at inference step16000 : 0.06673349440097809
+Loss at inference step16500 : 0.06673236191272736
+Loss at inference step17000 : 0.06673122942447662
+Loss at inference step17500 : 0.0667300745844841
+Loss at inference step18000 : 0.06672892719507217
+Loss at inference step18500 : 0.06672780215740204
+Loss at inference step19000 : 0.0667266771197319
+Loss at inference step19500 : 0.06672554463148117
+best error is 0.320266748304453, in best estimate-indx is 0.320266748304453, squared loss is 0.06672440469264984
+Best error for point 63 is having absolute error of 0.320266748304453
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.047797415405511856
+Loss at inference step500 : 0.04779462888836861
+Loss at inference step1000 : 0.04779252037405968
+Loss at inference step1500 : 0.047791752964258194
+Loss at inference step2000 : 0.04779098182916641
+Loss at inference step2500 : 0.047790221869945526
+Loss at inference step3000 : 0.04778946191072464
+Loss at inference step3500 : 0.047788698226213455
+Loss at inference step4000 : 0.04778793454170227
+Loss at inference step4500 : 0.047787174582481384
+Loss at inference step5000 : 0.0477864071726799
+Loss at inference step5500 : 0.047785647213459015
+Loss at inference step6000 : 0.04778488352894783
+Loss at inference step6500 : 0.04778413847088814
+Loss at inference step7000 : 0.04778341203927994
+Loss at inference step7500 : 0.047782715409994125
+Loss at inference step8000 : 0.04778211936354637
+Loss at inference step8500 : 0.047781627625226974
+Loss at inference step9000 : 0.047781240195035934
+Loss at inference step9500 : 0.04778088256716728
+Loss at inference step10000 : 0.04778052121400833
+Loss at inference step10500 : 0.047780171036720276
+Loss at inference step11000 : 0.04777980223298073
+Loss at inference step11500 : 0.04777942970395088
+Loss at inference step12000 : 0.04777905344963074
+Loss at inference step12500 : 0.04777868092060089
+Loss at inference step13000 : 0.04777832329273224
+Loss at inference step13500 : 0.04777797684073448
+Loss at inference step14000 : 0.04777763411402702
+Loss at inference step14500 : 0.04777728021144867
+Loss at inference step15000 : 0.047776930034160614
+Loss at inference step15500 : 0.04777658358216286
+Loss at inference step16000 : 0.047776225954294205
+Loss at inference step16500 : 0.047775886952877045
+Loss at inference step17000 : 0.047775525599718094
+Loss at inference step17500 : 0.04777517914772034
+Loss at inference step18000 : 0.04777482524514198
+Loss at inference step18500 : 0.04777447506785393
+Loss at inference step19000 : 0.04777413234114647
+Loss at inference step19500 : 0.047773778438568115
+best error is 0.11328798322850939, in best estimate-indx is 0.11328798322850939, squared loss is 0.04777342826128006
+Best error for point 64 is having absolute error of 0.11328798322850939
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0561513677239418
+Loss at inference step500 : 0.05615011975169182
+Loss at inference step1000 : 0.056149452924728394
+Loss at inference step1500 : 0.05614881590008736
+Loss at inference step2000 : 0.056148167699575424
+Loss at inference step2500 : 0.05614752694964409
+Loss at inference step3000 : 0.05614687129855156
+Loss at inference step3500 : 0.05614623427391052
+Loss at inference step4000 : 0.056145574897527695
+Loss at inference step4500 : 0.05614493787288666
+Loss at inference step5000 : 0.05614432692527771
+Loss at inference step5500 : 0.05614371597766876
+Loss at inference step6000 : 0.056143131107091904
+Loss at inference step6500 : 0.05614292994141579
+Loss at inference step7000 : 0.05614273250102997
+Loss at inference step7500 : 0.056142546236515045
+Loss at inference step8000 : 0.05614236369729042
+Loss at inference step8500 : 0.056142210960388184
+Loss at inference step9000 : 0.056142084300518036
+Loss at inference step9500 : 0.05614197626709938
+Loss at inference step10000 : 0.056141871958971024
+Loss at inference step10500 : 0.056141771376132965
+Loss at inference step11000 : 0.05614167079329491
+Loss at inference step11500 : 0.05614157021045685
+Loss at inference step12000 : 0.056141480803489685
+Loss at inference step12500 : 0.05614139139652252
+Loss at inference step13000 : 0.056141313165426254
+Loss at inference step13500 : 0.05614123120903969
+Loss at inference step14000 : 0.05614115670323372
+Loss at inference step14500 : 0.05614107847213745
+Loss at inference step15000 : 0.056140996515750885
+Loss at inference step15500 : 0.05614091828465462
+Loss at inference step16000 : 0.05614083260297775
+Loss at inference step16500 : 0.056140754371881485
+Loss at inference step17000 : 0.056140679866075516
+Loss at inference step17500 : 0.05614059418439865
+Loss at inference step18000 : 0.05614051967859268
+Loss at inference step18500 : 0.056140437722206116
+Loss at inference step19000 : 0.05614035949110985
+Loss at inference step19500 : 0.05614027753472328
+best error is 0.07490468784163103, in best estimate-indx is 0.07490468784163103, squared loss is 0.05614020302891731
+Best error for point 65 is having absolute error of 0.07490468784163103
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04722738265991211
+Loss at inference step500 : 0.047227222472429276
+Loss at inference step1000 : 0.04722709581255913
+Loss at inference step1500 : 0.04722696915268898
+Loss at inference step2000 : 0.047226838767528534
+Loss at inference step2500 : 0.04722670465707779
+Loss at inference step3000 : 0.04722657799720764
+Loss at inference step3500 : 0.047226447612047195
+Loss at inference step4000 : 0.047226328402757645
+Loss at inference step4500 : 0.0472261942923069
+Loss at inference step5000 : 0.04722606763243675
+Loss at inference step5500 : 0.047225937247276306
+Loss at inference step6000 : 0.04722581431269646
+Loss at inference step6500 : 0.04722568765282631
+Loss at inference step7000 : 0.04722557216882706
+Loss at inference step7500 : 0.0472254641354084
+Loss at inference step8000 : 0.04722536355257034
+Loss at inference step8500 : 0.04722527787089348
+Loss at inference step9000 : 0.04722519963979721
+Loss at inference step9500 : 0.04722512513399124
+Loss at inference step10000 : 0.04722505435347557
+Loss at inference step10500 : 0.047224994748830795
+Loss at inference step11000 : 0.047224923968315125
+Loss at inference step11500 : 0.04722490534186363
+Loss at inference step12000 : 0.04722487926483154
+Loss at inference step12500 : 0.04722485691308975
+Loss at inference step13000 : 0.04722483456134796
+Loss at inference step13500 : 0.04722481220960617
+Loss at inference step14000 : 0.04722478985786438
+Loss at inference step14500 : 0.04722476750612259
+Loss at inference step15000 : 0.0472247451543808
+Loss at inference step15500 : 0.047224726527929306
+Loss at inference step16000 : 0.04722470045089722
+Loss at inference step16500 : 0.047224678099155426
+Loss at inference step17000 : 0.047224655747413635
+Loss at inference step17500 : 0.047224629670381546
+Loss at inference step18000 : 0.047224611043930054
+Loss at inference step18500 : 0.047224584966897964
+Loss at inference step19000 : 0.04722456634044647
+Loss at inference step19500 : 0.04722454398870468
+best error is 0.08790120932426498, in best estimate-indx is 0.08790120932426498, squared loss is 0.04722452163696289
+Best error for point 66 is having absolute error of 0.08790120932426498
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04018987715244293
+Loss at inference step500 : 0.04018981754779816
+Loss at inference step1000 : 0.040189776569604874
+Loss at inference step1500 : 0.04018973186612129
+Loss at inference step2000 : 0.04018969088792801
+Loss at inference step2500 : 0.04018964245915413
+Loss at inference step3000 : 0.040189605206251144
+Loss at inference step3500 : 0.04018956422805786
+Loss at inference step4000 : 0.04018952697515488
+Loss at inference step4500 : 0.040189482271671295
+Loss at inference step5000 : 0.040189437568187714
+Loss at inference step5500 : 0.04018939286470413
+Loss at inference step6000 : 0.04018935188651085
+Loss at inference step6500 : 0.04018930718302727
+Loss at inference step7000 : 0.040189266204833984
+Loss at inference step7500 : 0.0401892215013504
+Loss at inference step8000 : 0.04018917679786682
+Loss at inference step8500 : 0.040189143270254135
+Loss at inference step9000 : 0.04018910601735115
+Loss at inference step9500 : 0.040189072489738464
+Loss at inference step10000 : 0.040189046412706375
+Loss at inference step10500 : 0.040189024060964584
+Loss at inference step11000 : 0.040189001709222794
+Loss at inference step11500 : 0.040188979357481
+Loss at inference step12000 : 0.04018895700573921
+Loss at inference step12500 : 0.04018893465399742
+Loss at inference step13000 : 0.04018891602754593
+Loss at inference step13500 : 0.04018889367580414
+Loss at inference step14000 : 0.040188875049352646
+Loss at inference step14500 : 0.04018884897232056
+Loss at inference step15000 : 0.040188830345869064
+Loss at inference step15500 : 0.04018881171941757
+Loss at inference step16000 : 0.04018878936767578
+Loss at inference step16500 : 0.04018878564238548
+Loss at inference step17000 : 0.04018877074122429
+Loss at inference step17500 : 0.04018876329064369
+Loss at inference step18000 : 0.0401887521147728
+Loss at inference step18500 : 0.0401887446641922
+Loss at inference step19000 : 0.0401887372136116
+Loss at inference step19500 : 0.04018872603774071
+best error is 0.05396117038761024, in best estimate-indx is 0.05396117038761024, squared loss is 0.04018871858716011
+Best error for point 67 is having absolute error of 0.05396117038761024
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05774479731917381
+Loss at inference step500 : 0.057744771242141724
+Loss at inference step1000 : 0.05774476006627083
+Loss at inference step1500 : 0.057744745165109634
+Loss at inference step2000 : 0.057744719088077545
+Loss at inference step2500 : 0.05774471536278725
+Loss at inference step3000 : 0.057744696736335754
+Loss at inference step3500 : 0.05774468183517456
+Loss at inference step4000 : 0.057744670659303665
+Loss at inference step4500 : 0.05774465575814247
+Loss at inference step5000 : 0.05774463713169098
+Loss at inference step5500 : 0.057744625955820084
+Loss at inference step6000 : 0.05774461850523949
+Loss at inference step6500 : 0.0577445924282074
+Loss at inference step7000 : 0.0577445812523365
+Loss at inference step7500 : 0.05774456635117531
+Loss at inference step8000 : 0.05774455517530441
+Loss at inference step8500 : 0.05774454399943352
+Loss at inference step9000 : 0.057744529098272324
+Loss at inference step9500 : 0.05774451792240143
+Loss at inference step10000 : 0.057744503021240234
+Loss at inference step10500 : 0.05774449184536934
+Loss at inference step11000 : 0.057744480669498444
+Loss at inference step11500 : 0.05774446576833725
+Loss at inference step12000 : 0.057744454592466354
+Loss at inference step12500 : 0.057744454592466354
+Loss at inference step13000 : 0.05774443969130516
+Loss at inference step13500 : 0.05774443596601486
+Loss at inference step14000 : 0.05774442106485367
+Loss at inference step14500 : 0.05774441361427307
+Loss at inference step15000 : 0.057744402438402176
+Loss at inference step15500 : 0.05774439498782158
+Loss at inference step16000 : 0.05774439126253128
+Loss at inference step16500 : 0.057744383811950684
+Loss at inference step17000 : 0.05774436518549919
+Loss at inference step17500 : 0.05774436518549919
+Loss at inference step18000 : 0.057744350284338
+Loss at inference step18500 : 0.0577443465590477
+Loss at inference step19000 : 0.0577443391084671
+Loss at inference step19500 : 0.05774432793259621
+best error is 0.15725407575411934, in best estimate-indx is 0.15725407575411934, squared loss is 0.05774432048201561
+Best error for point 68 is having absolute error of 0.15725407575411934
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04326228052377701
+Loss at inference step500 : 0.04326225444674492
+Loss at inference step1000 : 0.043262239545583725
+Loss at inference step1500 : 0.043262235820293427
+Loss at inference step2000 : 0.04326222091913223
+Loss at inference step2500 : 0.043262217193841934
+Loss at inference step3000 : 0.04326220974326134
+Loss at inference step3500 : 0.04326220229268074
+Loss at inference step4000 : 0.043262191116809845
+Loss at inference step4500 : 0.04326218366622925
+Loss at inference step5000 : 0.04326217621564865
+Loss at inference step5500 : 0.043262168765068054
+Loss at inference step6000 : 0.04326216131448746
+Loss at inference step6500 : 0.04326215386390686
+Loss at inference step7000 : 0.04326214641332626
+Loss at inference step7500 : 0.04326213523745537
+Loss at inference step8000 : 0.04326213151216507
+Loss at inference step8500 : 0.043262120336294174
+Loss at inference step9000 : 0.043262116611003876
+Loss at inference step9500 : 0.04326210916042328
+Loss at inference step10000 : 0.04326210170984268
+Loss at inference step10500 : 0.043262094259262085
+Loss at inference step11000 : 0.043262090533971786
+Loss at inference step11500 : 0.04326208680868149
+Loss at inference step12000 : 0.04326208680868149
+Loss at inference step12500 : 0.04326208308339119
+Loss at inference step13000 : 0.04326207935810089
+Loss at inference step13500 : 0.04326207563281059
+Loss at inference step14000 : 0.04326207563281059
+Loss at inference step14500 : 0.043262071907520294
+Loss at inference step15000 : 0.043262068182229996
+Loss at inference step15500 : 0.043262068182229996
+Loss at inference step16000 : 0.0432620644569397
+Loss at inference step16500 : 0.0432620644569397
+Loss at inference step17000 : 0.0432620570063591
+Loss at inference step17500 : 0.0432620570063591
+Loss at inference step18000 : 0.0432620532810688
+Loss at inference step18500 : 0.0432620495557785
+Loss at inference step19000 : 0.0432620495557785
+Loss at inference step19500 : 0.043262045830488205
+best error is 0.06626229986668866, in best estimate-indx is 0.06626229986668866, squared loss is 0.043262042105197906
+Best error for point 69 is having absolute error of 0.06626229986668866
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0754496231675148
+Loss at inference step500 : 0.0754496231675148
+Loss at inference step1000 : 0.0754496231675148
+Loss at inference step1500 : 0.07544960826635361
+Loss at inference step2000 : 0.07544960081577301
+Loss at inference step2500 : 0.07544959336519241
+Loss at inference step3000 : 0.07544959336519241
+Loss at inference step3500 : 0.07544958591461182
+Loss at inference step4000 : 0.07544958591461182
+Loss at inference step4500 : 0.07544957101345062
+Loss at inference step5000 : 0.07544957101345062
+Loss at inference step5500 : 0.07544956356287003
+Loss at inference step6000 : 0.07544955611228943
+Loss at inference step6500 : 0.07544955611228943
+Loss at inference step7000 : 0.07544955611228943
+Loss at inference step7500 : 0.07544955611228943
+Loss at inference step8000 : 0.07544955611228943
+Loss at inference step8500 : 0.07544954866170883
+Loss at inference step9000 : 0.07544955611228943
+Loss at inference step9500 : 0.07544954866170883
+Loss at inference step10000 : 0.07544954866170883
+Loss at inference step10500 : 0.07544954121112823
+Loss at inference step11000 : 0.07544954121112823
+Loss at inference step11500 : 0.07544954121112823
+Loss at inference step12000 : 0.07544954121112823
+Loss at inference step12500 : 0.07544954121112823
+Loss at inference step13000 : 0.07544954121112823
+Loss at inference step13500 : 0.07544954121112823
+Loss at inference step14000 : 0.07544954121112823
+Loss at inference step14500 : 0.07544954121112823
+Loss at inference step15000 : 0.07544954121112823
+Loss at inference step15500 : 0.07544954121112823
+Loss at inference step16000 : 0.07544954121112823
+Loss at inference step16500 : 0.07544954121112823
+Loss at inference step17000 : 0.07544954121112823
+Loss at inference step17500 : 0.07544954121112823
+Loss at inference step18000 : 0.07544954121112823
+Loss at inference step18500 : 0.07544954121112823
+Loss at inference step19000 : 0.07544954121112823
+Loss at inference step19500 : 0.07544954121112823
+best error is 0.22524906035684028, in best estimate-indx is 0.22524906035684028, squared loss is 0.07544954121112823
+Best error for point 70 is having absolute error of 0.22524906035684028
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0467694029211998
+Loss at inference step500 : 0.0467693991959095
+Loss at inference step1000 : 0.0467693991959095
+Loss at inference step1500 : 0.0467693991959095
+Loss at inference step2000 : 0.0467693991959095
+Loss at inference step2500 : 0.0467693991959095
+Loss at inference step3000 : 0.0467693991959095
+Loss at inference step3500 : 0.0467693954706192
+Loss at inference step4000 : 0.0467693917453289
+Loss at inference step4500 : 0.0467693917453289
+Loss at inference step5000 : 0.046769388020038605
+Loss at inference step5500 : 0.046769388020038605
+Loss at inference step6000 : 0.046769384294748306
+Loss at inference step6500 : 0.046769384294748306
+Loss at inference step7000 : 0.046769384294748306
+Loss at inference step7500 : 0.046769384294748306
+Loss at inference step8000 : 0.04676937684416771
+Loss at inference step8500 : 0.04676937684416771
+Loss at inference step9000 : 0.04676937684416771
+Loss at inference step9500 : 0.04676937684416771
+Loss at inference step10000 : 0.04676937684416771
+Loss at inference step10500 : 0.04676937684416771
+Loss at inference step11000 : 0.04676937684416771
+Loss at inference step11500 : 0.04676937684416771
+Loss at inference step12000 : 0.04676937684416771
+Loss at inference step12500 : 0.04676937311887741
+Loss at inference step13000 : 0.04676937311887741
+Loss at inference step13500 : 0.04676937311887741
+Loss at inference step14000 : 0.04676937311887741
+Loss at inference step14500 : 0.04676937311887741
+Loss at inference step15000 : 0.04676937311887741
+Loss at inference step15500 : 0.04676937311887741
+Loss at inference step16000 : 0.04676937311887741
+Loss at inference step16500 : 0.04676937311887741
+Loss at inference step17000 : 0.04676937311887741
+Loss at inference step17500 : 0.04676937311887741
+Loss at inference step18000 : 0.04676937311887741
+Loss at inference step18500 : 0.04676937311887741
+Loss at inference step19000 : 0.04676937311887741
+Loss at inference step19500 : 0.04676937311887741
+best error is 0.07124966688057535, in best estimate-indx is 0.07124966688057535, squared loss is 0.04676937311887741
+Best error for point 71 is having absolute error of 0.07124966688057535
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05268874019384384
+Loss at inference step500 : 0.05268874019384384
+Loss at inference step1000 : 0.05268874019384384
+Loss at inference step1500 : 0.05268874019384384
+Loss at inference step2000 : 0.05268874019384384
+Loss at inference step2500 : 0.05268874019384384
+Loss at inference step3000 : 0.05268874019384384
+Loss at inference step3500 : 0.05268874019384384
+Loss at inference step4000 : 0.05268874019384384
+Loss at inference step4500 : 0.05268874019384384
+Loss at inference step5000 : 0.05268874019384384
+Loss at inference step5500 : 0.05268874019384384
+Loss at inference step6000 : 0.05268874019384384
+Loss at inference step6500 : 0.05268874019384384
+Loss at inference step7000 : 0.05268873646855354
+Loss at inference step7500 : 0.05268873646855354
+Loss at inference step8000 : 0.05268873646855354
+Loss at inference step8500 : 0.05268873646855354
+Loss at inference step9000 : 0.05268873646855354
+Loss at inference step9500 : 0.05268873646855354
+Loss at inference step10000 : 0.05268873646855354
+Loss at inference step10500 : 0.05268873646855354
+Loss at inference step11000 : 0.05268873646855354
+Loss at inference step11500 : 0.052688732743263245
+Loss at inference step12000 : 0.05268873646855354
+Loss at inference step12500 : 0.052688732743263245
+Loss at inference step13000 : 0.052688732743263245
+Loss at inference step13500 : 0.052688732743263245
+Loss at inference step14000 : 0.052688732743263245
+Loss at inference step14500 : 0.052688732743263245
+Loss at inference step15000 : 0.052688732743263245
+Loss at inference step15500 : 0.052688732743263245
+Loss at inference step16000 : 0.052688732743263245
+Loss at inference step16500 : 0.052688732743263245
+Loss at inference step17000 : 0.052688732743263245
+Loss at inference step17500 : 0.052688732743263245
+Loss at inference step18000 : 0.052688732743263245
+Loss at inference step18500 : 0.052688732743263245
+Loss at inference step19000 : 0.052688732743263245
+Loss at inference step19500 : 0.052688732743263245
+best error is 0.06395376100839015, in best estimate-indx is 0.06395376100839015, squared loss is 0.052688732743263245
+Best error for point 72 is having absolute error of 0.06395376100839015
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0439184233546257
+Loss at inference step500 : 0.0439184233546257
+Loss at inference step1000 : 0.0439184233546257
+Loss at inference step1500 : 0.0439184233546257
+Loss at inference step2000 : 0.0439184233546257
+Loss at inference step2500 : 0.0439184233546257
+Loss at inference step3000 : 0.0439184233546257
+Loss at inference step3500 : 0.0439184196293354
+Loss at inference step4000 : 0.0439184196293354
+Loss at inference step4500 : 0.0439184233546257
+Loss at inference step5000 : 0.0439184196293354
+Loss at inference step5500 : 0.0439184196293354
+Loss at inference step6000 : 0.0439184196293354
+Loss at inference step6500 : 0.0439184196293354
+Loss at inference step7000 : 0.0439184196293354
+Loss at inference step7500 : 0.0439184196293354
+Loss at inference step8000 : 0.0439184196293354
+Loss at inference step8500 : 0.0439184196293354
+Loss at inference step9000 : 0.0439184196293354
+Loss at inference step9500 : 0.0439184196293354
+Loss at inference step10000 : 0.0439184196293354
+Loss at inference step10500 : 0.0439184196293354
+Loss at inference step11000 : 0.0439184196293354
+Loss at inference step11500 : 0.0439184196293354
+Loss at inference step12000 : 0.0439184196293354
+Loss at inference step12500 : 0.0439184196293354
+Loss at inference step13000 : 0.0439184196293354
+Loss at inference step13500 : 0.0439184196293354
+Loss at inference step14000 : 0.0439184196293354
+Loss at inference step14500 : 0.0439184196293354
+Loss at inference step15000 : 0.0439184196293354
+Loss at inference step15500 : 0.0439184196293354
+Loss at inference step16000 : 0.0439184196293354
+Loss at inference step16500 : 0.0439184196293354
+Loss at inference step17000 : 0.0439184196293354
+Loss at inference step17500 : 0.0439184196293354
+Loss at inference step18000 : 0.043918415904045105
+Loss at inference step18500 : 0.043918415904045105
+Loss at inference step19000 : 0.043918415904045105
+Loss at inference step19500 : 0.043918415904045105
+best error is 0.04724671769163017, in best estimate-indx is 0.04724671769163017, squared loss is 0.043918415904045105
+Best error for point 73 is having absolute error of 0.04724671769163017
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0518818162381649
+Loss at inference step500 : 0.0518818162381649
+Loss at inference step1000 : 0.0518818162381649
+Loss at inference step1500 : 0.0518818162381649
+Loss at inference step2000 : 0.0518818162381649
+Loss at inference step2500 : 0.0518818162381649
+Loss at inference step3000 : 0.0518818162381649
+Loss at inference step3500 : 0.0518818162381649
+Loss at inference step4000 : 0.0518818162381649
+Loss at inference step4500 : 0.0518818162381649
+Loss at inference step5000 : 0.0518818162381649
+Loss at inference step5500 : 0.0518818162381649
+Loss at inference step6000 : 0.0518818162381649
+Loss at inference step6500 : 0.0518818162381649
+Loss at inference step7000 : 0.0518818162381649
+Loss at inference step7500 : 0.0518818162381649
+Loss at inference step8000 : 0.0518818162381649
+Loss at inference step8500 : 0.0518818162381649
+Loss at inference step9000 : 0.0518818162381649
+Loss at inference step9500 : 0.0518818162381649
+Loss at inference step10000 : 0.0518818162381649
+Loss at inference step10500 : 0.0518818162381649
+Loss at inference step11000 : 0.0518818162381649
+Loss at inference step11500 : 0.0518818162381649
+Loss at inference step12000 : 0.0518818162381649
+Loss at inference step12500 : 0.0518818162381649
+Loss at inference step13000 : 0.0518818162381649
+Loss at inference step13500 : 0.0518818162381649
+Loss at inference step14000 : 0.0518818162381649
+Loss at inference step14500 : 0.0518818162381649
+Loss at inference step15000 : 0.0518818162381649
+Loss at inference step15500 : 0.0518818162381649
+Loss at inference step16000 : 0.0518818162381649
+Loss at inference step16500 : 0.0518818162381649
+Loss at inference step17000 : 0.0518818162381649
+Loss at inference step17500 : 0.0518818162381649
+Loss at inference step18000 : 0.0518818162381649
+Loss at inference step18500 : 0.0518818162381649
+Loss at inference step19000 : 0.0518818162381649
+Loss at inference step19500 : 0.0518818162381649
+best error is 0.1030285590203156, in best estimate-indx is 0.1030285590203156, squared loss is 0.0518818162381649
+Best error for point 74 is having absolute error of 0.1030285590203156
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05291532725095749
+Loss at inference step500 : 0.05291532725095749
+Loss at inference step1000 : 0.05291532725095749
+Loss at inference step1500 : 0.05291532725095749
+Loss at inference step2000 : 0.05291532725095749
+Loss at inference step2500 : 0.05291532725095749
+Loss at inference step3000 : 0.05291532725095749
+Loss at inference step3500 : 0.05291532725095749
+Loss at inference step4000 : 0.05291532725095749
+Loss at inference step4500 : 0.05291532725095749
+Loss at inference step5000 : 0.05291532725095749
+Loss at inference step5500 : 0.05291532725095749
+Loss at inference step6000 : 0.05291532725095749
+Loss at inference step6500 : 0.05291532725095749
+Loss at inference step7000 : 0.05291532725095749
+Loss at inference step7500 : 0.05291532725095749
+Loss at inference step8000 : 0.05291532725095749
+Loss at inference step8500 : 0.05291532725095749
+Loss at inference step9000 : 0.05291532725095749
+Loss at inference step9500 : 0.05291532725095749
+Loss at inference step10000 : 0.05291532725095749
+Loss at inference step10500 : 0.05291532725095749
+Loss at inference step11000 : 0.05291532725095749
+Loss at inference step11500 : 0.05291532725095749
+Loss at inference step12000 : 0.05291532725095749
+Loss at inference step12500 : 0.05291532725095749
+Loss at inference step13000 : 0.05291532725095749
+Loss at inference step13500 : 0.05291532725095749
+Loss at inference step14000 : 0.05291532725095749
+Loss at inference step14500 : 0.05291532725095749
+Loss at inference step15000 : 0.05291532725095749
+Loss at inference step15500 : 0.05291532725095749
+Loss at inference step16000 : 0.05291532725095749
+Loss at inference step16500 : 0.05291532725095749
+Loss at inference step17000 : 0.05291532725095749
+Loss at inference step17500 : 0.05291532725095749
+Loss at inference step18000 : 0.05291532725095749
+Loss at inference step18500 : 0.05291532725095749
+Loss at inference step19000 : 0.05291532725095749
+Loss at inference step19500 : 0.05291532725095749
+best error is 0.11726683791742035, in best estimate-indx is 0.11726683791742035, squared loss is 0.05291532725095749
+Best error for point 75 is having absolute error of 0.11726683791742035
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.040547389537096024
+Loss at inference step500 : 0.040547389537096024
+Loss at inference step1000 : 0.040547389537096024
+Loss at inference step1500 : 0.040547389537096024
+Loss at inference step2000 : 0.040547389537096024
+Loss at inference step2500 : 0.040547389537096024
+Loss at inference step3000 : 0.040547389537096024
+Loss at inference step3500 : 0.040547389537096024
+Loss at inference step4000 : 0.040547389537096024
+Loss at inference step4500 : 0.040547389537096024
+Loss at inference step5000 : 0.040547389537096024
+Loss at inference step5500 : 0.040547389537096024
+Loss at inference step6000 : 0.040547389537096024
+Loss at inference step6500 : 0.040547389537096024
+Loss at inference step7000 : 0.040547389537096024
+Loss at inference step7500 : 0.040547389537096024
+Loss at inference step8000 : 0.040547389537096024
+Loss at inference step8500 : 0.040547389537096024
+Loss at inference step9000 : 0.040547389537096024
+Loss at inference step9500 : 0.040547389537096024
+Loss at inference step10000 : 0.040547389537096024
+Loss at inference step10500 : 0.040547389537096024
+Loss at inference step11000 : 0.040547389537096024
+Loss at inference step11500 : 0.040547389537096024
+Loss at inference step12000 : 0.040547389537096024
+Loss at inference step12500 : 0.040547389537096024
+Loss at inference step13000 : 0.040547389537096024
+Loss at inference step13500 : 0.040547389537096024
+Loss at inference step14000 : 0.040547389537096024
+Loss at inference step14500 : 0.040547389537096024
+Loss at inference step15000 : 0.040547389537096024
+Loss at inference step15500 : 0.040547389537096024
+Loss at inference step16000 : 0.040547389537096024
+Loss at inference step16500 : 0.040547389537096024
+Loss at inference step17000 : 0.040547389537096024
+Loss at inference step17500 : 0.040547389537096024
+Loss at inference step18000 : 0.040547389537096024
+Loss at inference step18500 : 0.040547389537096024
+Loss at inference step19000 : 0.040547389537096024
+Loss at inference step19500 : 0.040547389537096024
+best error is 0.04876853408949938, in best estimate-indx is 0.04876853408949938, squared loss is 0.040547389537096024
+Best error for point 76 is having absolute error of 0.04876853408949938
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04609980434179306
+Loss at inference step500 : 0.04609980434179306
+Loss at inference step1000 : 0.04609980434179306
+Loss at inference step1500 : 0.04609980434179306
+Loss at inference step2000 : 0.04609980434179306
+Loss at inference step2500 : 0.04609980434179306
+Loss at inference step3000 : 0.04609980434179306
+Loss at inference step3500 : 0.04609980434179306
+Loss at inference step4000 : 0.04609980434179306
+Loss at inference step4500 : 0.04609980434179306
+Loss at inference step5000 : 0.04609980434179306
+Loss at inference step5500 : 0.04609980434179306
+Loss at inference step6000 : 0.04609980434179306
+Loss at inference step6500 : 0.04609980434179306
+Loss at inference step7000 : 0.04609980434179306
+Loss at inference step7500 : 0.04609980434179306
+Loss at inference step8000 : 0.04609980434179306
+Loss at inference step8500 : 0.04609980434179306
+Loss at inference step9000 : 0.04609980434179306
+Loss at inference step9500 : 0.04609980434179306
+Loss at inference step10000 : 0.04609980434179306
+Loss at inference step10500 : 0.04609980434179306
+Loss at inference step11000 : 0.04609980434179306
+Loss at inference step11500 : 0.04609980434179306
+Loss at inference step12000 : 0.04609980434179306
+Loss at inference step12500 : 0.04609980434179306
+Loss at inference step13000 : 0.04609980434179306
+Loss at inference step13500 : 0.04609980434179306
+Loss at inference step14000 : 0.04609980434179306
+Loss at inference step14500 : 0.04609980434179306
+Loss at inference step15000 : 0.04609980434179306
+Loss at inference step15500 : 0.04609980434179306
+Loss at inference step16000 : 0.04609980434179306
+Loss at inference step16500 : 0.04609980434179306
+Loss at inference step17000 : 0.04609980434179306
+Loss at inference step17500 : 0.04609980434179306
+Loss at inference step18000 : 0.04609980434179306
+Loss at inference step18500 : 0.04609980434179306
+Loss at inference step19000 : 0.04609980434179306
+Loss at inference step19500 : 0.04609980434179306
+best error is 0.08571248293631623, in best estimate-indx is 0.08571248293631623, squared loss is 0.04609980434179306
+Best error for point 77 is having absolute error of 0.08571248293631623
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04317419230937958
+Loss at inference step500 : 0.04317419230937958
+Loss at inference step1000 : 0.04317419230937958
+Loss at inference step1500 : 0.04317419230937958
+Loss at inference step2000 : 0.04317419230937958
+Loss at inference step2500 : 0.04317419230937958
+Loss at inference step3000 : 0.04317419230937958
+Loss at inference step3500 : 0.04317419230937958
+Loss at inference step4000 : 0.04317419230937958
+Loss at inference step4500 : 0.04317419230937958
+Loss at inference step5000 : 0.04317419230937958
+Loss at inference step5500 : 0.04317419230937958
+Loss at inference step6000 : 0.04317419230937958
+Loss at inference step6500 : 0.04317419230937958
+Loss at inference step7000 : 0.04317419230937958
+Loss at inference step7500 : 0.04317419230937958
+Loss at inference step8000 : 0.04317419230937958
+Loss at inference step8500 : 0.04317419230937958
+Loss at inference step9000 : 0.04317419230937958
+Loss at inference step9500 : 0.04317419230937958
+Loss at inference step10000 : 0.04317419230937958
+Loss at inference step10500 : 0.04317419230937958
+Loss at inference step11000 : 0.04317419230937958
+Loss at inference step11500 : 0.04317419230937958
+Loss at inference step12000 : 0.04317419230937958
+Loss at inference step12500 : 0.04317419230937958
+Loss at inference step13000 : 0.04317419230937958
+Loss at inference step13500 : 0.04317419230937958
+Loss at inference step14000 : 0.04317419230937958
+Loss at inference step14500 : 0.04317419230937958
+Loss at inference step15000 : 0.04317419230937958
+Loss at inference step15500 : 0.04317419230937958
+Loss at inference step16000 : 0.04317419230937958
+Loss at inference step16500 : 0.04317419230937958
+Loss at inference step17000 : 0.04317419230937958
+Loss at inference step17500 : 0.04317419230937958
+Loss at inference step18000 : 0.04317419230937958
+Loss at inference step18500 : 0.04317419230937958
+Loss at inference step19000 : 0.04317419230937958
+Loss at inference step19500 : 0.04317419230937958
+best error is 0.09993548664837507, in best estimate-indx is 0.09993548664837507, squared loss is 0.04317419230937958
+Best error for point 78 is having absolute error of 0.09993548664837507
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.045247599482536316
+Loss at inference step500 : 0.045247599482536316
+Loss at inference step1000 : 0.045247599482536316
+Loss at inference step1500 : 0.045247599482536316
+Loss at inference step2000 : 0.045247599482536316
+Loss at inference step2500 : 0.045247599482536316
+Loss at inference step3000 : 0.045247599482536316
+Loss at inference step3500 : 0.045247599482536316
+Loss at inference step4000 : 0.045247599482536316
+Loss at inference step4500 : 0.045247599482536316
+Loss at inference step5000 : 0.045247599482536316
+Loss at inference step5500 : 0.045247599482536316
+Loss at inference step6000 : 0.045247599482536316
+Loss at inference step6500 : 0.045247599482536316
+Loss at inference step7000 : 0.045247599482536316
+Loss at inference step7500 : 0.045247599482536316
+Loss at inference step8000 : 0.045247599482536316
+Loss at inference step8500 : 0.045247599482536316
+Loss at inference step9000 : 0.045247599482536316
+Loss at inference step9500 : 0.045247599482536316
+Loss at inference step10000 : 0.045247599482536316
+Loss at inference step10500 : 0.045247599482536316
+Loss at inference step11000 : 0.045247599482536316
+Loss at inference step11500 : 0.045247599482536316
+Loss at inference step12000 : 0.045247599482536316
+Loss at inference step12500 : 0.045247599482536316
+Loss at inference step13000 : 0.045247599482536316
+Loss at inference step13500 : 0.045247599482536316
+Loss at inference step14000 : 0.045247599482536316
+Loss at inference step14500 : 0.045247599482536316
+Loss at inference step15000 : 0.045247599482536316
+Loss at inference step15500 : 0.045247599482536316
+Loss at inference step16000 : 0.045247599482536316
+Loss at inference step16500 : 0.045247599482536316
+Loss at inference step17000 : 0.045247599482536316
+Loss at inference step17500 : 0.045247599482536316
+Loss at inference step18000 : 0.045247599482536316
+Loss at inference step18500 : 0.045247599482536316
+Loss at inference step19000 : 0.045247599482536316
+Loss at inference step19500 : 0.045247599482536316
+best error is 0.03219453346124296, in best estimate-indx is 0.03219453346124296, squared loss is 0.045247599482536316
+Best error for point 79 is having absolute error of 0.03219453346124296
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0409015491604805
+Loss at inference step500 : 0.0409015491604805
+Loss at inference step1000 : 0.0409015491604805
+Loss at inference step1500 : 0.0409015491604805
+Loss at inference step2000 : 0.0409015491604805
+Loss at inference step2500 : 0.0409015491604805
+Loss at inference step3000 : 0.0409015491604805
+Loss at inference step3500 : 0.0409015491604805
+Loss at inference step4000 : 0.0409015491604805
+Loss at inference step4500 : 0.0409015491604805
+Loss at inference step5000 : 0.0409015491604805
+Loss at inference step5500 : 0.0409015491604805
+Loss at inference step6000 : 0.0409015491604805
+Loss at inference step6500 : 0.0409015491604805
+Loss at inference step7000 : 0.0409015491604805
+Loss at inference step7500 : 0.0409015491604805
+Loss at inference step8000 : 0.0409015491604805
+Loss at inference step8500 : 0.0409015491604805
+Loss at inference step9000 : 0.0409015491604805
+Loss at inference step9500 : 0.0409015491604805
+Loss at inference step10000 : 0.0409015491604805
+Loss at inference step10500 : 0.0409015491604805
+Loss at inference step11000 : 0.0409015491604805
+Loss at inference step11500 : 0.0409015491604805
+Loss at inference step12000 : 0.0409015491604805
+Loss at inference step12500 : 0.0409015491604805
+Loss at inference step13000 : 0.0409015491604805
+Loss at inference step13500 : 0.0409015491604805
+Loss at inference step14000 : 0.0409015491604805
+Loss at inference step14500 : 0.0409015491604805
+Loss at inference step15000 : 0.0409015491604805
+Loss at inference step15500 : 0.0409015491604805
+Loss at inference step16000 : 0.0409015491604805
+Loss at inference step16500 : 0.0409015491604805
+Loss at inference step17000 : 0.0409015491604805
+Loss at inference step17500 : 0.0409015491604805
+Loss at inference step18000 : 0.0409015491604805
+Loss at inference step18500 : 0.0409015491604805
+Loss at inference step19000 : 0.0409015491604805
+Loss at inference step19500 : 0.0409015491604805
+best error is 0.12637935392706845, in best estimate-indx is 0.12637935392706845, squared loss is 0.0409015491604805
+Best error for point 80 is having absolute error of 0.12637935392706845
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05932465195655823
+Loss at inference step500 : 0.05932465195655823
+Loss at inference step1000 : 0.05932465195655823
+Loss at inference step1500 : 0.05932465195655823
+Loss at inference step2000 : 0.05932465195655823
+Loss at inference step2500 : 0.05932465195655823
+Loss at inference step3000 : 0.05932465195655823
+Loss at inference step3500 : 0.05932465195655823
+Loss at inference step4000 : 0.05932465195655823
+Loss at inference step4500 : 0.05932465195655823
+Loss at inference step5000 : 0.05932465195655823
+Loss at inference step5500 : 0.05932465195655823
+Loss at inference step6000 : 0.05932465195655823
+Loss at inference step6500 : 0.05932465195655823
+Loss at inference step7000 : 0.05932465195655823
+Loss at inference step7500 : 0.05932465195655823
+Loss at inference step8000 : 0.05932465195655823
+Loss at inference step8500 : 0.05932465195655823
+Loss at inference step9000 : 0.05932465195655823
+Loss at inference step9500 : 0.05932465195655823
+Loss at inference step10000 : 0.05932465195655823
+Loss at inference step10500 : 0.05932465195655823
+Loss at inference step11000 : 0.05932465195655823
+Loss at inference step11500 : 0.05932465195655823
+Loss at inference step12000 : 0.05932465195655823
+Loss at inference step12500 : 0.05932465195655823
+Loss at inference step13000 : 0.05932465195655823
+Loss at inference step13500 : 0.05932465195655823
+Loss at inference step14000 : 0.05932465195655823
+Loss at inference step14500 : 0.05932465195655823
+Loss at inference step15000 : 0.05932465195655823
+Loss at inference step15500 : 0.05932465195655823
+Loss at inference step16000 : 0.05932465195655823
+Loss at inference step16500 : 0.05932465195655823
+Loss at inference step17000 : 0.05932465195655823
+Loss at inference step17500 : 0.05932465195655823
+Loss at inference step18000 : 0.05932465195655823
+Loss at inference step18500 : 0.05932465195655823
+Loss at inference step19000 : 0.05932465195655823
+Loss at inference step19500 : 0.05932465195655823
+best error is 0.09164890812285431, in best estimate-indx is 0.09164890812285431, squared loss is 0.05932465195655823
+Best error for point 81 is having absolute error of 0.09164890812285431
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04258711636066437
+Loss at inference step500 : 0.04258711636066437
+Loss at inference step1000 : 0.04258711636066437
+Loss at inference step1500 : 0.04258711636066437
+Loss at inference step2000 : 0.04258711636066437
+Loss at inference step2500 : 0.04258711636066437
+Loss at inference step3000 : 0.04258711636066437
+Loss at inference step3500 : 0.04258711636066437
+Loss at inference step4000 : 0.04258711636066437
+Loss at inference step4500 : 0.04258711636066437
+Loss at inference step5000 : 0.04258711636066437
+Loss at inference step5500 : 0.04258711636066437
+Loss at inference step6000 : 0.04258711636066437
+Loss at inference step6500 : 0.04258711636066437
+Loss at inference step7000 : 0.04258711636066437
+Loss at inference step7500 : 0.04258711636066437
+Loss at inference step8000 : 0.04258711636066437
+Loss at inference step8500 : 0.04258711636066437
+Loss at inference step9000 : 0.04258711636066437
+Loss at inference step9500 : 0.04258711636066437
+Loss at inference step10000 : 0.04258711636066437
+Loss at inference step10500 : 0.04258711636066437
+Loss at inference step11000 : 0.04258711636066437
+Loss at inference step11500 : 0.04258711636066437
+Loss at inference step12000 : 0.04258711636066437
+Loss at inference step12500 : 0.04258711636066437
+Loss at inference step13000 : 0.04258711636066437
+Loss at inference step13500 : 0.04258711636066437
+Loss at inference step14000 : 0.04258711636066437
+Loss at inference step14500 : 0.04258711636066437
+Loss at inference step15000 : 0.04258711636066437
+Loss at inference step15500 : 0.04258711636066437
+Loss at inference step16000 : 0.04258711636066437
+Loss at inference step16500 : 0.04258711636066437
+Loss at inference step17000 : 0.04258711636066437
+Loss at inference step17500 : 0.04258711636066437
+Loss at inference step18000 : 0.04258711636066437
+Loss at inference step18500 : 0.04258711636066437
+Loss at inference step19000 : 0.04258711636066437
+Loss at inference step19500 : 0.04258711636066437
+best error is 0.04784357139994043, in best estimate-indx is 0.04784357139994043, squared loss is 0.04258711636066437
+Best error for point 82 is having absolute error of 0.04784357139994043
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.05285053327679634
+Loss at inference step500 : 0.05285053327679634
+Loss at inference step1000 : 0.05285053327679634
+Loss at inference step1500 : 0.05285053327679634
+Loss at inference step2000 : 0.05285053327679634
+Loss at inference step2500 : 0.05285053327679634
+Loss at inference step3000 : 0.05285053327679634
+Loss at inference step3500 : 0.05285053327679634
+Loss at inference step4000 : 0.05285053327679634
+Loss at inference step4500 : 0.05285053327679634
+Loss at inference step5000 : 0.05285053327679634
+Loss at inference step5500 : 0.05285053327679634
+Loss at inference step6000 : 0.05285053327679634
+Loss at inference step6500 : 0.05285053327679634
+Loss at inference step7000 : 0.05285053327679634
+Loss at inference step7500 : 0.05285053327679634
+Loss at inference step8000 : 0.05285053327679634
+Loss at inference step8500 : 0.05285053327679634
+Loss at inference step9000 : 0.05285053327679634
+Loss at inference step9500 : 0.05285053327679634
+Loss at inference step10000 : 0.05285053327679634
+Loss at inference step10500 : 0.05285053327679634
+Loss at inference step11000 : 0.05285053327679634
+Loss at inference step11500 : 0.05285053327679634
+Loss at inference step12000 : 0.05285053327679634
+Loss at inference step12500 : 0.05285053327679634
+Loss at inference step13000 : 0.05285053327679634
+Loss at inference step13500 : 0.05285053327679634
+Loss at inference step14000 : 0.05285053327679634
+Loss at inference step14500 : 0.05285053327679634
+Loss at inference step15000 : 0.05285053327679634
+Loss at inference step15500 : 0.05285053327679634
+Loss at inference step16000 : 0.05285053327679634
+Loss at inference step16500 : 0.05285053327679634
+Loss at inference step17000 : 0.05285053327679634
+Loss at inference step17500 : 0.05285053327679634
+Loss at inference step18000 : 0.05285053327679634
+Loss at inference step18500 : 0.05285053327679634
+Loss at inference step19000 : 0.05285053327679634
+Loss at inference step19500 : 0.05285053327679634
+best error is 0.09774848903390765, in best estimate-indx is 0.09774848903390765, squared loss is 0.05285053327679634
+Best error for point 83 is having absolute error of 0.09774848903390765
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.04442496597766876
+Loss at inference step500 : 0.04442496597766876
+Loss at inference step1000 : 0.04442496597766876
+Loss at inference step1500 : 0.04442496597766876
+Loss at inference step2000 : 0.04442496597766876
+Loss at inference step2500 : 0.04442496597766876
+Loss at inference step3000 : 0.04442496597766876
+Loss at inference step3500 : 0.04442496597766876
+Loss at inference step4000 : 0.04442496597766876
+Loss at inference step4500 : 0.04442496597766876
+Loss at inference step5000 : 0.04442496597766876
+Loss at inference step5500 : 0.04442496597766876
+Loss at inference step6000 : 0.04442496597766876
+Loss at inference step6500 : 0.04442496597766876
+Loss at inference step7000 : 0.04442496597766876
+Loss at inference step7500 : 0.04442496597766876
+Loss at inference step8000 : 0.04442496597766876
+Loss at inference step8500 : 0.04442496597766876
+Loss at inference step9000 : 0.04442496597766876
+Loss at inference step9500 : 0.04442496597766876
+Loss at inference step10000 : 0.04442496597766876
+Loss at inference step10500 : 0.04442496597766876
+Loss at inference step11000 : 0.04442496597766876
+Loss at inference step11500 : 0.04442496597766876
+Loss at inference step12000 : 0.04442496597766876
+Loss at inference step12500 : 0.04442496597766876
+Loss at inference step13000 : 0.04442496597766876
+Loss at inference step13500 : 0.04442496597766876
+Loss at inference step14000 : 0.04442496597766876
+Loss at inference step14500 : 0.04442496597766876
+Loss at inference step15000 : 0.04442496597766876
+Loss at inference step15500 : 0.04442496597766876
+Loss at inference step16000 : 0.04442496597766876
+Loss at inference step16500 : 0.04442496597766876
+Loss at inference step17000 : 0.04442496597766876
+Loss at inference step17500 : 0.04442496597766876
+Loss at inference step18000 : 0.04442496597766876
+Loss at inference step18500 : 0.04442496597766876
+Loss at inference step19000 : 0.04442496597766876
+Loss at inference step19500 : 0.04442496597766876
+best error is 0.0755903778310561, in best estimate-indx is 0.0755903778310561, squared loss is 0.04442496597766876
+Best error for point 84 is having absolute error of 0.0755903778310561
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.06554671376943588
+Loss at inference step500 : 0.06554671376943588
+Loss at inference step1000 : 0.06554671376943588
+Loss at inference step1500 : 0.06554671376943588
+Loss at inference step2000 : 0.06554671376943588
+Loss at inference step2500 : 0.06554671376943588
+Loss at inference step3000 : 0.06554671376943588
+Loss at inference step3500 : 0.06554671376943588
+Loss at inference step4000 : 0.06554671376943588
+Loss at inference step4500 : 0.06554671376943588
+Loss at inference step5000 : 0.06554671376943588
+Loss at inference step5500 : 0.06554671376943588
+Loss at inference step6000 : 0.06554671376943588
+Loss at inference step6500 : 0.06554671376943588
+Loss at inference step7000 : 0.06554671376943588
+Loss at inference step7500 : 0.06554671376943588
+Loss at inference step8000 : 0.06554671376943588
+Loss at inference step8500 : 0.06554671376943588
+Loss at inference step9000 : 0.06554671376943588
+Loss at inference step9500 : 0.06554671376943588
+Loss at inference step10000 : 0.06554671376943588
+Loss at inference step10500 : 0.06554671376943588
+Loss at inference step11000 : 0.06554671376943588
+Loss at inference step11500 : 0.06554671376943588
+Loss at inference step12000 : 0.06554671376943588
+Loss at inference step12500 : 0.06554671376943588
+Loss at inference step13000 : 0.06554671376943588
+Loss at inference step13500 : 0.06554671376943588
+Loss at inference step14000 : 0.06554671376943588
+Loss at inference step14500 : 0.06554671376943588
+Loss at inference step15000 : 0.06554671376943588
+Loss at inference step15500 : 0.06554671376943588
+Loss at inference step16000 : 0.06554671376943588
+Loss at inference step16500 : 0.06554671376943588
+Loss at inference step17000 : 0.06554671376943588
+Loss at inference step17500 : 0.06554671376943588
+Loss at inference step18000 : 0.06554671376943588
+Loss at inference step18500 : 0.06554671376943588
+Loss at inference step19000 : 0.06554671376943588
+Loss at inference step19500 : 0.06554671376943588
+best error is 0.2935256732368342, in best estimate-indx is 0.2935256732368342, squared loss is 0.06554671376943588
+Best error for point 85 is having absolute error of 0.2935256732368342
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.07400631159543991
+Loss at inference step500 : 0.07400631159543991
+Loss at inference step1000 : 0.07400631159543991
+Loss at inference step1500 : 0.07400631159543991
+Loss at inference step2000 : 0.07400631159543991
+Loss at inference step2500 : 0.07400631159543991
+Loss at inference step3000 : 0.07400631159543991
+Loss at inference step3500 : 0.07400631159543991
+Loss at inference step4000 : 0.07400631159543991
+Loss at inference step4500 : 0.07400631159543991
+Loss at inference step5000 : 0.07400631159543991
+Loss at inference step5500 : 0.07400631159543991
+Loss at inference step6000 : 0.07400631159543991
+Loss at inference step6500 : 0.07400631159543991
+Loss at inference step7000 : 0.07400631159543991
+Loss at inference step7500 : 0.07400631159543991
+Loss at inference step8000 : 0.07400631159543991
+Loss at inference step8500 : 0.07400631159543991
+Loss at inference step9000 : 0.07400631159543991
+Loss at inference step9500 : 0.07400631159543991
+Loss at inference step10000 : 0.07400631159543991
+Loss at inference step10500 : 0.07400631159543991
+Loss at inference step11000 : 0.07400631159543991
+Loss at inference step11500 : 0.07400631159543991
+Loss at inference step12000 : 0.07400631159543991
+Loss at inference step12500 : 0.07400631159543991
+Loss at inference step13000 : 0.07400631159543991
+Loss at inference step13500 : 0.07400631159543991
+Loss at inference step14000 : 0.07400631159543991
+Loss at inference step14500 : 0.07400631159543991
+Loss at inference step15000 : 0.07400631159543991
+Loss at inference step15500 : 0.07400631159543991
+Loss at inference step16000 : 0.07400631159543991
+Loss at inference step16500 : 0.07400631159543991
+Loss at inference step17000 : 0.07400631159543991
+Loss at inference step17500 : 0.07400631159543991
+Loss at inference step18000 : 0.07400631159543991
+Loss at inference step18500 : 0.07400631159543991
+Loss at inference step19000 : 0.07400631159543991
+Loss at inference step19500 : 0.07400631159543991
+best error is 0.2835351697750862, in best estimate-indx is 0.2835351697750862, squared loss is 0.07400631159543991
+Best error for point 86 is having absolute error of 0.2835351697750862
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.044304996728897095
+Loss at inference step500 : 0.044304996728897095
+Loss at inference step1000 : 0.044304996728897095
+Loss at inference step1500 : 0.044304996728897095
+Loss at inference step2000 : 0.044304996728897095
+Loss at inference step2500 : 0.044304996728897095
+Loss at inference step3000 : 0.044304996728897095
+Loss at inference step3500 : 0.044304996728897095
+Loss at inference step4000 : 0.044304996728897095
+Loss at inference step4500 : 0.044304996728897095
+Loss at inference step5000 : 0.044304996728897095
+Loss at inference step5500 : 0.044304996728897095
+Loss at inference step6000 : 0.044304996728897095
+Loss at inference step6500 : 0.044304996728897095
+Loss at inference step7000 : 0.044304996728897095
+Loss at inference step7500 : 0.044304996728897095
+Loss at inference step8000 : 0.044304996728897095
+Loss at inference step8500 : 0.044304996728897095
+Loss at inference step9000 : 0.044304996728897095
+Loss at inference step9500 : 0.044304996728897095
+Loss at inference step10000 : 0.044304996728897095
+Loss at inference step10500 : 0.044304996728897095
+Loss at inference step11000 : 0.044304996728897095
+Loss at inference step11500 : 0.044304996728897095
+Loss at inference step12000 : 0.044304996728897095
+Loss at inference step12500 : 0.044304996728897095
+Loss at inference step13000 : 0.044304996728897095
+Loss at inference step13500 : 0.044304996728897095
+Loss at inference step14000 : 0.044304996728897095
+Loss at inference step14500 : 0.044304996728897095
+Loss at inference step15000 : 0.044304996728897095
+Loss at inference step15500 : 0.044304996728897095
+Loss at inference step16000 : 0.044304996728897095
+Loss at inference step16500 : 0.044304996728897095
+Loss at inference step17000 : 0.044304996728897095
+Loss at inference step17500 : 0.044304996728897095
+Loss at inference step18000 : 0.044304996728897095
+Loss at inference step18500 : 0.044304996728897095
+Loss at inference step19000 : 0.044304996728897095
+Loss at inference step19500 : 0.044304996728897095
+best error is 0.1335196639750657, in best estimate-indx is 0.1335196639750657, squared loss is 0.044304996728897095
+Best error for point 87 is having absolute error of 0.1335196639750657
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.06325721740722656
+Loss at inference step500 : 0.06325721740722656
+Loss at inference step1000 : 0.06325721740722656
+Loss at inference step1500 : 0.06325721740722656
+Loss at inference step2000 : 0.06325721740722656
+Loss at inference step2500 : 0.06325721740722656
+Loss at inference step3000 : 0.06325721740722656
+Loss at inference step3500 : 0.06325721740722656
+Loss at inference step4000 : 0.06325721740722656
+Loss at inference step4500 : 0.06325721740722656
+Loss at inference step5000 : 0.06325721740722656
+Loss at inference step5500 : 0.06325721740722656
+Loss at inference step6000 : 0.06325721740722656
+Loss at inference step6500 : 0.06325721740722656
+Loss at inference step7000 : 0.06325721740722656
+Loss at inference step7500 : 0.06325721740722656
+Loss at inference step8000 : 0.06325721740722656
+Loss at inference step8500 : 0.06325721740722656
+Loss at inference step9000 : 0.06325721740722656
+Loss at inference step9500 : 0.06325721740722656
+Loss at inference step10000 : 0.06325721740722656
+Loss at inference step10500 : 0.06325721740722656
+Loss at inference step11000 : 0.06325721740722656
+Loss at inference step11500 : 0.06325721740722656
+Loss at inference step12000 : 0.06325721740722656
+Loss at inference step12500 : 0.06325721740722656
+Loss at inference step13000 : 0.06325721740722656
+Loss at inference step13500 : 0.06325721740722656
+Loss at inference step14000 : 0.06325721740722656
+Loss at inference step14500 : 0.06325721740722656
+Loss at inference step15000 : 0.06325721740722656
+Loss at inference step15500 : 0.06325721740722656
+Loss at inference step16000 : 0.06325721740722656
+Loss at inference step16500 : 0.06325721740722656
+Loss at inference step17000 : 0.06325721740722656
+Loss at inference step17500 : 0.06325721740722656
+Loss at inference step18000 : 0.06325721740722656
+Loss at inference step18500 : 0.06325721740722656
+Loss at inference step19000 : 0.06325721740722656
+Loss at inference step19500 : 0.06325721740722656
+best error is 0.17604995472887147, in best estimate-indx is 0.17604995472887147, squared loss is 0.06325721740722656
+Best error for point 88 is having absolute error of 0.17604995472887147
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.03790571913123131
+Loss at inference step500 : 0.03790571913123131
+Loss at inference step1000 : 0.03790571913123131
+Loss at inference step1500 : 0.03790571913123131
+Loss at inference step2000 : 0.03790571913123131
+Loss at inference step2500 : 0.03790571913123131
+Loss at inference step3000 : 0.03790571913123131
+Loss at inference step3500 : 0.03790571913123131
+Loss at inference step4000 : 0.03790571913123131
+Loss at inference step4500 : 0.03790571913123131
+Loss at inference step5000 : 0.03790571913123131
+Loss at inference step5500 : 0.03790571913123131
+Loss at inference step6000 : 0.03790571913123131
+Loss at inference step6500 : 0.03790571913123131
+Loss at inference step7000 : 0.03790571913123131
+Loss at inference step7500 : 0.03790571913123131
+Loss at inference step8000 : 0.03790571913123131
+Loss at inference step8500 : 0.03790571913123131
+Loss at inference step9000 : 0.03790571913123131
+Loss at inference step9500 : 0.03790571913123131
+Loss at inference step10000 : 0.03790571913123131
+Loss at inference step10500 : 0.03790571913123131
+Loss at inference step11000 : 0.03790571913123131
+Loss at inference step11500 : 0.03790571913123131
+Loss at inference step12000 : 0.03790571913123131
+Loss at inference step12500 : 0.03790571913123131
+Loss at inference step13000 : 0.03790571913123131
+Loss at inference step13500 : 0.03790571913123131
+Loss at inference step14000 : 0.03790571913123131
+Loss at inference step14500 : 0.03790571913123131
+Loss at inference step15000 : 0.03790571913123131
+Loss at inference step15500 : 0.03790571913123131
+Loss at inference step16000 : 0.03790571913123131
+Loss at inference step16500 : 0.03790571913123131
+Loss at inference step17000 : 0.03790571913123131
+Loss at inference step17500 : 0.03790571913123131
+Loss at inference step18000 : 0.03790571913123131
+Loss at inference step18500 : 0.03790571913123131
+Loss at inference step19000 : 0.03790571913123131
+Loss at inference step19500 : 0.03790571913123131
+best error is 0.13876565695022772, in best estimate-indx is 0.13876565695022772, squared loss is 0.03790571913123131
+Best error for point 89 is having absolute error of 0.13876565695022772
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.0317893847823143
+Loss at inference step500 : 0.0317893847823143
+Loss at inference step1000 : 0.0317893847823143
+Loss at inference step1500 : 0.0317893847823143
+Loss at inference step2000 : 0.0317893847823143
+Loss at inference step2500 : 0.0317893847823143
+Loss at inference step3000 : 0.0317893847823143
+Loss at inference step3500 : 0.0317893847823143
+Loss at inference step4000 : 0.0317893847823143
+Loss at inference step4500 : 0.0317893847823143
+Loss at inference step5000 : 0.0317893847823143
+Loss at inference step5500 : 0.0317893847823143
+Loss at inference step6000 : 0.0317893847823143
+Loss at inference step6500 : 0.0317893847823143
+Loss at inference step7000 : 0.0317893847823143
+Loss at inference step7500 : 0.0317893847823143
+Loss at inference step8000 : 0.0317893847823143
+Loss at inference step8500 : 0.0317893847823143
+Loss at inference step9000 : 0.0317893847823143
+Loss at inference step9500 : 0.0317893847823143
+Loss at inference step10000 : 0.0317893847823143
+Loss at inference step10500 : 0.0317893847823143
+Loss at inference step11000 : 0.0317893847823143
+Loss at inference step11500 : 0.0317893847823143
+Loss at inference step12000 : 0.0317893847823143
+Loss at inference step12500 : 0.0317893847823143
+Loss at inference step13000 : 0.0317893847823143
+Loss at inference step13500 : 0.0317893847823143
+Loss at inference step14000 : 0.0317893847823143
+Loss at inference step14500 : 0.0317893847823143
+Loss at inference step15000 : 0.0317893847823143
+Loss at inference step15500 : 0.0317893847823143
+Loss at inference step16000 : 0.0317893847823143
+Loss at inference step16500 : 0.0317893847823143
+Loss at inference step17000 : 0.0317893847823143
+Loss at inference step17500 : 0.0317893847823143
+Loss at inference step18000 : 0.0317893847823143
+Loss at inference step18500 : 0.0317893847823143
+Loss at inference step19000 : 0.0317893847823143
+Loss at inference step19500 : 0.0317893847823143
+best error is 0.029070581276615885, in best estimate-indx is 0.029070581276615885, squared loss is 0.0317893847823143
+Best error for point 90 is having absolute error of 0.029070581276615885
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.07756552845239639
+Loss at inference step500 : 0.07756552845239639
+Loss at inference step1000 : 0.07756552845239639
+Loss at inference step1500 : 0.07756552845239639
+Loss at inference step2000 : 0.07756552845239639
+Loss at inference step2500 : 0.07756552845239639
+Loss at inference step3000 : 0.07756552845239639
+Loss at inference step3500 : 0.07756552845239639
+Loss at inference step4000 : 0.07756552845239639
+Loss at inference step4500 : 0.07756552845239639
+Loss at inference step5000 : 0.07756552845239639
+Loss at inference step5500 : 0.07756552845239639
+Loss at inference step6000 : 0.07756552845239639
+Loss at inference step6500 : 0.07756552845239639
+Loss at inference step7000 : 0.07756552845239639
+Loss at inference step7500 : 0.07756552845239639
+Loss at inference step8000 : 0.07756552845239639
+Loss at inference step8500 : 0.07756552845239639
+Loss at inference step9000 : 0.07756552845239639
+Loss at inference step9500 : 0.07756552845239639
+Loss at inference step10000 : 0.07756552845239639
+Loss at inference step10500 : 0.07756552845239639
+Loss at inference step11000 : 0.07756552845239639
+Loss at inference step11500 : 0.07756552845239639
+Loss at inference step12000 : 0.07756552845239639
+Loss at inference step12500 : 0.07756552845239639
+Loss at inference step13000 : 0.07756552845239639
+Loss at inference step13500 : 0.07756552845239639
+Loss at inference step14000 : 0.07756552845239639
+Loss at inference step14500 : 0.07756552845239639
+Loss at inference step15000 : 0.07756552845239639
+Loss at inference step15500 : 0.07756552845239639
+Loss at inference step16000 : 0.07756552845239639
+Loss at inference step16500 : 0.07756552845239639
+Loss at inference step17000 : 0.07756552845239639
+Loss at inference step17500 : 0.07756552845239639
+Loss at inference step18000 : 0.07756552845239639
+Loss at inference step18500 : 0.07756552845239639
+Loss at inference step19000 : 0.07756552845239639
+Loss at inference step19500 : 0.07756552845239639
+best error is 0.12310533601942913, in best estimate-indx is 0.12310533601942913, squared loss is 0.07756552845239639
+Best error for point 91 is having absolute error of 0.12310533601942913
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.06883138418197632
+Loss at inference step500 : 0.06883138418197632
+Loss at inference step1000 : 0.06883138418197632
+Loss at inference step1500 : 0.06883138418197632
+Loss at inference step2000 : 0.06883138418197632
+Loss at inference step2500 : 0.06883138418197632
+Loss at inference step3000 : 0.06883138418197632
+Loss at inference step3500 : 0.06883138418197632
+Loss at inference step4000 : 0.06883138418197632
+Loss at inference step4500 : 0.06883138418197632
+Loss at inference step5000 : 0.06883138418197632
+Loss at inference step5500 : 0.06883138418197632
+Loss at inference step6000 : 0.06883138418197632
+Loss at inference step6500 : 0.06883138418197632
+Loss at inference step7000 : 0.06883138418197632
+Loss at inference step7500 : 0.06883138418197632
+Loss at inference step8000 : 0.06883138418197632
+Loss at inference step8500 : 0.06883138418197632
+Loss at inference step9000 : 0.06883138418197632
+Loss at inference step9500 : 0.06883138418197632
+Loss at inference step10000 : 0.06883138418197632
+Loss at inference step10500 : 0.06883138418197632
+Loss at inference step11000 : 0.06883138418197632
+Loss at inference step11500 : 0.06883138418197632
+Loss at inference step12000 : 0.06883138418197632
+Loss at inference step12500 : 0.06883138418197632
+Loss at inference step13000 : 0.06883138418197632
+Loss at inference step13500 : 0.06883138418197632
+Loss at inference step14000 : 0.06883138418197632
+Loss at inference step14500 : 0.06883138418197632
+Loss at inference step15000 : 0.06883138418197632
+Loss at inference step15500 : 0.06883138418197632
+Loss at inference step16000 : 0.06883138418197632
+Loss at inference step16500 : 0.06883138418197632
+Loss at inference step17000 : 0.06883138418197632
+Loss at inference step17500 : 0.06883138418197632
+Loss at inference step18000 : 0.06883138418197632
+Loss at inference step18500 : 0.06883138418197632
+Loss at inference step19000 : 0.06883138418197632
+Loss at inference step19500 : 0.06883138418197632
+best error is 0.02699074327836295, in best estimate-indx is 0.02699074327836295, squared loss is 0.06883138418197632
+Best error for point 92 is having absolute error of 0.02699074327836295
+shape before repeat (300,)
+Size of the target spectra repeat (32, 300)
+Loss at inference step0 : 0.03592564910650253
+Loss at inference step500 : 0.03592564910650253
+Loss at inference step1000 : 0.03592564910650253
+Loss at inference step1500 : 0.03592564910650253
+Loss at inference step2000 : 0.03592564910650253
+Loss at inference step2500 : 0.03592564910650253
+Loss at inference step3000 : 0.03592564910650253
+Loss at inference step3500 : 0.03592564910650253
+Loss at inference step4000 : 0.03592564910650253

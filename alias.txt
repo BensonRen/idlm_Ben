@@ -1,0 +1,8 @@
+
+alias gitadd='git add -A'
+alias gitpush='git push origin master'
+alias gitcom='git commit -m'
+alias gitpull='git pull origin master'
+alias tb='tensorboard --logdir=./'
+alias listpyjob='pwdx $(pgrep "python")'
+

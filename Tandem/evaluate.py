@@ -102,7 +102,7 @@ def evaluate_with_ratio(test_ratio):
 
 if __name__ == '__main__':
     flags = flag_reader.read_flag()
-    evaluatemain(flags, eval_forward = False, test_ratio = 1)
+    evaluatemain(flags, eval_forward = False, test_ratio = 0.9999)
     plotsAnalysis.SpectrumComparisonNGeometryComparison(3,2, (13,8), flags.model_name,flags.boundary)	
 
 
