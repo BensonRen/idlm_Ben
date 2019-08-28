@@ -85,7 +85,7 @@ class ValidationHook(Hook):
     This hook monitors performance on the validation set
     """
     def __init__(self, valid_step, valid_init_op, truth, pred, loss, stop_threshold, value_name = 'valid_mse', ckpt_dir=None, 
-                 write_summary=False, curve_num=6, low_validation_loss = 0.5):
+                 write_summary=False, curve_num=6, low_validation_loss = 0.03):
         """
         Initialize the hook
         :param valid_step: # steps between evaluations
@@ -253,23 +253,13 @@ def get_parameters(model_dir):
         #print(line)
         if line[:4] =='clip':
             clip = [int(s) for s in line.split() if s.isdigit()]
-        elif line[:10] =='batch_size':
-            batch_size = [int(s) for s in line.split() if s.isdigit()]
         elif line[:18] == 'forward_fc_filters':
             line = replace_str(line)
             forward_fc_filters = tuple([int(s) for s in line.split() if s.isdigit()])
         elif line[:19] == 'backward_fc_filters':
             line = replace_str(line)
             backward_fc_filters = tuple([int(s) for s in line.split() if s.isdigit()])
-        elif line[:14] == 'conv1d_filters':
-            line =replace_str(line)
-            conv1d_filters = tuple([int(s) for s in line.split() if s.isdigit()])
-        elif line[:17] == 'conv_channel_list':
-            line =replace_str(line)
-            conv_channel_list = tuple([int(s) for s in line.split() if s.isdigit()])
-        elif line[:11] == 'geoboundary':
-            line =replace_str(line)
-            geoboundary = tuple([int(s) for s in line.split() if s.isdigit()])
+        
         elif line[:11] == 'tconv_Fnums':
             line =replace_str(line)
             tconv_Fnums = tuple([int(s) for s in line.split() if s.isdigit()])
@@ -288,4 +278,4 @@ def get_parameters(model_dir):
         elif line[:9] =='reg_scale':
             line = replace_str(line)
             reg_scale = float(line[11:])
-    return clip[0], forward_fc_filters,  tconv_Fnums, tconv_dims, tconv_filters, n_filter, n_branch[0], reg_scale, backward_fc_filters, conv1d_filters, conv_channel_list, batch_size
+    return clip[0], forward_fc_filters,  tconv_Fnums, tconv_dims, tconv_filters, n_filter, n_branch[0], reg_scale

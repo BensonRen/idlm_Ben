@@ -290,6 +290,7 @@ class VAENetwork(object):
                     Xpred = self.evaluate_one(Ytruth.iloc[i,:],  sess)
                     np.savetxt(f1, Xpred, fmt='%.3f')
                     #np.savetxt(f3, Ypred, fmt='%.3f')
+            return feat_file
             #with open(pred_file, 'a') as f3:
             #    f3.write("TBD")
    

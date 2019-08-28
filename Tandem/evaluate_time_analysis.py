@@ -14,14 +14,22 @@ if __name__ == '__main__':
     #    evaluate.evaluate_with_ratio(ratio)
 
     #Plot the anaylsis graph into a real analysis
-    time_analysis = pd.read_csv("data/time_keeper.txt",names = ["number", "time"])
-    time_analysis.info()
-    time_analysis = time_analysis.sort_values(by = ['number'])
+    time_list = []
+    model_name_list = ["VAE","Tandem","Backprop"]
+    for model_name in model_name_list:
+        time_analysis = pd.read_csv('../Results/{}_time_keeper.txt'.format(model_name),names = ["number", "time"])
+        time_analysis = time_analysis.sort_values(by = ['number'])
+        time_list.append(time_analysis)
+    #time_analysis.info()
+    #time_analysis = time_analysis.sort_values(by = ['number'])
 
     #Start plotting
     f = plt.figure()
-    plt.plot(time_analysis["number"], time_analysis["time"],'-x')
+    for cnt, model_name in enumerate(model_name_list):
+        plt.plot(time_list[cnt]["number"], time_list[cnt]["time"],'-x',label = model_name)
     plt.ylabel('Time spent (s)')
     plt.xlabel('Number of inferenced points')
-    plt.title('Inference Time vs Sample Size for Tandem Model')
-    f.savefig("data/Tandem Model Inference Time Analysis.png")
+    plt.legend()
+    plt.ylim(0,300)
+    plt.title('Inference Comparison for 3 models')
+    f.savefig("Model Inference Time Analysis.png")

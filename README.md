@@ -204,7 +204,8 @@ Bug Fixed/ Function added/Work Done:
 1. Plot both possible solution space and the original space
 2. 3 Model Inference time comparison (Plots!!)
 3. Heatmap auto dropping duplicated coloumn and choose the best performace model to plot
-4.  
+4. Bug fix of reading parameter from current flag while doing evaluation, auto grab from metafile now
+5.
 
 Things to do:
 1. Modify Tandem predictioin geo2spec module to fit the need of VAE inference (Take the best result)
