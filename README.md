@@ -207,11 +207,15 @@ Bug Fixed/ Function added/Work Done:
 4. Bug fix of reading parameter from current flag while doing evaluation, auto grab from metafile now
 5.
 
+## 2019.08.28
+Function added/ Work Done:
+1. Diversity metric formulation
+2. Diversity metric heat map demonstration
+
 Things to do:
 1. Modify Tandem predictioin geo2spec module to fit the need of VAE inference (Take the best result)
 2. Wait the Tandem model same param running and plot all the space
 3. VAE solution space
-4. Diversity metric formulation
 
 Working on now:
 1. Plot the 
