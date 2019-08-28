@@ -202,15 +202,15 @@ Bug Fixed/ Function added:
 ## 2019.08.27
 Bug Fixed/ Function added/Work Done:
 1. Plot both possible solution space and the original space
-2. 3 Model Inference time comparison
-
+2. 3 Model Inference time comparison (Plots!!)
+3. Heatmap auto dropping duplicated coloumn and choose the best performace model to plot
+4.  
 
 Things to do:
 1. Modify Tandem predictioin geo2spec module to fit the need of VAE inference (Take the best result)
 2. Wait the Tandem model same param running and plot all the space
 3. VAE solution space
-4. Inference Time comparison
-5. Diversity metric formulation
+4. Diversity metric formulation
 
 Working on now:
 1. Plot the 

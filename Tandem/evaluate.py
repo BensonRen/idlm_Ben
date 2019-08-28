@@ -36,7 +36,7 @@ def evaluatemain(flags, eval_forward, test_ratio,plot_histo = True):
     
     ckpt_dir = os.path.join(os.path.abspath(''), 'models', flags.model_name)
     clip, forward_fc_filters, tconv_Fnums, tconv_dims, tconv_filters, \
-    n_filter, n_branch, reg_scale = network_helper.get_parameters(ckpt_dir)
+    n_filter, n_branch, reg_scale, backward_fc_filters, conv1d_filters, conv_channel_list = network_helper.get_parameters(ckpt_dir)
     print(ckpt_dir)
     # initialize data reader
     if len(tconv_dims) == 0:
@@ -50,7 +50,7 @@ def evaluatemain(flags, eval_forward, test_ratio,plot_histo = True):
 							        geoboundary=flags.geoboundary,
                                                                cross_val=flags.cross_val,
                                                                val_fold=flags.val_fold,
-                                                               batch_size=flags.batch_size,
+                                                               batch_size=batch_size,
                                                                shuffle_size=flags.shuffle_size,
 								data_dir = flags.data_dir,
 							        normalize_input = flags.normalize_input,
@@ -61,14 +61,14 @@ def evaluatemain(flags, eval_forward, test_ratio,plot_histo = True):
 		    flags.boundary = [-1, 1, -1, 1]
 		
 		# make network
-    ntwk = Tandem_network_maker.TandemCnnNetwork(features, labels, model_maker.tandem_model, flags.batch_size,
-                                clip=flags.clip, forward_fc_filters=flags.forward_fc_filters,
-                                backward_fc_filters=flags.backward_fc_filters,reg_scale=flags.reg_scale,
-	                        learn_rate=flags.learn_rate,tconv_Fnums=flags.tconv_Fnums,
-				tconv_dims=flags.tconv_dims,n_branch=flags.n_branch,
-			        tconv_filters=flags.tconv_filters, n_filter=flags.n_filter,
-				decay_step=flags.decay_step, decay_rate=flags.decay_rate, geoboundary = flags.geoboundary,
-                                conv1d_filters = flags.conv1d_filters, conv_channel_list = flags.conv_channel_list)
+    ntwk = Tandem_network_maker.TandemCnnNetwork(features, labels, model_maker.tandem_model, batch_size,
+                                clip=clip, forward_fc_filters=forward_fc_filters,
+                                backward_fc_filters=backward_fc_filters,reg_scale=reg_scale,
+	                        learn_rate=flags.learn_rate,tconv_Fnums=tconv_Fnums,
+				tconv_dims=tconv_dims,n_branch=n_branch,
+			        tconv_filters=tconv_filters, n_filter=n_filter,
+				decay_step=flags.decay_step, decay_rate=flags.decay_rate, geoboundary = geoboundary,
+                                conv1d_filters = conv1d_filters, conv_channel_list = conv_channel_list)
     # evaluate the results if the results do not exist or user force to re-run evaluation
     save_file = os.path.join(os.path.abspath(''), 'data', 'test_pred_{}.csv'.format(flags.model_name))
     if flags.force_run or (not os.path.exists(save_file)):
