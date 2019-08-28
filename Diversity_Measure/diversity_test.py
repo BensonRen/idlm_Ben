@@ -17,9 +17,6 @@ def generate_point_set(n_list, random_seed = 42):
         points_list.append(np.random.rand(n,2))
     return points_list
 
-
-
-
 def plot_point_sets(points_list, Div_mat, diversity_names):#, diversity_measure_list, diversity_measure_name_list):
     """
     Plot the points in the points list with the diversity measurement
@@ -92,11 +89,46 @@ def NNmulSum_dist(points):
         metric += point_contribution
     return metric
 
-def 
+def heat_maps_for_metrics(points, diversity_measures, diversity_names, save_name = ''):
+    """
+    The function which plots the color map for different diversity measurements
+    """
+    X = np.arange(0,1,0.01)
+    Y = np.arange(0,1,0.01)
+    X_grid,Y_grid = np.meshgrid(X,Y)
+    Z = np.arrays(X_grid)
+    grid_h, grid_w = np.shape(Z)
+    h,w = np.shape(points)
+    point_new = np.zeros([h+1,w])
+    assert w==2
+    point_new[0:h,:] = points
+    point_grid = [[point for col in range(grid_w)] for row in range(grid_h)]
+    for i in range(grid_h):
+        for j in range(grid_w):
+            point_new[h,0] = X[i]
+            point_new[h,1] = Y[i]
+            point_grid[i][j] = point_new
+
+    for cnt, (div_measure, div_name) in enumerate(zip(diversity_measures, diversity_names)):
+        f = plt.figure()
+        ax = plt.gca()
+        for i in range(grid_h):
+            for j in range(grid_w):
+                Z[i][j] = div_measure(point_grid[i][j])
+        plt.scatter(points[:,0],points[:,1],label = 'Anchor points')
+        C = ax.pcolormesh(X_grid, Y_grid, Z, cmap = 'RdBu')
+        plt.xlabel('x1')
+        plt.ylabel('x2')
+        plt.title('color map for {} metric'.format(div_name))
+        plt.xlim(0,1)
+        plt.ylim(0,1)
+        f.colorbar(C, ax = ax)
+        f.savefig(save_name + div_name + 'heatmap')
 
 if __name__ == '__main__':
-    points = generate_point_set([1,2,2,3,3,4,4,5,6])
+    #points = generate_point_set([1,2,2,3,3,4,4,5,6])
     #plot_point_sets(points)
+    
     diversity_measures = [variance, mean_NN_dist, mean_dist, sum_NN_dist, sum_dist, NNmulSum_dist]
     diversity_names = ['variance', 'mean_NN_dist', 'mean_dist', 'sum_NN_dist', 'sum_dist','NN*sum_dist']
     div_mat = get_div_mat(points, diversity_measures)
@@ -105,10 +137,7 @@ if __name__ == '__main__':
     
     
     points = [[0,0],[1,1],[0,1],[1,0]]
-    print(variance(points))
-    print(mean_NN_dist(points))
-    print(mean_dist(points))
-    
+    heat_maps_for_metrics(points, diversity_measures, diversity_names)
     points = [[0,0],[1,1],[0,1],[1,0],[0.5,0.5]]
     print(variance(points))
     print(mean_NN_dist(points))
