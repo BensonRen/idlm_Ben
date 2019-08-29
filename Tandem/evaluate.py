@@ -35,8 +35,8 @@ def evaluatemain(flags, eval_forward, test_ratio,plot_histo = True):
     tf.reset_default_graph()
     
     ckpt_dir = os.path.join(os.path.abspath(''), 'models', flags.model_name)
-    clip, forward_fc_filters, tconv_Fnums, tconv_dims, tconv_filters, \
-    n_filter, n_branch, reg_scale, backward_fc_filters, conv1d_filters, conv_channel_list = network_helper.get_parameters(ckpt_dir)
+    clip, forward_fc_filters, tconv_Fnums, tconv_dims, tconv_filters,  n_filter, n_branch, \
+    reg_scale, backward_fc_filters, conv1d_filters, conv_channel_list, batch_size = network_helper.get_parameters(ckpt_dir)
     print(ckpt_dir)
     # initialize data reader
     if len(tconv_dims) == 0:

@@ -40,8 +40,9 @@ def predict(flags, geo2spec, data_path, save_path):
     tf.reset_default_graph()
     spec2geo_flag = not geo2spec #Get geo2spec from spec2geo flagg
     ckpt_dir = os.path.join(os.path.abspath(''), 'models', flags.model_name)
-    clip, forward_fc_filters, tconv_Fnums, tconv_dims, tconv_filters, \
-    n_filter, n_branch, reg_scale = network_helper.get_parameters(ckpt_dir)
+    
+    clip, forward_fc_filters, tconv_Fnums, tconv_dims, tconv_filters, n_filter, n_branch, \
+    reg_scale, backward_fc_filters, conv1d_filters, conv_channel_list, batch_size = network_helper.get_parameters(ckpt_dir)
     print(ckpt_dir)
     # initialize data reader
     if len(tconv_dims) == 0:
@@ -55,7 +56,7 @@ def predict(flags, geo2spec, data_path, save_path):
 							        geoboundary=flags.geoboundary,
                                                                cross_val=flags.cross_val,
                                                                val_fold=flags.val_fold,
-                                                               batch_size=flags.batch_size,
+                                                               batch_size=batch_size,
                                                                shuffle_size=flags.shuffle_size,
 								data_dir = flags.data_dir,
 							        normalize_input = flags.normalize_input,
@@ -68,20 +69,22 @@ def predict(flags, geo2spec, data_path, save_path):
     #Adjust the input of geometry and spectra given the flag
     if (spec2geo_flag):
         geometry = features;
-        spectra, pred_init_op = read_tensor_from_test_data(data_path, flags.batch_size)
+        spectra, pred_init_op = read_tensor_from_test_data(data_path, batch_size)
+        print("Your are inferring from spectra to geometry")
     else:
-        geometry, pred_init_op = read_tensor_from_test_data(data_path, flags.batch_size)
+        geometry, pred_init_op = read_tensor_from_test_data(data_path, batch_size)
         spectra = labels
+        print("Your are inferring from geometry to spectra")
 
     # make network
-    ntwk = Tandem_network_maker.TandemCnnNetwork(geometry, spectra, model_maker.tandem_model, flags.batch_size,
-                                clip=flags.clip, forward_fc_filters=flags.forward_fc_filters,
-                                backward_fc_filters=flags.backward_fc_filters,reg_scale=flags.reg_scale,
-	                        learn_rate=flags.learn_rate,tconv_Fnums=flags.tconv_Fnums,
-				tconv_dims=flags.tconv_dims,n_branch=flags.n_branch,
-			        tconv_filters=flags.tconv_filters, n_filter=flags.n_filter,
+    ntwk = Tandem_network_maker.TandemCnnNetwork(geometry, spectra, model_maker.tandem_model, batch_size,
+                                clip=clip, forward_fc_filters=forward_fc_filters,
+                                backward_fc_filters = backward_fc_filters,reg_scale=reg_scale,
+	                        learn_rate=flags.learn_rate,tconv_Fnums=tconv_Fnums,
+				tconv_dims=tconv_dims,n_branch=n_branch,
+			        tconv_filters=tconv_filters, n_filter=n_filter,
 				decay_step=flags.decay_step, decay_rate=flags.decay_rate, geoboundary = flags.geoboundary,
-                                conv1d_filters = flags.conv1d_filters, conv_channel_list = flags.conv_channel_list)
+                                conv1d_filters = conv1d_filters, conv_channel_list = conv_channel_list)
 
     if (spec2geo_flag):
         ntwk.predict_spec2geo([train_init_op, pred_init_op], ckpt_dir = ckpt_dir, 

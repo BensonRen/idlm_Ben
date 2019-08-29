@@ -32,7 +32,8 @@ def VAEtrainmain(flags):
                             spectra_fc_filters=flags.spectra_fc_filters, decoder_fc_filters=flags.decoder_fc_filters,
                             encoder_fc_filters=flags.encoder_fc_filters,reg_scale=flags.reg_scale,
                             learn_rate=flags.learn_rate, decay_step=flags.decay_step, decay_rate=flags.decay_rate,
-                            geoboundary = flags.geoboundary)
+                            geoboundary = flags.geoboundary, conv1d_filters = flags.conv1d_filters,
+                            filter_channel_list = flags.filter_channel_list)
     
     
     print("Setting the hooks now")

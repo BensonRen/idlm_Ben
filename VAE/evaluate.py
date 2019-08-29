@@ -32,12 +32,11 @@ def evaluatemain(flags, eval_forward):
     TK = time_recorder.time_keeper(time_keeping_file = "data/time_keeper.txt")
 
     tf.reset_default_graph()
-    
-    #Retireve the parameters from the meta file
-    clip, forward_fc_filters, tconv_Fnums, tconv_dims, tconv_filters, \
-    n_filter, n_branch, reg_scale, backward_fc_filters, conv1d_filters, conv_channel_list = network_helper.get_parameters(ckpt_dir)
-    
     ckpt_dir = os.path.join(os.path.abspath(''), 'models', flags.model_name)
+    
+    decoder_fc_filters, encoder_fc_filters, spectra_fc_filters, conv1d_filters, \
+    filter_channel_list, geoboundary, latent_dim, batch_size = network_helper.get_parameters(ckpt_dir)  
+    batch_size = batch_size[0] #Get rid of the list 
     geometry, spectra, train_init_op, valid_init_op = data_reader.read_data(input_size=flags.input_size,
                                                                output_size=300,
                                                                x_range=flags.x_range,
@@ -53,13 +52,15 @@ def evaluatemain(flags, eval_forward):
     #if the input is normalized
     if flags.normalize_input:
 		    flags.boundary = [-1, 1, -1, 1]
-	
+    print("Boundary read from meta_file is ", geoboundary)
+    print("batch_size read from meta_file is ", batch_size)
+    print("latent_dim read from meta_file is ", latent_dim)
     # make network
-    ntwk = VAE_network_maker.VAENetwork(geometry, spectra, model_maker.VAE, flags.batch_size, flags.latent_dim,
-                            spectra_fc_filters=flags.spectra_fc_filters, decoder_fc_filters=flags.decoder_fc_filters,
-                            encoder_fc_filters=flags.encoder_fc_filters,reg_scale=flags.reg_scale,
+    ntwk = VAE_network_maker.VAENetwork(geometry, spectra, model_maker.VAE, batch_size, latent_dim,
+                            spectra_fc_filters=spectra_fc_filters, decoder_fc_filters=decoder_fc_filters,
+                            encoder_fc_filters=encoder_fc_filters,reg_scale=flags.reg_scale,
                             learn_rate=flags.learn_rate, decay_step=flags.decay_step, decay_rate=flags.decay_rate,
-                            geoboundary = flags.geoboundary)
+                            geoboundary = flags.geoboundary, conv1d_filters = conv1d_filters, filter_channel_list = filter_channel_list)
     
     # evaluate the results if the results do not exist or user force to re-run evaluation
     save_file = os.path.join(os.path.abspath(''), 'data', 'test_pred_{}.csv'.format(flags.model_name))
@@ -72,7 +73,7 @@ def evaluatemain(flags, eval_forward):
                                         eval_forward = eval_forward, time_keeper = TK)
 
         print("Prediction File output at:", Xpred_file)
-        unpack_Xpred(Xpred_file,flags.batch_size)
+        unpack_Xpred(Xpred_file,batch_size)
         #pred_file, truth_file = get_spectra_from_geometry(Xpred_file)
     """
     mae, mse = compare_truth_pred(pred_file, truth_file)
@@ -97,7 +98,7 @@ def unpack_Xpred(Xpred_file, batch_size):
     h,w = np.shape(Xpred)
     with open("data/Unpackinformation.txt",'w') as f1:
         f1.write('The number of data point is {}, each with {} predicted geometries'.format(h, w/8))
-    Xpred_reshaped = np.reshape(Xpred, (h * batch_size, -1))
+    Xpred_reshaped = np.transpose(np.reshape(Xpred, (8, -1)))
     h,w = np.shape(Xpred_reshaped)
     assert w == 8, "Your unpack function didn't work, check again what was wrong in the evaluateion output and unpack"
     with open(Xpred_file,'w') as f:

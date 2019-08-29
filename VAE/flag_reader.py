@@ -12,6 +12,8 @@ def read_flag():
     parser.add_argument('--spectra-fc-filters', type=tuple, default=SPECTRA_FC_FILTERS, help='#neurons in each fully connected layers')
     parser.add_argument('--encoder-fc-filters', type=tuple, default= ENCODER_FC_FILTERS, help='#neurons in each fully connected layers')
     parser.add_argument('--decoder-fc-filters', type=tuple, default= DECODER_FC_FILTERS, help='#neurons in each fully connected layers')
+    parser.add_argument('--filter-channel-list', type=tuple, default= CONV_CHANNEL_LIST, help='#filter channel is conv1d spactra')
+    parser.add_argument('--conv1d_filters', type=tuple, default= CONV1D_FILTERS, help='filters in spectra module')
     parser.add_argument('--latent-dim', type=int, default=LATENT_DIM, help='#Dimensions of the latent variable to be modeled')
     parser.add_argument('--reg-scale', type=float, default=REG_SCALE, help='#scale for regularization of dense layers')
     parser.add_argument('--x-range', type=list, default=X_RANGE, help='columns of input parameters')
