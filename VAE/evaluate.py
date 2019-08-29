@@ -33,6 +33,10 @@ def evaluatemain(flags, eval_forward):
 
     tf.reset_default_graph()
     
+    #Retireve the parameters from the meta file
+    clip, forward_fc_filters, tconv_Fnums, tconv_dims, tconv_filters, \
+    n_filter, n_branch, reg_scale, backward_fc_filters, conv1d_filters, conv_channel_list = network_helper.get_parameters(ckpt_dir)
+    
     ckpt_dir = os.path.join(os.path.abspath(''), 'models', flags.model_name)
     geometry, spectra, train_init_op, valid_init_op = data_reader.read_data(input_size=flags.input_size,
                                                                output_size=300,

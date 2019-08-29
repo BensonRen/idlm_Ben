@@ -253,12 +253,17 @@ def get_parameters(model_dir):
         #print(line)
         if line[:4] =='clip':
             clip = [int(s) for s in line.split() if s.isdigit()]
-        elif line[:18] == 'forward_fc_filters':
+        elif line[:10] =='batch_size':
+            clip = [int(s) for s in line.split() if s.isdigit()]
+        elif line[:18] == 'spectra_fc_filters':
             line = replace_str(line)
-            forward_fc_filters = tuple([int(s) for s in line.split() if s.isdigit()])
-        elif line[:19] == 'backward_fc_filters':
+            spectra_fc_filters = tuple([int(s) for s in line.split() if s.isdigit()])
+        elif line[:19] == 'encoder_fc_filters':
             line = replace_str(line)
-            backward_fc_filters = tuple([int(s) for s in line.split() if s.isdigit()])
+            encoder_fc_filters = tuple([int(s) for s in line.split() if s.isdigit()])
+        elif line[:19] == 'decoder_fc_filters':
+            line = replace_str(line)
+            decoder_fc_filters = tuple([int(s) for s in line.split() if s.isdigit()])
         
         elif line[:11] == 'tconv_Fnums':
             line =replace_str(line)

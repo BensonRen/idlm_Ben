@@ -211,6 +211,8 @@ Bug Fixed/ Function added/Work Done:
 Function added/ Work Done:
 1. Diversity metric formulation
 2. Diversity metric heat map demonstration
+3. 
+
 
 Things to do:
 1. Modify Tandem predictioin geo2spec module to fit the need of VAE inference (Take the best result)
