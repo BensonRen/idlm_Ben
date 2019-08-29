@@ -9,7 +9,7 @@ def get_Xpred(path):
             out_file = filename
             print("Xpred File found", filename)
             break
-    return out_file
+    return os.path.join(path,out_file)
 
 def get_Ypred(path):
     for filename in os.listdir(path):
@@ -17,7 +17,7 @@ def get_Ypred(path):
             out_file = filename
             print("Ypred File found", filename)
             break;
-    return out_file
+    return os.path.join(path,out_file)
 
 def get_Xtruth(path):
     for filename in os.listdir(path):
@@ -25,7 +25,7 @@ def get_Xtruth(path):
             out_file = filename
             print("Xtruth File found", filename)
             break;
-    return out_file
+    return os.path.join(path,out_file)
 
 
 def get_Ytruth(path):
@@ -34,4 +34,4 @@ def get_Ytruth(path):
             out_file = filename
             print("Ytruth File found", filename)
             break;
-    return out_file
+    return os.path.join(path,out_file)

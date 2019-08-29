@@ -1,12 +1,12 @@
 #!/bin/bash
 
 
-#PID=13704
-#while [ -e /proc/$PID ]
-#do
-#    echo "Process: $PID is still running" 
-#        sleep 10m
-#done
+PID=26512
+while [ -e /proc/$PID ]
+do
+    echo "Process: $PID is still running" 
+        sleep 10m
+done
 TIME=`date`
 PWD=`pwd`
 #COMMAND=evaluate.py
