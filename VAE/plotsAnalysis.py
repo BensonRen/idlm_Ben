@@ -246,28 +246,28 @@ def PlotPossibleGeoSpace(figname, Xpred_dir, compare_original = False):
     :params Xpred_dir: The directory to look for Xpred file which is the source of plotting
     :output A plot containing 4 subplots showing the 8 geomoetry dimensions
     """
-    Xpredfile = os.path.join(Xpred_dir, get_pred_truth_file.get_Xpred(Xpred_dir))
+    Xpredfile = get_pred_truth_file.get_Xpred(Xpred_dir)
     Xpred = pd.read_csv(Xpredfile, header=None, delimiter=' ').values
     
-    Xtruthfile = os.path.join(Xpred_dir, get_pred_truth_file.get_Xtruth(Xpred_dir))
+    Xtruthfile = get_pred_truth_file.get_Xtruth(Xpred_dir)
     Xtruth = pd.read_csv(Xtruthfile, header=None, delimiter=' ').values
 
     f = plt.figure()
     ax0 = plt.gca()
     print(np.shape(Xpred))
     #print(Xpred)
-    plt.title(figname)
+    #plt.title(figname)
     for i in range(4):
       ax = plt.subplot(2, 2, i+1)
-      ax.scatter(Xpred[:,i], Xpred[:,i + 4],label = "Xpred")
+      ax.scatter(Xpred[:,i], Xpred[:,i + 4],s = 3,label = "Xpred")
       if (compare_original):
-          ax.scatter(Xtruth[:,i], Xtruth[:,i+4], label = "Xtruth")
+          ax.scatter(Xtruth[:,i], Xtruth[:,i+4],s = 3, label = "Xtruth")
       plt.xlabel('h{}'.format(i))
       plt.ylabel('r{}'.format(i))
       plt.xlim(-1,1)
       plt.ylim(-1,1)
       plt.legend()
-    #plt.title(figname)
+    plt.suptitle(figname)
     f.savefig(figname+'.png')
 
 

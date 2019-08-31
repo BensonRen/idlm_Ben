@@ -143,7 +143,7 @@ class HMpoint(object):
 
 
 def HeatMapBVL(plot_x_name, plot_y_name, title,  save_name='HeatMap.png', HeatMap_dir = 'HeatMap',
-                feature_1_name=None, feature_2_name=None, condense_tuple2len = True,
+                feature_1_name=None, feature_2_name=None,
                 heat_value_name = 'best_validation_loss'):
     """
     Plotting a HeatMap of the Best Validation Loss for a batch of hyperswiping thing
@@ -188,14 +188,12 @@ def HeatMapBVL(plot_x_name, plot_y_name, title,  save_name='HeatMap.png', HeatMa
     #df_aggregate = df_aggregate.reset_index()
     print("before transformation:", df_aggregate)
     [h, w] = df_aggregate.shape
-    if (condense_tuple2len):
-        print("Converting tuple to its length for simplicity")
-        for i in range(h):
-            for j in range(w):
-                #print(i,j, df_aggregate.iloc[i,j])
-                if (isinstance(df_aggregate.iloc[i,j],str)):
-                    ij_tuple = eval(df_aggregate.iloc[i,j])
-                    df_aggregate.iloc[i,j] = len(ij_tuple)
+    for i in range(h):
+        for j in range(w):
+            #print(i,j, df_aggregate.iloc[i,j])
+            if (isinstance(df_aggregate.iloc[i,j],str)):
+                ij_tuple = eval(df_aggregate.iloc[i,j])
+                df_aggregate.iloc[i,j] = len(ij_tuple)
 
     print("after transoformation:",df_aggregate)
     
@@ -204,18 +202,15 @@ def HeatMapBVL(plot_x_name, plot_y_name, title,  save_name='HeatMap.png', HeatMa
         print("For point {} , it has {} loss, {} for feature 1 and {} for feature 2".format(cnt, 
                                                                 point.bv_loss, point.feature_1, point.feature_2))
         assert(isinstance(point.bv_loss, float))        #make sure this is a floating number
-        #if (isinstance(point.feature_1, tuple)):
-        #    point.feature_1 = len(point.feature_1)
-        #if (isinstance(point.feature_2, tuple)):
-        #    point.feature_2 = len(point.feature_2)
+        if (isinstance(point.feature_1, tuple)):
+            point.feature_1 = len(point.feature_1)
+        if (isinstance(point.feature_2, tuple)):
+            point.feature_2 = len(point.feature_2)
 
     
     f = plt.figure()
     #After we get the full list of HMpoint object, we can start drawing 
     if (feature_2_name == None):
-        df_aggregate.sort_values(heat_value_name, axis = 0, inplace = True)
-        df_aggregate.drop_duplicates(subset = feature_1_name, keep = 'first', inplace = True)
-        df_aggregate.sort_values(feature_1_name, axis = 0, inplace = True)
         print("plotting 1 dimension HeatMap (which is actually a line)")
         HMpoint_list_sorted = sorted(HMpoint_list, key = lambda x: x.feature_1)
         #Get the 2 lists of plot
@@ -227,17 +222,13 @@ def HeatMapBVL(plot_x_name, plot_y_name, title,  save_name='HeatMap.png', HeatMa
         print("bv_loss_list:", bv_loss_list)
         print("feature_1_list:",feature_1_list)
         #start plotting
-        sns.catplot(x = feature_1_name, y=heat_value_name,data = df_aggregate)
-        #plt.plot(feature_1_list, bv_loss_list,'o-')
+        plt.plot(feature_1_list, bv_loss_list,'o-')
     else: #Or this is a 2 dimension HeatMap
         print("plotting 2 dimension HeatMap")
         #point_df = pd.DataFrame.from_records([point.to_dict() for point in HMpoint_list])
         df_aggregate = df_aggregate.reset_index()
         df_aggregate.sort_values(feature_1_name, axis = 0, inplace = True)
         df_aggregate.sort_values(feature_2_name, axis = 0, inplace = True)
-        df_aggregate.sort_values(heat_value_name, axis = 0, inplace = True)
-        #Check for same groups and only keep the smaller error
-        df_aggregate.drop_duplicates(subset = [feature_1_name, feature_2_name], keep = 'first', inplace = True)
         print(df_aggregate)
         point_df_pivot = df_aggregate.reset_index().pivot(feature_1_name, feature_2_name, heat_value_name)
         sns.heatmap(point_df_pivot, vmin = 1.24e-3,cmap = "YlGnBu")
@@ -255,28 +246,28 @@ def PlotPossibleGeoSpace(figname, Xpred_dir, compare_original = False):
     :params Xpred_dir: The directory to look for Xpred file which is the source of plotting
     :output A plot containing 4 subplots showing the 8 geomoetry dimensions
     """
-    Xpredfile = os.path.join(Xpred_dir, get_pred_truth_file.get_Xpred(Xpred_dir))
+    Xpredfile = get_pred_truth_file.get_Xpred(Xpred_dir)
     Xpred = pd.read_csv(Xpredfile, header=None, delimiter=' ').values
     
-    Xtruthfile = os.path.join(Xpred_dir, get_pred_truth_file.get_Xtruth(Xpred_dir))
+    Xtruthfile = get_pred_truth_file.get_Xtruth(Xpred_dir)
     Xtruth = pd.read_csv(Xtruthfile, header=None, delimiter=' ').values
 
     f = plt.figure()
     ax0 = plt.gca()
     print(np.shape(Xpred))
     #print(Xpred)
-    plt.title(figname)
+    #plt.title(figname)
     for i in range(4):
       ax = plt.subplot(2, 2, i+1)
-      ax.scatter(Xpred[:,i], Xpred[:,i + 4],label = "Xpred")
+      ax.scatter(Xpred[:,i], Xpred[:,i + 4],s = 3,label = "Xpred")
       if (compare_original):
-          ax.scatter(Xtruth[:,i], Xtruth[:,i+4], label = "Xtruth")
+          ax.scatter(Xtruth[:,i], Xtruth[:,i+4],s = 3, label = "Xtruth")
       plt.xlabel('h{}'.format(i))
       plt.ylabel('r{}'.format(i))
       plt.xlim(-1,1)
       plt.ylim(-1,1)
       plt.legend()
-    #plt.title(figname)
+    plt.suptitle(figname)
     f.savefig(figname+'.png')
 
 
