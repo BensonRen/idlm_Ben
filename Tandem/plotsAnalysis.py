@@ -50,7 +50,7 @@ def UniqueMarkers():
     markers = itertools.cycle(( 'x','1','+', '.', '*','D','v','h'))
     return markers
   
-def SpectrumComparisonNGeometryComparison(rownum, colnum, Figsize, model_name, boundary):
+def SpectrumComparisonNGeometryComparison(rownum, colnum, Figsize, model_name, boundary = [-1,1,-1,1]):
     """
     Read the Prediction files and plot the spectra comparison plots
     :param SubplotArray: 2x2 array indicating the arrangement of the subplots

@@ -6,8 +6,8 @@ import plotsAnalysis
 import evaluate
 
 
-plotsAnalysis.PlotPossibleGeoSpace("Possible geo space for tandem structure","data/", compare_original = True)
-
+#plotsAnalysis.PlotPossibleGeoSpace("Possible geo space for Backprop structure","data/", compare_original = True)
+plotsAnalysis.SpectrumComparisonNGeometryComparison(3,2,(13,8),'20190821_225753');
 #TK = time_recorder.time_keeper()
 #TK.record(5)
 #flags = flag_reader.read_flag()
