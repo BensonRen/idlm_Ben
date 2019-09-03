@@ -171,20 +171,25 @@ def HeatMapBVL(plot_x_name, plot_y_name, title,  save_name='HeatMap.png', HeatMa
                 file_path = os.path.join(subdir, file_name) #Get the file relative path from 
                 df = pd.read_csv(file_path, index_col = 0)
                 #df = df.reset_index()                           #reset the index to get ride of 
+                print(df.T)
                 if (one_dimension_flag):
+                    #print(df[[heat_value_name, feature_1_name]])
+                    #print(df[heat_value_name][0])
+                    #print(df[heat_value_name].iloc[0])
                     df_list.append(df[[heat_value_name, feature_1_name]])
-                    HMpoint_list.append(HMpoint(float(df[heat_value_name][0]), eval(df[feature_1_name][0]), f1_name = feature_1_name))
+                    HMpoint_list.append(HMpoint(float(df[heat_value_name][0]), eval(str(df[feature_1_name][0])), 
+                                                f1_name = feature_1_name))
                 else:
                     df_list.append(df[[heat_value_name, feature_1_name, feature_2_name]])
-                    HMpoint_list.append(HMpoint(float(df[heat_value_name][0]),eval(df[feature_1_name][0]),eval(df[feature_2_name][0]),
-                                        feature_1_name, feature_2_name))
+                    HMpoint_list.append(HMpoint(float(df[heat_value_name][0]),eval(str(df[feature_1_name][0])),
+                                                eval(str(df[feature_2_name][0])), feature_1_name, feature_2_name))
    
     #Concatenate all the dfs into a single aggregate one for 2 dimensional usee
     df_aggregate = pd.concat(df_list, ignore_index = True, sort = False)
-    print(df_aggregate[heat_value_name])
-    print(type(df_aggregate[heat_value_name]))
+    #print(df_aggregate[heat_value_name])
+    #print(type(df_aggregate[heat_value_name]))
     df_aggregate.astype({heat_value_name: 'float'})
-    print(type(df_aggregate[heat_value_name]))
+    #print(type(df_aggregate[heat_value_name]))
     #df_aggregate = df_aggregate.reset_index()
     print("before transformation:", df_aggregate)
     [h, w] = df_aggregate.shape
@@ -270,4 +275,15 @@ def PlotPossibleGeoSpace(figname, Xpred_dir, compare_original = False):
     plt.suptitle(figname)
     f.savefig(figname+'.png')
 
-
+def PlotPairwiseGeometry(figname, Xpred_dir):
+    """
+    Function to plot the pair-wise scattering plot of the geometery file to show
+    the correlation between the geometry that the network learns
+    """
+    
+    Xpredfile = get_pred_truth_file.get_Xpred(Xpred_dir)
+    Xpred = pd.read_csv(Xpredfile, header=None, delimiter=' ').values
+    f=plt.figure()
+    axes = pd.tools.plotting.scatter_matrix(df, alpha = 0.2)
+    plt.tight_layout()
+    plt.savefig(figname)
