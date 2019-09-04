@@ -282,8 +282,9 @@ def PlotPairwiseGeometry(figname, Xpred_dir):
     """
     
     Xpredfile = get_pred_truth_file.get_Xpred(Xpred_dir)
-    Xpred = pd.read_csv(Xpredfile, header=None, delimiter=' ').values
+    Xpred = pd.read_csv(Xpredfile, header=None, delimiter=' ')
     f=plt.figure()
-    axes = pd.tools.plotting.scatter_matrix(df, alpha = 0.2)
-    plt.tight_layout()
+    axes = pd.plotting.scatter_matrix(Xpred, alpha = 0.2)
+    #plt.tight_layout()
+    plt.title("Pair-wise scattering of Geometery predictions")
     plt.savefig(figname)

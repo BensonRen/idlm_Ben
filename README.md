@@ -213,19 +213,25 @@ Function added/ Work Done:
 2. Diversity metric heat map demonstration
 3. VAE evaluation works now, however the loss is still very high 
 
+## 2019.08.29 - 2019.09.02 Cerus broke doing repairs...
+Function added/ Work Done:
+1. Tandem param running, all geo space plotted
+2. VAE solution space plotted
+3. PPT slides done
 
+## 2019.09.03
 Things to do:
-2. Wait the Tandem model same param running and plot all the space
-3. VAE solution space
+1. Implement both diversity measurement and compare the 3 algorithms (The blue area method and the Minimum spanning tree method)
+2. Training time comparison
+3. VAE further tuning (Loss too high now)
+4. Investigate the “mystery” tradeoff between forward model accuracy and Tandem accuracy
+5. Think about the Toy DataSet thing where we can control the one-to-manyness
 
 Working on now:
 
 Finishing today:
 
 Pending to work: 
-1. VAE Forward Model prediction problem
-1. Compare the top 3 best model Geome
-3. Warm-up training 
 
 
 ### !!!HUGE BUG DETECTED, SOLVE BELOW POINTS NOW!!!
