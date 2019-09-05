@@ -6,10 +6,10 @@ import flag_reader
 if __name__ == '__main__':
     encoder_fc_filters_front = ( 100,  )
     encoder_fc_filters_back = (  100, 30)
-    decoder_fc_filters_front = ( 100,  )
-    decoder_fc_filters_back = (  100, 8)
-    spectra_fc_filters_front = ( 100,  )
-    spectra_fc_filters_back = ( 300, 100, 20)
+    decoder_fc_filters_front = ( 500,  )
+    decoder_fc_filters_back = (  500, 8)
+    #spectra_fc_filters_front = ( 100,  )
+    #spectra_fc_filters_back = ( 300, 100, 20)
     added_layer_size = 500
     #Setting the loop for setting the parameter
     #laten_dim_list = [5,10,15,20,25,30,35,40]

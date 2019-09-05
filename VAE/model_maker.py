@@ -144,9 +144,10 @@ def Decoder(z, spectra_out,  batch_size, reg_scale, decoder_fc_filters):
 
 def VAE(geometry, spectra, latent_dim,  batch_size, reg_scale, spectra_fc_filters,
         encoder_fc_filters, decoder_fc_filters, geoboundary, conv1d_filters, filter_channel_list):
-    spectra_out, merged_summary_op = spectra_encoder(spectra, spectra_fc_filters, reg_scale, conv1d_filters, filter_channel_list)
+    spectra_out = spectra
+    #spectra_out, merged_summary_op = spectra_encoder(spectra, spectra_fc_filters, reg_scale, conv1d_filters, filter_channel_list)
     z_mean, z_log_var = Encoder(geometry, spectra_out, latent_dim, batch_size, reg_scale, encoder_fc_filters)
     z = Lambda(sampling, output_shape=(latent_dim,), name = 'z')([z_mean, z_log_var])
     decoder_out = Decoder(z, spectra_out, batch_size, reg_scale, decoder_fc_filters)
     Boundary_loss = MakeBoundaryLoss(decoder_out, geoboundary)
-    return z_mean, z_log_var, z, decoder_out, Boundary_loss, merged_summary_op
+    return z_mean, z_log_var, z, decoder_out, Boundary_loss#, merged_summary_op
