@@ -56162,3 +56162,1823 @@ shape before repeat (300,)
 Size of the target spectra repeat (4096, 300)
 Loss at inference step0 : 0.04687919840216637
 best error is 0.00010280442838976913, in best estimate-indx is 0.00010280442838976913, squared loss is 0.04687919840216637
+Best error for point 11228 is having absolute error of 0.00010280442838976913
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04884861037135124
+best error is 0.0002549683104697921, in best estimate-indx is 0.0002549683104697921, squared loss is 0.04884861037135124
+Best error for point 11229 is having absolute error of 0.0002549683104697921
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05065711587667465
+best error is 0.00029381544452727545, in best estimate-indx is 0.00029381544452727545, squared loss is 0.05065711587667465
+Best error for point 11230 is having absolute error of 0.00029381544452727545
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03897488862276077
+best error is 0.0003294670070122575, in best estimate-indx is 0.0003294670070122575, squared loss is 0.03897488862276077
+Best error for point 11231 is having absolute error of 0.0003294670070122575
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03734847530722618
+best error is 0.0003142559170981361, in best estimate-indx is 0.0003142559170981361, squared loss is 0.03734847530722618
+Best error for point 11232 is having absolute error of 0.0003142559170981361
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.042981404811143875
+best error is 0.0001666830321289906, in best estimate-indx is 0.0001666830321289906, squared loss is 0.042981404811143875
+Best error for point 11233 is having absolute error of 0.0001666830321289906
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05406729876995087
+best error is 0.0002935942976093012, in best estimate-indx is 0.0002935942976093012, squared loss is 0.05406729876995087
+Best error for point 11234 is having absolute error of 0.0002935942976093012
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07719782739877701
+best error is 0.00016863219261833133, in best estimate-indx is 0.00016863219261833133, squared loss is 0.07719782739877701
+Best error for point 11235 is having absolute error of 0.00016863219261833133
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04296411946415901
+best error is 0.0002932032875655087, in best estimate-indx is 0.0002932032875655087, squared loss is 0.04296411946415901
+Best error for point 11236 is having absolute error of 0.0002932032875655087
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.08603020757436752
+best error is 0.0002740231242457613, in best estimate-indx is 0.0002740231242457613, squared loss is 0.08603020757436752
+Best error for point 11237 is having absolute error of 0.0002740231242457613
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.038233473896980286
+best error is 7.583853910765156e-05, in best estimate-indx is 7.583853910765156e-05, squared loss is 0.038233473896980286
+Best error for point 11238 is having absolute error of 7.583853910765156e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04209660738706589
+best error is 0.00011870333540533058, in best estimate-indx is 0.00011870333540533058, squared loss is 0.04209660738706589
+Best error for point 11239 is having absolute error of 0.00011870333540533058
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04093847796320915
+best error is 0.00012495403336996866, in best estimate-indx is 0.00012495403336996866, squared loss is 0.04093847796320915
+Best error for point 11240 is having absolute error of 0.00012495403336996866
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04174555838108063
+best error is 0.00011417243843293318, in best estimate-indx is 0.00011417243843293318, squared loss is 0.04174555838108063
+Best error for point 11241 is having absolute error of 0.00011417243843293318
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06664694845676422
+best error is 0.0002474965103420085, in best estimate-indx is 0.0002474965103420085, squared loss is 0.06664694845676422
+Best error for point 11242 is having absolute error of 0.0002474965103420085
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.053318578749895096
+best error is 9.12438222809001e-05, in best estimate-indx is 9.12438222809001e-05, squared loss is 0.053318578749895096
+Best error for point 11243 is having absolute error of 9.12438222809001e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06597509235143661
+best error is 0.00012015496535914457, in best estimate-indx is 0.00012015496535914457, squared loss is 0.06597509235143661
+Best error for point 11244 is having absolute error of 0.00012015496535914457
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04989272356033325
+best error is 0.00014981562128743177, in best estimate-indx is 0.00014981562128743177, squared loss is 0.04989272356033325
+Best error for point 11245 is having absolute error of 0.00014981562128743177
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.057384755462408066
+best error is 7.852917713185307e-05, in best estimate-indx is 7.852917713185307e-05, squared loss is 0.057384755462408066
+Best error for point 11246 is having absolute error of 7.852917713185307e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.042869750410318375
+best error is 0.0001347377881623301, in best estimate-indx is 0.0001347377881623301, squared loss is 0.042869750410318375
+Best error for point 11247 is having absolute error of 0.0001347377881623301
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04236515611410141
+best error is 0.00011786435322958415, in best estimate-indx is 0.00011786435322958415, squared loss is 0.04236515611410141
+Best error for point 11248 is having absolute error of 0.00011786435322958415
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0803108662366867
+best error is 0.00019623056103983317, in best estimate-indx is 0.00019623056103983317, squared loss is 0.0803108662366867
+Best error for point 11249 is having absolute error of 0.00019623056103983317
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04354614391922951
+best error is 0.00013968330254018776, in best estimate-indx is 0.00013968330254018776, squared loss is 0.04354614391922951
+Best error for point 11250 is having absolute error of 0.00013968330254018776
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0524715818464756
+best error is 9.947213114914008e-05, in best estimate-indx is 9.947213114914008e-05, squared loss is 0.0524715818464756
+Best error for point 11251 is having absolute error of 9.947213114914008e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04622803255915642
+best error is 0.00031269626119461254, in best estimate-indx is 0.00031269626119461254, squared loss is 0.04622803255915642
+Best error for point 11252 is having absolute error of 0.00031269626119461254
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.08449579030275345
+best error is 8.151505251318147e-05, in best estimate-indx is 8.151505251318147e-05, squared loss is 0.08449579030275345
+Best error for point 11253 is having absolute error of 8.151505251318147e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0567275770008564
+best error is 0.00023357738331956023, in best estimate-indx is 0.00023357738331956023, squared loss is 0.0567275770008564
+Best error for point 11254 is having absolute error of 0.00023357738331956023
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07180356979370117
+best error is 9.736582633194585e-05, in best estimate-indx is 9.736582633194585e-05, squared loss is 0.07180356979370117
+Best error for point 11255 is having absolute error of 9.736582633194585e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.041197724640369415
+best error is 0.00023582723962942836, in best estimate-indx is 0.00023582723962942836, squared loss is 0.041197724640369415
+Best error for point 11256 is having absolute error of 0.00023582723962942836
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04100275784730911
+best error is 0.0001579818839096153, in best estimate-indx is 0.0001579818839096153, squared loss is 0.04100275784730911
+Best error for point 11257 is having absolute error of 0.0001579818839096153
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0396699383854866
+best error is 0.0001446742371800905, in best estimate-indx is 0.0001446742371800905, squared loss is 0.0396699383854866
+Best error for point 11258 is having absolute error of 0.0001446742371800905
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05794407054781914
+best error is 4.180163770638316e-05, in best estimate-indx is 4.180163770638316e-05, squared loss is 0.05794407054781914
+Best error for point 11259 is having absolute error of 4.180163770638316e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05186145752668381
+best error is 6.619695292216282e-05, in best estimate-indx is 6.619695292216282e-05, squared loss is 0.05186145752668381
+Best error for point 11260 is having absolute error of 6.619695292216282e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04574058577418327
+best error is 3.524788481931828e-05, in best estimate-indx is 3.524788481931828e-05, squared loss is 0.04574058577418327
+Best error for point 11261 is having absolute error of 3.524788481931828e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03533097729086876
+best error is 0.00010685473993807363, in best estimate-indx is 0.00010685473993807363, squared loss is 0.03533097729086876
+Best error for point 11262 is having absolute error of 0.00010685473993807363
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.044350698590278625
+best error is 0.00028719697362070796, in best estimate-indx is 0.00028719697362070796, squared loss is 0.044350698590278625
+Best error for point 11263 is having absolute error of 0.00028719697362070796
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.047356780618429184
+best error is 0.0001034654926680618, in best estimate-indx is 0.0001034654926680618, squared loss is 0.047356780618429184
+Best error for point 11264 is having absolute error of 0.0001034654926680618
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.040397707372903824
+best error is 0.0001855671068393768, in best estimate-indx is 0.0001855671068393768, squared loss is 0.040397707372903824
+Best error for point 11265 is having absolute error of 0.0001855671068393768
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06264039874076843
+best error is 5.0073964357310654e-05, in best estimate-indx is 5.0073964357310654e-05, squared loss is 0.06264039874076843
+Best error for point 11266 is having absolute error of 5.0073964357310654e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.039413418620824814
+best error is 0.0002934189255574678, in best estimate-indx is 0.0002934189255574678, squared loss is 0.039413418620824814
+Best error for point 11267 is having absolute error of 0.0002934189255574678
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06001641973853111
+best error is 7.451440622052597e-05, in best estimate-indx is 7.451440622052597e-05, squared loss is 0.06001641973853111
+Best error for point 11268 is having absolute error of 7.451440622052597e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.043442972004413605
+best error is 0.00017608666279326737, in best estimate-indx is 0.00017608666279326737, squared loss is 0.043442972004413605
+Best error for point 11269 is having absolute error of 0.00017608666279326737
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07241810858249664
+best error is 0.0002336983791357155, in best estimate-indx is 0.0002336983791357155, squared loss is 0.07241810858249664
+Best error for point 11270 is having absolute error of 0.0002336983791357155
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03885354474186897
+best error is 0.000186497864803592, in best estimate-indx is 0.000186497864803592, squared loss is 0.03885354474186897
+Best error for point 11271 is having absolute error of 0.000186497864803592
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05536132678389549
+best error is 0.0003828355680260845, in best estimate-indx is 0.0003828355680260845, squared loss is 0.05536132678389549
+Best error for point 11272 is having absolute error of 0.0003828355680260845
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.036269959062337875
+best error is 0.00013576080812432336, in best estimate-indx is 0.00013576080812432336, squared loss is 0.036269959062337875
+Best error for point 11273 is having absolute error of 0.00013576080812432336
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.041165560483932495
+best error is 0.00012324685091132245, in best estimate-indx is 0.00012324685091132245, squared loss is 0.041165560483932495
+Best error for point 11274 is having absolute error of 0.00012324685091132245
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.062171366065740585
+best error is 0.0005188164438092291, in best estimate-indx is 0.0005188164438092291, squared loss is 0.062171366065740585
+Best error for point 11275 is having absolute error of 0.0005188164438092291
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.036390047520399094
+best error is 7.358631731317565e-05, in best estimate-indx is 7.358631731317565e-05, squared loss is 0.036390047520399094
+Best error for point 11276 is having absolute error of 7.358631731317565e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.046792350709438324
+best error is 0.00014827587141087134, in best estimate-indx is 0.00014827587141087134, squared loss is 0.046792350709438324
+Best error for point 11277 is having absolute error of 0.00014827587141087134
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04232032597064972
+best error is 0.00018494899330603355, in best estimate-indx is 0.00018494899330603355, squared loss is 0.04232032597064972
+Best error for point 11278 is having absolute error of 0.00018494899330603355
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.050718601793050766
+best error is 3.1325916698725476e-05, in best estimate-indx is 3.1325916698725476e-05, squared loss is 0.050718601793050766
+Best error for point 11279 is having absolute error of 3.1325916698725476e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04832231625914574
+best error is 0.00011225836334503609, in best estimate-indx is 0.00011225836334503609, squared loss is 0.04832231625914574
+Best error for point 11280 is having absolute error of 0.00011225836334503609
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.048578690737485886
+best error is 0.00029845398135509746, in best estimate-indx is 0.00029845398135509746, squared loss is 0.048578690737485886
+Best error for point 11281 is having absolute error of 0.00029845398135509746
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.052477095276117325
+best error is 0.0001975934149304559, in best estimate-indx is 0.0001975934149304559, squared loss is 0.052477095276117325
+Best error for point 11282 is having absolute error of 0.0001975934149304559
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0380195714533329
+best error is 8.579422858637129e-05, in best estimate-indx is 8.579422858637129e-05, squared loss is 0.0380195714533329
+Best error for point 11283 is having absolute error of 8.579422858637129e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.08631004393100739
+best error is 0.0003947081086894398, in best estimate-indx is 0.0003947081086894398, squared loss is 0.08631004393100739
+Best error for point 11284 is having absolute error of 0.0003947081086894398
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07626669853925705
+best error is 0.00023689510132618674, in best estimate-indx is 0.00023689510132618674, squared loss is 0.07626669853925705
+Best error for point 11285 is having absolute error of 0.00023689510132618674
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.039567675441503525
+best error is 8.482964555109942e-05, in best estimate-indx is 8.482964555109942e-05, squared loss is 0.039567675441503525
+Best error for point 11286 is having absolute error of 8.482964555109942e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06337103992700577
+best error is 5.9476287768553396e-05, in best estimate-indx is 5.9476287768553396e-05, squared loss is 0.06337103992700577
+Best error for point 11287 is having absolute error of 5.9476287768553396e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05245694890618324
+best error is 0.00014183400939366756, in best estimate-indx is 0.00014183400939366756, squared loss is 0.05245694890618324
+Best error for point 11288 is having absolute error of 0.00014183400939366756
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04269848018884659
+best error is 0.00024300448362419015, in best estimate-indx is 0.00024300448362419015, squared loss is 0.04269848018884659
+Best error for point 11289 is having absolute error of 0.00024300448362419015
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.052521489560604095
+best error is 6.441074228201704e-05, in best estimate-indx is 6.441074228201704e-05, squared loss is 0.052521489560604095
+Best error for point 11290 is having absolute error of 6.441074228201704e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07544323801994324
+best error is 0.00014067852324052305, in best estimate-indx is 0.00014067852324052305, squared loss is 0.07544323801994324
+Best error for point 11291 is having absolute error of 0.00014067852324052305
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.08553373068571091
+best error is 5.645442028799726e-05, in best estimate-indx is 5.645442028799726e-05, squared loss is 0.08553373068571091
+Best error for point 11292 is having absolute error of 5.645442028799726e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06057887151837349
+best error is 0.0005458142483064931, in best estimate-indx is 0.0005458142483064931, squared loss is 0.06057887151837349
+Best error for point 11293 is having absolute error of 0.0005458142483064931
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.046906884759664536
+best error is 6.062506362449855e-05, in best estimate-indx is 6.062506362449855e-05, squared loss is 0.046906884759664536
+Best error for point 11294 is having absolute error of 6.062506362449855e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0485057532787323
+best error is 0.0001850964536339326, in best estimate-indx is 0.0001850964536339326, squared loss is 0.0485057532787323
+Best error for point 11295 is having absolute error of 0.0001850964536339326
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03985917568206787
+best error is 0.0003744054728781224, in best estimate-indx is 0.0003744054728781224, squared loss is 0.03985917568206787
+Best error for point 11296 is having absolute error of 0.0003744054728781224
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.057106200605630875
+best error is 0.0001790290286569413, in best estimate-indx is 0.0001790290286569413, squared loss is 0.057106200605630875
+Best error for point 11297 is having absolute error of 0.0001790290286569413
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.050183214247226715
+best error is 0.0004116594409406644, in best estimate-indx is 0.0004116594409406644, squared loss is 0.050183214247226715
+Best error for point 11298 is having absolute error of 0.0004116594409406644
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07132750749588013
+best error is 0.0004090736055636994, in best estimate-indx is 0.0004090736055636994, squared loss is 0.07132750749588013
+Best error for point 11299 is having absolute error of 0.0004090736055636994
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.08016160875558853
+best error is 0.0002856855599839258, in best estimate-indx is 0.0002856855599839258, squared loss is 0.08016160875558853
+Best error for point 11300 is having absolute error of 0.0002856855599839258
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04105832427740097
+best error is 0.00010613620006944138, in best estimate-indx is 0.00010613620006944138, squared loss is 0.04105832427740097
+Best error for point 11301 is having absolute error of 0.00010613620006944138
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05726068094372749
+best error is 0.0002779819625238814, in best estimate-indx is 0.0002779819625238814, squared loss is 0.05726068094372749
+Best error for point 11302 is having absolute error of 0.0002779819625238814
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.048027876764535904
+best error is 0.0004187279317016603, in best estimate-indx is 0.0004187279317016603, squared loss is 0.048027876764535904
+Best error for point 11303 is having absolute error of 0.0004187279317016603
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.058015380054712296
+best error is 0.00019655471299597854, in best estimate-indx is 0.00019655471299597854, squared loss is 0.058015380054712296
+Best error for point 11304 is having absolute error of 0.00019655471299597854
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05978446081280708
+best error is 0.0002528728085045084, in best estimate-indx is 0.0002528728085045084, squared loss is 0.05978446081280708
+Best error for point 11305 is having absolute error of 0.0002528728085045084
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06821601837873459
+best error is 8.60426440049426e-05, in best estimate-indx is 8.60426440049426e-05, squared loss is 0.06821601837873459
+Best error for point 11306 is having absolute error of 8.60426440049426e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05775536596775055
+best error is 0.00045777449586442573, in best estimate-indx is 0.00045777449586442573, squared loss is 0.05775536596775055
+Best error for point 11307 is having absolute error of 0.00045777449586442573
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.048116620630025864
+best error is 0.00025707160054916193, in best estimate-indx is 0.00025707160054916193, squared loss is 0.048116620630025864
+Best error for point 11308 is having absolute error of 0.00025707160054916193
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.039621081203222275
+best error is 0.00010847240447638945, in best estimate-indx is 0.00010847240447638945, squared loss is 0.039621081203222275
+Best error for point 11309 is having absolute error of 0.00010847240447638945
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.036882948130369186
+best error is 7.310108658394862e-05, in best estimate-indx is 7.310108658394862e-05, squared loss is 0.036882948130369186
+Best error for point 11310 is having absolute error of 7.310108658394862e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03858577460050583
+best error is 0.00018242775903372802, in best estimate-indx is 0.00018242775903372802, squared loss is 0.03858577460050583
+Best error for point 11311 is having absolute error of 0.00018242775903372802
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06175374612212181
+best error is 8.280674863647849e-05, in best estimate-indx is 8.280674863647849e-05, squared loss is 0.06175374612212181
+Best error for point 11312 is having absolute error of 8.280674863647849e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04644687473773956
+best error is 0.0003254647289212979, in best estimate-indx is 0.0003254647289212979, squared loss is 0.04644687473773956
+Best error for point 11313 is having absolute error of 0.0003254647289212979
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05239871144294739
+best error is 0.0002878587663290228, in best estimate-indx is 0.0002878587663290228, squared loss is 0.05239871144294739
+Best error for point 11314 is having absolute error of 0.0002878587663290228
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06881310045719147
+best error is 0.0005549340052564785, in best estimate-indx is 0.0005549340052564785, squared loss is 0.06881310045719147
+Best error for point 11315 is having absolute error of 0.0005549340052564785
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03959007188677788
+best error is 0.00012254005410524527, in best estimate-indx is 0.00012254005410524527, squared loss is 0.03959007188677788
+Best error for point 11316 is having absolute error of 0.00012254005410524527
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0488668829202652
+best error is 0.0001078601347741217, in best estimate-indx is 0.0001078601347741217, squared loss is 0.0488668829202652
+Best error for point 11317 is having absolute error of 0.0001078601347741217
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06656593829393387
+best error is 0.0001947497100309393, in best estimate-indx is 0.0001947497100309393, squared loss is 0.06656593829393387
+Best error for point 11318 is having absolute error of 0.0001947497100309393
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05436495319008827
+best error is 0.0002437424713677857, in best estimate-indx is 0.0002437424713677857, squared loss is 0.05436495319008827
+Best error for point 11319 is having absolute error of 0.0002437424713677857
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04678017273545265
+best error is 0.00011576182903237357, in best estimate-indx is 0.00011576182903237357, squared loss is 0.04678017273545265
+Best error for point 11320 is having absolute error of 0.00011576182903237357
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0643940344452858
+best error is 0.00019165748870989544, in best estimate-indx is 0.00019165748870989544, squared loss is 0.0643940344452858
+Best error for point 11321 is having absolute error of 0.00019165748870989544
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07593803852796555
+best error is 0.0005720708243399395, in best estimate-indx is 0.0005720708243399395, squared loss is 0.07593803852796555
+Best error for point 11322 is having absolute error of 0.0005720708243399395
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03666205331683159
+best error is 0.00021943483302302929, in best estimate-indx is 0.00021943483302302929, squared loss is 0.03666205331683159
+Best error for point 11323 is having absolute error of 0.00021943483302302929
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.08250942826271057
+best error is 0.00016449838417152156, in best estimate-indx is 0.00016449838417152156, squared loss is 0.08250942826271057
+Best error for point 11324 is having absolute error of 0.00016449838417152156
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.033871736377477646
+best error is 0.00019746760010214755, in best estimate-indx is 0.00019746760010214755, squared loss is 0.033871736377477646
+Best error for point 11325 is having absolute error of 0.00019746760010214755
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04811535403132439
+best error is 0.00019112728277560185, in best estimate-indx is 0.00019112728277560185, squared loss is 0.04811535403132439
+Best error for point 11326 is having absolute error of 0.00019112728277560185
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07116160541772842
+best error is 0.0001351802657000102, in best estimate-indx is 0.0001351802657000102, squared loss is 0.07116160541772842
+Best error for point 11327 is having absolute error of 0.0001351802657000102
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05125737190246582
+best error is 0.0005167140581521148, in best estimate-indx is 0.0005167140581521148, squared loss is 0.05125737190246582
+Best error for point 11328 is having absolute error of 0.0005167140581521148
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.039752278476953506
+best error is 6.907175105423592e-05, in best estimate-indx is 6.907175105423592e-05, squared loss is 0.039752278476953506
+Best error for point 11329 is having absolute error of 6.907175105423592e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07631196081638336
+best error is 0.0004971765476017901, in best estimate-indx is 0.0004971765476017901, squared loss is 0.07631196081638336
+Best error for point 11330 is having absolute error of 0.0004971765476017901
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06260444968938828
+best error is 0.00024969313007615655, in best estimate-indx is 0.00024969313007615655, squared loss is 0.06260444968938828
+Best error for point 11331 is having absolute error of 0.00024969313007615655
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.054097890853881836
+best error is 0.00011624700613108928, in best estimate-indx is 0.00011624700613108928, squared loss is 0.054097890853881836
+Best error for point 11332 is having absolute error of 0.00011624700613108928
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05046932399272919
+best error is 0.00010492042512819458, in best estimate-indx is 0.00010492042512819458, squared loss is 0.05046932399272919
+Best error for point 11333 is having absolute error of 0.00010492042512819458
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.045380014926195145
+best error is 0.00035513411884743044, in best estimate-indx is 0.00035513411884743044, squared loss is 0.045380014926195145
+Best error for point 11334 is having absolute error of 0.00035513411884743044
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06568463891744614
+best error is 0.00012833195352139463, in best estimate-indx is 0.00012833195352139463, squared loss is 0.06568463891744614
+Best error for point 11335 is having absolute error of 0.00012833195352139463
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.055969081819057465
+best error is 0.00013340178395220703, in best estimate-indx is 0.00013340178395220703, squared loss is 0.055969081819057465
+Best error for point 11336 is having absolute error of 0.00013340178395220703
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07982148975133896
+best error is 0.0007171604988047197, in best estimate-indx is 0.0007171604988047197, squared loss is 0.07982148975133896
+Best error for point 11337 is having absolute error of 0.0007171604988047197
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05584118887782097
+best error is 0.00013409173359396482, in best estimate-indx is 0.00013409173359396482, squared loss is 0.05584118887782097
+Best error for point 11338 is having absolute error of 0.00013409173359396482
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.058481067419052124
+best error is 0.00013036433927559265, in best estimate-indx is 0.00013036433927559265, squared loss is 0.058481067419052124
+Best error for point 11339 is having absolute error of 0.00013036433927559265
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06009843572974205
+best error is 7.772646079184664e-05, in best estimate-indx is 7.772646079184664e-05, squared loss is 0.06009843572974205
+Best error for point 11340 is having absolute error of 7.772646079184664e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0527498833835125
+best error is 0.00020924942571002003, in best estimate-indx is 0.00020924942571002003, squared loss is 0.0527498833835125
+Best error for point 11341 is having absolute error of 0.00020924942571002003
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0516660250723362
+best error is 0.00032613101627203484, in best estimate-indx is 0.00032613101627203484, squared loss is 0.0516660250723362
+Best error for point 11342 is having absolute error of 0.00032613101627203484
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0410882793366909
+best error is 0.00022350002644776578, in best estimate-indx is 0.00022350002644776578, squared loss is 0.0410882793366909
+Best error for point 11343 is having absolute error of 0.00022350002644776578
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04508927837014198
+best error is 0.000234211833036604, in best estimate-indx is 0.000234211833036604, squared loss is 0.04508927837014198
+Best error for point 11344 is having absolute error of 0.000234211833036604
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.045958660542964935
+best error is 0.00022407344764793346, in best estimate-indx is 0.00022407344764793346, squared loss is 0.045958660542964935
+Best error for point 11345 is having absolute error of 0.00022407344764793346
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07221671938896179
+best error is 0.00023868058688345677, in best estimate-indx is 0.00023868058688345677, squared loss is 0.07221671938896179
+Best error for point 11346 is having absolute error of 0.00023868058688345677
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.08807084709405899
+best error is 0.00037931001128398985, in best estimate-indx is 0.00037931001128398985, squared loss is 0.08807084709405899
+Best error for point 11347 is having absolute error of 0.00037931001128398985
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.050124648958444595
+best error is 0.00020441045126316494, in best estimate-indx is 0.00020441045126316494, squared loss is 0.050124648958444595
+Best error for point 11348 is having absolute error of 0.00020441045126316494
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06602117419242859
+best error is 0.0004597636177971641, in best estimate-indx is 0.0004597636177971641, squared loss is 0.06602117419242859
+Best error for point 11349 is having absolute error of 0.0004597636177971641
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.042074285447597504
+best error is 6.183377016273314e-05, in best estimate-indx is 6.183377016273314e-05, squared loss is 0.042074285447597504
+Best error for point 11350 is having absolute error of 6.183377016273314e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.038981273770332336
+best error is 0.00014502713954942428, in best estimate-indx is 0.00014502713954942428, squared loss is 0.038981273770332336
+Best error for point 11351 is having absolute error of 0.00014502713954942428
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04482563957571983
+best error is 0.00033485721918986833, in best estimate-indx is 0.00033485721918986833, squared loss is 0.04482563957571983
+Best error for point 11352 is having absolute error of 0.00033485721918986833
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05713112652301788
+best error is 9.461896777809904e-05, in best estimate-indx is 9.461896777809904e-05, squared loss is 0.05713112652301788
+Best error for point 11353 is having absolute error of 9.461896777809904e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05223635584115982
+best error is 9.045681712653011e-05, in best estimate-indx is 9.045681712653011e-05, squared loss is 0.05223635584115982
+Best error for point 11354 is having absolute error of 9.045681712653011e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04039992392063141
+best error is 8.856283161682065e-05, in best estimate-indx is 8.856283161682065e-05, squared loss is 0.04039992392063141
+Best error for point 11355 is having absolute error of 8.856283161682065e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.060953542590141296
+best error is 0.00012213303631197599, in best estimate-indx is 0.00012213303631197599, squared loss is 0.060953542590141296
+Best error for point 11356 is having absolute error of 0.00012213303631197599
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04112488031387329
+best error is 7.478999264136371e-05, in best estimate-indx is 7.478999264136371e-05, squared loss is 0.04112488031387329
+Best error for point 11357 is having absolute error of 7.478999264136371e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04504096135497093
+best error is 0.0001453574952642975, in best estimate-indx is 0.0001453574952642975, squared loss is 0.04504096135497093
+Best error for point 11358 is having absolute error of 0.0001453574952642975
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03529708459973335
+best error is 0.00020908924667062767, in best estimate-indx is 0.00020908924667062767, squared loss is 0.03529708459973335
+Best error for point 11359 is having absolute error of 0.00020908924667062767
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.058522194623947144
+best error is 9.532318327123268e-05, in best estimate-indx is 9.532318327123268e-05, squared loss is 0.058522194623947144
+Best error for point 11360 is having absolute error of 9.532318327123268e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.045680221170186996
+best error is 0.00014268144423925142, in best estimate-indx is 0.00014268144423925142, squared loss is 0.045680221170186996
+Best error for point 11361 is having absolute error of 0.00014268144423925142
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05121492221951485
+best error is 5.12797728727152e-05, in best estimate-indx is 5.12797728727152e-05, squared loss is 0.05121492221951485
+Best error for point 11362 is having absolute error of 5.12797728727152e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05279838666319847
+best error is 0.00019457370762130012, in best estimate-indx is 0.00019457370762130012, squared loss is 0.05279838666319847
+Best error for point 11363 is having absolute error of 0.00019457370762130012
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06404932588338852
+best error is 0.00021637304119409968, in best estimate-indx is 0.00021637304119409968, squared loss is 0.06404932588338852
+Best error for point 11364 is having absolute error of 0.00021637304119409968
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.042994532734155655
+best error is 0.00013310600539601924, in best estimate-indx is 0.00013310600539601924, squared loss is 0.042994532734155655
+Best error for point 11365 is having absolute error of 0.00013310600539601924
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04301009327173233
+best error is 8.955849430598732e-05, in best estimate-indx is 8.955849430598732e-05, squared loss is 0.04301009327173233
+Best error for point 11366 is having absolute error of 8.955849430598732e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04686355218291283
+best error is 3.000829753072067e-05, in best estimate-indx is 3.000829753072067e-05, squared loss is 0.04686355218291283
+Best error for point 11367 is having absolute error of 3.000829753072067e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.09550321847200394
+best error is 8.89188359227323e-05, in best estimate-indx is 8.89188359227323e-05, squared loss is 0.09550321847200394
+Best error for point 11368 is having absolute error of 8.89188359227323e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06462066620588303
+best error is 0.0004208820576543172, in best estimate-indx is 0.0004208820576543172, squared loss is 0.06462066620588303
+Best error for point 11369 is having absolute error of 0.0004208820576543172
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06309755146503448
+best error is 0.0003020125595449831, in best estimate-indx is 0.0003020125595449831, squared loss is 0.06309755146503448
+Best error for point 11370 is having absolute error of 0.0003020125595449831
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06489477306604385
+best error is 0.0001100031470766015, in best estimate-indx is 0.0001100031470766015, squared loss is 0.06489477306604385
+Best error for point 11371 is having absolute error of 0.0001100031470766015
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.049297865480184555
+best error is 0.0001556131430319933, in best estimate-indx is 0.0001556131430319933, squared loss is 0.049297865480184555
+Best error for point 11372 is having absolute error of 0.0001556131430319933
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.038940198719501495
+best error is 0.00017566674680054504, in best estimate-indx is 0.00017566674680054504, squared loss is 0.038940198719501495
+Best error for point 11373 is having absolute error of 0.00017566674680054504
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.036490049213171005
+best error is 7.952862555706005e-05, in best estimate-indx is 7.952862555706005e-05, squared loss is 0.036490049213171005
+Best error for point 11374 is having absolute error of 7.952862555706005e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07748474180698395
+best error is 0.00035899547775418384, in best estimate-indx is 0.00035899547775418384, squared loss is 0.07748474180698395
+Best error for point 11375 is having absolute error of 0.00035899547775418384
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06029365956783295
+best error is 0.00014417457369334295, in best estimate-indx is 0.00014417457369334295, squared loss is 0.06029365956783295
+Best error for point 11376 is having absolute error of 0.00014417457369334295
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.054209399968385696
+best error is 0.00013528434012923248, in best estimate-indx is 0.00013528434012923248, squared loss is 0.054209399968385696
+Best error for point 11377 is having absolute error of 0.00013528434012923248
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06492415070533752
+best error is 0.0007047781649286919, in best estimate-indx is 0.0007047781649286919, squared loss is 0.06492415070533752
+Best error for point 11378 is having absolute error of 0.0007047781649286919
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06341414153575897
+best error is 0.0001027396096973966, in best estimate-indx is 0.0001027396096973966, squared loss is 0.06341414153575897
+Best error for point 11379 is having absolute error of 0.0001027396096973966
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.056867629289627075
+best error is 0.00017139436715465006, in best estimate-indx is 0.00017139436715465006, squared loss is 0.056867629289627075
+Best error for point 11380 is having absolute error of 0.00017139436715465006
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06662920117378235
+best error is 0.00039582418922302573, in best estimate-indx is 0.00039582418922302573, squared loss is 0.06662920117378235
+Best error for point 11381 is having absolute error of 0.00039582418922302573
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05736090615391731
+best error is 0.00012775782490986466, in best estimate-indx is 0.00012775782490986466, squared loss is 0.05736090615391731
+Best error for point 11382 is having absolute error of 0.00012775782490986466
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.042001139372587204
+best error is 0.00023713381650004558, in best estimate-indx is 0.00023713381650004558, squared loss is 0.042001139372587204
+Best error for point 11383 is having absolute error of 0.00023713381650004558
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06030596047639847
+best error is 0.00019402982627862456, in best estimate-indx is 0.00019402982627862456, squared loss is 0.06030596047639847
+Best error for point 11384 is having absolute error of 0.00019402982627862456
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06586597114801407
+best error is 0.00013736672187096715, in best estimate-indx is 0.00013736672187096715, squared loss is 0.06586597114801407
+Best error for point 11385 is having absolute error of 0.00013736672187096715
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04602448642253876
+best error is 0.00044134449636214023, in best estimate-indx is 0.00044134449636214023, squared loss is 0.04602448642253876
+Best error for point 11386 is having absolute error of 0.00044134449636214023
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.043762337416410446
+best error is 0.00020142741985855407, in best estimate-indx is 0.00020142741985855407, squared loss is 0.043762337416410446
+Best error for point 11387 is having absolute error of 0.00020142741985855407
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05172596126794815
+best error is 0.0001466102568937262, in best estimate-indx is 0.0001466102568937262, squared loss is 0.05172596126794815
+Best error for point 11388 is having absolute error of 0.0001466102568937262
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05882071331143379
+best error is 0.00040923428509623413, in best estimate-indx is 0.00040923428509623413, squared loss is 0.05882071331143379
+Best error for point 11389 is having absolute error of 0.00040923428509623413
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03557535633444786
+best error is 8.148567008587861e-05, in best estimate-indx is 8.148567008587861e-05, squared loss is 0.03557535633444786
+Best error for point 11390 is having absolute error of 8.148567008587861e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03664129227399826
+best error is 0.00010416948640900346, in best estimate-indx is 0.00010416948640900346, squared loss is 0.03664129227399826
+Best error for point 11391 is having absolute error of 0.00010416948640900346
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05988874286413193
+best error is 0.00011941980612576635, in best estimate-indx is 0.00011941980612576635, squared loss is 0.05988874286413193
+Best error for point 11392 is having absolute error of 0.00011941980612576635
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05650165304541588
+best error is 8.941803251201244e-05, in best estimate-indx is 8.941803251201244e-05, squared loss is 0.05650165304541588
+Best error for point 11393 is having absolute error of 8.941803251201244e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05020834878087044
+best error is 0.00044499493014632985, in best estimate-indx is 0.00044499493014632985, squared loss is 0.05020834878087044
+Best error for point 11394 is having absolute error of 0.00044499493014632985
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0362369678914547
+best error is 9.206629463466971e-05, in best estimate-indx is 9.206629463466971e-05, squared loss is 0.0362369678914547
+Best error for point 11395 is having absolute error of 9.206629463466971e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0432438999414444
+best error is 6.133612666091748e-05, in best estimate-indx is 6.133612666091748e-05, squared loss is 0.0432438999414444
+Best error for point 11396 is having absolute error of 6.133612666091748e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04926387965679169
+best error is 0.0003448686010699943, in best estimate-indx is 0.0003448686010699943, squared loss is 0.04926387965679169
+Best error for point 11397 is having absolute error of 0.0003448686010699943
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06960783153772354
+best error is 0.0003102948937101142, in best estimate-indx is 0.0003102948937101142, squared loss is 0.06960783153772354
+Best error for point 11398 is having absolute error of 0.0003102948937101142
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07289465516805649
+best error is 8.508010739109796e-05, in best estimate-indx is 8.508010739109796e-05, squared loss is 0.07289465516805649
+Best error for point 11399 is having absolute error of 8.508010739109796e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03653161972761154
+best error is 0.00020740744175828802, in best estimate-indx is 0.00020740744175828802, squared loss is 0.03653161972761154
+Best error for point 11400 is having absolute error of 0.00020740744175828802
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06190956383943558
+best error is 0.00027173760322979053, in best estimate-indx is 0.00027173760322979053, squared loss is 0.06190956383943558
+Best error for point 11401 is having absolute error of 0.00027173760322979053
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.053321920335292816
+best error is 0.0002184189902482127, in best estimate-indx is 0.0002184189902482127, squared loss is 0.053321920335292816
+Best error for point 11402 is having absolute error of 0.0002184189902482127
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0380413793027401
+best error is 0.00021183125893328825, in best estimate-indx is 0.00021183125893328825, squared loss is 0.0380413793027401
+Best error for point 11403 is having absolute error of 0.00021183125893328825
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07522523403167725
+best error is 0.00017489338266513788, in best estimate-indx is 0.00017489338266513788, squared loss is 0.07522523403167725
+Best error for point 11404 is having absolute error of 0.00017489338266513788
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.031101232394576073
+best error is 0.00029907886612036785, in best estimate-indx is 0.00029907886612036785, squared loss is 0.031101232394576073
+Best error for point 11405 is having absolute error of 0.00029907886612036785
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03320908918976784
+best error is 9.950240147668099e-05, in best estimate-indx is 9.950240147668099e-05, squared loss is 0.03320908918976784
+Best error for point 11406 is having absolute error of 9.950240147668099e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03975667804479599
+best error is 5.303510148319001e-05, in best estimate-indx is 5.303510148319001e-05, squared loss is 0.03975667804479599
+Best error for point 11407 is having absolute error of 5.303510148319001e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.052325066179037094
+best error is 7.774931776151089e-05, in best estimate-indx is 7.774931776151089e-05, squared loss is 0.052325066179037094
+Best error for point 11408 is having absolute error of 7.774931776151089e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06410543620586395
+best error is 0.00030764664336047195, in best estimate-indx is 0.00030764664336047195, squared loss is 0.06410543620586395
+Best error for point 11409 is having absolute error of 0.00030764664336047195
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04141809791326523
+best error is 0.00016146596076549452, in best estimate-indx is 0.00016146596076549452, squared loss is 0.04141809791326523
+Best error for point 11410 is having absolute error of 0.00016146596076549452
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04121776297688484
+best error is 0.00032905732782086833, in best estimate-indx is 0.00032905732782086833, squared loss is 0.04121776297688484
+Best error for point 11411 is having absolute error of 0.00032905732782086833
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07099518924951553
+best error is 0.00016120819990228356, in best estimate-indx is 0.00016120819990228356, squared loss is 0.07099518924951553
+Best error for point 11412 is having absolute error of 0.00016120819990228356
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05199025943875313
+best error is 0.00027092043157227874, in best estimate-indx is 0.00027092043157227874, squared loss is 0.05199025943875313
+Best error for point 11413 is having absolute error of 0.00027092043157227874
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.046426285058259964
+best error is 0.0002631067326488043, in best estimate-indx is 0.0002631067326488043, squared loss is 0.046426285058259964
+Best error for point 11414 is having absolute error of 0.0002631067326488043
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06635860353708267
+best error is 8.549334597184586e-05, in best estimate-indx is 8.549334597184586e-05, squared loss is 0.06635860353708267
+Best error for point 11415 is having absolute error of 8.549334597184586e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06144832447171211
+best error is 0.00022555235084291322, in best estimate-indx is 0.00022555235084291322, squared loss is 0.06144832447171211
+Best error for point 11416 is having absolute error of 0.00022555235084291322
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.08326281607151031
+best error is 0.0002460700950738018, in best estimate-indx is 0.0002460700950738018, squared loss is 0.08326281607151031
+Best error for point 11417 is having absolute error of 0.0002460700950738018
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04313134402036667
+best error is 9.611386713541239e-05, in best estimate-indx is 9.611386713541239e-05, squared loss is 0.04313134402036667
+Best error for point 11418 is having absolute error of 9.611386713541239e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.050334639847278595
+best error is 5.262677363787374e-05, in best estimate-indx is 5.262677363787374e-05, squared loss is 0.050334639847278595
+Best error for point 11419 is having absolute error of 5.262677363787374e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04050061106681824
+best error is 5.1603319178820324e-05, in best estimate-indx is 5.1603319178820324e-05, squared loss is 0.04050061106681824
+Best error for point 11420 is having absolute error of 5.1603319178820324e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06495393812656403
+best error is 0.00022692563860763777, in best estimate-indx is 0.00022692563860763777, squared loss is 0.06495393812656403
+Best error for point 11421 is having absolute error of 0.00022692563860763777
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04726209491491318
+best error is 0.0002665993886220683, in best estimate-indx is 0.0002665993886220683, squared loss is 0.04726209491491318
+Best error for point 11422 is having absolute error of 0.0002665993886220683
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.045390885323286057
+best error is 5.431894260192745e-05, in best estimate-indx is 5.431894260192745e-05, squared loss is 0.045390885323286057
+Best error for point 11423 is having absolute error of 5.431894260192745e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0595574676990509
+best error is 0.00020081088770133152, in best estimate-indx is 0.00020081088770133152, squared loss is 0.0595574676990509
+Best error for point 11424 is having absolute error of 0.00020081088770133152
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.036749765276908875
+best error is 0.00029101159354894446, in best estimate-indx is 0.00029101159354894446, squared loss is 0.036749765276908875
+Best error for point 11425 is having absolute error of 0.00029101159354894446
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.048447538167238235
+best error is 0.00024033737179736124, in best estimate-indx is 0.00024033737179736124, squared loss is 0.048447538167238235
+Best error for point 11426 is having absolute error of 0.00024033737179736124
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07718385010957718
+best error is 0.00026419877159848557, in best estimate-indx is 0.00026419877159848557, squared loss is 0.07718385010957718
+Best error for point 11427 is having absolute error of 0.00026419877159848557
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04443959891796112
+best error is 0.0001399524301926125, in best estimate-indx is 0.0001399524301926125, squared loss is 0.04443959891796112
+Best error for point 11428 is having absolute error of 0.0001399524301926125
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07144735008478165
+best error is 0.0003437248137654364, in best estimate-indx is 0.0003437248137654364, squared loss is 0.07144735008478165
+Best error for point 11429 is having absolute error of 0.0003437248137654364
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04523880407214165
+best error is 0.0001066861512601274, in best estimate-indx is 0.0001066861512601274, squared loss is 0.04523880407214165
+Best error for point 11430 is having absolute error of 0.0001066861512601274
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03474481403827667
+best error is 0.00015605540922702235, in best estimate-indx is 0.00015605540922702235, squared loss is 0.03474481403827667
+Best error for point 11431 is having absolute error of 0.00015605540922702235
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04284638538956642
+best error is 5.643700093138087e-05, in best estimate-indx is 5.643700093138087e-05, squared loss is 0.04284638538956642
+Best error for point 11432 is having absolute error of 5.643700093138087e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06855712085962296
+best error is 0.0005231854313634013, in best estimate-indx is 0.0005231854313634013, squared loss is 0.06855712085962296
+Best error for point 11433 is having absolute error of 0.0005231854313634013
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05401408672332764
+best error is 0.00022797483545377586, in best estimate-indx is 0.00022797483545377586, squared loss is 0.05401408672332764
+Best error for point 11434 is having absolute error of 0.00022797483545377586
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05545869469642639
+best error is 0.0001881735721603741, in best estimate-indx is 0.0001881735721603741, squared loss is 0.05545869469642639
+Best error for point 11435 is having absolute error of 0.0001881735721603741
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06581474840641022
+best error is 0.0002591223362012239, in best estimate-indx is 0.0002591223362012239, squared loss is 0.06581474840641022
+Best error for point 11436 is having absolute error of 0.0002591223362012239
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.033159948885440826
+best error is 7.640952099605876e-05, in best estimate-indx is 7.640952099605876e-05, squared loss is 0.033159948885440826
+Best error for point 11437 is having absolute error of 7.640952099605876e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.053075168281793594
+best error is 0.00017774943333017366, in best estimate-indx is 0.00017774943333017366, squared loss is 0.053075168281793594
+Best error for point 11438 is having absolute error of 0.00017774943333017366
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03858337178826332
+best error is 5.088140396489072e-05, in best estimate-indx is 5.088140396489072e-05, squared loss is 0.03858337178826332
+Best error for point 11439 is having absolute error of 5.088140396489072e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.032381702214479446
+best error is 0.0001182073324687445, in best estimate-indx is 0.0001182073324687445, squared loss is 0.032381702214479446
+Best error for point 11440 is having absolute error of 0.0001182073324687445
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.043875016272068024
+best error is 0.00038816822720723923, in best estimate-indx is 0.00038816822720723923, squared loss is 0.043875016272068024
+Best error for point 11441 is having absolute error of 0.00038816822720723923
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.050572071224451065
+best error is 0.00011829056077788734, in best estimate-indx is 0.00011829056077788734, squared loss is 0.050572071224451065
+Best error for point 11442 is having absolute error of 0.00011829056077788734
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04944271966814995
+best error is 0.0001877453082760558, in best estimate-indx is 0.0001877453082760558, squared loss is 0.04944271966814995
+Best error for point 11443 is having absolute error of 0.0001877453082760558
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05402756854891777
+best error is 0.0003935852295491728, in best estimate-indx is 0.0003935852295491728, squared loss is 0.05402756854891777
+Best error for point 11444 is having absolute error of 0.0003935852295491728
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04688011854887009
+best error is 0.00019116498825262227, in best estimate-indx is 0.00019116498825262227, squared loss is 0.04688011854887009
+Best error for point 11445 is having absolute error of 0.00019116498825262227
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07847262173891068
+best error is 0.00015744266423579483, in best estimate-indx is 0.00015744266423579483, squared loss is 0.07847262173891068
+Best error for point 11446 is having absolute error of 0.00015744266423579483
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.050355639308691025
+best error is 0.0002487103573959522, in best estimate-indx is 0.0002487103573959522, squared loss is 0.050355639308691025
+Best error for point 11447 is having absolute error of 0.0002487103573959522
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04973330348730087
+best error is 8.197711226902091e-05, in best estimate-indx is 8.197711226902091e-05, squared loss is 0.04973330348730087
+Best error for point 11448 is having absolute error of 8.197711226902091e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.062340568751096725
+best error is 0.0003899629103495485, in best estimate-indx is 0.0003899629103495485, squared loss is 0.062340568751096725
+Best error for point 11449 is having absolute error of 0.0003899629103495485
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05884796008467674
+best error is 0.00016746277888696887, in best estimate-indx is 0.00016746277888696887, squared loss is 0.05884796008467674
+Best error for point 11450 is having absolute error of 0.00016746277888696887
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06031293421983719
+best error is 0.0001748506704937632, in best estimate-indx is 0.0001748506704937632, squared loss is 0.06031293421983719
+Best error for point 11451 is having absolute error of 0.0001748506704937632
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03895138204097748
+best error is 0.00016453107787540934, in best estimate-indx is 0.00016453107787540934, squared loss is 0.03895138204097748
+Best error for point 11452 is having absolute error of 0.00016453107787540934
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04005111753940582
+best error is 0.0003500248162791391, in best estimate-indx is 0.0003500248162791391, squared loss is 0.04005111753940582
+Best error for point 11453 is having absolute error of 0.0003500248162791391
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.045165129005908966
+best error is 6.774373638978254e-05, in best estimate-indx is 6.774373638978254e-05, squared loss is 0.045165129005908966
+Best error for point 11454 is having absolute error of 6.774373638978254e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04005990922451019
+best error is 4.562507831016693e-05, in best estimate-indx is 4.562507831016693e-05, squared loss is 0.04005990922451019
+Best error for point 11455 is having absolute error of 4.562507831016693e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.041022107005119324
+best error is 0.00011707873103307142, in best estimate-indx is 0.00011707873103307142, squared loss is 0.041022107005119324
+Best error for point 11456 is having absolute error of 0.00011707873103307142
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05894785374403
+best error is 0.00030594240130849817, in best estimate-indx is 0.00030594240130849817, squared loss is 0.05894785374403
+Best error for point 11457 is having absolute error of 0.00030594240130849817
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07779549062252045
+best error is 0.00048678465888439803, in best estimate-indx is 0.00048678465888439803, squared loss is 0.07779549062252045
+Best error for point 11458 is having absolute error of 0.00048678465888439803
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05871139094233513
+best error is 0.00016993120177523862, in best estimate-indx is 0.00016993120177523862, squared loss is 0.05871139094233513
+Best error for point 11459 is having absolute error of 0.00016993120177523862
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03625163808465004
+best error is 0.00018294406064326817, in best estimate-indx is 0.00018294406064326817, squared loss is 0.03625163808465004
+Best error for point 11460 is having absolute error of 0.00018294406064326817
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05008981376886368
+best error is 9.151628649419054e-05, in best estimate-indx is 9.151628649419054e-05, squared loss is 0.05008981376886368
+Best error for point 11461 is having absolute error of 9.151628649419054e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07894348353147507
+best error is 0.00034245135683192985, in best estimate-indx is 0.00034245135683192985, squared loss is 0.07894348353147507
+Best error for point 11462 is having absolute error of 0.00034245135683192985
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.043885502964258194
+best error is 8.050913434395412e-05, in best estimate-indx is 8.050913434395412e-05, squared loss is 0.043885502964258194
+Best error for point 11463 is having absolute error of 8.050913434395412e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.08687329292297363
+best error is 0.00021459400857049205, in best estimate-indx is 0.00021459400857049205, squared loss is 0.08687329292297363
+Best error for point 11464 is having absolute error of 0.00021459400857049205
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.048206135630607605
+best error is 0.0005422334967359778, in best estimate-indx is 0.0005422334967359778, squared loss is 0.048206135630607605
+Best error for point 11465 is having absolute error of 0.0005422334967359778
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.054939623922109604
+best error is 0.00018969250279768092, in best estimate-indx is 0.00018969250279768092, squared loss is 0.054939623922109604
+Best error for point 11466 is having absolute error of 0.00018969250279768092
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.040396880358457565
+best error is 0.00034866691048683965, in best estimate-indx is 0.00034866691048683965, squared loss is 0.040396880358457565
+Best error for point 11467 is having absolute error of 0.00034866691048683965
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06833971291780472
+best error is 0.00011048441709034598, in best estimate-indx is 0.00011048441709034598, squared loss is 0.06833971291780472
+Best error for point 11468 is having absolute error of 0.00011048441709034598
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07338040322065353
+best error is 0.00022461691339421922, in best estimate-indx is 0.00022461691339421922, squared loss is 0.07338040322065353
+Best error for point 11469 is having absolute error of 0.00022461691339421922
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06395416706800461
+best error is 0.000290907987331372, in best estimate-indx is 0.000290907987331372, squared loss is 0.06395416706800461
+Best error for point 11470 is having absolute error of 0.000290907987331372
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06911072134971619
+best error is 0.0003444556166918338, in best estimate-indx is 0.0003444556166918338, squared loss is 0.06911072134971619
+Best error for point 11471 is having absolute error of 0.0003444556166918338
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03220998868346214
+best error is 0.00011319355053006358, in best estimate-indx is 0.00011319355053006358, squared loss is 0.03220998868346214
+Best error for point 11472 is having absolute error of 0.00011319355053006358
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05979302525520325
+best error is 0.00027367322831065943, in best estimate-indx is 0.00027367322831065943, squared loss is 0.05979302525520325
+Best error for point 11473 is having absolute error of 0.00027367322831065943
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06866254657506943
+best error is 0.000246587661140145, in best estimate-indx is 0.000246587661140145, squared loss is 0.06866254657506943
+Best error for point 11474 is having absolute error of 0.000246587661140145
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06056778132915497
+best error is 7.003694717230252e-05, in best estimate-indx is 7.003694717230252e-05, squared loss is 0.06056778132915497
+Best error for point 11475 is having absolute error of 7.003694717230252e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06040478125214577
+best error is 0.00022022479464730112, in best estimate-indx is 0.00022022479464730112, squared loss is 0.06040478125214577
+Best error for point 11476 is having absolute error of 0.00022022479464730112
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0509808175265789
+best error is 0.00030058652734800195, in best estimate-indx is 0.00030058652734800195, squared loss is 0.0509808175265789
+Best error for point 11477 is having absolute error of 0.00030058652734800195
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06684138625860214
+best error is 0.00031751522720326595, in best estimate-indx is 0.00031751522720326595, squared loss is 0.06684138625860214
+Best error for point 11478 is having absolute error of 0.00031751522720326595
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04596415162086487
+best error is 0.00021722820500420307, in best estimate-indx is 0.00021722820500420307, squared loss is 0.04596415162086487
+Best error for point 11479 is having absolute error of 0.00021722820500420307
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.052290912717580795
+best error is 0.00045266404807378126, in best estimate-indx is 0.00045266404807378126, squared loss is 0.052290912717580795
+Best error for point 11480 is having absolute error of 0.00045266404807378126
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05074675381183624
+best error is 0.0004922991778562692, in best estimate-indx is 0.0004922991778562692, squared loss is 0.05074675381183624
+Best error for point 11481 is having absolute error of 0.0004922991778562692
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04963366314768791
+best error is 0.0002064725897212525, in best estimate-indx is 0.0002064725897212525, squared loss is 0.04963366314768791
+Best error for point 11482 is having absolute error of 0.0002064725897212525
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07781325280666351
+best error is 0.000262773755001227, in best estimate-indx is 0.000262773755001227, squared loss is 0.07781325280666351
+Best error for point 11483 is having absolute error of 0.000262773755001227
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07427026331424713
+best error is 0.00031759047692671836, in best estimate-indx is 0.00031759047692671836, squared loss is 0.07427026331424713
+Best error for point 11484 is having absolute error of 0.00031759047692671836
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04840376600623131
+best error is 0.00011784412033202739, in best estimate-indx is 0.00011784412033202739, squared loss is 0.04840376600623131
+Best error for point 11485 is having absolute error of 0.00011784412033202739
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06131713464856148
+best error is 0.00012453560584195286, in best estimate-indx is 0.00012453560584195286, squared loss is 0.06131713464856148
+Best error for point 11486 is having absolute error of 0.00012453560584195286
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06195877864956856
+best error is 0.00018185225983842322, in best estimate-indx is 0.00018185225983842322, squared loss is 0.06195877864956856
+Best error for point 11487 is having absolute error of 0.00018185225983842322
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05839955806732178
+best error is 0.0002637543511722891, in best estimate-indx is 0.0002637543511722891, squared loss is 0.05839955806732178
+Best error for point 11488 is having absolute error of 0.0002637543511722891
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06037513539195061
+best error is 0.00021872593343554134, in best estimate-indx is 0.00021872593343554134, squared loss is 0.06037513539195061
+Best error for point 11489 is having absolute error of 0.00021872593343554134
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05384458228945732
+best error is 0.00015035523908093714, in best estimate-indx is 0.00015035523908093714, squared loss is 0.05384458228945732
+Best error for point 11490 is having absolute error of 0.00015035523908093714
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04292264208197594
+best error is 0.00011654580986430923, in best estimate-indx is 0.00011654580986430923, squared loss is 0.04292264208197594
+Best error for point 11491 is having absolute error of 0.00011654580986430923
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03512723371386528
+best error is 4.74493969321098e-05, in best estimate-indx is 4.74493969321098e-05, squared loss is 0.03512723371386528
+Best error for point 11492 is having absolute error of 4.74493969321098e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.050599128007888794
+best error is 5.061587742557449e-05, in best estimate-indx is 5.061587742557449e-05, squared loss is 0.050599128007888794
+Best error for point 11493 is having absolute error of 5.061587742557449e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06652835756540298
+best error is 0.00028079399685892407, in best estimate-indx is 0.00028079399685892407, squared loss is 0.06652835756540298
+Best error for point 11494 is having absolute error of 0.00028079399685892407
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05363469198346138
+best error is 0.0001984579865039038, in best estimate-indx is 0.0001984579865039038, squared loss is 0.05363469198346138
+Best error for point 11495 is having absolute error of 0.0001984579865039038
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03600999712944031
+best error is 0.00016962691057871985, in best estimate-indx is 0.00016962691057871985, squared loss is 0.03600999712944031
+Best error for point 11496 is having absolute error of 0.00016962691057871985
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07490367442369461
+best error is 0.00020130288736529433, in best estimate-indx is 0.00020130288736529433, squared loss is 0.07490367442369461
+Best error for point 11497 is having absolute error of 0.00020130288736529433
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04337835684418678
+best error is 0.00011679414889869747, in best estimate-indx is 0.00011679414889869747, squared loss is 0.04337835684418678
+Best error for point 11498 is having absolute error of 0.00011679414889869747
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06836235523223877
+best error is 0.0004429292890592761, in best estimate-indx is 0.0004429292890592761, squared loss is 0.06836235523223877
+Best error for point 11499 is having absolute error of 0.0004429292890592761
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05828752741217613
+best error is 0.000203500805617463, in best estimate-indx is 0.000203500805617463, squared loss is 0.05828752741217613
+Best error for point 11500 is having absolute error of 0.000203500805617463
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07098075747489929
+best error is 0.0004048523181186898, in best estimate-indx is 0.0004048523181186898, squared loss is 0.07098075747489929
+Best error for point 11501 is having absolute error of 0.0004048523181186898
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03949756920337677
+best error is 0.00019209001372193923, in best estimate-indx is 0.00019209001372193923, squared loss is 0.03949756920337677
+Best error for point 11502 is having absolute error of 0.00019209001372193923
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.08454369753599167
+best error is 0.00024995956900399237, in best estimate-indx is 0.00024995956900399237, squared loss is 0.08454369753599167
+Best error for point 11503 is having absolute error of 0.00024995956900399237
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0596483014523983
+best error is 0.0003727030706389922, in best estimate-indx is 0.0003727030706389922, squared loss is 0.0596483014523983
+Best error for point 11504 is having absolute error of 0.0003727030706389922
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.038080256432294846
+best error is 0.00012112562303550045, in best estimate-indx is 0.00012112562303550045, squared loss is 0.038080256432294846
+Best error for point 11505 is having absolute error of 0.00012112562303550045
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04304433614015579
+best error is 0.00021959867535393415, in best estimate-indx is 0.00021959867535393415, squared loss is 0.04304433614015579
+Best error for point 11506 is having absolute error of 0.00021959867535393415
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06332061439752579
+best error is 0.00021326245275458044, in best estimate-indx is 0.00021326245275458044, squared loss is 0.06332061439752579
+Best error for point 11507 is having absolute error of 0.00021326245275458044
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03263785317540169
+best error is 6.511669620781147e-05, in best estimate-indx is 6.511669620781147e-05, squared loss is 0.03263785317540169
+Best error for point 11508 is having absolute error of 6.511669620781147e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.037938520312309265
+best error is 0.00017405850658303119, in best estimate-indx is 0.00017405850658303119, squared loss is 0.037938520312309265
+Best error for point 11509 is having absolute error of 0.00017405850658303119
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07046007364988327
+best error is 0.0002691971334635804, in best estimate-indx is 0.0002691971334635804, squared loss is 0.07046007364988327
+Best error for point 11510 is having absolute error of 0.0002691971334635804
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06517407298088074
+best error is 0.00011757100350234036, in best estimate-indx is 0.00011757100350234036, squared loss is 0.06517407298088074
+Best error for point 11511 is having absolute error of 0.00011757100350234036
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.053772591054439545
+best error is 0.00010536054288737149, in best estimate-indx is 0.00010536054288737149, squared loss is 0.053772591054439545
+Best error for point 11512 is having absolute error of 0.00010536054288737149
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.040133342146873474
+best error is 7.387793689325088e-05, in best estimate-indx is 7.387793689325088e-05, squared loss is 0.040133342146873474
+Best error for point 11513 is having absolute error of 7.387793689325088e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06165022775530815
+best error is 8.469001501539854e-05, in best estimate-indx is 8.469001501539854e-05, squared loss is 0.06165022775530815
+Best error for point 11514 is having absolute error of 8.469001501539854e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.037404656410217285
+best error is 0.00012779640991688416, in best estimate-indx is 0.00012779640991688416, squared loss is 0.037404656410217285
+Best error for point 11515 is having absolute error of 0.00012779640991688416
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.040545228868722916
+best error is 0.0002387522111100518, in best estimate-indx is 0.0002387522111100518, squared loss is 0.040545228868722916
+Best error for point 11516 is having absolute error of 0.0002387522111100518
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07409928739070892
+best error is 0.00022417092433538174, in best estimate-indx is 0.00022417092433538174, squared loss is 0.07409928739070892
+Best error for point 11517 is having absolute error of 0.00022417092433538174
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.055636823177337646
+best error is 0.0003469660382391546, in best estimate-indx is 0.0003469660382391546, squared loss is 0.055636823177337646
+Best error for point 11518 is having absolute error of 0.0003469660382391546
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0833209902048111
+best error is 0.0005878192338876885, in best estimate-indx is 0.0005878192338876885, squared loss is 0.0833209902048111
+Best error for point 11519 is having absolute error of 0.0005878192338876885
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05567276477813721
+best error is 0.00011749827090232778, in best estimate-indx is 0.00011749827090232778, squared loss is 0.05567276477813721
+Best error for point 11520 is having absolute error of 0.00011749827090232778
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07191509753465652
+best error is 8.573829382129233e-05, in best estimate-indx is 8.573829382129233e-05, squared loss is 0.07191509753465652
+Best error for point 11521 is having absolute error of 8.573829382129233e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05411738529801369
+best error is 9.865910701035784e-05, in best estimate-indx is 9.865910701035784e-05, squared loss is 0.05411738529801369
+Best error for point 11522 is having absolute error of 9.865910701035784e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06786113232374191
+best error is 0.0002869105957368499, in best estimate-indx is 0.0002869105957368499, squared loss is 0.06786113232374191
+Best error for point 11523 is having absolute error of 0.0002869105957368499
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06871537119150162
+best error is 0.00011032814218694286, in best estimate-indx is 0.00011032814218694286, squared loss is 0.06871537119150162
+Best error for point 11524 is having absolute error of 0.00011032814218694286
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03651855140924454
+best error is 0.0001637582352580568, in best estimate-indx is 0.0001637582352580568, squared loss is 0.03651855140924454
+Best error for point 11525 is having absolute error of 0.0001637582352580568
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.038969237357378006
+best error is 0.00013460715778906504, in best estimate-indx is 0.00013460715778906504, squared loss is 0.038969237357378006
+Best error for point 11526 is having absolute error of 0.00013460715778906504
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07854732125997543
+best error is 0.0004908607613635331, in best estimate-indx is 0.0004908607613635331, squared loss is 0.07854732125997543
+Best error for point 11527 is having absolute error of 0.0004908607613635331
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04179959371685982
+best error is 5.465335212935029e-05, in best estimate-indx is 5.465335212935029e-05, squared loss is 0.04179959371685982
+Best error for point 11528 is having absolute error of 5.465335212935029e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.09706930071115494
+best error is 0.00015569369771036208, in best estimate-indx is 0.00015569369771036208, squared loss is 0.09706930071115494
+Best error for point 11529 is having absolute error of 0.00015569369771036208
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06978645920753479
+best error is 0.00027655295235685153, in best estimate-indx is 0.00027655295235685153, squared loss is 0.06978645920753479
+Best error for point 11530 is having absolute error of 0.00027655295235685153
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05091819912195206
+best error is 0.0004726190219331308, in best estimate-indx is 0.0004726190219331308, squared loss is 0.05091819912195206
+Best error for point 11531 is having absolute error of 0.0004726190219331308
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.038697052747011185
+best error is 0.0002443115572561366, in best estimate-indx is 0.0002443115572561366, squared loss is 0.038697052747011185
+Best error for point 11532 is having absolute error of 0.0002443115572561366
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04601547494530678
+best error is 0.00028698181481280925, in best estimate-indx is 0.00028698181481280925, squared loss is 0.04601547494530678
+Best error for point 11533 is having absolute error of 0.00028698181481280925
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.051200948655605316
+best error is 0.00029260781338313126, in best estimate-indx is 0.00029260781338313126, squared loss is 0.051200948655605316
+Best error for point 11534 is having absolute error of 0.00029260781338313126
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0393630675971508
+best error is 7.698034568638318e-05, in best estimate-indx is 7.698034568638318e-05, squared loss is 0.0393630675971508
+Best error for point 11535 is having absolute error of 7.698034568638318e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04401984065771103
+best error is 4.053380802775605e-05, in best estimate-indx is 4.053380802775605e-05, squared loss is 0.04401984065771103
+Best error for point 11536 is having absolute error of 4.053380802775605e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04019178822636604
+best error is 0.00012820960459778948, in best estimate-indx is 0.00012820960459778948, squared loss is 0.04019178822636604
+Best error for point 11537 is having absolute error of 0.00012820960459778948
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.050171587616205215
+best error is 0.00015106853408658003, in best estimate-indx is 0.00015106853408658003, squared loss is 0.050171587616205215
+Best error for point 11538 is having absolute error of 0.00015106853408658003
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03579827398061752
+best error is 0.00011364411275767014, in best estimate-indx is 0.00011364411275767014, squared loss is 0.03579827398061752
+Best error for point 11539 is having absolute error of 0.00011364411275767014
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.050407834351062775
+best error is 0.00015076264630511918, in best estimate-indx is 0.00015076264630511918, squared loss is 0.050407834351062775
+Best error for point 11540 is having absolute error of 0.00015076264630511918
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04528529942035675
+best error is 0.0001376315392626041, in best estimate-indx is 0.0001376315392626041, squared loss is 0.04528529942035675
+Best error for point 11541 is having absolute error of 0.0001376315392626041
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.055673304945230484
+best error is 9.892249312909562e-05, in best estimate-indx is 9.892249312909562e-05, squared loss is 0.055673304945230484
+Best error for point 11542 is having absolute error of 9.892249312909562e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.040730975568294525
+best error is 7.534586153018404e-05, in best estimate-indx is 7.534586153018404e-05, squared loss is 0.040730975568294525
+Best error for point 11543 is having absolute error of 7.534586153018404e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03882420435547829
+best error is 5.7134972938402816e-05, in best estimate-indx is 5.7134972938402816e-05, squared loss is 0.03882420435547829
+Best error for point 11544 is having absolute error of 5.7134972938402816e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05055525153875351
+best error is 0.0001583908394283077, in best estimate-indx is 0.0001583908394283077, squared loss is 0.05055525153875351
+Best error for point 11545 is having absolute error of 0.0001583908394283077
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.054288867861032486
+best error is 7.893277124336345e-05, in best estimate-indx is 7.893277124336345e-05, squared loss is 0.054288867861032486
+Best error for point 11546 is having absolute error of 7.893277124336345e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0507318414747715
+best error is 0.0006015251689741013, in best estimate-indx is 0.0006015251689741013, squared loss is 0.0507318414747715
+Best error for point 11547 is having absolute error of 0.0006015251689741013
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04794568568468094
+best error is 0.00030881515626749356, in best estimate-indx is 0.00030881515626749356, squared loss is 0.04794568568468094
+Best error for point 11548 is having absolute error of 0.00030881515626749356
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.053203076124191284
+best error is 0.00020242777534387713, in best estimate-indx is 0.00020242777534387713, squared loss is 0.053203076124191284
+Best error for point 11549 is having absolute error of 0.00020242777534387713
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05840739980340004
+best error is 0.0003108460238796471, in best estimate-indx is 0.0003108460238796471, squared loss is 0.05840739980340004
+Best error for point 11550 is having absolute error of 0.0003108460238796471
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05055786669254303
+best error is 8.885226316585336e-05, in best estimate-indx is 8.885226316585336e-05, squared loss is 0.05055786669254303
+Best error for point 11551 is having absolute error of 8.885226316585336e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.046322546899318695
+best error is 0.00020280623525606784, in best estimate-indx is 0.00020280623525606784, squared loss is 0.046322546899318695
+Best error for point 11552 is having absolute error of 0.00020280623525606784
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.057433150708675385
+best error is 0.00013053727656844126, in best estimate-indx is 0.00013053727656844126, squared loss is 0.057433150708675385
+Best error for point 11553 is having absolute error of 0.00013053727656844126
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05224940925836563
+best error is 0.0002072132257847534, in best estimate-indx is 0.0002072132257847534, squared loss is 0.05224940925836563
+Best error for point 11554 is having absolute error of 0.0002072132257847534
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.049497541040182114
+best error is 0.00035766756892126, in best estimate-indx is 0.00035766756892126, squared loss is 0.049497541040182114
+Best error for point 11555 is having absolute error of 0.00035766756892126
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07479055225849152
+best error is 0.00012889864922436146, in best estimate-indx is 0.00012889864922436146, squared loss is 0.07479055225849152
+Best error for point 11556 is having absolute error of 0.00012889864922436146
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05877544730901718
+best error is 0.0002236205164933322, in best estimate-indx is 0.0002236205164933322, squared loss is 0.05877544730901718
+Best error for point 11557 is having absolute error of 0.0002236205164933322
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05399852991104126
+best error is 0.0002704234590812089, in best estimate-indx is 0.0002704234590812089, squared loss is 0.05399852991104126
+Best error for point 11558 is having absolute error of 0.0002704234590812089
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.059975117444992065
+best error is 0.00013370990304448205, in best estimate-indx is 0.00013370990304448205, squared loss is 0.059975117444992065
+Best error for point 11559 is having absolute error of 0.00013370990304448205
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06736379861831665
+best error is 9.398572472210778e-05, in best estimate-indx is 9.398572472210778e-05, squared loss is 0.06736379861831665
+Best error for point 11560 is having absolute error of 9.398572472210778e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.047108620405197144
+best error is 0.00019581234263501228, in best estimate-indx is 0.00019581234263501228, squared loss is 0.047108620405197144
+Best error for point 11561 is having absolute error of 0.00019581234263501228
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03759147971868515
+best error is 0.00020530502667812737, in best estimate-indx is 0.00020530502667812737, squared loss is 0.03759147971868515
+Best error for point 11562 is having absolute error of 0.00020530502667812737
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06312268227338791
+best error is 0.0005595284360383483, in best estimate-indx is 0.0005595284360383483, squared loss is 0.06312268227338791
+Best error for point 11563 is having absolute error of 0.0005595284360383483
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05250931903719902
+best error is 4.993152244632361e-05, in best estimate-indx is 4.993152244632361e-05, squared loss is 0.05250931903719902
+Best error for point 11564 is having absolute error of 4.993152244632361e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04058011993765831
+best error is 0.00011302694589289652, in best estimate-indx is 0.00011302694589289652, squared loss is 0.04058011993765831
+Best error for point 11565 is having absolute error of 0.00011302694589289652
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0595991276204586
+best error is 0.0001737699947666441, in best estimate-indx is 0.0001737699947666441, squared loss is 0.0595991276204586
+Best error for point 11566 is having absolute error of 0.0001737699947666441
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03976800665259361
+best error is 0.0001434575018293414, in best estimate-indx is 0.0001434575018293414, squared loss is 0.03976800665259361
+Best error for point 11567 is having absolute error of 0.0001434575018293414
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.046325549483299255
+best error is 0.00015313559072582204, in best estimate-indx is 0.00015313559072582204, squared loss is 0.046325549483299255
+Best error for point 11568 is having absolute error of 0.00015313559072582204
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.040538132190704346
+best error is 0.0003213590172383157, in best estimate-indx is 0.0003213590172383157, squared loss is 0.040538132190704346
+Best error for point 11569 is having absolute error of 0.0003213590172383157
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04934421554207802
+best error is 0.00029299392860254064, in best estimate-indx is 0.00029299392860254064, squared loss is 0.04934421554207802
+Best error for point 11570 is having absolute error of 0.00029299392860254064
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0414147712290287
+best error is 0.00018450417364955255, in best estimate-indx is 0.00018450417364955255, squared loss is 0.0414147712290287
+Best error for point 11571 is having absolute error of 0.00018450417364955255
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.03961876407265663
+best error is 0.00011389199393732287, in best estimate-indx is 0.00011389199393732287, squared loss is 0.03961876407265663
+Best error for point 11572 is having absolute error of 0.00011389199393732287
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06356743723154068
+best error is 0.0004407722714858763, in best estimate-indx is 0.0004407722714858763, squared loss is 0.06356743723154068
+Best error for point 11573 is having absolute error of 0.0004407722714858763
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05110212042927742
+best error is 6.838919519573132e-05, in best estimate-indx is 6.838919519573132e-05, squared loss is 0.05110212042927742
+Best error for point 11574 is having absolute error of 6.838919519573132e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.09830230474472046
+best error is 0.0012615129488306573, in best estimate-indx is 0.0012615129488306573, squared loss is 0.09830230474472046
+Best error for point 11575 is having absolute error of 0.0012615129488306573
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05805389583110809
+best error is 0.00039770633416624747, in best estimate-indx is 0.00039770633416624747, squared loss is 0.05805389583110809
+Best error for point 11576 is having absolute error of 0.00039770633416624747
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05695706978440285
+best error is 0.00013733548384917068, in best estimate-indx is 0.00013733548384917068, squared loss is 0.05695706978440285
+Best error for point 11577 is having absolute error of 0.00013733548384917068
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07218631356954575
+best error is 0.00029129771674696184, in best estimate-indx is 0.00029129771674696184, squared loss is 0.07218631356954575
+Best error for point 11578 is having absolute error of 0.00029129771674696184
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05899715796113014
+best error is 0.00038754511977198507, in best estimate-indx is 0.00038754511977198507, squared loss is 0.05899715796113014
+Best error for point 11579 is having absolute error of 0.00038754511977198507
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07497251778841019
+best error is 0.0004977812870650136, in best estimate-indx is 0.0004977812870650136, squared loss is 0.07497251778841019
+Best error for point 11580 is having absolute error of 0.0004977812870650136
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06721600145101547
+best error is 0.00010636017416786182, in best estimate-indx is 0.00010636017416786182, squared loss is 0.06721600145101547
+Best error for point 11581 is having absolute error of 0.00010636017416786182
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04607623815536499
+best error is 0.00019197458897264483, in best estimate-indx is 0.00019197458897264483, squared loss is 0.04607623815536499
+Best error for point 11582 is having absolute error of 0.00019197458897264483
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05557702109217644
+best error is 0.00021463909996088647, in best estimate-indx is 0.00021463909996088647, squared loss is 0.05557702109217644
+Best error for point 11583 is having absolute error of 0.00021463909996088647
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.0361480638384819
+best error is 0.00014674316922635224, in best estimate-indx is 0.00014674316922635224, squared loss is 0.0361480638384819
+Best error for point 11584 is having absolute error of 0.00014674316922635224
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04235672205686569
+best error is 4.695195576909946e-05, in best estimate-indx is 4.695195576909946e-05, squared loss is 0.04235672205686569
+Best error for point 11585 is having absolute error of 4.695195576909946e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.054000768810510635
+best error is 0.00012962764186249918, in best estimate-indx is 0.00012962764186249918, squared loss is 0.054000768810510635
+Best error for point 11586 is having absolute error of 0.00012962764186249918
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05999550223350525
+best error is 0.00046796008328216075, in best estimate-indx is 0.00046796008328216075, squared loss is 0.05999550223350525
+Best error for point 11587 is having absolute error of 0.00046796008328216075
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.05200423300266266
+best error is 0.00024319099067029312, in best estimate-indx is 0.00024319099067029312, squared loss is 0.05200423300266266
+Best error for point 11588 is having absolute error of 0.00024319099067029312
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.049696143716573715
+best error is 0.0004371833107619476, in best estimate-indx is 0.0004371833107619476, squared loss is 0.049696143716573715
+Best error for point 11589 is having absolute error of 0.0004371833107619476
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.04810292273759842
+best error is 0.00017535661270311323, in best estimate-indx is 0.00017535661270311323, squared loss is 0.04810292273759842
+Best error for point 11590 is having absolute error of 0.00017535661270311323
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.06019196659326553
+best error is 8.286735538142648e-05, in best estimate-indx is 8.286735538142648e-05, squared loss is 0.06019196659326553
+Best error for point 11591 is having absolute error of 8.286735538142648e-05
+shape before repeat (300,)
+Size of the target spectra repeat (4096, 300)
+Loss at inference step0 : 0.07565322518348694
+best error is 0.00018655991880885906, in best estimate-indx is 0.00018655991880885906, squared loss is 0.07565322518348694

@@ -243,7 +243,7 @@ def HeatMapBVL(plot_x_name, plot_y_name, title,  save_name='HeatMap.png', HeatMa
     plt.savefig(save_name)
 
 
-def PlotPossibleGeoSpace(figname, Xpred_dir, compare_original = False):
+def PlotPossibleGeoSpace(figname, Xpred_dir, compare_original = False,calculate_diversity = None):
     """
     Function to plot the possible geometry space for a model evaluation result.
     It reads from Xpred_dir folder and finds the Xpred result insdie and plot that result
@@ -262,6 +262,12 @@ def PlotPossibleGeoSpace(figname, Xpred_dir, compare_original = False):
     print(np.shape(Xpred))
     #print(Xpred)
     #plt.title(figname)
+    if (calculate_diversity == 'MST'):
+        diversity_Xpred, diversity_Xtruth = calculate_MST(Xpred, Xtruth)
+    elif (calculate_diversity == 'AREA'):
+        diversity_Xpred, diversity_Xtruth = calculate_AREA(Xpred, Xtruth)
+
+
     for i in range(4):
       ax = plt.subplot(2, 2, i+1)
       ax.scatter(Xpred[:,i], Xpred[:,i + 4],s = 3,label = "Xpred")
@@ -272,6 +278,8 @@ def PlotPossibleGeoSpace(figname, Xpred_dir, compare_original = False):
       plt.xlim(-1,1)
       plt.ylim(-1,1)
       plt.legend()
+    if (calculate_diversity != None):
+        plt.text(0.1,0.1,'Div_Xpred = {}, Div_Xtruth = {}, under criteria {}'.format(diversity_Xpred, diversity_Xtruth, calculate_diversity))
     plt.suptitle(figname)
     f.savefig(figname+'.png')
 
@@ -288,3 +296,25 @@ def PlotPairwiseGeometry(figname, Xpred_dir):
     #plt.tight_layout()
     plt.title("Pair-wise scattering of Geometery predictions")
     plt.savefig(figname)
+
+def calculate_AREA(Xpred, Xtruth):
+    """
+    Function to calculate the area for both Xpred and Xtruth under using the segmentation of 0.01
+    """
+    area_list = np.zeros([2,4])
+    X_list = [Xpred, Xtruth]
+    for cnt, X in enumerate(X_list):
+        for i in range(4):
+            hist, xedges, yedges = np.histogram2d(X[:,i],X[:,i+4], bins = np.arange(-1,1.01,0.01))
+            area_list[cnt, i] = np.mean(hist > 0)
+    X_histgt0 = np.mean(area_list, axis = 1)
+    assert len(X_histgt0) == 2
+    return X_histgt0[0], X_histgt0[1]
+
+def calculate_MST(Xpred, Xtruth):
+    """
+    Function to calculate the MST for both Xpred and Xtruth under using the segmentation of 0.01
+    """
+
+
+
