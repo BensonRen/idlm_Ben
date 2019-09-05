@@ -30,6 +30,10 @@ def compare_truth_pred(pred_file, truth_file):
     return mae, mse
 def evaluatemain(flags, eval_forward):
     #Clear the default graph first for resolving potential name conflicts
+    #Set the environment variable for if this is a cpu only script
+    if flags.use_cpu_only:
+        os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+    
     print("Start Evaluating now...")
     TK = time_recorder.time_keeper(time_keeping_file = "data/time_keeper.txt")
 

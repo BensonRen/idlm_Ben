@@ -10,6 +10,9 @@ import glob
 import shutil
 def tandemmain(flags):
     # initialize data reader
+    #Set the environment variable for if this is a cpu only script
+    if flags.use_cpu_only:
+        os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
     geometry, spectra, train_init_op, valid_init_op = data_reader.read_data(input_size=0,
                                                                output_size=0,

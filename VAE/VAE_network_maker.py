@@ -149,6 +149,7 @@ class VAENetwork(object):
         :param write_summary: write summary into tensorboard or not
         :return:
         """
+
         with tf.Session() as sess:
             sess.run([tf.global_variables_initializer(), tf.local_variables_initializer()])
             if write_summary:

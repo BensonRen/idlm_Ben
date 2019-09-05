@@ -37,5 +37,4 @@ WRITE_WEIGHT_STEP = 5000
 PREDICT_FILE_PATH = '../swipe_test/data/test_Xpred_20190826_210307.csv'
 PREDICT_GEO2SPEC = True
 PREDICT_SAVE_PATH = '../swipe_test/data'
-
-
+USE_CPU_ONLY = False

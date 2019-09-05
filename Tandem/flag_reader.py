@@ -49,6 +49,7 @@ def read_flag():
     parser.add_argument('--write-weight-step', default=WRITE_WEIGHT_STEP, type=int, help='#steps to write the weight summary histogram into tensorboard')
     # parser.add_argument('--train-file', default=TRAIN_FILE, type=str, help='name of the training file')
     # parser.add_argument('--valid-file', default=VALID_FILE, type=str, help='name of the validation file')
+    parser.add_argument('--use-cpu-only', default=USE_CPU_ONLY, type=bool, help='Do the next thing (training/ evluating) on CPUs only')
     parser.add_argument('--predict-file-path', default=PREDICT_FILE_PATH, type=str, help='the file path of your prediction file')
     parser.add_argument('--predict-geo2spec', default=PREDICT_GEO2SPEC, type=bool, help='Is this a geo2spec prediction, true or false')
     parser.add_argument('--predict-save-path', default=PREDICT_SAVE_PATH, type=str, help='the file path to save your prediction file')

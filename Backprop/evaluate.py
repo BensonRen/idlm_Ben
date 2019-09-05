@@ -50,7 +50,7 @@ def evaluatemain(flags, eval_forward):
                                                                shuffle_size=flags.shuffle_size,
                                                                normalize_input = flags.normalize_input,
 							        data_dir = flags.data_dir,
-                                                                test_ratio = 0.07) #negative test_ratio means test from eval
+                                                                test_ratio = 0.999) #negative test_ratio means test from eval
     
     #if the input is normalized
     if flags.normalize_input:

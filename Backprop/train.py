@@ -10,6 +10,9 @@ import glob
 import shutil
 def Backpropmain(flags):
     # initialize data reader
+    #Set the environment variable for if this is a cpu only script
+    if flags.use_cpu_only:
+        os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
     geometry, spectra, train_init_op, valid_init_op = data_reader.read_data(input_size=0,
                                                                output_size=0,
@@ -37,7 +40,7 @@ def Backpropmain(flags):
                             tconv_dims=flags.tconv_dims,n_branch=flags.n_branch,
                             tconv_filters=flags.tconv_filters, n_filter=flags.n_filter,
                             decay_step=flags.decay_step, decay_rate=flags.decay_rate,
-                            boundary = flags.geoboundary)
+                            geoboundary = flags.geoboundary)
     
     print("Setting the hooks now")
     # define hooks for monitoring training
