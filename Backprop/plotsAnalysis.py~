@@ -272,6 +272,7 @@ def PlotPossibleGeoSpace(figname, Xpred_dir, compare_original = False,calculate_
     elif (calculate_diversity == 'AREA'):
         diversity_Xpred, diversity_Xtruth = calculate_AREA(Xpred, Xtruth)
 
+
     for i in range(4):
       ax = plt.subplot(2, 2, i+1)
       ax.scatter(Xpred[:,i], Xpred[:,i + 4],s = 3,label = "Xpred")
@@ -283,7 +284,7 @@ def PlotPossibleGeoSpace(figname, Xpred_dir, compare_original = False,calculate_
       plt.ylim(-1,1)
       plt.legend()
     if (calculate_diversity != None):
-        plt.text(-4, 3.5,'Div_Xpred = {}, Div_Xtruth = {}, under criteria {}'.format(diversity_Xpred, diversity_Xtruth, calculate_diversity), zorder = 1)
+        plt.text(0.1,0.1,'Div_Xpred = {}, Div_Xtruth = {}, under criteria {}'.format(diversity_Xpred, diversity_Xtruth, calculate_diversity))
     plt.suptitle(figname)
     f.savefig(figname+'.png')
 
@@ -307,10 +308,9 @@ def calculate_AREA(Xpred, Xtruth):
     """
     area_list = np.zeros([2,4])
     X_list = [Xpred, Xtruth]
-    binwidth = 0.05
     for cnt, X in enumerate(X_list):
         for i in range(4):
-            hist, xedges, yedges = np.histogram2d(X[:,i],X[:,i+4], bins = np.arange(-1,1+binwidth,binwidth))
+            hist, xedges, yedges = np.histogram2d(X[:,i],X[:,i+4], bins = np.arange(-1,1.01,0.01))
             area_list[cnt, i] = np.mean(hist > 0)
     X_histgt0 = np.mean(area_list, axis = 1)
     assert len(X_histgt0) == 2
@@ -320,17 +320,14 @@ def calculate_MST(Xpred, Xtruth):
     """
     Function to calculate the MST for both Xpred and Xtruth under using the segmentation of 0.01
     """
-    print("Calculating MST")
-    MST_list = np.zeros([2,4])
+
+    MST_list = np.zeros(2)
     X_list = [Xpred, Xtruth]
     for cnt, X in enumerate(X_list):
-        for i in range(4):
-            points = X[:,i:i+5:4]
-            distance_matrix_points = distance_matrix(points,points, p = 2,threshold = 100000)
-            csr_mat = csr_matrix(distance_matrix_points)
-            Tree = minimum_spanning_tree(csr_mat)
-            MST_list[cnt,i] = np.sum(Tree.toarray().astype(float))
-    X_MST = np.mean(MST_list, axis = 1)
-    return X_MST[0], X_MST[1]
+        distance_matrix_points = distance_matrix(points, points, p = 2)
+        csr_mat = csr_matrix(distance_matrix_points)
+        Tree = minimum_spanning_tree(csr_mat)
+        MST_list[cnt] = np.sum(Tree.toarray().astype(float))
+    return MST_list[0], MST_list[1]
 
 

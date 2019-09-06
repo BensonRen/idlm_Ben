@@ -7,6 +7,11 @@ import pandas as pd
 import evaluate
 import seaborn as sns; sns.set()
 import get_pred_truth_file
+from sklearn.neighbors import NearestNeighbors
+from pandas.plotting import table
+from scipy.spatial import distance_matrix
+from scipy.sparse import csr_matrix
+from scipy.sparse.csgraph import minimum_spanning_tree
 
 def RetrieveFeaturePredictionNMse(model_name):
     """
@@ -171,20 +176,25 @@ def HeatMapBVL(plot_x_name, plot_y_name, title,  save_name='HeatMap.png', HeatMa
                 file_path = os.path.join(subdir, file_name) #Get the file relative path from 
                 df = pd.read_csv(file_path, index_col = 0)
                 #df = df.reset_index()                           #reset the index to get ride of 
+                print(df.T)
                 if (one_dimension_flag):
+                    #print(df[[heat_value_name, feature_1_name]])
+                    #print(df[heat_value_name][0])
+                    #print(df[heat_value_name].iloc[0])
                     df_list.append(df[[heat_value_name, feature_1_name]])
-                    HMpoint_list.append(HMpoint(float(df[heat_value_name][0]), eval(df[feature_1_name][0]), f1_name = feature_1_name))
+                    HMpoint_list.append(HMpoint(float(df[heat_value_name][0]), eval(str(df[feature_1_name][0])), 
+                                                f1_name = feature_1_name))
                 else:
                     df_list.append(df[[heat_value_name, feature_1_name, feature_2_name]])
-                    HMpoint_list.append(HMpoint(float(df[heat_value_name][0]),eval(df[feature_1_name][0]),eval(df[feature_2_name][0]),
-                                        feature_1_name, feature_2_name))
+                    HMpoint_list.append(HMpoint(float(df[heat_value_name][0]),eval(str(df[feature_1_name][0])),
+                                                eval(str(df[feature_2_name][0])), feature_1_name, feature_2_name))
    
     #Concatenate all the dfs into a single aggregate one for 2 dimensional usee
     df_aggregate = pd.concat(df_list, ignore_index = True, sort = False)
-    print(df_aggregate[heat_value_name])
-    print(type(df_aggregate[heat_value_name]))
+    #print(df_aggregate[heat_value_name])
+    #print(type(df_aggregate[heat_value_name]))
     df_aggregate.astype({heat_value_name: 'float'})
-    print(type(df_aggregate[heat_value_name]))
+    #print(type(df_aggregate[heat_value_name]))
     #df_aggregate = df_aggregate.reset_index()
     print("before transformation:", df_aggregate)
     [h, w] = df_aggregate.shape
@@ -238,7 +248,7 @@ def HeatMapBVL(plot_x_name, plot_y_name, title,  save_name='HeatMap.png', HeatMa
     plt.savefig(save_name)
 
 
-def PlotPossibleGeoSpace(figname, Xpred_dir, compare_original = False):
+def PlotPossibleGeoSpace(figname, Xpred_dir, compare_original = False,calculate_diversity = None):
     """
     Function to plot the possible geometry space for a model evaluation result.
     It reads from Xpred_dir folder and finds the Xpred result insdie and plot that result
@@ -257,6 +267,11 @@ def PlotPossibleGeoSpace(figname, Xpred_dir, compare_original = False):
     print(np.shape(Xpred))
     #print(Xpred)
     #plt.title(figname)
+    if (calculate_diversity == 'MST'):
+        diversity_Xpred, diversity_Xtruth = calculate_MST(Xpred, Xtruth)
+    elif (calculate_diversity == 'AREA'):
+        diversity_Xpred, diversity_Xtruth = calculate_AREA(Xpred, Xtruth)
+
     for i in range(4):
       ax = plt.subplot(2, 2, i+1)
       ax.scatter(Xpred[:,i], Xpred[:,i + 4],s = 3,label = "Xpred")
@@ -267,7 +282,55 @@ def PlotPossibleGeoSpace(figname, Xpred_dir, compare_original = False):
       plt.xlim(-1,1)
       plt.ylim(-1,1)
       plt.legend()
+    if (calculate_diversity != None):
+        plt.text(-4, 3.5,'Div_Xpred = {}, Div_Xtruth = {}, under criteria {}'.format(diversity_Xpred, diversity_Xtruth, calculate_diversity), zorder = 1)
     plt.suptitle(figname)
     f.savefig(figname+'.png')
+
+def PlotPairwiseGeometry(figname, Xpred_dir):
+    """
+    Function to plot the pair-wise scattering plot of the geometery file to show
+    the correlation between the geometry that the network learns
+    """
+    
+    Xpredfile = get_pred_truth_file.get_Xpred(Xpred_dir)
+    Xpred = pd.read_csv(Xpredfile, header=None, delimiter=' ')
+    f=plt.figure()
+    axes = pd.plotting.scatter_matrix(Xpred, alpha = 0.2)
+    #plt.tight_layout()
+    plt.title("Pair-wise scattering of Geometery predictions")
+    plt.savefig(figname)
+
+def calculate_AREA(Xpred, Xtruth):
+    """
+    Function to calculate the area for both Xpred and Xtruth under using the segmentation of 0.01
+    """
+    area_list = np.zeros([2,4])
+    X_list = [Xpred, Xtruth]
+    binwidth = 0.05
+    for cnt, X in enumerate(X_list):
+        for i in range(4):
+            hist, xedges, yedges = np.histogram2d(X[:,i],X[:,i+4], bins = np.arange(-1,1+binwidth,binwidth))
+            area_list[cnt, i] = np.mean(hist > 0)
+    X_histgt0 = np.mean(area_list, axis = 1)
+    assert len(X_histgt0) == 2
+    return X_histgt0[0], X_histgt0[1]
+
+def calculate_MST(Xpred, Xtruth):
+    """
+    Function to calculate the MST for both Xpred and Xtruth under using the segmentation of 0.01
+    """
+
+    MST_list = np.zeros([2,4])
+    X_list = [Xpred, Xtruth]
+    for cnt, X in enumerate(X_list):
+        for i in range(4):
+            points = X[:,i:i+5:4]
+            distance_matrix_points = distance_matrix(points,points, p = 2)
+            csr_mat = csr_matrix(distance_matrix_points)
+            Tree = minimum_spanning_tree(csr_mat)
+            MST_list[cnt,i] = np.sum(Tree.toarray().astype(float))
+    X_MST = np.mean(MST_list, axis = 1)
+    return X_MST[0], X_MST[1]
 
 

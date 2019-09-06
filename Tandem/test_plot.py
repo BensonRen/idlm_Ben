@@ -5,8 +5,9 @@ import time_recorder
 import plotsAnalysis
 import evaluate
 
-plotsAnalysis.PlotPairwiseGeometry('pairwise_scatter.png','data/')
-#plotsAnalysis.PlotPossibleGeoSpace("Possible geo space for tandem structure","data/", compare_original = True)
+#plotsAnalysis.PlotPairwiseGeometry('pairwise_scatter.png','data/')
+plotsAnalysis.PlotPossibleGeoSpace("Possible geo space for tandem structure","data/", compare_original = True, 
+                                        calculate_diversity = 'MST')
 
 #TK = time_recorder.time_keeper()
 #TK.record(5)

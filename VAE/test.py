@@ -3,8 +3,9 @@ import flag_reader
 import pandas as pd
 import time_recorder
 import plotsAnalysis
-
-plotsAnalysis.PlotPossibleGeoSpace("Possible geo space for VAE structure","data/", compare_original = True)
+import evaluate
+evaluate.unpack_Xpred('data/test_Xpred_20190905_171115.csv',32)
+#plotsAnalysis.PlotPossibleGeoSpace("Possible geo space for VAE structure","data/", compare_original = True)
 
 #TK = time_recorder.time_keeper()
 #TK.record(5)

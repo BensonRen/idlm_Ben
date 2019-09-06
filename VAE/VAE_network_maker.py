@@ -55,8 +55,8 @@ class VAENetwork(object):
             os.makedirs(self.ckpt_dir)
             self.write_record()
 
-        self.z_mean, self.z_log_var,self.z, self.logits, self.Boundary_loss = self.create_graph()
-        #self.z_mean, self.z_log_var,self.z, self.logits, self.Boundary_loss, self.merged_summary_op = self.create_graph()
+        #self.z_mean, self.z_log_var,self.z, self.logits, self.Boundary_loss = self.create_graph()
+        self.z_mean, self.z_log_var,self.z, self.logits, self.Boundary_loss, self.merged_summary_op = self.create_graph()
     
         #self.model = tf.keras.Model(self.features, self.logits,name = 'Backward')
         if self.labels==[]:
@@ -295,6 +295,7 @@ class VAENetwork(object):
                     #np.savetxt(f3, Ypred, fmt='%.3f')
             
             feat_file = os.path.join(save_file, 'test_Xpred_{}.csv'.format(model_name))
+            print("The evluation process has finished")
             return feat_file
             #with open(pred_file, 'a') as f3:
             #    f3.write("TBD")

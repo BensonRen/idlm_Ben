@@ -121,6 +121,8 @@ def Encoder(geometry, spectra_out, latent_dim, batch_size, reg_scale, encoder_fc
         encoder_fc = tf.layers.dense(inputs=encoder_fc, units=filters, activation=tf.nn.leaky_relu, name='encoder_fc{}'.format(cnt),
                                kernel_initializer=tf.random_normal_initializer(stddev=0.02),
                                kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
+        #kernel = tf.get_default_graph().get_tensor_by_name('spectra_encode_fc{}/kernel:0'.format(cnt))
+        #tf.summary.histogram('spectra_encode_fc{}_weights'.format(cnt), kernel)
     z_mean = tf.layers.dense(inputs = encoder_fc, units = latent_dim, activation = tf.nn.leaky_relu,
                                 name = 'z_mean',kernel_initializer = tf.random_normal_initializer(stddev=0.02),
                                 kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
@@ -137,6 +139,8 @@ def Decoder(z, spectra_out,  batch_size, reg_scale, decoder_fc_filters):
         decoder_fc = tf.layers.dense(inputs=decoder_fc, units=filters, activation=tf.nn.leaky_relu, name='decoder_fc{}'.format(cnt),
                                kernel_initializer=tf.random_normal_initializer(stddev=0.02),
                                kernel_regularizer=tf.contrib.layers.l2_regularizer(scale=reg_scale))
+        kernel = tf.get_default_graph().get_tensor_by_name('decoder_fc{}/kernel:0'.format(cnt))
+        tf.summary.histogram('decoder_fc{}_weights'.format(cnt), kernel)
     decoder_out = decoder_fc
     return decoder_out
 
@@ -150,4 +154,5 @@ def VAE(geometry, spectra, latent_dim,  batch_size, reg_scale, spectra_fc_filter
     z = Lambda(sampling, output_shape=(latent_dim,), name = 'z')([z_mean, z_log_var])
     decoder_out = Decoder(z, spectra_out, batch_size, reg_scale, decoder_fc_filters)
     Boundary_loss = MakeBoundaryLoss(decoder_out, geoboundary)
-    return z_mean, z_log_var, z, decoder_out, Boundary_loss#, merged_summary_op
+    merged_summary_op = tf.summary.merge_all()
+    return z_mean, z_log_var, z, decoder_out, Boundary_loss, merged_summary_op

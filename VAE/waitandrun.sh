@@ -1,18 +1,19 @@
 #!/bin/bash
 
 
-#PID=22065
-#while [ -e /proc/$PID ]
-#do
-#    echo "Process: $PID is still running" 
-#        sleep 10m
-#done
+PID=2442
+while [ -e /proc/$PID ]
+do
+    echo "Process: $PID is still running" 
+        sleep 10m
+done
 #env > /temp/cron.job
 
 TIME=`date`
 PWD=`pwd`
-COMMAND=hyperswipe.py
+#COMMAND=hyperswipe.py
 #COMMAND=train.py
+COMMAND=test_plot.py
 #COMMAND=evaluate.py
 SPACE='        '
 #SECONDS=0

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-#PID=26512
+#PID=3542
 #while [ -e /proc/$PID ]
 #do
 #    echo "Process: $PID is still running" 
@@ -10,7 +10,8 @@
 TIME=`date`
 PWD=`pwd`
 #COMMAND=evaluate.py
-COMMAND=hyperswipe.py
+#COMMAND=hyperswipe.py
+COMMAND=test_plot.py
 #COMMAND=train.py
 #COMMAND=evaluate.py
 SPACE='        '
