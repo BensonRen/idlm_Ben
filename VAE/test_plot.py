@@ -7,7 +7,7 @@ import evaluate
 
 
 plotsAnalysis.PlotPossibleGeoSpace("Possible geo space for VAE structure","data/", compare_original = True,
-                                        calculate_diversity = 'MST')
+                                        calculate_diversity = 'AREA')
 #plotsAnalysis.SpectrumComparisonNGeometryComparison(3,2,(13,8),'20190903_220309');
 #TK = time_recorder.time_keeper()
 #TK.record(5)

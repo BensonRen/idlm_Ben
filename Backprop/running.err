@@ -1,0 +1,3 @@
+WARNING: Logging before flag parsing goes to stderr.
+W0906 10:18:26.711241 140040771688256 deprecation_wrapper.py:119] From /home/edal/anaconda3/lib/python3.7/site-packages/tfplot/figure.py:18: The name tf.Summary is deprecated. Please use tf.compat.v1.Summary instead.
+
