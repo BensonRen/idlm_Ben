@@ -11,7 +11,20 @@ This is a transition starting from Nov. 20, 2019
 ## 2019.11.20
 Background: Start Pytorch transition. GAN model (not in previous tf repo) would be the first model to work on.
 
-Todo:
-1. Construct the network main class wrapper for GAN
+Function completed:
+1. Construct the network main class wrapper for Forward
 2. Handle the data reader transition to pytorch
+3. Flag reader to pytorch version
 
+## 2019.11.21
+
+Function completed:
+1. Forward training module done
+2. Forward training tested
+
+
+## To dos:
+
+1. Add the bounday loss module
+2. Add the forward inference module
+3. Train on GPU environment for forward model

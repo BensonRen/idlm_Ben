@@ -116,7 +116,7 @@ class Network(object):
                 test_avg_loss = test_loss / (j+1)
                 self.log.add_scalar('Loss/test', test_avg_loss, epoch)
 
-                print("This is Epoch %d, training loss %.3f, validation loss %.3f" \
+                print("This is Epoch %d, training loss %.5f, validation loss %.5f" \
                       % (epoch, train_avg_loss, test_avg_loss ))
 
                 # Model improving, save the model down
@@ -126,7 +126,7 @@ class Network(object):
                     print("Saving the model down...")
 
                     if self.best_validation_loss < self.flags.stop_threshold:
-                        print("Training finished EARLIER at epoch %d, reaching loss of %.3f" %\
+                        print("Training finished EARLIER at epoch %d, reaching loss of %.5f" %\
                               (epoch, self.best_validation_loss))
                         return None
 
