@@ -10,6 +10,7 @@ from torch.utils.data import Dataset
 from sklearn.model_selection import KFold
 import seaborn as sns
 from sklearn.model_selection import train_test_split
+import torch
 
 def importData(directory, x_range, y_range):
     # pull data into python, should be either for training set or eval set
@@ -209,7 +210,7 @@ def read_data(input_size, output_size, x_range, y_range, geoboundary, cross_val=
           'set final layer size to be compatible with this number')
 
     # determine lengths of training and validation sets
-    num_data_points = len(ftrTrain):
+    num_data_points = len(ftrTrain)
     #train_length = int(.8 * num_data_points)
 
     print('generating TF dataset')

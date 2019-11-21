@@ -2,7 +2,6 @@
 This is the module where the model is defined. It uses the nn.Module as backbone to create the network structure
 """
 # Own modules
-from params import *
 
 #Built in
 

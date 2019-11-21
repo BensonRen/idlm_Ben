@@ -71,7 +71,11 @@ class Network(object):
         self.model.load_state_dict(torch.load(self.ckpt_dir))
 
     def train(self):
-        best_validation_loss = float('inf')     # Set a large staring best_val loss
+        """
+        The major training function. This would start the training using information given in the flags
+        :return: None
+        """
+        best_validation_loss = 1e-2     # Set a relatively large staring best_val loss
         for epoch in range(self.flags.train_step):
             # Set to Training Mode
             train_loss = 0
@@ -108,4 +112,15 @@ class Network(object):
 
                 print("This is Epoch %d, training loss %.3f, validation loss %.3f" \
                       % (epoch, train_avg_loss, test_avg_loss ))
+
+                # Model improving, save the model down
+                if test_avg_loss < best_validation_loss:
+                    best_validation_loss = test_avg_loss
+                    self.save()
+                    print("Saving the model down...")
+
+                    if best_validation_loss < self.flags.stop_threshold:
+                        print("Training finished EARLIER at epoch %d, reaching loss of %.3f" %\
+                              (epoch, best_validation_loss))
+                        return None
 
