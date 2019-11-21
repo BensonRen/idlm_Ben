@@ -1,109 +1,55 @@
+"""
+This is the module where the model is defined. It uses the nn.Module as backbone to create the network structure
+"""
+# Own modules
 from params import *
-import argparse
-import os
-import numpy as np
-import math
-import matplotlib.pyplot as plt
 
-import torchvision.transforms as transforms
-from torchvision.utils import save_image
-from torch import Tensor
-from torch.utils.data import DataLoader
-from torchvision import datasets
-from torch.autograd import Variable
+#Built in
 
+# Libs
+
+# Pytorch module
 import torch.nn as nn
 import torch.nn.functional as F
-import torch
 
-class Generator(nn.Module):
-    def __init__(self):
-        super(Generator, self).__init__()
+class Forward(nn.Module):
+    def __init__(self, flags):
+        super(Forward, self).__init__()
 
-        #self.fc1 = nn.Linear(latent_dim, 1000)
-        #self.fc2 = nn.Linear(1000, 7*7*256)
-        
-        self.Conv2dTrans0 = nn.ConvTranspose2d(latent_dim, 256, 7)
-        self.bn0 = nn.BatchNorm2d(256)
-        self.Conv2dTrans1 = nn.ConvTranspose2d(256, 128, 8, padding = 0)
-        self.bn1 = nn.BatchNorm2d(128)
-        self.Conv2dTrans2 = nn.ConvTranspose2d(128, 64, 15, padding = 0)
-        self.bn2 = nn.BatchNorm2d(64)
-        self.Conv2dTrans3 = nn.ConvTranspose2d(64, 32, 5, padding = 2)
-        self.bn3 = nn.BatchNorm2d(32)
-        self.Conv2dTrans4 = nn.ConvTranspose2d(32, 1, 5, padding = 2)
-    
-
-    def forward(self, z):
-        #print("Generator's architecture")
-        #out = F.relu(self.fc1(z))
-        #out = F.relu(self.fc2(out))
-        #print(out.size())
-        #out = out.view(out.size(0),256,7,7)
-        out = F.relu(self.bn0(self.Conv2dTrans0(z)))
-        #print(out.size())
-        out = F.relu(self.bn1(self.Conv2dTrans1(out)))
-        #print(out.size())
-        out = F.relu(self.bn2(self.Conv2dTrans2(out)))
-        #print(out.size())
-        out = F.relu(self.bn3(self.Conv2dTrans3(out)))
-        #print(out.size())
-        img = F.tanh(self.Conv2dTrans4(out))
-        #print(img.size())
-        #img = img.view(img.size(0), *img_shape)
-        return img
+        # Linear Layer and Batch_norm Layer definitions here
+        self.linears = nn.ModuleList([])
+        self.bn_linears = nn.ModuleList([])
+        for ind, fc_num in enumerate(flags.linear[0:-1]):               # Excluding the last one as we need intervals
+            self.linears.append(nn.Linear(fc_num, flags.linear[ind + 1]))
+            self.bn_linears.append(nn.BatchNorm1d(flags.linear[ind + 1]))
 
 
-
-class Discriminator(nn.Module):
-    def __init__(self):
-        super(Discriminator, self).__init__()
-
-        self.conv1 = nn.Conv2d(1, 64, 5, padding = 2)
-        self.bn1 = nn.BatchNorm2d(64)
-        self.mp1 = nn.MaxPool2d(2, stride = 2)
-        self.conv2 = nn.Conv2d(64, 128, 5, padding =2)
-        self.bn2 = nn.BatchNorm2d(128)
-        self.mp2 = nn.MaxPool2d(2, stride = 2)
-        self.conv3 = nn.Conv2d(128, 256, 4, padding =0)
-        self.bn3 = nn.BatchNorm2d(256)
-        self.conv4 = nn.Conv2d(256, 512, 1, padding =0)
-        self.bn4 = nn.BatchNorm2d(512)
-        self.fc1 = nn.Linear(4*4*512, 1000)
-        self.fc2 = nn.Linear(1000,500)
-        self.fc3 = nn.Linear(500,1)
-    def forward(self, img):
-        #print("Discriminator's architecture")
-        #img_flat = img.view(img.size(0), -1)
-        out = self.mp1(F.relu(self.bn1(self.conv1(img))))
-        #print(out.size())
-        out = self.mp2(F.relu(self.bn2(self.conv2(out))))
-        #print(out.size())
-        out = F.relu(self.bn3(self.conv3(out)))
-        #print(out.size())
-        out = F.relu(self.bn4(self.conv4(out)))
-        #print(out.size())
-        out = out.view(out.size(0), -1)
-        out = F.relu(self.fc1(out))
-        out = F.relu(self.fc2(out))
-        out = self.fc3(out)
-        validity = F.sigmoid(out)
-        return validity
+        # Conv Layer definitions here
+        self.convs = nn.ModuleList([])
+        in_channel = 1                                                  # Initialize the in_channel number
+        for ind, (out_channel, kernel_size, stride) in enumerate(zip(flags.conv_out_channel,
+                                                                     flags.conv_kernel_size,
+                                                                     flags.conv_stride)):
+            self.convs.append(nn.ConvTranspose1d(in_channel, out_channel, kernel_size,
+                              stride=stride, padding=kernel_size/2 + 1)) # To make sure L_out double each time
 
 
+    def forward(self, G):
+        """
+        The forward function which defines how the network is connected
+        :param G: The input geometry (Since this is a forward network)
+        :return: S: The 300 dimension spectra
+        """
+        out = G                                                         # initialize the out
+        # For the linear part
+        for ind, (fc, bn) in enumerate(zip(self.linears, self.bn_linears)):
+            out = F.relu(bn(fc(out)))                                   # ReLU + BN + Linear
 
+        # For the conv part
+        for ind, conv in enumerate(self.convs):
+            out = conv(out)
 
+        # Final touch, because the input is normalized to [-1,1]
+        S = F.tanh(out)
+        return S
 
-# Generate some examples
-def generate_from_GAN(num_pic, generator, fig_prefix):
-  """
-  generate class i for
-  """
-  batch_size = num_pic
-  z = Variable(Tensor(np.random.normal(0, 1, (num_pic, latent_dim,1,1)))).float().cuda()
-  images = generator(z).cpu().detach().numpy()
-  for i in range(batch_size):
-    f = plt.figure()
-    plt.imshow(np.reshape(images[i], [28,28]))
-    f.savefig(fig_prefix + ' {}'.format(i))
-  #print(images[0])

@@ -3,10 +3,10 @@ import scipy.signal
 import sklearn.utils
 import numpy as np
 import pandas as pd
-import tensorflow as tf
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from torch.utils.data import Dataset
 from sklearn.model_selection import KFold
 import seaborn as sns
 from sklearn.model_selection import train_test_split
@@ -159,8 +159,8 @@ def gridShape(input_dir, output_dir, shapeType, r_bounds, h_bounds):
                                                                               ))
 
 
-def read_data(input_size, output_size, x_range, y_range, geoboundary, cross_val=5, val_fold=0, batch_size=100,
-                 shuffle_size=100, data_dir=os.path.abspath(''), rand_seed=1234, normalize_input = False, test_ratio = 0.2 ):
+def read_data(input_size, output_size, x_range, y_range, geoboundary, cross_val=5, val_fold=0, batch_size=128,
+                 shuffle_size=100, data_dir=os.path.abspath(''), rand_seed=1234, normalize_input = True, test_ratio = 0.2 ):
     """
       :param input_size: input size of the arrays
       :param output_size: output size of the arrays
@@ -195,14 +195,6 @@ def read_data(input_size, output_size, x_range, y_range, geoboundary, cross_val=
     print('total number of training samples is {}'.format(len(ftrTrain)))
     print('total number of test samples is {}'.format(len(ftrTest)),
           'length of an input spectrum is {}'.format(len(lblTest[0])))
-
-    # print('downsampling output curves')
-    # # resample via scipy method
-    # lblTest = scipy.signal.resample(lblTest, output_size + 20, axis=1)
-    # lblTrain = scipy.signal.resample(lblTrain, output_size + 20, axis=1)
-    # lblTest = np.array([spec[10:-10] for spec in lblTest])
-    # lblTrain = np.array([spec[10:-10] for spec in lblTrain])
-
     print('downsampling output curves')
     # resample the output curves so that there are not so many output points
     # drop the beginning of the curve so that we have a multiple of 300 points
@@ -217,7 +209,7 @@ def read_data(input_size, output_size, x_range, y_range, geoboundary, cross_val=
           'set final layer size to be compatible with this number')
 
     # determine lengths of training and validation sets
-    num_data_points = len(ftrTrain)
+    num_data_points = len(ftrTrain):
     #train_length = int(.8 * num_data_points)
 
     print('generating TF dataset')
@@ -226,58 +218,37 @@ def read_data(input_size, output_size, x_range, y_range, geoboundary, cross_val=
 
     #Normalize the data if instructed using boundary
     if normalize_input:
-		    ftrTrain[:,0:4] = (ftrTrain[:,0:4] - (geoboundary[0] + geoboundary[1]) / 2)/(geoboundary[1] - geoboundary[0]) * 2
-		    ftrTest[:,0:4] = (ftrTest[:,0:4] - (geoboundary[0] + geoboundary[1]) / 2)/(geoboundary[1] - geoboundary[0]) * 2
-		    ftrTrain[:,4:] = (ftrTrain[:,4:] - (geoboundary[2] + geoboundary[3]) / 2)/(geoboundary[3] - geoboundary[2]) * 2
-		    ftrTest[:,4:] = (ftrTest[:,4:] - (geoboundary[2] + geoboundary[3]) / 2)/(geoboundary[3] - geoboundary[2]) * 2
+        ftrTrain[:,0:4] = (ftrTrain[:,0:4] - (geoboundary[0] + geoboundary[1]) / 2)/(geoboundary[1] - geoboundary[0]) * 2
+        ftrTest[:,0:4] = (ftrTest[:,0:4] - (geoboundary[0] + geoboundary[1]) / 2)/(geoboundary[1] - geoboundary[0]) * 2
+        ftrTrain[:,4:] = (ftrTrain[:,4:] - (geoboundary[2] + geoboundary[3]) / 2)/(geoboundary[3] - geoboundary[2]) * 2
+        ftrTest[:,4:] = (ftrTest[:,4:] - (geoboundary[2] + geoboundary[3]) / 2)/(geoboundary[3] - geoboundary[2]) * 2
 
-    dataset_train = tf.data.Dataset.from_tensor_slices((ftrTrain, lblTrain))
-    dataset_valid = tf.data.Dataset.from_tensor_slices((ftrTest, lblTest))
-    
-    # shuffle then split into training and validation sets
-    dataset_train = dataset_train.shuffle(shuffle_size)
-
-    dataset_train = dataset_train.repeat()
-    dataset_train = dataset_train.batch(batch_size, drop_remainder=True)
-    dataset_valid = dataset_valid.batch(batch_size, drop_remainder=True)
-
-    iterator = tf.data.Iterator.from_structure(dataset_train.output_types, dataset_train.output_shapes)
-    features, labels = iterator.get_next()
-    train_init_op = iterator.make_initializer(dataset_train)
-    valid_init_op = iterator.make_initializer(dataset_valid)
-
-    return features, labels, train_init_op, valid_init_op
-
-#if __name__ == '__main__':
-    # addColumns(input_directory=os.path.join(".", "dataIn", "orig"),
-    #            output_directory=os.path.join('.', "dataIn", "data_div"),
-    #            x_range=[i for i in range(0, 10)],
-    #            y_range=[i for i in range(10, 2011)]
-    #            )
-
-    # addColumns(input_directory=os.path.join(".", "dataIn", 'orig', 'outside_grid', 'set02Small'),
-    #            output_directory=os.path.join('.', "dataIn", "data_div", 'outside_grid', 'set02Small'),
-    #            x_range=[i for i in range(0, 10)],
-    #            y_range=[i for i in range(10, 2011)]
-    #            )
+    train_data = MetaMaterialDataSet(ftrTrain, lblTrain, bool_train= True)
+    test_data = MetaMaterialDataSet(ftrTest, lblTest, bool_train= False)
+    train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size)
+    test_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size)
 
 
-    # gridShape(input_dir=os.path.join('.', 'dataIn', 'data_div'),
-    #           output_dir=os.path.join('.', 'dataIn', 'gridShapeData', 'shape010'),
-    #           shapeType='corner',
-    #           r_bounds=(42, 48.6), h_bounds=(30, 46))
 
-    #check_data(input_directory=os.path.join('.', 'dataIn', 'orig'), col_range=range(2, 10))
-    #X_RANGE = [i for i in range(2, 10)]
-    #Y_RANGE = [i for i in range(10 , 2011)]
-    #print('getting data files...')
-#     #features, labels, train_init_op, valid_init_op = read_data(input_size=0,
-#                                                                            output_size=0,
-#                                                                            x_range=X_RANGE,
-#                                                                            y_range=Y_RANGE,
-#                                                                            cross_val=5,
-#                                                                            val_fold=5,
-#                                                                            batch_size=128,
-#                                                                           shuffle_size=128)
-    #ftrTrain, lblTrain = importData(os.path.join('./', 'dataIn'), X_RANGE, Y_RANGE)
+    return train_loader, test_loader
 
+
+class MetaMaterialDataSet(Dataset):
+    """ The Meta Material Dataset Class """
+    def __init__(self, ftr, lbl, bool_train):
+        """
+        Instantiate the Dataset Object
+        :param ftr: the features which is always the Geometry !!
+        :param lbl: the labels, which is always the Spectra !!
+        :param bool_train:
+        """
+        self.ftr = ftr
+        self.lbl = lbl
+        self.bool_train = bool_train
+        self.len = len(ftr)
+
+    def __len__(self):
+        return self.len
+
+    def __getitem__(self, ind):
+        return self.ftr[ind, :], self.lbl[ind, :]

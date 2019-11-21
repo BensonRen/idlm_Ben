@@ -49,9 +49,7 @@ def read_flag():
     parser.add_argument('--back-prop-epoch', default=BACK_PROP_EPOCH, type=int, help='#steps to back-propagation during inference')
     parser.add_argument('--use-cpu-only', default=USE_CPU_ONLY, type=bool, help='Do the next thing (training/ evluating) on CPUs only')
     
-    # parser.add_argument('--train-file', default=TRAIN_FILE, type=str, help='name of the training file')
-    # parser.add_argument('--valid-file', default=VALID_FILE, type=str, help='name of the validation file')
-    
+
     flags = parser.parse_args()  #This is for command line version of the code
     #flags = parser.parse_args(args = [])#This is for jupyter notebook version of the code
     
