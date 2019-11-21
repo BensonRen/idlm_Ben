@@ -2,19 +2,25 @@ import argparse
 import pprint
 import pandas as pd
 from parameters import *
+
+
 def read_flag():
     """
     This function is to write the read the flags from a parameter file and put them in formats
     :return: flags: a struct where all the input params are stored
     """
     parser = argparse.ArgumentParser()
+    parser.add_argument('--linear', type=list, default=LINEAR, help='The fc layers units')
+    parser.add_argument('--conv-out-channel', type=list, default=CONV_OUT_CHANNEL, help='The output channel of your 1d conv')
+    parser.add_argument('--conv-kernel-size', type=list, default=CONV_KERNEL_SIZE, help='The kernel size of your 1d conv')
+    parser.add_argument('--conv-stride', type=list, default=CONV_STRIDE, help='The strides of your 1d conv')
     parser.add_argument('--reg-scale', type=float, default=REG_SCALE, help='#scale for regularization of dense layers')
     parser.add_argument('--x-range', type=list, default=X_RANGE, help='columns of input parameters')
     parser.add_argument('--y-range', type=list, default=Y_RANGE, help='columns of output parameters')
     parser.add_argument('--batch-size', default=BATCH_SIZE, type=int, help='batch size (100)')
     parser.add_argument('--eval-step', default=EVAL_STEP, type=int, help='# steps between evaluations')
     parser.add_argument('--train-step', default=TRAIN_STEP, type=int, help='# steps to train on the dataSet')
-    parser.add_argument('--learn-rate', default=LEARN_RATE, type=float, help='learning rate')
+    parser.add_argument('--lr', default=LEARN_RATE, type=float, help='learning rate')
     parser.add_argument('--decay-step', default=DECAY_STEP, type=int,
                         help='decay learning rate at this number of steps')
     parser.add_argument('--decay-rate', default=DECAY_RATE, type=float,
@@ -25,11 +31,13 @@ def read_flag():
                         help='whether we should normalize the input or not')
     parser.add_argument('--stop_threshold', default=STOP_THRESHOLD, type=float,
                         help='The threshold below which training should stop')
+    parser.add_argument('--optim', default=OPTIM, type=str, help='the type of optimizer that you want to use')
     parser.add_argument('--geoboundary', default=GEOBOUNDARY, type=tuple, help='the boundary of the geometric data')
     flags = parser.parse_args()  # This is for command line version of the code
     # flags = parser.parse_args(args = [])#This is for jupyter notebook version of the code
     # flagsVar = vars(flags)
-    # return flags
+    return flags
+
 
 def write_flags_and_BVE(flags, best_validation_loss):
     """

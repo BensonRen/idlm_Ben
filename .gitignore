@@ -12,9 +12,11 @@ Tandem/*.png
 */*.swp
 */pidfile.txt
 dataIn
+data*
 */running.log
 */running.err
 */nohup.out
 */models
 */data
 */dataGrid
+Pytorch/models

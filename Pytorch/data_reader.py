@@ -160,8 +160,8 @@ def gridShape(input_dir, output_dir, shapeType, r_bounds, h_bounds):
                                                                               ))
 
 
-def read_data(input_size, output_size, x_range, y_range, geoboundary, cross_val=5, val_fold=0, batch_size=128,
-                 shuffle_size=100, data_dir=os.path.abspath(''), rand_seed=1234, normalize_input = True, test_ratio = 0.2 ):
+def read_data( x_range, y_range, geoboundary,  batch_size=128,
+                 data_dir=os.path.abspath(''), rand_seed=1234, normalize_input = True, test_ratio = 0.2 ):
     """
       :param input_size: input size of the arrays
       :param output_size: output size of the arrays
