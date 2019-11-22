@@ -7,6 +7,7 @@ This is a transition starting from Nov. 20, 2019
 ### RoadMap for this work:
 1. Transition the major infra-structure from tensorflow to pytorch
 2. Implement a simple forward network for meta-material project
+3. Implement the GAN model that was not available in tensorflow version
 
 ## 2019.11.20
 Background: Start Pytorch transition. GAN model (not in previous tf repo) would be the first model to work on.
@@ -18,10 +19,10 @@ Function completed:
 
 ## 2019.11.21
 
-Function completed:
+Function completed/Bug Fixed:
 1. Forward training module done
 2. Forward training tested
-
+3. Bug Fixed for storing the parameters.txt file
 
 ## To dos:
 

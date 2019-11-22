@@ -97,7 +97,7 @@ class Network(object):
 
             if epoch % self.flags.eval_step:
                 # Record the training loss to the tensorboard
-                train_avg_loss = train_loss / (j+1)
+                train_avg_loss = train_loss.data.numpy() / (j+1)
                 self.log.add_scalar('Loss/train', train_avg_loss, epoch)
 
                 # Set to Evaluation Mode
@@ -113,7 +113,7 @@ class Network(object):
                     test_loss += loss
 
                 # Record the testing loss to the tensorboard
-                test_avg_loss = test_loss / (j+1)
+                test_avg_loss = test_loss.data.numpy() / (j+1)
                 self.log.add_scalar('Loss/test', test_avg_loss, epoch)
 
                 print("This is Epoch %d, training loss %.5f, validation loss %.5f" \
