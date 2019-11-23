@@ -24,8 +24,13 @@ Function completed/Bug Fixed:
 2. Forward training tested
 3. Bug Fixed for storing the parameters.txt file
 
+## 2019.11.23
+
+Function completed:
+1. Forward inference module
+
+
 ## To dos:
 
 1. Add the bounday loss module
-2. Add the forward inference module
-3. Train on GPU environment for forward model
+2. Train on GPU environment for forward model

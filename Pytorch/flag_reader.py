@@ -51,6 +51,7 @@ def write_flags_and_BVE(flags, best_validation_loss):
     #To avoid terrible looking shape of y_range
     yrange = flags.y_range
     yrange_str = str(yrange[0]) + ' to ' + str(yrange[-1])
+    yrange_str = [yrange[0], yrange[-1]]
     flags_dict = vars(flags)
     flags_dict_copy = flags_dict.copy()                 # in order to not corrupt the original data strucutre
     flags_dict_copy['y_range'] = yrange_str             # Change the y range to be acceptable long string

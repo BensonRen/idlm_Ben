@@ -188,7 +188,8 @@ def read_data( x_range, y_range, geoboundary,  batch_size=128,
     ftrTrain, lblTrain = importData(os.path.join(data_dir, 'dataIn'), x_range, y_range)
     if (test_ratio > 0):
         print("Splitting training data into test set, the ratio is:", str(test_ratio))
-        ftrTrain, ftrTest, lblTrain, lblTest = train_test_split(ftrTrain, lblTrain, test_size = test_ratio, random_state = rand_seed)
+        ftrTrain, ftrTest, lblTrain, lblTest = train_test_split(ftrTrain, lblTrain,
+                                                                test_size=test_ratio, random_state=rand_seed)
     else:
         print("Using separate file from dataIn/Eval as test set")
         ftrTest, lblTest = importData(os.path.join(data_dir, 'dataIn', 'eval'), x_range, y_range)
