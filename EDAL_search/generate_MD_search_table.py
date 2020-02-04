@@ -18,13 +18,13 @@ if __name__ == '__main__':
             for i2, ml_term in enumerate(ML_term_list):
                 for i3, rs_term in enumerate(RS_term_list):
                     index_str =  str(i1 + 1) + "-" + str(i2 + 1) + "-" + str(i3 + 1)
-                    link = "https://scholar.google.com/scholar?hl=zh-CN&as_sdt=0%2C34&q=%22"
-                    link += energy_term
+                    link = "(https://scholar.google.com/scholar?hl=zh-CN&as_sdt=0%2C34&q=%22"
+                    link += energy_term.replace(" ", "+")
                     link += "%22%3B+%22"
-                    link += ml_term
+                    link += ml_term.replace(" ", "+")
                     link += "%22%3B+%22"
-                    link += rs_term
-                    link += "%22&btnG="
+                    link += rs_term.replace(" ", "+")
+                    link += "%22&btnG=)"
                     f.write("|" + index_str + " | " + energy_term + " | " + ml_term + " | " \
                             + rs_term + " | " + "[link]" + link + " |\n")
 
