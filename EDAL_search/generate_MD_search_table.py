@@ -1,7 +1,7 @@
 # This program is to generate a search markdown table for helena to scrape
 
 # Define the terms to search
-Energy_term_list = ["Wind", "Solar", "Power", "system", "Energy", "Generator", "Coal",\
+Energy_term_list = ["Wind", "Solar", "Power", "Energy", "Generator", "Coal",\
                     "Oil", "Natural Gas", "Geothermal", "Hydropower"]
 
 ML_term_list = ["machine learning", "deep learning", "support vector machine", \
